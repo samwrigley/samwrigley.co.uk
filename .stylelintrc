@@ -1,0 +1,13 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "rules": {
+        "indentation": 4
+    },
+    "ignoreFiles": [
+        "public/**/*",
+        "node_modules/**/*"
+    ]
+}
