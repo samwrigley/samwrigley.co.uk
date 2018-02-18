@@ -1,0 +1,14 @@
+{
+    "*.php": [
+        "./vendor/bin/phpcs"
+    ],
+    "*.scss": [
+        "stylelint --syntax=scss"
+    ],
+    "*.vue": [
+        "eslint"
+    ],
+    "*.js": [
+        "eslint"
+    ]
+}
