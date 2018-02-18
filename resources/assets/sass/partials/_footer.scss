@@ -24,13 +24,13 @@
             display: block;
 
             &:not(:last-child) {
-                margin-bottom: $spacing;
+                margin-bottom: $spacing*1.5;
             }
         }
 
         @include above('small') {
             &:not(:last-child) {
-                margin-right: $spacing;
+                margin-right: $spacing*2;
             }
         }
     }
