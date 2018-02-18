@@ -1,0 +1,28 @@
+.site__footer {
+    margin-top: auto;
+
+    li {
+        line-height: initial;
+
+        a {
+            &:hover {
+                padding-bottom: 3px;
+                border-bottom: 1px solid map-get($colours, 'white');
+            }
+        }
+
+        @include below('small') {
+            display: block;
+
+            &:not(:last-child) {
+                margin-bottom: $spacing;
+            }
+        }
+
+        @include above('small') {
+            &:not(:last-child) {
+                margin-right: $spacing;
+            }
+        }
+    }
+}
