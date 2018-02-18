@@ -16,4 +16,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .version()
     .sourceMaps();
 
-mix.browserSync('https://samwrigley.test');
+mix.browserSync({
+    proxy: process.env.APP_URL,
+});
