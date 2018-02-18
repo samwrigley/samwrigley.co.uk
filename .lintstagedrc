@@ -1,5 +1,20 @@
 {
     "*.php": [
         "./vendor/bin/phpcs"
+    ],
+    "*.json": [
+        "jsonlint"
+    ],
+    ".*rc": [
+        "jsonlint"
+    ],
+    "*.scss": [
+        "stylelint --syntax=scss"
+    ],
+    "*.vue": [
+        "eslint"
+    ],
+    "*.js": [
+        "eslint"
     ]
 }
