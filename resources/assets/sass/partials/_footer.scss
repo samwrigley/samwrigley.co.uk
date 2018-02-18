@@ -1,6 +1,15 @@
 .site__footer {
     margin-top: auto;
 
+    ul {
+        display: flex;
+        align-items: flex-start;
+
+        @include below('small') {
+            flex-direction: column;
+        }
+    }
+
     li {
         line-height: initial;
 
