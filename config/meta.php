@@ -16,5 +16,5 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'description' => "Hello, I'm Sam Wrigley, a Web-Developer and Graphic Designer.",
+    'description' => "Hello, I'm Sam Wrigley. I'm a Web-Developer and Graphic Designer.",
 ];
