@@ -9,7 +9,7 @@
 @include('partials.general.head.gtm')
 
 {{-- Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Karla:400,700" rel="stylesheet" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Karla:400,700" rel="preconnect" crossorigin>
 
 {{-- Styles --}}
 <link href="{{ mix('css/app.css') }}" rel="stylesheet">
