@@ -8,6 +8,9 @@
 {{-- Google Tag Manager --}}
 @include('partials.general.head.gtm')
 
+{{-- Icons --}}
+@include('partials.general.head.icons')
+
 {{-- Fonts --}}
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Karla:400,700" rel="stylesheet">
 
