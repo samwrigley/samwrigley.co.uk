@@ -16,7 +16,7 @@
             "@type": "LocalBusiness",
             "description": "{{ config('meta.tagline') }}",
             "name": "Sam Wrigley",
-            "image": "{{ asset('images/sam-wrigley.webp') }}",
+            "image": "{{ asset('images/sam-wrigley.png') }}",
             "telephone": "{{ config('contact.telephone') }}",
             "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
             "sameAs": [
@@ -29,7 +29,7 @@
             "@context": "http://schema.org",
             "@type": "Person",
             "email": "mailto:{{ config('contact.email') }}",
-            "image": "{{ asset('images/sam-wrigley.webp') }}",
+            "image": "{{ asset('images/sam-wrigley.png') }}",
             "jobTitle": "Web-Developer",
             "name": "Sam Wrigley",
             "alumniOf": "Falmouth University",
