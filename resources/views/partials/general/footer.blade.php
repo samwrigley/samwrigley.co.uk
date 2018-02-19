@@ -4,7 +4,7 @@
         <a
             href="https://twitter.com/{{ config('social.twitter') }}"
             target="_blank"
-            rel="external"
+            rel="noopener"
         >@lang('Twitter')</a>
     </li>
 
@@ -12,7 +12,7 @@
         <a
             href="https://github.com/{{ config('social.github') }}"
             target="_blank"
-            rel="external"
+            rel="noopener"
         >@lang('Github')</a>
     </li>
 
@@ -20,7 +20,7 @@
         <a
             href="https://www.instagram.com/{{ config('social.instagram') }}"
             target="_blank"
-            rel="external"
+            rel="noopener"
         >@lang('Instagram')</a>
     </li>
 
