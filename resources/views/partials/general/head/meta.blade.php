@@ -5,6 +5,7 @@
 <meta property="og:url" content="{{ url()->current() }}" />
 <meta property="og:site_name" content="{{ config('app.name') }} | Web-Developer" />
 <meta property="og:title" content="{{ config('app.name') }}" />
+<meta property="og:description" content="Hello, I'm Sam Wrigley. I'm a Web-Developer and Designer.">
 <meta property="og:image" content="{{ asset('images/sam-wrigley.webp') }}" />
 
 {{-- Twitter Cards --}}
