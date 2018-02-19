@@ -9,5 +9,5 @@
 <meta property="og:image" content="{{ asset('images/sam-wrigley.webp') }}" />
 
 {{-- Twitter Cards --}}
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="{{ '@' . config('social.twitter') }}">
