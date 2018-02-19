@@ -9,12 +9,12 @@
                 "@type": "Person",
                 "name": "Sam Wrigley"
             },
-            "description": "Hello, I'm Sam Wrigley. I'm a Web-Developer and Designer."
+            "description": "{{ config('meta.description') }}"
         },
         {
             "@context": "http://schema.org",
             "@type": "LocalBusiness",
-            "description": "I'm a Web-Developer and Designer.",
+            "description": "{{ config('meta.tagline') }}",
             "name": "Sam Wrigley",
             "image": "{{ asset('images/sam-wrigley.webp') }}",
             "telephone": "{{ config('contact.telephone') }}",
