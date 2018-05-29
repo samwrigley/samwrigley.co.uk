@@ -4,7 +4,10 @@
         "stylelint-scss"
     ],
     "rules": {
-        "indentation": 4
+        "indentation": 4,
+        "at-rule-no-unknown": [true, {
+            ignoreAtRules: ['include', 'extend']
+        }]
     },
     "ignoreFiles": [
         "public/**/*",

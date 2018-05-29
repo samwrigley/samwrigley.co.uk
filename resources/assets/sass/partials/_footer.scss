@@ -1,0 +1,37 @@
+.site__footer {
+    margin-top: auto;
+
+    ul {
+        display: flex;
+        align-items: flex-start;
+
+        @include below('small') {
+            flex-direction: column;
+        }
+    }
+
+    li {
+        line-height: initial;
+
+        a {
+            &:hover {
+                padding-bottom: 3px;
+                border-bottom: 1px solid map-get($colours, 'white');
+            }
+        }
+
+        @include below('small') {
+            display: block;
+
+            &:not(:last-child) {
+                margin-bottom: $spacing*1.5;
+            }
+        }
+
+        @include above('small') {
+            &:not(:last-child) {
+                margin-right: $spacing*2;
+            }
+        }
+    }
+}
