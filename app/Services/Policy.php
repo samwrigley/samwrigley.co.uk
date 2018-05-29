@@ -18,7 +18,7 @@ class Policy extends BasePolicy
     protected function addGeneralDirectives(): self
     {
         return $this
-            ->addDirective(Directive::BASE, 'self')
+            ->addDirective(Directive::DEFAULT, 'self')
             ->addNonceForDirective(Directive::SCRIPT);
     }
 
