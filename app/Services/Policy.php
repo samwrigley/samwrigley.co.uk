@@ -19,6 +19,8 @@ class Policy extends BasePolicy
     {
         return $this
             ->addDirective(Directive::DEFAULT, 'self')
+            ->addDirective(Directive::SCRIPT, 'self')
+            ->addDirective(Directive::STYLE, 'self')
             ->addNonceForDirective(Directive::SCRIPT);
     }
 
