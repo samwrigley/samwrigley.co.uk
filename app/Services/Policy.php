@@ -21,6 +21,7 @@ class Policy extends BasePolicy
             ->addDirective(Directive::DEFAULT, 'self')
             ->addDirective(Directive::SCRIPT, 'self')
             ->addDirective(Directive::STYLE, 'self')
+            ->addDirective(Directive::IMG, 'self')
             ->addNonceForDirective(Directive::SCRIPT);
     }
 
@@ -35,6 +36,7 @@ class Policy extends BasePolicy
     protected function addDirectivesForGoogleAnalytics(): self
     {
         return $this->addDirective(Directive::SCRIPT, '*.google-analytics.com');
+        return $this->addDirective(Directive::IMG, '*.google-analytics.com');
     }
 
     protected function addDirectivesForGoogleTagManager(): self
