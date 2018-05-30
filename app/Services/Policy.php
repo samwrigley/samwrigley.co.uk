@@ -36,6 +36,7 @@ class Policy extends BasePolicy
     protected function addDirectivesForGoogleAnalytics(): self
     {
         return $this->addDirective(Directive::SCRIPT, '*.google-analytics.com');
+
         return $this->addDirective(Directive::IMG, '*.google-analytics.com');
     }
 
