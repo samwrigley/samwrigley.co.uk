@@ -26,7 +26,7 @@ class AddSecurityHeaders
     }
 
     /**
-     * Cross-site scripting (XSS) header value.
+     * Get cross-site scripting (XSS) header value.
      *
      * @return string
      */
