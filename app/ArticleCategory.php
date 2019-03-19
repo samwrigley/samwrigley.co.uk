@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Article;
-use App\Model;
 use App\Traits\HasArticles;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
