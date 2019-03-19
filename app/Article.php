@@ -2,9 +2,6 @@
 
 namespace App;
 
-use App\ArticleCategory;
-use App\Model;
-use App\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use SamWrigley\Support\Traits\CanBePublished;
