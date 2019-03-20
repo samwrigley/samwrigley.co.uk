@@ -29,9 +29,9 @@ class ArticleCategoryController extends Controller
             ->withArticles()
             ->firstOrFail();
 
-        $categories = ArticleCategory::has('posts')->get();
+        $categories = ArticleCategory::has('articles')->get();
 
-        $posts = $category->posts()
+        $articles = $category->articles()
             ->published()
             ->latest('published_at')
             ->paginate(10);
@@ -40,7 +40,7 @@ class ArticleCategoryController extends Controller
             ->with([
                 'category' => $category,
                 'categories' => $categories,
-                'posts' => $posts,
+                'articles' => $articles,
             ]);
     }
 }
