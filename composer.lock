@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a60563c0417d074f21423943bef0ea5e",
+    "content-hash": "de61837167f96f6a8d6646bfc4d335f7",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1266,6 +1266,48 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "samwrigley/laravel-support",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samwrigley/laravel-support.git",
+                "reference": "49042f1774dc98118175b7ad8d21856adb0c474f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samwrigley/laravel-support/zipball/49042f1774dc98118175b7ad8d21856adb0c474f",
+                "reference": "49042f1774dc98118175b7ad8d21856adb0c474f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.5.0|~5.6.0",
+                "laravel/framework": "^5.4|^5.5|^5.6"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0",
+                "squizlabs/php_codesniffer": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SamWrigley\\Support\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sam Wrigley",
+                    "email": "sam@samwrigley.co.uk",
+                    "homepage": "https://samwrigley.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A collection of helpers for quickly and easily building Laravel applications",
+            "homepage": "https://github.com/samwrigley/laravel-support",
+            "time": "2018-05-12T17:09:53+00:00"
         },
         {
             "name": "spatie/laravel-csp",
