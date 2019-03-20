@@ -26,7 +26,7 @@ class ArticleController extends Controller
 
         $categories = ArticleCategory::has('articles')->get();
 
-        return view($this->namespace.'index')
+        return view($this->namespace . 'index')
             ->with([
                 'articles' => $articles,
                 'categories' => $categories,
@@ -42,7 +42,7 @@ class ArticleController extends Controller
 
         $categories = ArticleCategory::has('articles')->get();
 
-        return view($this->namespace.'show')
+        return view($this->namespace . 'show')
             ->with([
                 'article' => $article,
                 'categories' => $categories,
