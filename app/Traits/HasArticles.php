@@ -9,7 +9,7 @@ trait HasArticles
 {
     abstract public function articles(): BelongsToMany;
 
-    public function scopeWithArticle(Builder $query): Builder
+    public function scopeWithArticles(Builder $query): Builder
     {
         return $query->with('articles');
     }
