@@ -14,7 +14,7 @@ class ArticleCategory extends Model
     /**
      * The route namespace.
      *
-     * @var string[string]
+     * @var string[]
      */
     protected $namespaces = [
         'web' => 'article.categories.',
