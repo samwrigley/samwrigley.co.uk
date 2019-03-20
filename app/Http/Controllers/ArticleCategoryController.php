@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ArticleCategory;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ArticleCategoryController extends Controller
 {
@@ -15,7 +15,7 @@ class ArticleCategoryController extends Controller
      */
     protected $namespace = 'categories.';
 
-    public function index(): Response
+    public function index(): View
     {
         $categories = ArticleCategory::withArticles()->get();
 
@@ -23,7 +23,7 @@ class ArticleCategoryController extends Controller
             ->with('categories', $categories);
     }
 
-    public function show(string $slug): Response
+    public function show(string $slug): View
     {
         $category = ArticleCategory::whereSlug($slug)
             ->withArticles()

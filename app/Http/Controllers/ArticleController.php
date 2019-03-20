@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\ArticleCategory;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
@@ -16,7 +16,7 @@ class ArticleController extends Controller
      */
     protected $namespace = 'articles.';
 
-    public function index(): Response
+    public function index(): View
     {
         $articles = Article::published()
             ->latest('published_at')
@@ -33,7 +33,7 @@ class ArticleController extends Controller
             ]);
     }
 
-    public function show(string $slug): Response
+    public function show(string $slug): View
     {
         $article = Article::whereSlug($slug)
             ->withCategories()
