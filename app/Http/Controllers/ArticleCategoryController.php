@@ -17,7 +17,7 @@ class ArticleCategoryController extends Controller
 
     public function index(): Response
     {
-        $categories = ArticleCategory::withPosts()->get();
+        $categories = ArticleCategory::withArticles()->get();
 
         return view($this->namespace . 'index')
             ->with('categories', $categories);
@@ -26,7 +26,7 @@ class ArticleCategoryController extends Controller
     public function show(string $slug): Response
     {
         $category = ArticleCategory::whereSlug($slug)
-            ->withPosts()
+            ->withArticles()
             ->firstOrFail();
 
         $categories = ArticleCategory::has('posts')->get();
