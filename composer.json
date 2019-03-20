@@ -16,6 +16,7 @@
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
         "nunomaduro/collision": "~1.1",
+        "nunomaduro/larastan": "^0.3.15",
         "phpunit/phpunit": "~7.0",
         "squizlabs/php_codesniffer": "^3.4",
         "symfony/thanks": "^1.0"
