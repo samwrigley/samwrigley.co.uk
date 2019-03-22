@@ -14,6 +14,17 @@ class ArticleCategoryTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function it_belongs_to_a_single_article(): void
+    {
+        $articles = factory(Article::class)->create();
+        $articleCategory = factory(ArticleCategory::class)->create();
+
+        $articleCategory->addArticle($articles);
+
+        $this->assertCount(1, $articleCategory->articles);
+    }
+
+    /** @test */
     public function it_belongs_to_many_articles(): void
     {
         $articleCount = 2;
