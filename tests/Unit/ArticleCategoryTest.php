@@ -17,9 +17,10 @@ class ArticleCategoryTest extends TestCase
     public function it_belongs_to_many_articles(): void
     {
         $articleCount = 2;
-        $articles = factory(Article::class, $articleCount)->create();
 
+        $articles = factory(Article::class, $articleCount)->create();
         $articleCategory = factory(ArticleCategory::class)->create();
+
         $articleCategory->addArticles($articles);
 
         $this->assertCount($articleCount, $articleCategory->articles);
