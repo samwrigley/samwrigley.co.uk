@@ -4,12 +4,12 @@ namespace App;
 
 use App\Article;
 use App\Model;
-use App\Traits\HasArticles;
+use App\Traits\BelongsToManyArticles;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ArticleCategory extends Model
 {
-    use HasArticles;
+    use BelongsToManyArticles;
 
     /**
      * The route namespace.
