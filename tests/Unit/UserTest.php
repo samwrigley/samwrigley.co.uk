@@ -47,4 +47,52 @@ class UserTest extends TestCase
 
         $this->assertDatabaseHas('articles', $article->toArray());
     }
+
+    /** @test */
+    public function it_has_article_count(): void
+    {
+        $article = factory(Article::class)->create();
+        $user = factory(User::class)->create();
+
+        $user->publish($article);
+        $article->publish();
+
+        $this->assertEquals(1, $user->articleCount());
+    }
+
+    /** @test */
+    public function it_has_published_article_count(): void
+    {
+        $article = factory(Article::class)->create();
+        $user = factory(User::class)->create();
+
+        $user->publish($article);
+        $article->publish();
+
+        $this->assertEquals(1, $user->publishedArticleCount());
+    }
+
+    /** @test */
+    public function it_has_scheduled_article_count(): void
+    {
+        $article = factory(Article::class)->create();
+        $user = factory(User::class)->create();
+
+        $user->publish($article);
+        $article->publish(now()->addDays(7));
+
+        $this->assertEquals(1, $user->scheduledArticleCount());
+    }
+
+    /** @test */
+    public function it_has_draft_article_count(): void
+    {
+        $article = factory(Article::class)->create();
+        $user = factory(User::class)->create();
+
+        $user->publish($article);
+        $article->draft();
+
+        $this->assertEquals(1, $user->draftArticleCount());
+    }
 }
