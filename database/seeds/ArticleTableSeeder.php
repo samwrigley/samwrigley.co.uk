@@ -10,10 +10,10 @@ class ArticleTableSeeder extends Seeder
     {
         factory(Article::class, 50)
             ->create()
-            ->each(function ($article) {
-                $category = ArticleCategory::all()->random();
-
-                $article->categories()->attach($category->id);
+            ->each(function (Article $article): void {
+                $article->categories()->attach(
+                    ArticleCategory::all()->random()
+                );
             }
         );
     }
