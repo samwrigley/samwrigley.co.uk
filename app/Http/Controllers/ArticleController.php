@@ -36,6 +36,7 @@ class ArticleController extends Controller
     public function show(string $slug): View
     {
         $article = Article::whereSlug($slug)
+            ->published()
             ->withCategories()
             ->withAuthor()
             ->firstOrFail();
