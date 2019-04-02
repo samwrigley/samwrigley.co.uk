@@ -6,12 +6,10 @@ use App\Article;
 use App\ArticleCategory;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
 {
-    use WithFaker;
     use RefreshDatabase;
 
     /** @test */
@@ -23,34 +21,41 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
+    public function it_belongs_to_many_categories(): void
+    {
+        $categoryCount = 2;
+        $categories = factory(ArticleCategory::class, $categoryCount)->create();
+
+        $article = factory(Article::class)->create();
+        $article->categories()->attach($categories);
+
+        $this->assertCount($categoryCount, $article->categories);
+    }
+
+    /** @test */
     public function it_can_be_published(): void
     {
-        $article = factory(Article::class)->create();
+        $publishedArticle = tap(factory(Article::class)->create())->publish();
 
-        $article->publish();
-
-        $this->assertTrue($article->isPublished());
-        $this->assertFalse($article->isScheduled());
+        $this->assertTrue($publishedArticle->isPublished());
+        $this->assertFalse($publishedArticle->isScheduled());
     }
 
     /** @test */
     public function it_can_be_scheduled(): void
     {
-        $article = factory(Article::class)->create();
+        $scheduledArticle = tap(factory(Article::class)->create())
+            ->publish(now()->addDays(7));
 
-        $article->publish(now()->addDays(7));
-
-        $this->assertTrue($article->isScheduled());
-        $this->assertFalse($article->isPublished());
+        $this->assertTrue($scheduledArticle->isScheduled());
+        $this->assertFalse($scheduledArticle->isPublished());
     }
 
     /** @test */
     public function it_can_be_draft(): void
     {
-        $article = factory(Article::class)->create();
+        $draftArticle = tap(factory(Article::class)->create())->draft();
 
-        $article->draft();
-
-        $this->assertTrue($article->isDraft());
+        $this->assertTrue($draftArticle->isDraft());
     }
 }
