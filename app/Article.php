@@ -23,7 +23,7 @@ class Article extends Model
      * @var string[]
      */
     protected $namespaces = [
-        'web' => 'articles.',
+        'web' => 'blog.articles.',
         'admin' => 'admin.articles.',
     ];
 
