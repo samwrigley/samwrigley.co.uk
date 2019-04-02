@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\ArticleController;
 
 /*
