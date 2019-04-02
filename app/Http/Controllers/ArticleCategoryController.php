@@ -17,7 +17,7 @@ class ArticleCategoryController extends Controller
 
     public function index(): View
     {
-        $categories = ArticleCategory::withArticles()->get();
+        $categories = ArticleCategory::has('articles')->get();
 
         return view($this->namespace . 'index')
             ->with('categories', $categories);
