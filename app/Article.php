@@ -55,6 +55,6 @@ class Article extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(ArticleCategory::class);
+        return $this->belongsToMany(ArticleCategory::class)->withTimestamps();
     }
 }
