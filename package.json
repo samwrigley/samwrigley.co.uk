@@ -1,6 +1,8 @@
 {
     "private": true,
     "scripts": {
+        "lint:php": "./vendor/bin/phpcs .",
+        "lint": "npm run lint:php",
         "test": "./vendor/bin/phpunit",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -10,7 +12,7 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "precommit": "lint-staged",
-        "prepush": "npm test"
+        "prepush": "npm run lint && npm test"
     },
     "devDependencies": {
         "axios": "^0.17",
