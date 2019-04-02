@@ -5,12 +5,10 @@ namespace Tests\Unit;
 use App\Article;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    use WithFaker;
     use RefreshDatabase;
 
     /** @test */
