@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,9 @@ Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
         Route::get('/', [ArticleController::class, 'index'])->name('index');
         Route::get('{article}', [ArticleController::class, 'show'])->name('show');
     });
+});
+
+// Newsletter
+Route::group(['prefix' => 'newsletter', 'as' => 'newsletter.'], function () {
+    Route::post('subscribe', [NewsletterController::class, 'store'])->name('subscribe');
 });
