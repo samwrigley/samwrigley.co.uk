@@ -15,7 +15,7 @@ use App\Http\Controllers\ArticleController;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('pages.landing');
 });
 
 // Blog
