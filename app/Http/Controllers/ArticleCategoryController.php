@@ -25,7 +25,8 @@ class ArticleCategoryController extends Controller
 
     public function show(string $slug): View
     {
-        $category = ArticleCategory::whereSlug($slug)
+        $category = ArticleCategory::has('articles')
+            ->whereSlug($slug)
             ->withArticles()
             ->firstOrFail();
 
