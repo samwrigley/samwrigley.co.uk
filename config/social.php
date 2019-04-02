@@ -8,6 +8,7 @@
 
 return [
     'twitter' => 'samwrigley',
-    'instagram' => 'samwrigley',
     'github' => 'samwrigley',
+    'linkedin' => 'samwrigley',
+    'instagram' => 'samwrigley',
 ];
