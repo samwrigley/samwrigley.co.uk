@@ -22,13 +22,13 @@ class ArticleCategoryRequest extends FormRequest
                 'required',
                 'string',
                 'max:50',
-                Rule::unique('categories')->ignore($categoryId),
+                Rule::unique('article_categories')->ignore($categoryId),
             ],
             'slug' => [
                 'required',
                 'string',
                 'max:50',
-                Rule::unique('categories')->ignore($categoryId),
+                Rule::unique('article_categories')->ignore($categoryId),
             ],
             'description' => 'nullable|max:500',
         ];
