@@ -7,6 +7,13 @@ use Illuminate\Validation\Rule;
 
 class ArticleRequest extends FormRequest
 {
+    /**
+     * The key to be used for the view error bag.
+     *
+     * @var string
+     */
+    protected $errorBag = 'article';
+
     public function authorize(): bool
     {
         return true;
