@@ -17,8 +17,8 @@ class ArticleCategory extends Model
      * @var string[]
      */
     protected $namespaces = [
-        'web' => 'article.categories.',
-        'admin' => 'admin.article.categories.',
+        'web' => 'blog.categories.',
+        'admin' => 'admin.blog.categories.',
     ];
 
     /**
