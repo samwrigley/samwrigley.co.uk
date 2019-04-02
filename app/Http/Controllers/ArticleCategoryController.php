@@ -34,7 +34,6 @@ class ArticleCategoryController extends Controller
 
         $articles = $category->articles()
             ->published()
-            ->latest('published_at')
             ->paginate(10);
 
         return view($this->namespace . 'show')
