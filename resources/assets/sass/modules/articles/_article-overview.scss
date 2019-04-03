@@ -1,0 +1,38 @@
+.article-overview {
+    max-width: $max-line-length;
+
+    &:not(:last-of-type) {
+        margin-bottom: $site-spacing*6;
+    }
+
+    &__header {
+        margin-bottom: $site-spacing;
+    }
+
+    &__categories {
+        margin-bottom: $site-spacing;
+
+        li {
+            display: inline-block;
+
+            &:not(:last-of-type) {
+                margin-right: $site-spacing/2;
+            }
+        }
+    }
+
+    &__title {
+        margin-bottom: $site-spacing/2;
+    }
+
+    &__excerpt {
+        margin-bottom: $site-spacing*2;
+    }
+
+    &__cta {
+        .icon {
+            position: relative;
+            top: 5px;
+        }
+    }
+}

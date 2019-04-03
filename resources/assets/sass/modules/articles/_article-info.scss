@@ -1,0 +1,43 @@
+.article-info {
+    &__heading {
+        margin-bottom: $site-spacing*1.5;
+    }
+
+    &__author {
+        display: flex;
+        margin-bottom: $site-spacing*1.5;
+
+        &-image {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin-right: $site-spacing*1.5;
+            background-color: $colour-background;
+        }
+
+        &-text {
+            display: inline-block;
+        }
+
+        &-name {
+            margin-bottom: $site-spacing;
+            font-weight: $font-weight-secondary;
+            line-height: 1;
+        }
+    }
+
+    .author-email {
+        margin-bottom: $site-spacing;
+    }
+
+    &__bio {
+        margin-bottom: $site-spacing;
+    }
+
+    &__cta {
+        .icon {
+            position: relative;
+            top: 5px;
+        }
+    }
+}

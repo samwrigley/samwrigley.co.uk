@@ -1,0 +1,18 @@
+.pagination {
+    margin-top: $site-spacing*5;
+
+    li {
+        display: inline-block;
+
+        &:not(:last-of-type) {
+            margin-right: $site-spacing/2;
+        }
+
+        /**
+         * Pagination current page
+         */
+        &[aria-current="page"] {
+            font-weight: $font-weight-secondary;
+        }
+    }
+}

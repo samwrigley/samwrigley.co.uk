@@ -1,0 +1,12 @@
+.article-edit {
+    margin-bottom: $site-spacing*2;
+
+    > .btn,
+    .form {
+        display: inline-block;
+    }
+
+    > .btn {
+        margin-right: $site-spacing/4;
+    }
+}

@@ -1,0 +1,30 @@
+.article-newsletter {
+    margin-bottom: $site-spacing*5;
+    background-color: map-get($colours, 'light-grey');
+    border-radius: $border-radius-primary;
+    padding: $site-spacing*3;
+
+    form {
+        display: flex;
+        border-radius: $border-radius-primary;
+        overflow: hidden;
+    }
+
+    &__title {
+        margin-bottom: $site-spacing/2;
+    }
+
+    &__intro {
+        margin-top: 0;
+    }
+
+    &__submit {
+        background-color: $colour-secondary;
+        color: #fff;
+        min-width: 200px;
+    }
+
+    .alert {
+        margin-top: $site-spacing;
+    }
+}
