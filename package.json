@@ -12,7 +12,8 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "precommit": "lint-staged",
-        "prepush": "npm run lint && npm test"
+        "postcheckout": "php artisan env:check",
+        "prepush": "npm run lint && npm test && php artisan env:check --reverse"
     },
     "devDependencies": {
         "axios": "^0.17",
