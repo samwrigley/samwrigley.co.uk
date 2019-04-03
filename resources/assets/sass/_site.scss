@@ -1,24 +1,43 @@
-/*
-|--------------------------------------------------------------------------
-| Site
-|--------------------------------------------------------------------------
-|
-| General application-wide styling should be placed here.
-|
-*/
+/**
+ * General site styling
+ */
 
 body {
-    color: map-get($colours, 'white');
-    background: linear-gradient(to right, #ff6258, #ff7155);
+    background-color: $colour-background;
 }
 
 .site {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: $spacing*4;
+    max-width: $site-width;
+    margin: 0 auto;
+    padding: 0 $site-spacing;
 
-    @include below('small') {
-        padding: $spacing*2;
+    // Position flash messages
+    position: relative;
+
+    &__main {
+        &--aside {
+            display: flex;
+        }
     }
+
+    &__content {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    &__aside {
+        @include below(medium) {
+            width: 100%;
+        }
+
+        @include above(medium) {
+            padding-left: $site-spacing*4;
+            flex-basis: auto;
+        }
+    }
+}
+
+// Set input placeholder text colour
+::placeholder {
+    color: $colour-font-placeholder;
 }
