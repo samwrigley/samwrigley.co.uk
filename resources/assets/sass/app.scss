@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------------------------------
-| Core Sass Variables
+| Core Sass
 |--------------------------------------------------------------------------
 */
 
@@ -16,6 +16,24 @@
 
 /*
 |--------------------------------------------------------------------------
+| Variables
+|--------------------------------------------------------------------------
+*/
+
+@import "utilities/variables";
+
+/*
+|--------------------------------------------------------------------------
+| Utilities
+|--------------------------------------------------------------------------
+*/
+
+@import "utilities/type";
+@import "utilities/animations";
+@import "utilities/syntax-highlighting";
+
+/*
+|--------------------------------------------------------------------------
 | General
 |--------------------------------------------------------------------------
 */
@@ -28,7 +46,45 @@
 |--------------------------------------------------------------------------
 */
 
+@import "partials/header";
+@import "partials/aside";
 @import "partials/footer";
+
+/*
+|--------------------------------------------------------------------------
+| Elements
+|--------------------------------------------------------------------------
+*/
+
+@import "elements/links";
+@import "elements/inputs";
+@import "elements/textarea";
+@import "elements/select";
+@import "elements/buttons";
+@import "elements/pre";
+@import "elements/rich-text-editor";
+@import "elements/code";
+@import "elements/form";
+@import "elements/table";
+
+/*
+|--------------------------------------------------------------------------
+| Modules
+|--------------------------------------------------------------------------
+*/
+
+@import "modules/general/header-text";
+@import "modules/general/pagination";
+@import "modules/general/rte";
+@import "modules/articles/article";
+@import "modules/articles/article-edit";
+@import "modules/articles/article-overview";
+@import "modules/articles/article-info";
+@import "modules/articles/article-newsletter";
+@import "modules/articles/article-share";
+@import "modules/articles/related-articles";
+@import "modules/author/author-links";
+@import "modules/author/author-email";
 
 /*
 |--------------------------------------------------------------------------
