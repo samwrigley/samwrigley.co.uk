@@ -25,4 +25,5 @@
     </form>
 
     @include('components.general.errors', ['errorBag' => 'newsletter'])
+    @include('components.general.session', ['key' => 'newsletter'])
 </div>
