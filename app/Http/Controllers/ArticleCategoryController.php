@@ -17,7 +17,7 @@ class ArticleCategoryController extends Controller
 
     public function index(): View
     {
-        $categories = ArticleCategory::has('articles')->get();
+        $categories = ArticleCategory::hasPublished('articles')->get();
 
         return view($this->namespace . 'index')
             ->with('categories', $categories);
@@ -25,12 +25,12 @@ class ArticleCategoryController extends Controller
 
     public function show(string $slug): View
     {
-        $category = ArticleCategory::has('articles')
+        $category = ArticleCategory::hasPublished('articles')
             ->whereSlug($slug)
             ->withArticles()
             ->firstOrFail();
 
-        $categories = ArticleCategory::has('articles')->get();
+        $categories = ArticleCategory::hasPublished('articles')->get();
 
         $articles = $category->articles()
             ->published()
