@@ -5,7 +5,7 @@
 <nav class="site__nav">
     <ul>
         <li>
-            <a href="{{ route('blog.articles.index') }}">
+            <a href="{{ route('about') }}">
                 @lang('About')
             </a>
         </li>

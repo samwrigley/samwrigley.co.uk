@@ -21,7 +21,7 @@
             {{ $article->author->bio }}
         </p>
 
-        <a href="#"
+        <a href="{{ route('about') }}"
             class="article-info__cta"
             rel="author"
             title="@lang('Find out more about the author')"

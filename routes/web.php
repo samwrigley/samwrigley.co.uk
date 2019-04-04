@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('pages.landing');
 });
 
+Route::get('about', function () {
+    return view('pages.about');
+})->name('about');
+
 // Blog
 Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
     // Categories
