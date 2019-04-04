@@ -26,7 +26,7 @@ class NewsletterTest extends TestCase
     {
         $this->getSubscribeRoute()
             ->assertRedirect()
-            ->assertSessionHasErrors('email');
+            ->assertSessionHasErrorsIn('newsletter', 'email');
     }
 
     /** @test */
@@ -34,7 +34,7 @@ class NewsletterTest extends TestCase
     {
         $this->getSubscribeRoute(['email' => $this->faker->sentence])
             ->assertRedirect()
-            ->assertSessionHasErrors('email');
+            ->assertSessionHasErrorsIn('newsletter', 'email');
     }
 
     private function getSubscribeRoute(array $parameters = []): TestResponse
