@@ -1,0 +1,107 @@
+.form {
+    &__group {
+        &:nth-last-child(2) {
+            margin-bottom: $site-spacing;
+        }
+
+        &:not(:last-child, :nth-last-child(2)) {
+            margin-bottom: $site-spacing*2;
+        }
+
+        input[type="checkbox"] {
+            position: relative;
+            top: -1px;
+            margin-right: $site-spacing/4;
+        }
+    }
+
+    &__label {
+        @extend small;
+
+        color: $colour-font-light;
+        line-height: 1;
+        display: block;
+
+        &--required {
+            &::after {
+                content: '*';
+                margin-left: 2px;
+            }
+        }
+
+        input ~ & {
+            display: inline-block;
+        }
+
+        &:first-child {
+            margin-bottom: $site-spacing/2;
+        }
+    }
+
+    &__field {
+        display: block;
+        border: $border-alternative;
+        background-color: map-get($colours, 'white');
+        border-radius: $border-radius-primary;
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+
+            label,
+            span {
+                &:not(:last-child) {
+                    margin-right: $site-spacing/2;
+                }
+            }
+        }
+    }
+
+    &__errors {
+        margin-top: $site-spacing/2;
+
+        li {
+            @extend small;
+
+            color: map-get($colour-alert, 'danger');
+
+            &:not(:last-child) {
+                margin-bottom: $site-spacing/4;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+
+    &__cta {
+        display: flex;
+        align-items: center;
+
+        button {
+            &:not(:last-child) {
+                margin-right: $site-spacing/2;
+            }
+        }
+    }
+
+    &__message {
+        margin-left: $site-spacing;
+
+        .form--success & {
+            color: map-get($colour-alert, 'success');
+        }
+
+        .form--error & {
+            color: map-get($colour-alert, 'danger');
+        }
+    }
+
+    .description {
+        display: block;
+        margin-top: $site-spacing/2;
+        color: $colour-font-light;
+    }
+}

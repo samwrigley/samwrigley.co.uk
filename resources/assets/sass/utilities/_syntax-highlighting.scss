@@ -1,0 +1,166 @@
+/*
+ * Github - Pygments syntax highlighter
+ *
+ * Based on: https://github.com/aahan/pygments-github-style/blob/master/jekyll-github.css
+ */
+
+.highlight {
+    .err {
+        background-color: #e3d2d2;
+        color: #a61717;
+    }
+
+    .cp {
+        color: #999;
+        font-weight: 700;
+    }
+
+    .cs {
+        color: #999;
+        font-style: italic;
+        font-weight: 700;
+    }
+
+    .gd {
+        background-color: #fdd;
+        color: #000;
+    }
+
+    .gd .x {
+        background-color: #faa;
+        color: #000;
+    }
+
+    .ge {
+        font-style: italic;
+    }
+
+    .gi {
+        background-color: #dfd;
+        color: #000;
+    }
+
+    .gi .x {
+        background-color: #afa;
+        color: #000;
+    }
+
+    .go {
+        color: #888;
+    }
+
+    .gu {
+        color: purple;
+        font-weight: 700;
+    }
+
+    .n {
+        color: #333;
+    }
+
+    .nb {
+        color: #0086b3;
+    }
+
+    .ni {
+        color: purple;
+    }
+
+    .nt {
+        color: navy;
+    }
+
+    .w {
+        color: #bbb;
+    }
+
+    .sr {
+        color: #009926;
+    }
+
+    .ss {
+        color: #990073;
+    }
+
+    .gc {
+        background-color: #eaf2f5;
+        color: #999;
+    }
+
+    .c,
+    .cm,
+    .c1 {
+        color: #998;
+        font-style: italic;
+    }
+
+    .k,
+    .o,
+    .gs,
+    .kc,
+    .kd,
+    .kn,
+    .kp,
+    .kr,
+    .ow {
+        font-weight: 700;
+    }
+
+    .gr,
+    .gt {
+        color: #a00;
+    }
+
+    .gh,
+    .bp {
+        color: #999;
+    }
+
+    .gp,
+    .nn {
+        color: #555;
+    }
+
+    .kt,
+    .nc {
+        color: #458;
+        font-weight: 700;
+    }
+
+    .m,
+    .mf,
+    .mh,
+    .mi,
+    .mo,
+    .il {
+        color: #099;
+    }
+
+    .s,
+    .sb,
+    .sc,
+    .sd,
+    .s2,
+    .se,
+    .sh,
+    .si,
+    .sx,
+    .s1 {
+        color: #d14;
+    }
+
+    .na,
+    .no,
+    .nv,
+    .vc,
+    .vg,
+    .vi {
+        color: teal;
+    }
+
+    .ne,
+    .nf {
+        color: #900;
+        font-weight: 700;
+    }
+}

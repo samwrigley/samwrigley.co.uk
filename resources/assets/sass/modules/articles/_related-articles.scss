@@ -1,0 +1,39 @@
+.related-articles {
+    padding-bottom: $site-spacing*2;
+    border-bottom: $border-alternative;
+    margin-bottom: $site-spacing*5;
+
+    &__heading {
+        margin-bottom: $site-spacing*1.5;
+    }
+
+    &__group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        display: block;
+        flex: 1 1 50%;
+
+        &:not(:last-of-type) {
+            margin-bottom: $site-spacing*3;
+        }
+    }
+
+    &__categories {
+        margin-bottom: $site-spacing;
+
+        li {
+            display: inline-block;
+
+            &:not(:last-of-type) {
+                margin-right: $site-spacing/2;
+            }
+        }
+    }
+
+    &__title {
+        margin-bottom: $site-spacing/2;
+    }
+}

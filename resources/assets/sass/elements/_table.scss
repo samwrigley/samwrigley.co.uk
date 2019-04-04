@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    th {
+        @extend small;
+
+        text-align: left;
+        text-transform: uppercase;
+        color: $colour-font-light;
+        padding: $site-spacing*0.75 $site-spacing;
+        background-color: map-get($colours, 'light-grey');
+        border-top: $border-alternative;
+        border-bottom: $border-alternative;
+    }
+
+    td {
+        padding: $site-spacing*0.75 $site-spacing;
+        border-bottom: $border-alternative;
+    }
+}
