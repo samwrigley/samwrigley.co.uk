@@ -24,5 +24,5 @@
 
     </form>
 
-    @include('components.general.errors')
+    @include('components.general.errors', ['errorBag' => 'newsletter'])
 </div>
