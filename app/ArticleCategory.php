@@ -5,11 +5,13 @@ namespace App;
 use App\Article;
 use App\Model;
 use App\Traits\BelongsToManyArticles;
+use App\Traits\HasPublishableRelationship;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ArticleCategory extends Model
 {
     use BelongsToManyArticles;
+    use HasPublishableRelationship;
 
     /**
      * The route namespace.
