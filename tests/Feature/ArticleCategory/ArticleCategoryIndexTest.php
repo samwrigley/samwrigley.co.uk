@@ -35,6 +35,36 @@ class ArticleCategoryIndexTest extends TestCase
             ->assertDontSeeText($category->name);
     }
 
+    /** @test */
+    public function cannot_see_a_category_that_only_has_scheduled_articles(): void
+    {
+        $category = factory(ArticleCategory::class)->create();
+        $articles = factory(Article::class, 2)->create([
+            'published_at' => now()->addDays(7),
+        ]);
+
+        $category->articles()->attach($articles);
+
+        $this->getCategoryIndexRoute()
+            ->assertOk()
+            ->assertDontSeeText($category->name);
+    }
+
+    /** @test */
+    public function cannot_see_a_category_that_only_has_draft_articles(): void
+    {
+        $category = factory(ArticleCategory::class)->create();
+        $articles = factory(Article::class, 2)->create([
+            'published_at' => null,
+        ]);
+
+        $category->articles()->attach($articles);
+
+        $this->getCategoryIndexRoute()
+            ->assertOk()
+            ->assertDontSeeText($category->name);
+    }
+
     private function getCategoryIndexRoute(): TestResponse
     {
         return $this->get(

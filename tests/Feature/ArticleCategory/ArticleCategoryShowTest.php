@@ -82,6 +82,35 @@ class ArticleCategoryShowTest extends TestCase
             ->assertNotFound();
     }
 
+
+    /** @test */
+    public function cannot_view_a_category_that_only_has_scheduled_articles(): void
+    {
+        $category = factory(ArticleCategory::class)->create();
+        $articles = factory(Article::class, 2)->create([
+            'published_at' => now()->addDays(7),
+        ]);
+
+        $category->articles()->attach($articles);
+
+        $this->getCategoryShowRoute($category->slug)
+            ->assertNotFound();
+    }
+
+    /** @test */
+    public function cannot_view_a_category_that_only_has_draft_articles(): void
+    {
+        $category = factory(ArticleCategory::class)->create();
+        $articles = factory(Article::class, 2)->create([
+            'published_at' => null,
+        ]);
+
+        $category->articles()->attach($articles);
+
+        $this->getCategoryShowRoute($category->slug)
+            ->assertNotFound();
+    }
+
     private function getCategoryShowRoute(string $categorySlug): TestResponse
     {
         return $this->get(
