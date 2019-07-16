@@ -3,6 +3,7 @@
 namespace App;
 
 use App\ArticleCategory;
+use App\ArticleSeries;
 use App\Model;
 use App\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -55,5 +56,10 @@ class Article extends Model
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(ArticleCategory::class)->withTimestamps();
+    }
+
+    public function series(): BelongsTo
+    {
+        return $this->belongsTo(ArticleSeries::class, 'article_series_id');
     }
 }
