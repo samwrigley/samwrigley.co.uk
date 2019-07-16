@@ -26,11 +26,11 @@ class ArticleController extends Controller
 
         $categories = ArticleCategory::has('articles')->get();
 
-        return view($this->namespace . 'index')
-            ->with([
-                'articles' => $articles,
-                'categories' => $categories,
-            ]);
+        return view($this->namespace . 'index', [
+            'articles' => $articles,
+            'featuredArticle' => $articles->first(),
+            'categories' => $categories,
+        ]);
     }
 
     public function show(string $slug): View
@@ -43,10 +43,9 @@ class ArticleController extends Controller
 
         $categories = ArticleCategory::has('articles')->get();
 
-        return view($this->namespace . 'show')
-            ->with([
-                'article' => $article,
-                'categories' => $categories,
-            ]);
+        return view($this->namespace . 'show', [
+            'article' => $article,
+            'categories' => $categories,
+        ]);
     }
 }
