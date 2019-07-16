@@ -37,6 +37,7 @@ class Article extends Model
         'slug',
         'body',
         'excerpt',
+        'featured_image',
     ];
 
     /**
