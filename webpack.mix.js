@@ -18,6 +18,15 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .version()
     .sourceMaps()
 
+mix.webpackConfig({
+    watchOptions: {
+        ignored: [
+            /node_modules/,
+            /vendor/,
+        ],
+    },
+})
+
 mix.browserSync({
     proxy: process.env.APP_URL,
 })
