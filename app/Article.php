@@ -39,15 +39,6 @@ class Article extends Model
         'excerpt',
     ];
 
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var string[]
-     */
-    protected $with = [
-        'categories',
-    ];
-
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
