@@ -18,11 +18,11 @@ class ArticleCategoryIndexTest extends TestCase
         $category = factory(ArticleCategory::class)->create();
         $articles = factory(Article::class, 5)->create();
 
-        $category->articles()->attach($articles);
+        $category->articles()->saveMany($articles);
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertSeeText($category->name);
+            ->assertSee($category->name);
     }
 
     /** @test */
@@ -32,7 +32,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($category->name);
+            ->assertDontSee($category->name);
     }
 
     /** @test */
@@ -43,11 +43,11 @@ class ArticleCategoryIndexTest extends TestCase
             'published_at' => now()->addDays(7),
         ]);
 
-        $category->articles()->attach($articles);
+        $category->articles()->saveMany($articles);
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($category->name);
+            ->assertDontSee($category->name);
     }
 
     /** @test */
@@ -58,11 +58,11 @@ class ArticleCategoryIndexTest extends TestCase
             'published_at' => null,
         ]);
 
-        $category->articles()->attach($articles);
+        $category->articles()->saveMany($articles);
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($category->name);
+            ->assertDontSee($category->name);
     }
 
     private function getCategoryIndexRoute(): TestResponse

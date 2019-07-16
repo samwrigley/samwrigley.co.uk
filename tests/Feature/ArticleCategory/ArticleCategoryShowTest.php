@@ -13,57 +13,69 @@ class ArticleCategoryShowTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function can_view_a_list_of_articles_within_category(): void
+    public function can_see_a_list_of_articles_in_reverse_chronological_order(): void
     {
-        $articles = factory(Article::class, 5)
-            ->create(['published_at' => now()]);
+        $articles = collect([
+            factory(Article::class)->create(['published_at' => now()->subDays(2)]),
+            factory(Article::class)->create(['published_at' => now()->subDay()]),
+            factory(Article::class)->create(['published_at' => now()]),
+        ]);
 
         $category = factory(ArticleCategory::class)->create();
-        $category->articles()->attach($articles);
+        $category->articles()->saveMany($articles);
 
         $this->getCategoryShowRoute($category->slug)
             ->assertOk()
-            ->assertSeeTextInOrder(
-                $articles->pluck('title')->toArray()
-            );
+            ->assertSeeInOrder($articles->sortByDesc('published_at')->pluck('title')->toArray());
+    }
+
+    /** @test */
+    public function can_see_a_list_of_paginated_articles(): void
+    {
+        $articles = factory(Article::class, 18)->create(['published_at' => now()]);
+        $articleTitles = $articles->pluck('title');
+
+        $category = factory(ArticleCategory::class)->create();
+        $category->articles()->saveMany($articles);
+
+        $this->getCategoryShowRoute($category->slug)
+            ->assertSeeInOrder($articleTitles->forPage(1, 9)->toArray())
+            ->assertDontSee($articleTitles->forPage(2, 9)->first());
     }
 
     /** @test */
     public function cannot_view_an_article_not_within_category(): void
     {
-        $article = factory(Article::class)
-            ->create(['published_at' => now()]);
+        $article = factory(Article::class)->create(['published_at' => now()]);
 
         $category = factory(ArticleCategory::class)->create();
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertDontSeeText($article->title);
+            ->assertDontSee($article->title);
     }
 
     /** @test */
     public function cannot_view_a_draft_article_within_category(): void
     {
-        $article = factory(Article::class)
-            ->create(['published_at' => null]);
+        $article = factory(Article::class)->create(['published_at' => null]);
 
         $category = factory(ArticleCategory::class)->create();
-        $category->articles()->attach($article);
+        $category->articles()->save($article);
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertDontSeeText($article->title);
+            ->assertDontSee($article->title);
     }
 
     /** @test */
     public function cannot_view_a_scheduled_article_within_category(): void
     {
-        $article = factory(Article::class)
-            ->create(['published_at' => now()->addDays(7)]);
+        $article = factory(Article::class)->create(['published_at' => now()->addDays(7)]);
 
         $category = factory(ArticleCategory::class)->create();
-        $category->articles()->attach($article);
+        $category->articles()->save($article);
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertDontSeeText($article->title);
+            ->assertDontSee($article->title);
     }
 
     /** @test */
@@ -91,7 +103,7 @@ class ArticleCategoryShowTest extends TestCase
             'published_at' => now()->addDays(7),
         ]);
 
-        $category->articles()->attach($articles);
+        $category->articles()->saveMany($articles);
 
         $this->getCategoryShowRoute($category->slug)
             ->assertNotFound();
@@ -105,7 +117,7 @@ class ArticleCategoryShowTest extends TestCase
             'published_at' => null,
         ]);
 
-        $category->articles()->attach($articles);
+        $category->articles()->saveMany($articles);
 
         $this->getCategoryShowRoute($category->slug)
             ->assertNotFound();
