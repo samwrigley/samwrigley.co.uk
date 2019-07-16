@@ -22,7 +22,7 @@ class ArticleController extends Controller
             ->latest('published_at')
             ->withCategories()
             ->withAuthor()
-            ->paginate(10);
+            ->paginate();
 
         $categories = ArticleCategory::has('articles')->get();
 
