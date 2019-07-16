@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Article;
 use App\ArticleCategory;
+use App\ArticleSeries;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
