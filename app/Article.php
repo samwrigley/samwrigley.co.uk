@@ -62,4 +62,14 @@ class Article extends Model
     {
         return $this->belongsTo(ArticleSeries::class, 'article_series_id');
     }
+
+    public function next(): ?Article
+    {
+        return $this->series->articles->find($this->id + 1);
+    }
+
+    public function previous(): ?Article
+    {
+        return $this->series->articles->find($this->id - 1);
+    }
 }
