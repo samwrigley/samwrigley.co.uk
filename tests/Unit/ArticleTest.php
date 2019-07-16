@@ -6,6 +6,7 @@ use App\Article;
 use App\ArticleCategory;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
@@ -73,6 +74,55 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
+    public function its_new_when_published_a_month_ago_or_less(): void
+    {
+        $this->freezeTime();
+
+        $article = tap(factory(Article::class)->create())->publish();
+
+        $this->assertTrue($article->isNew());
+        $this->assertFalse($article->isOld());
+    }
+
+    /** @test */
+    public function its_new_when_published_x_months_ago_or_less(): void
+    {
+        $this->freezeTime();
+
+        $months = 2;
+        $article = tap(factory(Article::class)->create())
+            ->publish(now()->subMonths($months));
+
+        $this->assertTrue($article->isNew($months));
+        $this->assertFalse($article->isOld($months));
+    }
+
+    /** @test */
+    public function its_old_when_published_more_than_six_months_ago(): void
+    {
+        $this->freezeTime();
+
+        $article = tap(factory(Article::class)->create())
+            ->publish(now()->subMonth(6)->subSecond());
+
+        $this->assertTrue($article->isOld());
+        $this->assertFalse($article->isNew());
+    }
+
+    /** @test */
+    public function its_old_when_published_more_than_x_months_ago(): void
+    {
+        $this->freezeTime();
+
+        $months = 7;
+        $article = tap(factory(Article::class)->create())
+            ->publish(now()->subMonth($months)->subSecond());
+
+        $this->assertTrue($article->isOld($months));
+        $this->assertFalse($article->isNew($months));
+    }
+
+    /** @test */
     public function can_get_next_article_in_series(): void
     {
         $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
@@ -106,5 +156,12 @@ class ArticleTest extends TestCase
         $this->assertEquals($articleTwo->id, $secondArticle->id);
         $this->assertEquals($articleOne->id, $firstArticle->id);
         $this->assertNull($firstArticle->previous());
+    }
+
+    protected function freezeTime(?Carbon $time = null): void
+    {
+        $now = Carbon::createFromFormat('Y-m-d H:i:s', $time ?: now());
+
+        Carbon::setTestNow($now);
     }
 }
