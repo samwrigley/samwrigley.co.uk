@@ -29,6 +29,17 @@ class ArticleIndexTest extends TestCase
     }
 
     /** @test */
+    public function can_see_a_list_of_paginated_articles(): void
+    {
+        $articles = factory(Article::class, 18)->create(['published_at' => now()]);
+        $articleTitles = $articles->pluck('title');
+
+        $this->getArticleIndexRoute()
+            ->assertSeeInOrder($articleTitles->forPage(1, 9)->toArray())
+            ->assertDontSee($articleTitles->forPage(2, 9)->first());
+    }
+
+    /** @test */
     public function can_see_excerpt_in_list_of_articles(): void
     {
         $article = factory(Article::class)
