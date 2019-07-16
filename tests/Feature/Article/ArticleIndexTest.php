@@ -16,15 +16,15 @@ class ArticleIndexTest extends TestCase
     public function can_see_a_list_of_articles_in_reverse_chronological_order(): void
     {
         $articles = collect([
-            factory(Article::class)->create(['published_at' => now()]),
-            factory(Article::class)->create(['published_at' => now()->subDay()]),
             factory(Article::class)->create(['published_at' => now()->subDays(2)]),
+            factory(Article::class)->create(['published_at' => now()->subDay()]),
+            factory(Article::class)->create(['published_at' => now()]),
         ]);
 
         $this->getArticleIndexRoute()
             ->assertOk()
-            ->assertSeeTextInOrder(
-                $articles->pluck('title')->toArray()
+            ->assertSeeInOrder(
+                $articles->sortByDesc('published_at')->pluck('title')->toArray()
             );
     }
 
@@ -35,7 +35,7 @@ class ArticleIndexTest extends TestCase
             ->create(['published_at' => now()]);
 
         $this->getArticleIndexRoute()
-            ->assertSeeText($article->excerpt);
+            ->assertSee($article->excerpt);
     }
 
     /** @test */
@@ -45,10 +45,10 @@ class ArticleIndexTest extends TestCase
             ->create(['published_at' => now()]);
 
         $formattedPublishedAt = Carbon::parse($article->published_at)
-            ->toFormattedDateString();
+            ->format('jS F Y');
 
         $this->getArticleIndexRoute()
-            ->assertSeeText($formattedPublishedAt);
+            ->assertSee($formattedPublishedAt);
     }
 
     /** @test */
@@ -68,7 +68,7 @@ class ArticleIndexTest extends TestCase
             ->create(['published_at' => null]);
 
         $this->getArticleIndexRoute()
-            ->assertDontSeeText($article->title);
+            ->assertDontSee($article->title);
     }
 
     /** @test */
@@ -78,7 +78,7 @@ class ArticleIndexTest extends TestCase
             ->create(['published_at' => now()->addDays(7)]);
 
         $this->getArticleIndexRoute()
-            ->assertDontSeeText($article->title);
+            ->assertDontSee($article->title);
     }
 
     private function getArticleIndexRoute(): TestResponse

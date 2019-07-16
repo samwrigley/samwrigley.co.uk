@@ -4,6 +4,7 @@ namespace Tests\Feature\Article;
 
 use App\Article;
 use App\ArticleCategory;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Support\Carbon;
@@ -19,18 +20,20 @@ class ArticleShowTest extends TestCase
         $category = factory(ArticleCategory::class)->create();
 
         $article = factory(Article::class)->create(['published_at' => now()]);
-        $article->categories()->attach($category);
+        $article->categories()->save($category);
 
         $formattedPublishedAt = Carbon::parse($article->published_at)
-            ->toFormattedDateString();
+            ->format('jS F Y');
+
+        $body = Markdown::convertToHtml($article->body);
 
         $this->getArticleShowRoute($article->slug)
             ->assertOk()
-            ->assertSeeText($article->categories()->first()->title)
-            ->assertSeeText($article->title)
-            ->assertSeeText($article->author->name)
-            ->assertSeeText($article->body)
-            ->assertSeeText($formattedPublishedAt)
+            ->assertSee($article->categories()->first()->title)
+            ->assertSee($article->title)
+            ->assertSee($article->author->name)
+            ->assertSee($body)
+            ->assertSee($formattedPublishedAt)
             ->assertSee($article->published_at);
     }
 
