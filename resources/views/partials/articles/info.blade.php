@@ -1,34 +1,13 @@
-@if ($article->author)
-    <section class="article-info">
-        <div class="article-info__author">
-            @if ($article->author->profile_image)
-                <img src="{{ $article->author->profile_image }}"
-                    alt="{{ $article->author->name }}"
-                    class="article-info__author-image"
-                >
-            @endif
+<div class="flex-1 p-16 border-r border-black">
+    <h3 class="mb-2 text-4xl">
+        Want to get in touch?
+    </h3>
 
-            <div class="article-info__author-text">
-                <h4 class="article-info__author-name">
-                    {{ $article->author->name }}
-                </h4>
-
-                @include('partials.author.email')
-            </div>
-        </div>
-
-        <p class="article-info__bio">
-            {{ $article->author->bio }}
-        </p>
-
-        <a href="{{ route('about') }}"
-            class="article-info__cta"
-            rel="author"
-            title="@lang('Find out more about the author')"
-            aria-label="@lang('Find out more about the author')"
-        >
-            @lang('Find out more')
-            @svg('arrow-right')
-        </a>
-    </section>
-@endif
+    <p class="text-2xl text-gray-600">
+        Say Hi on
+        <a href="#" class="text-gray-900">Twitter</a>,
+        <a href="#" class="text-gray-900">Github</a>,
+        <a href="#" class="text-gray-900">LinkedIn</a>
+        or send me an <a href="mailto:sam@samwrigley.co.uk" class="text-gray-900">email</a>.
+    </p>
+</div>
