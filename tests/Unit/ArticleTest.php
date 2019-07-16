@@ -23,15 +23,19 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
-    public function it_belongs_to_many_categories(): void
+    public function it_can_belong_to_many_categories(): void
     {
-        $categoryCount = 2;
-        $categories = factory(ArticleCategory::class, $categoryCount)->create();
-
         $article = factory(Article::class)->create();
-        $article->categories()->attach($categories);
 
-        $this->assertCount($categoryCount, $article->categories);
+        $this->assertCount(0, $article->categories);
+
+        $articleWithCategories = factory(Article::class)->create();
+        $categories = factory(ArticleCategory::class, 2)->create();
+        $articleWithCategories->categories()->attach($categories);
+
+        $this->assertCount(2, $articleWithCategories->categories);
+        $this->assertInstanceOf(ArticleCategory::class, $articleWithCategories->categories->first());
+    }
 
     /** @test */
     public function it_can_belong_to_a_series(): void
