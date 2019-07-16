@@ -19,8 +19,9 @@ class ArticleCategoryController extends Controller
     {
         $categories = ArticleCategory::hasPublished('articles')->get();
 
-        return view($this->namespace . 'index')
-            ->with('categories', $categories);
+        return view($this->namespace . 'index', [
+            'categories' => $categories,
+        ]);
     }
 
     public function show(string $slug): View
@@ -36,11 +37,10 @@ class ArticleCategoryController extends Controller
             ->published()
             ->paginate(10);
 
-        return view($this->namespace . 'show')
-            ->with([
-                'category' => $category,
-                'categories' => $categories,
-                'articles' => $articles,
-            ]);
+        return view($this->namespace . 'show', [
+            'category' => $category,
+            'categories' => $categories,
+            'articles' => $articles,
+        ]);
     }
 }
