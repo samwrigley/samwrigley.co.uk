@@ -14,7 +14,7 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $title,
         'slug' => str_slug($title),
         'body' => $faker->paragraphs(10, true),
-        'excerpt' => $faker->paragraphs(2, true),
+        'excerpt' => $faker->paragraph,
         'created_at' => $created_at,
         'published_at' => $published_at,
     ];
