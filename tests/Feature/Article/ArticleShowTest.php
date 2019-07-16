@@ -64,6 +64,28 @@ class ArticleShowTest extends TestCase
             ->assertNotFound();
     }
 
+    /** @test */
+    public function can_see_out_of_date_notice_when_published_more_than_6_months_ago(): void
+    {
+        $article = factory(Article::class)
+            ->create(['published_at' => now()->subMonths(7)]);
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertSee('This article was published')
+            ->assertSee('likely to be out-of-date');
+    }
+
+    /** @test */
+    public function cant_see_out_of_date_notice_when_published_less_than_6_months_ago(): void
+    {
+        $article = factory(Article::class)
+            ->create(['published_at' => now()->subMonths(5)]);
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertDontSee('This article was published')
+            ->assertDontSee('likely to be out-of-date');
+    }
+
     private function getArticleShowRoute(string $articleSlug): TestResponse
     {
         return $this->get(
