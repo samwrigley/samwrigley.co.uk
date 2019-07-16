@@ -30,6 +30,19 @@ class ArticleTest extends TestCase
         $article->categories()->attach($categories);
 
         $this->assertCount($categoryCount, $article->categories);
+
+    /** @test */
+    public function it_can_belong_to_a_series(): void
+    {
+        $article = factory(Article::class)->make();
+
+        $this->assertNull($article->series);
+
+        $articleInSeries = factory(Article::class)->make();
+        $articleSeries = factory(ArticleSeries::class)->make();
+        $articleInSeries->series()->associate($articleSeries);
+
+        $this->assertInstanceOf(ArticleSeries::class, $articleInSeries->series);
     }
 
     /** @test */
@@ -57,5 +70,41 @@ class ArticleTest extends TestCase
         $draftArticle = tap(factory(Article::class)->create())->draft();
 
         $this->assertTrue($draftArticle->isDraft());
+    }
+
+    /** @test */
+    public function can_get_next_article_in_series(): void
+    {
+        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleSeries->articles()->saveMany([$articleOne, $articleTwo, $articleThree]);
+
+        $firstArticle = $articleSeries->articles->first();
+        $secondArticle = $firstArticle->next();
+        $thirdArticle = $secondArticle->next();
+
+        $this->assertEquals($articleTwo->id, $secondArticle->id);
+        $this->assertEquals($articleThree->id, $thirdArticle->id);
+        $this->assertNull($thirdArticle->next());
+    }
+
+    /** @test */
+    public function can_get_previous_article_in_series(): void
+    {
+        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleSeries->articles()->saveMany([$articleOne, $articleTwo, $articleThree]);
+
+        $thirdArticle = $articleSeries->articles->last();
+        $secondArticle = $thirdArticle->previous();
+        $firstArticle = $secondArticle->previous();
+
+        $this->assertEquals($articleTwo->id, $secondArticle->id);
+        $this->assertEquals($articleOne->id, $firstArticle->id);
+        $this->assertNull($firstArticle->previous());
     }
 }
