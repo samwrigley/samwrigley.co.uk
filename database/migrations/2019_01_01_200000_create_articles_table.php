@@ -10,8 +10,9 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
             $table->unsignedInteger('article_series_id')->unsigned()->index()->nullable();
+            $table->unsignedInteger('user_id')->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('article_series_id')->references('id')->on('article_series')->onDelete('cascade');
             $table->string('featured_image')->nullable();
             $table->string('title')->unique();
