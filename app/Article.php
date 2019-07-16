@@ -39,6 +39,13 @@ class Article extends Model
         'excerpt',
     ];
 
+    /**
+     * The number of models to return for pagination.
+     *
+     * @var int
+     */
+    protected $perPage = 9;
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
