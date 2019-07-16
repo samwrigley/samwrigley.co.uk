@@ -35,7 +35,7 @@ class ArticleCategoryController extends Controller
 
         $articles = $category->articles()
             ->published()
-            ->paginate(10);
+            ->paginate();
 
         return view($this->namespace . 'show', [
             'category' => $category,
