@@ -73,12 +73,12 @@ class Article extends Model
         return $this->published_at < now()->subMonths($months);
     }
 
-    public function next(): ?Article
+    public function next(): ?self
     {
         return $this->series->articles->find($this->id + 1);
     }
 
-    public function previous(): ?Article
+    public function previous(): ?self
     {
         return $this->series->articles->find($this->id - 1);
     }

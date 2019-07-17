@@ -94,7 +94,6 @@ class ArticleCategoryShowTest extends TestCase
             ->assertNotFound();
     }
 
-
     /** @test */
     public function cannot_view_a_category_that_only_has_scheduled_articles(): void
     {
