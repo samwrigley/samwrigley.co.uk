@@ -33,6 +33,7 @@
         "stylelint": "^9.0.0",
         "stylelint-config-standard": "^18.1.0",
         "stylelint-scss": "^2.3.0",
+        "tailwindcss": "^1.0.3",
     },
     "dependencies": {
         "core-sass": "^0.2.0"

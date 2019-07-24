@@ -1,8 +1,8 @@
 @if ($errors->{$errorBag}->any())
-    <div class="alert alert--warning" role="alert">
+    <div class="mt-2 text-md" role="alert">
         <ul>
             @foreach ($errors->{$errorBag}->all() as $error)
-                <li class="alert__item">{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
