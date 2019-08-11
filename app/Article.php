@@ -5,6 +5,7 @@ namespace App;
 use App\ArticleCategory;
 use App\ArticleSeries;
 use App\Model;
+use App\Traits\InSeries;
 use App\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -17,6 +18,7 @@ class Article extends Model
     use CanBePublished;
     use HasAuthor;
     use HasCategories;
+    use InSeries;
 
     /**
      * The route namespace.
@@ -71,15 +73,5 @@ class Article extends Model
     public function isOld(int $months = 6): bool
     {
         return $this->published_at < now()->subMonths($months);
-    }
-
-    public function next(): ?Article
-    {
-        return $this->series->articles->find($this->id + 1);
-    }
-
-    public function previous(): ?Article
-    {
-        return $this->series->articles->find($this->id - 1);
     }
 }
