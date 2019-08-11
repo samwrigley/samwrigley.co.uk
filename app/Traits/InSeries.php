@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use App\Article;
+
 trait InSeries
 {
     public function next(): ?Article
