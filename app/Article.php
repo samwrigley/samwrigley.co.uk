@@ -5,6 +5,7 @@ namespace App;
 use App\ArticleCategory;
 use App\ArticleSeries;
 use App\Model;
+use App\Traits\HasAge;
 use App\Traits\InSeries;
 use App\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,6 +17,7 @@ use SamWrigley\Support\Traits\HasCategories;
 class Article extends Model
 {
     use CanBePublished;
+    use HasAge;
     use HasAuthor;
     use HasCategories;
     use InSeries;
@@ -63,15 +65,5 @@ class Article extends Model
     public function series(): BelongsTo
     {
         return $this->belongsTo(ArticleSeries::class, 'article_series_id');
-    }
-
-    public function isNew(int $months = 1): bool
-    {
-        return $this->published_at >= now()->subMonths($months);
-    }
-
-    public function isOld(int $months = 6): bool
-    {
-        return $this->published_at < now()->subMonths($months);
     }
 }
