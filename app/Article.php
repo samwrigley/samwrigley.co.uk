@@ -14,9 +14,9 @@ use SamWrigley\Support\Traits\HasCategories;
 
 class Article extends Model
 {
+    use CanBePublished;
     use HasAuthor;
     use HasCategories;
-    use CanBePublished;
 
     /**
      * The route namespace.
