@@ -3,6 +3,7 @@ $small: 600px;
 $medium: 800px;
 $large: 1050px;
 $vlarge: 1400px;
+$vvlarge: 1600px;
 
 $max: max-width;
 $min: min-width;
@@ -10,10 +11,11 @@ $breakpoints: (
     'small': $small,
     'medium': $medium,
     'large': $large,
-    'vlarge': $vlarge
+    'vlarge': $vlarge,
+    'vvlarge': $vvlarge,
 );
 
-$site-width: $vlarge;
+$site-width: $vvlarge;
 
 // Spacing
 $site-spacing: 20px;
@@ -24,7 +26,7 @@ $transition-primary: 0.2s ease-in-out;
 $transition-secondary: 0.1s ease-in-out;
 
 // Font families
-$font-family-primary: 'Karla', sans-serif;
+$font-family-primary: 'Inter', sans-serif;
 $font-family-secondary: 'Inconsolata', monospace;
 
 // Font weights
@@ -55,7 +57,7 @@ $line-heights: (
 );
 
 // Letter spacing
-$letter-spacing-primary: -0.015em;
+$letter-spacing-primary: 0em;
 $letter-spacing-secondary: 0.04em;
 
 // Colours
