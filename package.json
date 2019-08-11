@@ -16,7 +16,7 @@
         "prepush": "npm run lint && npm test && php artisan env:check --reverse"
     },
     "devDependencies": {
-        "axios": "^0.17",
+        "axios": "^0.19.0",
         "babel-eslint": "^8.0.2",
         "browser-sync": "^2.23.6",
         "browser-sync-webpack-plugin": "^2.0.1",
