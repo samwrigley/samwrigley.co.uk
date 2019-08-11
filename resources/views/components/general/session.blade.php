@@ -1,5 +1,5 @@
 @if (session()->has($key))
-    <div class="alert alert-success">
+    <div class="mt-2 text-md">
         {{ session($key) }}
     </div>
 @endif
