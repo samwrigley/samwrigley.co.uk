@@ -6,8 +6,6 @@ html {
 
 body {
     @include type('body');
-
-    letter-spacing: $letter-spacing-primary;
 }
 
 p {
