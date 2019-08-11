@@ -1,95 +1,115 @@
 /*
 |--------------------------------------------------------------------------
-| Core Sass
+| Tailwind
 |--------------------------------------------------------------------------
 */
 
-@import "~core-sass/src/variables";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*
 |--------------------------------------------------------------------------
-| Core Sass
+| Fonts
 |--------------------------------------------------------------------------
 */
 
-@import "~core-sass";
+@import '~highlight.js/styles/github.css';
+@import url('https://rsms.me/inter/inter.css');
 
 /*
 |--------------------------------------------------------------------------
-| Variables
+| Custom Utility Classes
 |--------------------------------------------------------------------------
 */
 
-@import "utilities/variables";
+a {
+    transition: color 0.05s ease-in, background-color 0.05s ease-in;
+}
 
-/*
-|--------------------------------------------------------------------------
-| Utilities
-|--------------------------------------------------------------------------
-*/
+.rotate-90 {
+    transform: rotate(90deg);
+}
 
-@import "utilities/type";
-@import "utilities/animations";
-@import "utilities/syntax-highlighting";
+.rotate-180 {
+    transform: rotate(180deg);
+}
 
-/*
-|--------------------------------------------------------------------------
-| General
-|--------------------------------------------------------------------------
-*/
+.rotate-270 {
+    transform: rotate(270deg);
+}
 
-@import "site";
+.-rotate-90 {
+    transform: rotate(-90deg);
+}
 
-/*
-|--------------------------------------------------------------------------
-| Partials
-|--------------------------------------------------------------------------
-*/
+.-rotate-180 {
+    transform: rotate(-180deg);
+}
 
-@import "partials/header";
-@import "partials/aside";
-@import "partials/footer";
+.-rotate-270 {
+    transform: rotate(-270deg);
+}
 
-/*
-|--------------------------------------------------------------------------
-| Elements
-|--------------------------------------------------------------------------
-*/
+.markdown {
+    h2, h3 {
+        @apply font-black mb-6;
+    }
 
-@import "elements/links";
-@import "elements/inputs";
-@import "elements/textarea";
-@import "elements/select";
-@import "elements/buttons";
-@import "elements/pre";
-@import "elements/rich-text-editor";
-@import "elements/code";
-@import "elements/form";
-@import "elements/table";
+    h2 {
+        @apply text-3xl;
 
-/*
-|--------------------------------------------------------------------------
-| Modules
-|--------------------------------------------------------------------------
-*/
+        &:not(:first-child) {
+            @apply pt-12;
+        }
+    }
 
-@import "modules/general/header-text";
-@import "modules/general/pagination";
-@import "modules/general/rte";
-@import "modules/articles/article";
-@import "modules/articles/article-edit";
-@import "modules/articles/article-overview";
-@import "modules/articles/article-info";
-@import "modules/articles/article-newsletter";
-@import "modules/articles/article-share";
-@import "modules/articles/related-articles";
-@import "modules/author/author-links";
-@import "modules/author/author-email";
+    h3 {
+        @apply text-2xl;
 
-/*
-|--------------------------------------------------------------------------
-| Pages
-|--------------------------------------------------------------------------
-*/
+        &:not(:first-child) {
+            @apply pt-4;
+        }
+    }
 
-@import "pages/landing";
+    p {
+        &:not(:last-child) {
+            @apply mb-8 text-gray-800;
+        }
+
+        a {
+            @apply text-red-700;
+
+            &:hover {
+                @apply text-red-900;
+            }
+        }
+    }
+
+    ul:not(:last-child) {
+        @apply mb-12;
+    }
+
+    li:not(:last-child) {
+        @apply mb-2;
+    }
+
+    pre {
+        @apply mb-8;
+
+        & > code {
+            @apply p-12 text-base leading-loose overflow-x-scroll;
+        }
+    }
+
+    p > code {
+        @apply text-xl bg-gray-200 px-2 py-1;
+    }
+
+    hr {
+        height: 1px;
+        width: 100px;
+
+        @apply bg-gray-400 mx-0 mt-16;
+    }
+}
