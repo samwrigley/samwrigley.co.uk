@@ -1,8 +1,24 @@
-.article-overview {
-    max-width: $max-line-length;
+.article-overviews {
+    display: flex;
+    flex-wrap: wrap;
+}
 
-    &:not(:last-of-type) {
-        margin-bottom: $site-spacing*6;
+.article-overview {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - #{$site-spacing});
+    background-color: white;
+    box-shadow: $box-shadow-primary;
+    border-radius: $border-radius-primary;
+    padding: $site-spacing*2;
+    box-sizing: border-box;
+
+    &:nth-child(odd) {
+        margin-right: $site-spacing*2;
+    }
+
+    &:not(:nth-last-child(-1n+2)) {
+        margin-bottom: $site-spacing*2;
     }
 
     &__header {
@@ -26,10 +42,12 @@
     }
 
     &__excerpt {
-        margin-bottom: $site-spacing*2;
+        margin: 0 0 $site-spacing*2 0;
     }
 
     &__cta {
+        margin-top: auto;
+
         .icon {
             position: relative;
             top: 5px;
