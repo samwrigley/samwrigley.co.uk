@@ -39,6 +39,7 @@ class ArticleController extends Controller
             ->published()
             ->withCategories()
             ->withAuthor()
+            ->withSeries()
             ->firstOrFail();
 
         $categories = ArticleCategory::has('articles')->get();
