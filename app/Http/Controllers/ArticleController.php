@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\ArticleCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
@@ -24,12 +23,9 @@ class ArticleController extends Controller
             ->withAuthor()
             ->paginate();
 
-        $categories = ArticleCategory::has('articles')->get();
-
         return view($this->namespace . 'index', [
             'articles' => $articles,
             'featuredArticle' => $articles->first(),
-            'categories' => $categories,
         ]);
     }
 
@@ -42,11 +38,8 @@ class ArticleController extends Controller
             ->withSeries()
             ->firstOrFail();
 
-        $categories = ArticleCategory::has('articles')->get();
-
         return view($this->namespace . 'show', [
             'article' => $article,
-            'categories' => $categories,
         ]);
     }
 }
