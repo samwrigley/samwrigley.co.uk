@@ -19,5 +19,11 @@ jobs:
         run: npm run production
       - name: Generate key
         run: php artisan key:generate
+      - name: Cache configuration files
+        run: php artisan config:cache
+      - name: Cache routes
+        run: php artisan route:cache
+      - name: Cache views
+        run: php artisan view:cache
       - name: Run PHPUnit
         run: vendor/bin/phpunit
