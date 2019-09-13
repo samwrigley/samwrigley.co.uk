@@ -27,3 +27,5 @@ jobs:
         run: php artisan view:cache
       - name: Run PHPUnit
         run: vendor/bin/phpunit
+      - name: PHP Linting
+        run: npm run lint:php
