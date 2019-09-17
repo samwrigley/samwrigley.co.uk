@@ -21,8 +21,6 @@ jobs:
         run: php artisan key:generate
       - name: Check environment files are in sync
         run: php artisan env:check
-      - name: Cache configuration files
-        run: php artisan config:cache
       - name: Cache views
         run: php artisan view:cache
       - name: Run PHPUnit
