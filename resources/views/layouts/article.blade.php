@@ -3,7 +3,7 @@
 @section('content')
     <article class="pt-20">
         <header class="relative mx-auto max-w-4xl mb-16">
-            @if ($article->categories->count())
+            @if ($article->categories && $article->categories->count())
                 <ul class="mb-4 text-sm uppercase tracking-widest">
                     @foreach ($article->categories as $category)
                         <li class="leading-none">
