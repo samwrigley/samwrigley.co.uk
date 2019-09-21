@@ -62,7 +62,7 @@
             @endif
 
             @if ($article->author)
-                <div class="flex items-start">
+                <div class="flex items-start mb-16 last-child:mb-0">
                     @if ($article->author->avatar)
                         <a href="{{ route('about') }}"
                             class="mr-4"
@@ -88,6 +88,33 @@
                             @markdown($article->author->bio)
                         </div>
                     </div>
+                </div>
+            @endif
+
+            @if ($article->series && $article->series->articles->count())
+                <div class="text-xl">
+                    <p class="mb-4">
+                        @lang("This article is part of a {$article->series->articles->count()} part series.")
+                    </p>
+                    <ul>
+                        @foreach ($article->series->articles as $seriesArticle)
+                            <li class="mb-1 last-child:mb-0">
+                                <span class="mr-1 text-gray-600">
+                                    @lang('Part') {{ $loop->index + 1}}:
+                                </span>
+                                @if ($seriesArticle->showPath() === $article->showPath())
+                                    {{ $seriesArticle->title }}
+                                @else
+                                    <a href="{{ $seriesArticle->showPath() }}"
+                                        title="@lang("Read $seriesArticle->title")"
+                                        aria-label="@lang("Read $seriesArticle->title")"
+                                    >
+                                        {{ $seriesArticle->title }}
+                                    </a>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
         </header>
