@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c63d39fcd034affc73fac4022d461fd",
+    "content-hash": "3b3ff4725d733a082be1ca9ce18f101b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1508,21 +1508,21 @@
         },
         {
             "name": "samwrigley/laravel-support",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samwrigley/laravel-support.git",
-                "reference": "49042f1774dc98118175b7ad8d21856adb0c474f"
+                "reference": "ea4e7c31feba4a39c0fb667a3112128feba56ded"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samwrigley/laravel-support/zipball/49042f1774dc98118175b7ad8d21856adb0c474f",
-                "reference": "49042f1774dc98118175b7ad8d21856adb0c474f",
+                "url": "https://api.github.com/repos/samwrigley/laravel-support/zipball/ea4e7c31feba4a39c0fb667a3112128feba56ded",
+                "reference": "ea4e7c31feba4a39c0fb667a3112128feba56ded",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.5.0|~5.6.0",
-                "laravel/framework": "^5.4|^5.5|^5.6"
+                "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "laravel/framework": "^5.4|^5.5|^5.6|^5.7|^5.8|^6.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^3.6",
@@ -1546,7 +1546,7 @@
             ],
             "description": "A collection of helpers for quickly and easily building Laravel applications",
             "homepage": "https://github.com/samwrigley/laravel-support",
-            "time": "2018-05-12T17:09:53+00:00"
+            "time": "2019-09-22T12:53:23+00:00"
         },
         {
             "name": "spatie/laravel-csp",
