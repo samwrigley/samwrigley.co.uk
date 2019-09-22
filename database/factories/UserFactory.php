@@ -9,7 +9,7 @@ $factory->define(User::class, function (Faker $faker) {
 
     return [
         'name' => $name,
-        'slug' => str::slug($name),
+        'slug' => Str::slug($name),
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'),
         'bio' => $faker->paragraph,
