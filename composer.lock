@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58637fbe319c20552429047f4b20d03f",
+    "content-hash": "6c63d39fcd034affc73fac4022d461fd",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1505,58 +1505,6 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
-        },
-        {
-            "name": "samwrigley/laravel-hobnob",
-            "version": "v0.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/samwrigley/laravel-hobnob.git",
-                "reference": "7d6a5fb6c24405cdabf7cbfafa244ec3088f349e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/samwrigley/laravel-hobnob/zipball/7d6a5fb6c24405cdabf7cbfafa244ec3088f349e",
-                "reference": "7d6a5fb6c24405cdabf7cbfafa244ec3088f349e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.5.0|~5.6.0",
-                "laravel/framework": "^5.4|^5.5|^5.6"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.6",
-                "phpunit/phpunit": "^7.0",
-                "squizlabs/php_codesniffer": "^3.1"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "SamWrigley\\Hobnob\\HobnobServiceProvider"
-                    ],
-                    "aliases": {
-                        "SocialNetwork": "SamWrigley\\Hobnob\\Facades\\SocialNetworkFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SamWrigley\\Hobnob\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Sam Wrigley",
-                    "email": "sam@samwrigley.co.uk",
-                    "homepage": "https://samwrigley.co.uk",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A package for easily creating social and sharing links in Laravel applications.",
-            "homepage": "https://github.com/samwrigley/laravel-hobnob",
-            "time": "2018-05-09T07:32:37+00:00"
         },
         {
             "name": "samwrigley/laravel-support",
