@@ -3,6 +3,7 @@
 use App\Article;
 use App\User;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 $factory->define(Article::class, function (Faker $faker) {
     $title = $faker->sentence;
@@ -12,7 +13,7 @@ $factory->define(Article::class, function (Faker $faker) {
     return [
         'user_id' => factory(User::class),
         'title' => $title,
-        'slug' => str_slug($title),
+        'slug' => Str::slug($title),
         'body' => $faker->paragraphs(10, true),
         'excerpt' => $faker->paragraph,
         'created_at' => $created_at,
