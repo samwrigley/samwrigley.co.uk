@@ -1,8 +1,21 @@
 {
     "private": true,
+    "bundlesize": [
+        {
+            "path": "./public/js/app.js",
+            "maxSize": "60 kB",
+            "compression": "brotli"
+        },
+        {
+            "path": "./public/css/app.css",
+            "maxSize": "50 kB",
+            "compression": "brotli"
+        }
+    ],
     "scripts": {
         "lint:php": "./vendor/bin/phpcs .",
         "lint": "npm run lint:php",
+        "test:size": "bundlesize",
         "test": "./vendor/bin/phpunit",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
