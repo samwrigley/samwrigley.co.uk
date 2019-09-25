@@ -3,8 +3,6 @@
 namespace App\Traits;
 
 use App\Traits\HasArticles;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait BelongsToManyArticles
 {
