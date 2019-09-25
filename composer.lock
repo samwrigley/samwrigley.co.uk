@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c69c1a63b2c9c85861a853755cc377f3",
+    "content-hash": "778308ba6279d94b2012e6b285330d44",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1657,16 +1657,16 @@
         },
         {
             "name": "samwrigley/laravel-support",
-            "version": "v0.1.2",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samwrigley/laravel-support.git",
-                "reference": "3c52ef0c9c3b31402aa878c304f75c3f2a7e5f53"
+                "reference": "4a1c8519e366305471009e1d7afba9fd05ac33e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samwrigley/laravel-support/zipball/3c52ef0c9c3b31402aa878c304f75c3f2a7e5f53",
-                "reference": "3c52ef0c9c3b31402aa878c304f75c3f2a7e5f53",
+                "url": "https://api.github.com/repos/samwrigley/laravel-support/zipball/4a1c8519e366305471009e1d7afba9fd05ac33e2",
+                "reference": "4a1c8519e366305471009e1d7afba9fd05ac33e2",
                 "shasum": ""
             },
             "require": {
@@ -1696,7 +1696,7 @@
             ],
             "description": "A collection of helpers for quickly and easily building Laravel applications",
             "homepage": "https://github.com/samwrigley/laravel-support",
-            "time": "2019-09-24T18:51:53+00:00"
+            "time": "2019-09-25T21:13:39+00:00"
         },
         {
             "name": "spatie/laravel-csp",
