@@ -10,14 +10,7 @@ trait InSeries
 {
     abstract public function series(): BelongsTo;
 
-    /**
-     * Scope a query to eager load `series`
-     * relationship to reduce database queries.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeWithSeries(Builder $query)
+    public function scopeWithSeries(Builder $query): Builder
     {
         return $query->with('series');
     }
