@@ -29,3 +29,5 @@ jobs:
         run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=90 --min-style=90
       - name: PHP Linting
         run: npm run lint:php
+      - name: Check Bundle size
+        run: npm run test:size
