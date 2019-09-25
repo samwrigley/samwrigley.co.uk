@@ -1,4 +1,4 @@
-## Personal Website
+# Personal Website
 
 Hello, I'm Sam Wrigley. I'm a Web-Developer and Graphic Designer.
 
