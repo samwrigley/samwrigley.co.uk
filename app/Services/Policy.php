@@ -10,7 +10,7 @@ class Policy extends BasePolicy
     public function configure()
     {
         $this->addGeneralDirectives();
-        $this->addDirectivesForGoogleFonts();
+        $this->addDirectivesForFonts();
         $this->addDirectivesForGoogleAnalytics();
         $this->addDirectivesForGoogleTagManager();
     }
@@ -25,12 +25,14 @@ class Policy extends BasePolicy
             ->addNonceForDirective(Directive::SCRIPT);
     }
 
-    protected function addDirectivesForGoogleFonts(): BasePolicy
+    protected function addDirectivesForFonts(): BasePolicy
     {
         return $this
             ->addDirective(Directive::FONT, 'fonts.gstatic.com')
             ->addDirective(Directive::SCRIPT, 'fonts.googleapis.com')
-            ->addDirective(Directive::STYLE, 'fonts.googleapis.com');
+            ->addDirective(Directive::STYLE, 'fonts.googleapis.com')
+            ->addDirective(Directive::FONT, 'rsms.me')
+            ->addDirective(Directive::STYLE, 'rsms.me');
     }
 
     protected function addDirectivesForGoogleAnalytics(): BasePolicy
