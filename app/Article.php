@@ -10,11 +10,14 @@ use App\Traits\InSeries;
 use App\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use SamWrigley\Support\Traits\CanBePublished;
 use SamWrigley\Support\Traits\HasAuthor;
 use SamWrigley\Support\Traits\HasCategories;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Article extends Model
+class Article extends Model implements Feedable
 {
     use CanBePublished;
     use HasAge;
@@ -65,5 +68,22 @@ class Article extends Model
     public function series(): BelongsTo
     {
         return $this->belongsTo(ArticleSeries::class, 'article_series_id');
+    }
+
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->excerpt)
+            ->updated($this->published_at)
+            ->link($this->showPath())
+            ->author($this->author->name)
+            ->category($this->categories()->first()->name);
+    }
+
+    public static function getFeedItems(): Collection
+    {
+        return Article::published()->get();
     }
 }
