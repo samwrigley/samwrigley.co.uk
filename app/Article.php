@@ -84,6 +84,6 @@ class Article extends Model implements Feedable
 
     public static function getFeedItems(): Collection
     {
-        return Article::published()->get();
+        return self::published()->get();
     }
 }
