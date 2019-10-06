@@ -5,7 +5,9 @@ namespace Tests\Feature\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
+use TiMacDonald\Log\LogFake;
 
 class ContactTest extends TestCase
 {
@@ -19,6 +21,13 @@ class ContactTest extends TestCase
      */
     protected $errorBag = 'contact';
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        Log::swap(new LogFake);
+    }
+
     /** @test */
     public function can_visit_contact_view(): void
     {
@@ -30,16 +39,20 @@ class ContactTest extends TestCase
     /** @test */
     public function can_get_in_contact_with_valid_fields(): void
     {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->sentence,
+        ];
+
         $this->followingRedirects()
             ->from('contact')
-            ->getContactRoute([
-                'name' => $this->faker->name,
-                'email' => $this->faker->email,
-                'message' => $this->faker->sentence,
-            ])
+            ->getContactRoute($data)
             ->assertViewIs('pages.contact')
             ->assertSessionHasNoErrors()
             ->assertOk();
+
+        Log::assertLoggedMessage('info', "Contact: {$data['email']}");
     }
 
     /** @test */
