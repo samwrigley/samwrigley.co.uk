@@ -94,10 +94,8 @@ class ContactTest extends TestCase
             ->assertSessionHasInput($data);
     }
 
-    private function getContactRoute(array $parameters = []): TestResponse
+    private function getContactRoute(array $data = []): TestResponse
     {
-        return $this->post(
-            route('contact.store', $parameters)
-        );
+        return $this->post(route('contact.store'), $data);
     }
 }
