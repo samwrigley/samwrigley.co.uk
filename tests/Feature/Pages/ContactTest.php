@@ -12,6 +12,13 @@ class ContactTest extends TestCase
     use WithFaker;
     use RefreshDatabase;
 
+    /**
+     * The name of the view error bag.
+     *
+     * @var string
+     */
+    protected $errorBag = 'contact';
+
     /** @test */
     public function can_visit_contact_view(): void
     {
@@ -43,8 +50,8 @@ class ContactTest extends TestCase
 
         $this->getContactRoute($data)
             ->assertRedirect()
-            ->assertSessionHasErrorsIn('contact', 'email')
-            ->assertSessionDoesntHaveErrors(['name', 'message'], null, 'contact')
+            ->assertSessionHasErrorsIn($this->errorBag, 'email')
+            ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
     }
 
@@ -59,8 +66,8 @@ class ContactTest extends TestCase
 
         $this->getContactRoute($data)
             ->assertRedirect()
-            ->assertSessionHasErrorsIn('contact', 'email')
-            ->assertSessionDoesntHaveErrors(['name', 'message'], null, 'contact')
+            ->assertSessionHasErrorsIn($this->errorBag, 'email')
+            ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
     }
 
@@ -74,8 +81,8 @@ class ContactTest extends TestCase
 
         $this->getContactRoute($data)
             ->assertRedirect()
-            ->assertSessionHasErrorsIn('contact', 'name')
-            ->assertSessionDoesntHaveErrors(['email', 'message'], null, 'contact')
+            ->assertSessionHasErrorsIn($this->errorBag, 'name')
+            ->assertSessionDoesntHaveErrors(['email', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
     }
 
@@ -89,8 +96,8 @@ class ContactTest extends TestCase
 
         $this->getContactRoute($data)
             ->assertRedirect()
-            ->assertSessionHasErrorsIn('contact', 'message')
-            ->assertSessionDoesntHaveErrors(['name', 'email'], null, 'contact')
+            ->assertSessionHasErrorsIn($this->errorBag, 'message')
+            ->assertSessionDoesntHaveErrors(['name', 'email'], null, $this->errorBag)
             ->assertSessionHasInput($data);
     }
 
