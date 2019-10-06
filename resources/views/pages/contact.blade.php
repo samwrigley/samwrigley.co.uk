@@ -11,14 +11,11 @@
                 <ul class="text-gray-600 mb-8">
                     <li>How can I help you?</li>
                     <li>What <a href="{{ route('services') }}" class="text-black">services</a> are you interested in?</li>
-                    <li>Tell me about yourself or company</li>
+                    <li>Tell me about yourself or your company</li>
                 </ul>
 
                 <p class="text-gray-600">
-                    Fill out the form, or say Hello on
-                    <a href="https://twitter.com/{{ config('social.twitter') }}" class="text-gray-900">Twitter</a>,
-                    <a href="https://linkedin.com/in/{{ config('social.linkedin') }}" class="text-gray-900">LinkedIn</a>
-                    or send me an <a href="mailto:{{ config('contact.email') }}" class="text-gray-900">email</a>.
+                    Fill out the form, or send me an <a href="mailto:{{ config('contact.email') }}" class="text-gray-900">email</a>.
                 </p>
             </div>
         </div>
@@ -36,7 +33,7 @@
                         type="text"
                         name="name"
                         value="{{ old('name') }}"
-                        placeholder="Your name"
+                        placeholder="Full name"
                         required
                         class="block w-full px-6 py-4 bg-gray-200"
                         max="100"
@@ -52,7 +49,7 @@
                         type="email"
                         name="email"
                         value="{{ old('email') }}"
-                        placeholder="Your email"
+                        placeholder="Email"
                         required
                         class="block w-full px-6 py-4 bg-gray-200"
                     >
@@ -66,7 +63,7 @@
                         id="message"
                         name="message"
                         value="{{ old('message') }}"
-                        placeholder="Your message"
+                        placeholder="Message"
                         rows="6"
                         required
                         class="block w-full px-6 py-4 bg-gray-200"
