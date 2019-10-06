@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "778308ba6279d94b2012e6b285330d44",
+    "content-hash": "95ddfeaf550a08306a4a5714b29b4a84",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -8164,6 +8164,55 @@
             "time": "2019-06-13T22:48:21+00:00"
         },
         {
+            "name": "timacdonald/log-fake",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timacdonald/log-fake.git",
+                "reference": "84a15f2e37128209b6617ea8f73cd3abaee79911"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timacdonald/log-fake/zipball/84a15f2e37128209b6617ea8f73cd3abaee79911",
+                "reference": "84a15f2e37128209b6617ea8f73cd3abaee79911",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.6|^6.0",
+                "illuminate/container": "~5.6|^6.0",
+                "illuminate/support": "~5.6|^6.0",
+                "php": "^7.1.3",
+                "phpunit/phpunit": "^7.0|^8.0",
+                "psr/log": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TiMacDonald\\Log\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim MacDonald",
+                    "email": "hello@timacdonald.me",
+                    "homepage": "https://timacdonald.me"
+                }
+            ],
+            "description": "A drop in fake logger for testing with the Laravel framework.",
+            "keywords": [
+                "fake",
+                "laravel",
+                "log",
+                "logger",
+                "testing"
+            ],
+            "time": "2019-09-19T21:39:39+00:00"
+        },
+        {
             "name": "webmozart/assert",
             "version": "1.5.0",
             "source": {
@@ -8220,7 +8269,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "php": "^7.3"
     },
     "platform-dev": []
 }
