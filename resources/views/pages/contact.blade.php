@@ -74,8 +74,6 @@
                 <button
                     type="submit"
                     class="flex items-center text-white bg-gray-900 py-4 px-6 hover:bg-gray-800"
-                    title="Get in touch"
-                    aria-label="Get in touch"
                 >
                     <span class="mr-2">Get in touch</span>
                     <svg
