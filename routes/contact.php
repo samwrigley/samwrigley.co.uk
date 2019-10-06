@@ -1,7 +1,6 @@
 <?php
 
-Route::get('contact', function () {
-    return view('pages.contact');
-})->name('contact');
+use App\Http\Controllers\ContactController;
 
-Route::post('contact', 'ContactController')->name('contact.store');
+Route::get('contact', [ContactController::class, 'show'])->name('contact');
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
