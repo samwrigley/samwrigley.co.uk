@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class NewsletterController extends Controller
 {
-    public function store(NewsletterRequest $request): RedirectResponse
+    public function __invoke(NewsletterRequest $request): RedirectResponse
     {
         Log::info("Newsletter subscription: {$request->email}");
 
