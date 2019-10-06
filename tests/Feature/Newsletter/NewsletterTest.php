@@ -32,9 +32,12 @@ class NewsletterTest extends TestCase
     /** @test */
     public function valid_email_is_required(): void
     {
-        $this->getSubscribeRoute(['email' => $this->faker->sentence])
+        $data = ['email' => $this->faker->sentence];
+
+        $this->getSubscribeRoute($data)
             ->assertRedirect()
-            ->assertSessionHasErrorsIn('newsletter', 'email');
+            ->assertSessionHasErrorsIn('newsletter', 'email')
+            ->assertSessionHasInput($data);
     }
 
     private function getSubscribeRoute(array $data = []): TestResponse
