@@ -13,6 +13,12 @@ class ContactTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function can_visit_contact_view(): void
+    {
+        $this->get(route('contact'))->assertOk();
+    }
+
+    /** @test */
     public function can_get_in_contact_with_valid_fields(): void
     {
         $this->followingRedirects()
