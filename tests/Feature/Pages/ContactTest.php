@@ -22,7 +22,9 @@ class ContactTest extends TestCase
     /** @test */
     public function can_visit_contact_view(): void
     {
-        $this->get(route('contact'))->assertOk();
+        $this->get(route('contact'))
+            ->assertViewIs('pages.contact')
+            ->assertOk();
     }
 
     /** @test */
