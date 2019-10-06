@@ -17,14 +17,14 @@
         </li>
 
         <li class="mr-4">
-            <a href="{{ route('about') }}">
-                @lang('About')
+            <a href="{{ route('blog.articles.index') }}">
+                @lang('Blog')
             </a>
         </li>
 
         <li class="mr-4">
-            <a href="{{ route('blog.articles.index') }}">
-                @lang('Blog')
+            <a href="{{ route('about') }}">
+                @lang('About')
             </a>
         </li>
 
