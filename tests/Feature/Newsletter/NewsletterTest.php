@@ -37,10 +37,8 @@ class NewsletterTest extends TestCase
             ->assertSessionHasErrorsIn('newsletter', 'email');
     }
 
-    private function getSubscribeRoute(array $parameters = []): TestResponse
+    private function getSubscribeRoute(array $data = []): TestResponse
     {
-        return $this->post(
-            route('newsletter.subscribe', $parameters)
-        );
+        return $this->post(route('newsletter.subscribe'), $data);
     }
 }
