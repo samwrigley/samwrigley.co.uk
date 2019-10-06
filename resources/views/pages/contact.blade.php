@@ -18,7 +18,7 @@
                     Fill out the form, or say Hello on
                     <a href="https://twitter.com/{{ config('social.twitter') }}" class="text-gray-900">Twitter</a>,
                     <a href="https://linkedin.com/in/{{ config('social.linkedin') }}" class="text-gray-900">LinkedIn</a>
-                or send me an <a href="mailto:{{ config('contact.email') }}" class="text-gray-900">email</a>.
+                    or send me an <a href="mailto:{{ config('contact.email') }}" class="text-gray-900">email</a>.
                 </p>
             </div>
         </div>
