@@ -116,6 +116,20 @@ class ContactTest extends TestCase
             ->assertSessionHasInput($data);
     }
 
+    /** @test */
+    public function data_is_persisted_in_database(): void
+    {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->sentence,
+        ];
+
+        $this->getContactRoute($data);
+
+        $this->assertDatabaseHas('contacts', $data);
+    }
+
     protected function getContactRoute(array $data = []): TestResponse
     {
         return $this->post(route('contact.store'), $data);
