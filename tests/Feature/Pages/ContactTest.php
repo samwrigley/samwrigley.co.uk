@@ -48,7 +48,7 @@ class ContactTest extends TestCase
         $this->followingRedirects()
             ->from('contact')
             ->getContactRoute($data)
-            ->assertViewIs('pages.contact')
+            ->assertRedirect(route('contact'))
             ->assertSessionHasNoErrors()
             ->assertOk();
 
@@ -64,7 +64,7 @@ class ContactTest extends TestCase
         ];
 
         $this->getContactRoute($data)
-            ->assertRedirect()
+            ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'email')
             ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
@@ -80,7 +80,7 @@ class ContactTest extends TestCase
         ];
 
         $this->getContactRoute($data)
-            ->assertRedirect()
+            ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'email')
             ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
@@ -95,7 +95,7 @@ class ContactTest extends TestCase
         ];
 
         $this->getContactRoute($data)
-            ->assertRedirect()
+            ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'name')
             ->assertSessionDoesntHaveErrors(['email', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
@@ -110,7 +110,7 @@ class ContactTest extends TestCase
         ];
 
         $this->getContactRoute($data)
-            ->assertRedirect()
+            ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'message')
             ->assertSessionDoesntHaveErrors(['name', 'email'], null, $this->errorBag)
             ->assertSessionHasInput($data);
