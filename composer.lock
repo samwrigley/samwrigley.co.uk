@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "778308ba6279d94b2012e6b285330d44",
+    "content-hash": "1936289d7accffcefec103e1c07f6e57",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1768,6 +1768,78 @@
                 "spatie"
             ],
             "time": "2019-09-04T09:03:07+00:00"
+        },
+        {
+            "name": "spatie/laravel-feed",
+            "version": "2.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-feed.git",
+                "reference": "732d840cfa6c0369a48fb32d136b812dc3d97ab1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/732d840cfa6c0369a48fb32d136b812dc3d97ab1",
+                "reference": "732d840cfa6c0369a48fb32d136b812dc3d97ab1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.8.0|^6.0",
+                "illuminate/http": "~5.8.0|^6.0",
+                "illuminate/support": "~5.8.0|^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.8.0|^4.0",
+                "phpunit/phpunit": "^8.0",
+                "spatie/phpunit-snapshot-assertions": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Feed\\FeedServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Feed\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jolita Grazyte",
+                    "email": "jolita@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generates rss feed",
+            "homepage": "https://github.com/spatie/laravel-feed",
+            "keywords": [
+                "laravel",
+                "laravel-feed",
+                "rss",
+                "spatie"
+            ],
+            "time": "2019-09-25T09:10:27+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
