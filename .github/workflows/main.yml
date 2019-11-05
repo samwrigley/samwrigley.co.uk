@@ -13,8 +13,6 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install PHP dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-      - name: Install Chrome Driver
-        run: php artisan dusk:chrome-driver
       - name: Install NPM dependencies
         run: yarn install
       - name: Generated assets
@@ -27,6 +25,12 @@ jobs:
         run: php artisan view:cache
       - name: Run PHPUnit
         run: vendor/bin/phpunit
+      - name: Upgrade Chrome Driver
+        run: php artisan dusk:chrome-driver
+      - name: Start Chrome Driver
+        run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
+      - name: Run Laravel Server
+        run: php artisan serve > /dev/null 2>&1 &
       - name: Run Laravel Dusk
         run: php artisan dusk
       - name: PHP Insights
