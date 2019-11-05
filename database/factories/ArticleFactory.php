@@ -20,3 +20,15 @@ $factory->define(Article::class, function (Faker $faker) {
         'published_at' => $published_at,
     ];
 });
+
+$factory->state(Article::class, 'draft', [
+    'published_at' => null,
+]);
+
+$factory->state(Article::class, 'scheduled', [
+    'published_at' => now()->addWeek(),
+]);
+
+$factory->state(Article::class, 'published', [
+    'published_at' => now(),
+]);
