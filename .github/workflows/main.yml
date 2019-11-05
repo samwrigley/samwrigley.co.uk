@@ -51,7 +51,7 @@ jobs:
         run: php artisan serve > /dev/null 2>&1 &
 
       - name: Run Laravel Dusk
-        run: php artisan dusk
+        run: php artisan dusk --stop-on-error --stop-on-failure
 
       - name: PHP Insights
         run: php artisan insights --no-interaction --min-quality=85 --min-complexity=90 --min-architecture=90 --min-style=90
