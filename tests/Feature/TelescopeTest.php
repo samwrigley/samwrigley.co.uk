@@ -10,7 +10,7 @@ class TelescopeTest extends TestCase
     /** @test */
     public function cannot_visit_telescope_dashboard_in_non_local_environments()
     {
-        $this->get('/telescope')
+        $this->get(route('telescope'))
             ->assertStatus(Response::HTTP_FORBIDDEN);
     }
 }
