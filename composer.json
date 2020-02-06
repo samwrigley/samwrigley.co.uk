@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "facade/ignition": "^1.4",
-        "fzaninotto/faker": "^1.4",
+        "fzaninotto/faker": "^1.9",
         "laravel/telescope": "^2.1",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
