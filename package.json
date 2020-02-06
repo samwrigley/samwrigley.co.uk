@@ -13,7 +13,7 @@
         "prepush": "npm test"
     },
     "devDependencies": {
-        "axios": "^0.17",
+        "axios": "^0.18.0",
         "babel-eslint": "^8.0.2",
         "browser-sync": "^2.23.6",
         "browser-sync-webpack-plugin": "^2.0.1",
