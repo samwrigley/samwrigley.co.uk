@@ -5,7 +5,6 @@ namespace Tests\Feature\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Http\Response;
 use Tests\TestCase;
 
 class NewsletterTest extends TestCase
@@ -33,15 +32,16 @@ class NewsletterTest extends TestCase
     /** @test */
     public function valid_email_is_required(): void
     {
-        $this->getSubscribeRoute(['email' => $this->faker->sentence])
+        $data = ['email' => $this->faker->sentence];
+
+        $this->getSubscribeRoute($data)
             ->assertRedirect()
-            ->assertSessionHasErrorsIn('newsletter', 'email');
+            ->assertSessionHasErrorsIn('newsletter', 'email')
+            ->assertSessionHasInput($data);
     }
 
-    private function getSubscribeRoute(array $parameters = []): TestResponse
+    private function getSubscribeRoute(array $data = []): TestResponse
     {
-        return $this->post(
-            route('newsletter.subscribe', $parameters)
-        );
+        return $this->post(route('newsletter.subscribe'), $data);
     }
 }

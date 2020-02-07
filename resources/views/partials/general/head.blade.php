@@ -19,3 +19,6 @@
 
 {{-- Schema --}}
 @include('partials.general.head.schema')
+
+{{-- Feed --}}
+@include('feed::links')
