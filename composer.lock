@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6b8f5a6e6898248d33e672b0493499d",
+    "content-hash": "6c83610a66c5d283ad9b1455e3657961",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1807,16 +1807,16 @@
         },
         {
             "name": "spatie/laravel-feed",
-            "version": "2.4.2",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-feed.git",
-                "reference": "732d840cfa6c0369a48fb32d136b812dc3d97ab1"
+                "reference": "b8a824fc4452a0b901db2dd4f94c48f7826597b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/732d840cfa6c0369a48fb32d136b812dc3d97ab1",
-                "reference": "732d840cfa6c0369a48fb32d136b812dc3d97ab1",
+                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/b8a824fc4452a0b901db2dd4f94c48f7826597b8",
+                "reference": "b8a824fc4452a0b901db2dd4f94c48f7826597b8",
                 "shasum": ""
             },
             "require": {
@@ -1875,7 +1875,7 @@
                 "rss",
                 "spatie"
             ],
-            "time": "2019-09-25T09:10:27+00:00"
+            "time": "2019-11-08T15:10:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
