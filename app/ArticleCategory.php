@@ -16,7 +16,7 @@ class ArticleCategory extends Model
     /**
      * The route namespace.
      *
-     * @var string[]
+     * @var array
      */
     protected $namespaces = [
         'web' => 'blog.categories.',
@@ -26,7 +26,7 @@ class ArticleCategory extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'slug',

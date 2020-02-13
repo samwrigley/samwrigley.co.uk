@@ -28,7 +28,7 @@ class Article extends Model implements Feedable
     /**
      * The route namespace.
      *
-     * @var string[]
+     * @var array
      */
     protected $namespaces = [
         'web' => 'blog.articles.',
@@ -38,7 +38,7 @@ class Article extends Model implements Feedable
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'title',

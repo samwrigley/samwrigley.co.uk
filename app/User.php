@@ -18,7 +18,7 @@ class User extends Authenticatable
     /**
      * The route namespace.
      *
-     * @var string[]
+     * @var array
      */
     protected $namespaces = [
         'web' => 'users.',
@@ -28,7 +28,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'slug',
@@ -41,7 +41,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be hidden for arrays.
      *
-     * @var string[]
+     * @var array
      */
     protected $hidden = [
         'password',
