@@ -3,15 +3,15 @@
 use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\ArticleController;
 
-Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+Route::group(['prefix' => 'blog', 'as' => 'blog.'], static function (): void {
     // Categories
-    Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+    Route::group(['prefix' => 'categories', 'as' => 'categories.'], static function (): void {
         Route::get('/', [ArticleCategoryController::class, 'index'])->name('index');
         Route::get('{category}', [ArticleCategoryController::class, 'show'])->name('show');
     });
 
     // Articles
-    Route::group(['as' => 'articles.'], function () {
+    Route::group(['as' => 'articles.'], static function (): void {
         Route::get('/', [ArticleController::class, 'index'])->name('index');
         Route::get('{article}', [ArticleController::class, 'show'])->name('show');
     });

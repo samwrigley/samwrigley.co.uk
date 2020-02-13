@@ -1,14 +1,16 @@
 <?php
 
-Route::get('/', function () {
+use Illuminate\View\View;
+
+Route::get('/', static function (): View {
     return view('pages.landing');
 })->name('home');
 
-Route::get('services', function () {
+Route::get('services', static function (): View {
     return view('pages.services');
 })->name('services');
 
-Route::get('about', function () {
+Route::get('about', static function (): View {
     return view('pages.about');
 })->name('about');
 
