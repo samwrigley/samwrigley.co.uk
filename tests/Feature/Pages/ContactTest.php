@@ -50,7 +50,7 @@ class ContactTest extends TestCase
             ->postContactRoute($data)
             ->assertViewIs('pages.contact')
             ->assertOk()
-            ->assertSeeText('Thank you for getting in touch!');
+            ->assertSeeText(__('contact.success'));
 
         Log::assertLoggedMessage('info', "Contact: {$data['email']}");
     }
@@ -67,7 +67,7 @@ class ContactTest extends TestCase
         $this->from(route('contact'))
             ->postContactRoute($data)
             ->assertRedirect(route('contact'))
-            ->assertSessionHas('contact', 'Thank you for getting in touch!')
+            ->assertSessionHas('contact', __('contact.success'))
             ->assertSessionHasNoErrors();
 
         Log::assertLoggedMessage('info', "Contact: {$data['email']}");
