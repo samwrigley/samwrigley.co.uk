@@ -11,7 +11,7 @@ class ContactRequest extends FormRequest
      *
      * @var string
      */
-    protected $errorBag = 'contact';
+    public $errorBag = 'contact';
 
     public function authorize(): bool
     {

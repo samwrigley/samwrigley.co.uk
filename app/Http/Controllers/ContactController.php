@@ -22,6 +22,6 @@ class ContactController extends Controller
 
         Log::info("Contact: {$request->email}");
 
-        return Redirect::back()->with('contact', 'Thank you for getting in touch!');
+        return Redirect::back()->with($request->errorBag, 'Thank you for getting in touch!');
     }
 }
