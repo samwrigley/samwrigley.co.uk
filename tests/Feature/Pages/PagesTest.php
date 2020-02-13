@@ -13,12 +13,6 @@ class PagesTest extends TestCase
     }
 
     /** @test */
-    public function can_visit_contact_view(): void
-    {
-        $this->get(route('contact'))->assertOk();
-    }
-
-    /** @test */
     public function can_visit_about_view(): void
     {
         $this->get(route('about'))->assertOk();

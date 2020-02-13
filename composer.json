@@ -30,6 +30,7 @@
         "nunomaduro/phpinsights": "^1.9",
         "phpunit/phpunit": "^8.0",
         "squizlabs/php_codesniffer": "^3.4",
+        "timacdonald/log-fake": "^1.4",
         "symfony/css-selector": "^5.0"
     },
     "config": {

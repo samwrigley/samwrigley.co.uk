@@ -5,33 +5,23 @@
 <nav>
     <ul class="flex">
         <li class="mr-4">
-            <a href="{{ route('about') }}">
-                @lang('Work')
-            </a>
+            <a href="{{ route('about') }}">Work</a>
         </li>
 
         <li class="mr-4">
-            <a href="{{ route('services') }}">
-                @lang('Services')
-            </a>
+            <a href="{{ route('services') }}">Services</a>
         </li>
 
         <li class="mr-4">
-            <a href="{{ route('about') }}">
-                @lang('About')
-            </a>
+            <a href="{{ route('blog.articles.index') }}">Blog</a>
         </li>
 
         <li class="mr-4">
-            <a href="{{ route('blog.articles.index') }}">
-                @lang('Blog')
-            </a>
+            <a href="{{ route('about') }}">About</a>
         </li>
 
         <li>
-            <a href="{{ route('contact') }}">
-                @lang('Contact')
-            </a>
+            <a href="{{ route('contact') }}">Contact</a>
         </li>
     </ul>
 </nav>
