@@ -7978,6 +7978,55 @@
             "time": "2019-06-13T22:48:21+00:00"
         },
         {
+            "name": "timacdonald/log-fake",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timacdonald/log-fake.git",
+                "reference": "84a15f2e37128209b6617ea8f73cd3abaee79911"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timacdonald/log-fake/zipball/84a15f2e37128209b6617ea8f73cd3abaee79911",
+                "reference": "84a15f2e37128209b6617ea8f73cd3abaee79911",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.6|^6.0",
+                "illuminate/container": "~5.6|^6.0",
+                "illuminate/support": "~5.6|^6.0",
+                "php": "^7.1.3",
+                "phpunit/phpunit": "^7.0|^8.0",
+                "psr/log": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TiMacDonald\\Log\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim MacDonald",
+                    "email": "hello@timacdonald.me",
+                    "homepage": "https://timacdonald.me"
+                }
+            ],
+            "description": "A drop in fake logger for testing with the Laravel framework.",
+            "keywords": [
+                "fake",
+                "laravel",
+                "log",
+                "logger",
+                "testing"
+            ],
+            "time": "2019-09-19T21:39:39+00:00"
+        },
+        {
             "name": "webmozart/assert",
             "version": "1.6.0",
             "source": {

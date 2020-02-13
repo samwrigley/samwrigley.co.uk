@@ -35,6 +35,8 @@
         </button>
     </form>
 
-    @include('components.general.errors', ['errorBag' => 'newsletter'])
-    @include('components.general.session', ['key' => 'newsletter'])
+    <div class="mt-4 text-md">
+        @include('components.general.errors', ['errorBag' => 'newsletter'])
+        @include('components.general.session', ['key' => 'newsletter'])
+    </div>
 </div>
