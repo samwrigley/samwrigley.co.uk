@@ -30,7 +30,7 @@ class AddSecurityHeaders
      *
      * @return string
      */
-    private function xssHeader()
+    private function xssHeader(): string
     {
         $xssHeader = '1; mode=block';
 

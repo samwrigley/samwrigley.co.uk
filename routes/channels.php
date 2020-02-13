@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
+Broadcast::channel('App.User.{id}', static function ($user, $id): bool {
     return (int) $user->id === (int) $id;
 });
