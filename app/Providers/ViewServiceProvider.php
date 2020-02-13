@@ -15,7 +15,7 @@ class ViewServiceProvider extends ServiceProvider
          * @example @date($value)
          */
         Blade::directive('date', function (string $date): string {
-            return "<?php echo ($date)->format('jS F Y'); ?>";
+            return "<?php echo (${date})->format('jS F Y'); ?>";
         });
     }
 }
