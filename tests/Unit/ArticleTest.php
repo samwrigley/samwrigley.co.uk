@@ -8,6 +8,7 @@ use App\ArticleSeries;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
+use Spatie\Feed\FeedItem;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
@@ -161,6 +162,38 @@ class ArticleTest extends TestCase
         $this->assertEquals($articleTwo->id, $secondArticle->id);
         $this->assertEquals($articleOne->id, $firstArticle->id);
         $this->assertNull($firstArticle->previous());
+    }
+
+    /** @test */
+    public function can_be_converted_to_feed_item(): void
+    {
+        $article = factory(Article::class)->states('published')->create();
+        $category = factory(ArticleCategory::class)->create();
+        $article->categories()->attach($category);
+
+        $feedItem = $article->toFeedItem();
+
+        $this->assertInstanceOf(FeedItem::class, $feedItem);
+        $this->assertEquals($article->id, $feedItem->id);
+        $this->assertEquals($article->title, $feedItem->title);
+        $this->assertEquals($article->excerpt, $feedItem->summary);
+        $this->assertEquals($article->published_at, $feedItem->updated);
+        $this->assertEquals($article->showPath(), $feedItem->link);
+        $this->assertEquals($article->author->name, $feedItem->author);
+        $this->assertEquals($article->categories()->first()->name, $feedItem->category);
+    }
+
+    /** @test */
+    public function can_get_published_feed_items(): void
+    {
+        factory(Article::class)->states('draft')->create();
+        factory(Article::class)->states('scheduled')->create();
+        $publishedArticle = factory(Article::class)->states('published')->create();
+
+        $feedItems = $publishedArticle->getFeedItems();
+
+        $this->assertCount(1, $feedItems);
+        $this->assertEquals($publishedArticle->fresh(), $feedItems->first());
     }
 
     protected function freezeTime(?Carbon $time = null): void
