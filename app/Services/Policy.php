@@ -7,7 +7,7 @@ use Spatie\Csp\Policies\Policy as BasePolicy;
 
 class Policy extends BasePolicy
 {
-    public function configure()
+    public function configure(): void
     {
         $this->addGeneralDirectives();
         $this->addDirectivesForFonts();
