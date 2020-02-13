@@ -37,7 +37,7 @@ class ContactTest extends TestCase
     }
 
     /** @test */
-    public function can_get_in_contact_with_valid_fields(): void
+    public function redirected_back_after_submission_submission(): void
     {
         $data = [
             'name' => $this->faker->name,
@@ -46,11 +46,29 @@ class ContactTest extends TestCase
         ];
 
         $this->followingRedirects()
-            ->from('contact')
-            ->getContactRoute($data)
+            ->from(route('contact'))
+            ->postContactRoute($data)
+            ->assertViewIs('pages.contact')
+            ->assertOk()
+            ->assertSeeText('Thank you for getting in touch!');
+
+        Log::assertLoggedMessage('info', "Contact: {$data['email']}");
+    }
+
+    /** @test */
+    public function session_has_correct_data_after_successful_submission(): void
+    {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->sentence,
+        ];
+
+        $this->from(route('contact'))
+            ->postContactRoute($data)
             ->assertRedirect(route('contact'))
-            ->assertSessionHasNoErrors()
-            ->assertOk();
+            ->assertSessionHas('contact', 'Thank you for getting in touch!')
+            ->assertSessionHasNoErrors();
 
         Log::assertLoggedMessage('info', "Contact: {$data['email']}");
     }
@@ -63,7 +81,8 @@ class ContactTest extends TestCase
             'message' => $this->faker->sentence,
         ];
 
-        $this->getContactRoute($data)
+        $this->from(route('contact'))
+            ->postContactRoute($data)
             ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'email')
             ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
@@ -79,7 +98,8 @@ class ContactTest extends TestCase
             'message' => $this->faker->sentence,
         ];
 
-        $this->getContactRoute($data)
+        $this->from(route('contact'))
+            ->postContactRoute($data)
             ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'email')
             ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
@@ -94,7 +114,8 @@ class ContactTest extends TestCase
             'message' => $this->faker->sentence,
         ];
 
-        $this->getContactRoute($data)
+        $this->from(route('contact'))
+            ->postContactRoute($data)
             ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'name')
             ->assertSessionDoesntHaveErrors(['email', 'message'], null, $this->errorBag)
@@ -109,7 +130,8 @@ class ContactTest extends TestCase
             'email' => $this->faker->email,
         ];
 
-        $this->getContactRoute($data)
+        $this->from(route('contact'))
+            ->postContactRoute($data)
             ->assertRedirect(route('contact'))
             ->assertSessionHasErrorsIn($this->errorBag, 'message')
             ->assertSessionDoesntHaveErrors(['name', 'email'], null, $this->errorBag)
@@ -125,12 +147,12 @@ class ContactTest extends TestCase
             'message' => $this->faker->sentence,
         ];
 
-        $this->getContactRoute($data);
+        $this->postContactRoute($data);
 
         $this->assertDatabaseHas('contacts', $data);
     }
 
-    protected function getContactRoute(array $data = []): TestResponse
+    protected function postContactRoute(array $data = []): TestResponse
     {
         return $this->post(route('contact.store'), $data);
     }
