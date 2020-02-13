@@ -37,7 +37,7 @@ class ContactTest extends TestCase
     }
 
     /** @test */
-    public function redirected_back_after_submission_submission(): void
+    public function redirected_back_after_successful_submission(): void
     {
         $data = [
             'name' => $this->faker->name,
