@@ -18,7 +18,7 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request): RedirectResponse
     {
-        Contact::create($request->all());
+        Contact::create($request->only(['name', 'email', 'message']));
 
         Log::info("Contact: {$request->email}");
 
