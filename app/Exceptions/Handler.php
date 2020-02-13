@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -45,7 +44,7 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception): Response
+    public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);
     }
