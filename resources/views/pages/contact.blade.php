@@ -34,6 +34,7 @@
                         name="name"
                         value="{{ old('name') }}"
                         placeholder="Full name"
+                        autocomplete="name"
                         required
                         class="block w-full px-6 py-4 bg-gray-200"
                         max="100"
@@ -50,6 +51,7 @@
                         name="email"
                         value="{{ old('email') }}"
                         placeholder="Email"
+                        autocomplete="email"
                         required
                         class="block w-full px-6 py-4 bg-gray-200"
                     >
