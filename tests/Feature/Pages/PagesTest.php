@@ -7,9 +7,10 @@ use Tests\TestCase;
 class PagesTest extends TestCase
 {
     /** @test */
-    public function can_visit_homepage_view(): void
+    public function homepage_redirects_to_blog(): void
     {
-        $this->get(route('home'))->assertOk();
+        $this->get(route('home'))
+            ->assertRedirect(route('blog.articles.index'));
     }
 
     /** @test */
