@@ -21,7 +21,7 @@ class ArticleShowTest extends TestCase
     {
         $category = factory(ArticleCategory::class)->create();
 
-        $article = factory(Article::class)->create(['published_at' => now()]);
+        $article = factory(Article::class)->states('published')->create();
         $article->categories()->save($category);
 
         $formattedPublishedAt = Carbon::parse($article->published_at)
@@ -42,8 +42,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function cannot_view_a_draft_article(): void
     {
-        $article = factory(Article::class)
-            ->create(['published_at' => null]);
+        $article = factory(Article::class)->states('draft')->create();
 
         $this->getArticleShowRoute($article->slug)
             ->assertNotFound();
@@ -52,8 +51,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function cannot_view_a_scheduled_article(): void
     {
-        $article = factory(Article::class)
-            ->create(['published_at' => now()->addDays(7)]);
+        $article = factory(Article::class)->states('scheduled')->create();
 
         $this->getArticleShowRoute($article->slug)
             ->assertNotFound();
