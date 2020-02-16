@@ -7,12 +7,14 @@ use App\ArticleCategory;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
 class ArticleShowTest extends TestCase
 {
     use RefreshDatabase;
+    use WithFaker;
 
     /** @test */
     public function can_view_a_published_article(): void
@@ -84,6 +86,19 @@ class ArticleShowTest extends TestCase
         $this->getArticleShowRoute($article->slug)
             ->assertDontSee('This article was published')
             ->assertDontSee('likely to be out-of-date');
+    }
+
+    /** @test */
+    public function can_subscribe_to_newsletter_with_valid_email(): void
+    {
+        $article = factory(Article::class)->states('published')->create();
+
+        $this->followingRedirects()
+            ->from(route('blog.articles.show', $article->slug))
+            ->post(route('newsletter.subscribe'), ['email' => $this->faker->email])
+            ->assertViewIs('articles.show')
+            ->assertOk()
+            ->assertSeeText(__('newsletter.success'));
     }
 
     protected function getArticleShowRoute(string $articleSlug): TestResponse
