@@ -74,7 +74,7 @@ class ArticleShowTest extends TestCase
             ->create(['published_at' => $date]);
 
         $this->getArticleShowRoute($article->slug)
-            ->assertSee(__('newsletter.out_of_date', ['date' => $date->diffForHumans()]));
+            ->assertSee(__('article.out_of_date', ['date' => $date->diffForHumans()]));
     }
 
     /** @test */
@@ -86,7 +86,7 @@ class ArticleShowTest extends TestCase
             ->create(['published_at' => $date]);
 
         $this->getArticleShowRoute($article->slug)
-            ->assertDontSee(__('newsletter.out_of_date', ['date' => $date->diffForHumans()]));
+            ->assertDontSee(__('article.out_of_date', ['date' => $date->diffForHumans()]));
     }
 
     /** @test */
