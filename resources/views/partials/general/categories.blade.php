@@ -8,10 +8,7 @@
     <ul>
         @foreach ($categories as $category)
             <li>
-                <a href="{{ $category->showPath() }}"
-                    title="@lang("Read all articles in $category->name")"
-                    aria-label="@lang("Read all articles in $category->name")"
-                >
+                <a href="{{ $category->showPath() }}">
                     {{ $category->name }}
                 </a>
 

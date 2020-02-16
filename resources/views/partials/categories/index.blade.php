@@ -2,10 +2,7 @@
     @if (count($category->articles))
         <li class="category">
             <h2 class="category__title">
-                <a href="{{ $category->showPath() }}"
-                    aria-label="@lang("Read all articles in $category->name")"
-                    title="@lang("Read all articles in $category->name")"
-                >
+                <a href="{{ $category->showPath() }}">
                     {{ $category->name }}
                 </a>
 

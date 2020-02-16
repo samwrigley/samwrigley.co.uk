@@ -7,10 +7,7 @@
             @include('partials.articles.categories')
 
             <h1 class="mb-4 text-6xl font-black leading-tight">
-                <a href="{{ $article->showPath() }}"
-                    aria-label="@lang("Read: $article->title")"
-                    title="@lang("Read: $article->title")"
-                >
+                <a href="{{ $article->showPath() }}">
                     {{ $article->title }}
                 </a>
             </h1>
