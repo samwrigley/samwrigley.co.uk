@@ -22,6 +22,14 @@ class NewsletterTest extends TestCase
     }
 
     /** @test */
+    public function session_has_correct_data_after_successful_subscription(): void
+    {
+        $this->getSubscribeRoute(['email' => $this->faker->email])
+            ->assertSessionHas('newsletter', __('newsletter.success'))
+            ->assertSessionHasNoErrors();
+    }
+
+    /** @test */
     public function email_is_required(): void
     {
         $this->getSubscribeRoute()
