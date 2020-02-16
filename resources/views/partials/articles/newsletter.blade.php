@@ -16,6 +16,7 @@
             placeholder="Subscribe for updates"
             required
             aria-describedby="emailLabel"
+            autocomplete="email"
             class="flex-1 px-6 py-4 text-xl bg-gray-200 focus:outline-none"
         >
 
