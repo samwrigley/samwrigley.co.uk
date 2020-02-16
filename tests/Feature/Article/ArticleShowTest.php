@@ -101,8 +101,8 @@ class ArticleShowTest extends TestCase
             ->assertSeeText(__('newsletter.success'));
     }
 
-    protected function getArticleShowRoute(string $articleSlug): TestResponse
+    protected function getArticleShowRoute(string $slug): TestResponse
     {
-        return $this->get(route('blog.articles.show', $articleSlug));
+        return $this->get(route('blog.articles.show', $slug));
     }
 }
