@@ -12,10 +12,7 @@
                     @if ($seriesArticle->id === $article->id)
                         {{ $seriesArticle->title }}
                     @else
-                        <a href="{{ $seriesArticle->showPath() }}"
-                            title="@lang("Read $seriesArticle->title")"
-                            aria-label="@lang("Read $seriesArticle->title")"
-                        >
+                        <a href="{{ $seriesArticle->showPath() }}">
                             {{ $seriesArticle->title }}
                         </a>
                     @endif
