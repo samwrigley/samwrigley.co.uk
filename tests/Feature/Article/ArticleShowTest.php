@@ -4,6 +4,7 @@ namespace Tests\Feature\Article;
 
 use App\Article;
 use App\ArticleCategory;
+use App\ArticleSeries;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
@@ -86,6 +87,34 @@ class ArticleShowTest extends TestCase
 
         $this->getArticleShowRoute($article->slug)
             ->assertDontSee(__('newsletter.out_of_date', ['date' => $date->diffForHumans()]));
+    }
+
+    /** @test */
+    public function can_see_in_series_notice_when_part_of_a_series(): void
+    {
+        $articleCount = 2;
+        $articles = factory(Article::class, $articleCount)->states('published')->create();
+        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleSeries->articles()->saveMany($articles);
+
+        $this->getArticleShowRoute($articles->first()->slug)
+            ->assertSee(__('article.in_series', ['count' => $articleCount]))
+            ->assertSee($articles->last()->title);
+
+        $this->getArticleShowRoute($articles->last()->slug)
+            ->assertSee(__('article.in_series', ['count' => $articleCount]))
+            ->assertSee($articles->first()->title);
+    }
+
+    /** @test */
+    public function cannot_see_in_series_notice_when_not_part_of_a_series(): void
+    {
+        $article = factory(Article::class)->states('published')->create();
+
+        $this->assertNull($article->series);
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertDontSee(__('article.in_series', ['count' => 1]));
     }
 
     /** @test */
