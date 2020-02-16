@@ -9,8 +9,8 @@ use Tests\TestCase;
 
 class NewsletterTest extends TestCase
 {
-    use WithFaker;
     use RefreshDatabase;
+    use WithFaker;
 
     /** @test */
     public function can_subscribe_to_newsletter_with_valid_email(): void
