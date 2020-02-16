@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'blog', 'as' => 'blog.'], static function (): void {
     // Categories
