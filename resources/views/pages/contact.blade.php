@@ -10,7 +10,6 @@
             <div class="text-2xl">
                 <ul class="text-gray-600 mb-8">
                     <li>How can I help you?</li>
-                    <li>What <a href="{{ route('services') }}" class="text-black">services</a> are you interested in?</li>
                     <li>Tell me about yourself or your company</li>
                 </ul>
 
