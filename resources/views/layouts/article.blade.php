@@ -3,22 +3,6 @@
 @section('content')
     <article class="pt-20">
         <header class="relative mx-auto max-w-4xl mb-16">
-            @if ($article->categories && $article->categories->count())
-                <ul class="mb-4 text-sm uppercase tracking-widest">
-                    @foreach ($article->categories as $category)
-                        <li class="leading-none">
-                            <a href="{{ $category->showPath() }}"
-                                title="@lang("Read all articles in $category->name")"
-                                aria-label="@lang("Read all articles in $category->name")"
-                                class="block text-gray-600 hover:text-gray-900"
-                            >
-                                {{ $category->name }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
-
             @if ($article->isOld())
                 <div class="flex mb-12">
                     <div class="flex px-6 py-4 bg-yellow-400 text-base">
@@ -34,6 +18,22 @@
                         </span>
                     </div>
                 </div>
+            @endif
+
+            @if ($article->categories && $article->categories->count())
+                <ul class="mb-4 text-sm uppercase tracking-widest">
+                    @foreach ($article->categories as $category)
+                        <li class="leading-none">
+                            <a href="{{ $category->showPath() }}"
+                                title="@lang("Read all articles in $category->name")"
+                                aria-label="@lang("Read all articles in $category->name")"
+                                class="block text-gray-600 hover:text-gray-900"
+                            >
+                                {{ $category->name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             @endif
 
             <h1 class="mb-4 text-6xl font-black leading-tight">
