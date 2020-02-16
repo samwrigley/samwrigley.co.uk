@@ -26,7 +26,6 @@ class FeedTest extends TestCase
     {
         $linkSelector = 'link[type="application/atom+xml"]';
 
-        $this->get(route('home'))->assertElementCount($linkSelector);
         $this->get(route('blog.articles.index'))->assertElementCount($linkSelector);
     }
 }
