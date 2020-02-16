@@ -70,10 +70,10 @@
                         rows="6"
                         required
                         class="block w-full px-6 py-4 bg-gray-200 mb-1"
-                        aria-describedby="message__information"
+                        aria-describedby="messageInformation"
                         max="2000"
                     ></textarea>
-                    <div id="message__information" class="text-sm text-gray-600">
+                    <div id="messageInformation" class="text-sm text-gray-600">
                         Maximum 2000 characters
                     </div>
                 </div>
