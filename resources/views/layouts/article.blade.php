@@ -88,7 +88,7 @@
             @if ($article->series && $article->series->articles->count())
                 <div class="text-xl">
                     <p class="mb-4">
-                        @lang("This article is part of a {$article->series->articles->count()} part series.")
+                        @lang('article.in_series', ['count' => $article->series->articles->count()])
                     </p>
                     <ul>
                         @foreach ($article->series->articles as $seriesArticle)
