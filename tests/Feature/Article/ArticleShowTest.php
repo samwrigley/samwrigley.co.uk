@@ -67,23 +67,25 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function can_see_out_of_date_notice_when_published_more_than_6_months_ago(): void
     {
+        $date = now()->subMonths(7);
+
         $article = factory(Article::class)
-            ->create(['published_at' => now()->subMonths(7)]);
+            ->create(['published_at' => $date]);
 
         $this->getArticleShowRoute($article->slug)
-            ->assertSee('This article was published')
-            ->assertSee('likely to be out-of-date');
+            ->assertSee(__('newsletter.out_of_date', ['date' => $date->diffForHumans()]));
     }
 
     /** @test */
     public function cant_see_out_of_date_notice_when_published_less_than_6_months_ago(): void
     {
+        $date = now()->subMonths(5);
+
         $article = factory(Article::class)
-            ->create(['published_at' => now()->subMonths(5)]);
+            ->create(['published_at' => $date]);
 
         $this->getArticleShowRoute($article->slug)
-            ->assertDontSee('This article was published')
-            ->assertDontSee('likely to be out-of-date');
+            ->assertDontSee(__('newsletter.out_of_date', ['date' => $date->diffForHumans()]));
     }
 
     /** @test */

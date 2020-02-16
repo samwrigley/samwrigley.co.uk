@@ -29,14 +29,8 @@
                         >
                             <path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2zm-1.13 6h2.25v11h-2.25zM16 25a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 16 25z" />
                         </svg>
-                        <span class="mr-1">
-                            @lang('This article was published')
-                        </span>
-                        <span class="mr-1 font-bold">
-                            {{ $article->published_at->diffForHumans() }}
-                        </span>
-                        <span >
-                            @lang('and likely to be out-of-date.')
+                        <span>
+                            @lang('newsletter.out_of_date', ['date' => $article->published_at->diffForHumans()])
                         </span>
                     </div>
                 </div>
