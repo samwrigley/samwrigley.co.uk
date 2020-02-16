@@ -16,6 +16,8 @@ class PagesTest extends TestCase
     /** @test */
     public function can_visit_about_view(): void
     {
-        $this->get(route('about'))->assertOk();
+        $this->get(route('about'))
+            ->assertViewIs('pages.about')
+            ->assertOk();
     }
 }
