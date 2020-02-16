@@ -24,8 +24,7 @@ class ArticleController extends Controller
             ->paginate();
 
         return view($this->namespace . 'index', [
-            'articles' => $articles,
-            'featuredArticle' => $articles->first(),
+            'articles' => $articles
         ]);
     }
 
