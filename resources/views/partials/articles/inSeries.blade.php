@@ -9,7 +9,7 @@
                     <span class="mr-1 text-gray-600">
                         @lang('Part') {{ $loop->index + 1}}:
                     </span>
-                    @if ($seriesArticle->showPath() === $article->showPath())
+                    @if ($seriesArticle->id === $article->id)
                         {{ $seriesArticle->title }}
                     @else
                         <a href="{{ $seriesArticle->showPath() }}"
