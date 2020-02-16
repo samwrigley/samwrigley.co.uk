@@ -24,8 +24,7 @@ class FeedTest extends TestCase
     /** @test */
     public function has_feed_link_element(): void
     {
-        $linkSelector = 'link[type="application/atom+xml"]';
-
-        $this->get(route('blog.articles.index'))->assertElementCount($linkSelector);
+        $this->get(route('blog.articles.index'))
+            ->assertElementCount('link[type="application/atom+xml"]');
     }
 }
