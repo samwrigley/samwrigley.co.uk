@@ -14,6 +14,6 @@ class NewsletterController extends Controller
         Log::info("Newsletter subscription: {$request->email}");
 
         return Redirect::back()
-            ->with('newsletter', 'Thank you for subscribing!');
+            ->with('newsletter', __('newsletter.success'));
     }
 }
