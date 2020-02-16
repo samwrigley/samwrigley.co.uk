@@ -16,7 +16,7 @@ class NewsletterTest extends TestCase
     public function can_subscribe_to_newsletter_with_valid_email(): void
     {
         $this->followingRedirects()
-            ->getSubscribeRoute(['email' => $this->faker->email])
+            ->postSubscribeRoute(['email' => $this->faker->email])
             ->assertSessionHasNoErrors()
             ->assertOk();
     }
@@ -24,7 +24,7 @@ class NewsletterTest extends TestCase
     /** @test */
     public function session_has_correct_data_after_successful_subscription(): void
     {
-        $this->getSubscribeRoute(['email' => $this->faker->email])
+        $this->postSubscribeRoute(['email' => $this->faker->email])
             ->assertSessionHas('newsletter', __('newsletter.success'))
             ->assertSessionHasNoErrors();
     }
@@ -32,7 +32,7 @@ class NewsletterTest extends TestCase
     /** @test */
     public function email_is_required(): void
     {
-        $this->getSubscribeRoute()
+        $this->postSubscribeRoute()
             ->assertRedirect()
             ->assertSessionHasErrorsIn('newsletter', 'email');
     }
@@ -42,13 +42,13 @@ class NewsletterTest extends TestCase
     {
         $data = ['email' => $this->faker->sentence];
 
-        $this->getSubscribeRoute($data)
+        $this->postSubscribeRoute($data)
             ->assertRedirect()
             ->assertSessionHasErrorsIn('newsletter', 'email')
             ->assertSessionHasInput($data);
     }
 
-    protected function getSubscribeRoute(array $data = []): TestResponse
+    protected function postSubscribeRoute(array $data = []): TestResponse
     {
         return $this->post(route('newsletter.subscribe'), $data);
     }
