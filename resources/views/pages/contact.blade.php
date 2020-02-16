@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('title', 'Contact')
+
 @section('content')
     <div class="flex border-black border">
         <div class="w-1/2 p-16 border-r border-black">

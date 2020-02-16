@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('title', 'About')
+
 @section('content')
     <div class="max-w-4xl mt-8">
         <h1 class="mb-6 text-2xl font-black">

@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('title', $category->name)
+
 @section('content')
     <div class="flex flex-wrap border-t border-l border-gray-900 mb-12">
         @foreach ($articles as $article)
