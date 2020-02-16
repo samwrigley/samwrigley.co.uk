@@ -86,7 +86,7 @@ class ArticleShowTest extends TestCase
             ->assertDontSee('likely to be out-of-date');
     }
 
-    private function getArticleShowRoute(string $articleSlug): TestResponse
+    protected function getArticleShowRoute(string $articleSlug): TestResponse
     {
         return $this->get(
             route('blog.articles.show', $articleSlug)

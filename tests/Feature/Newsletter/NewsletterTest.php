@@ -40,7 +40,7 @@ class NewsletterTest extends TestCase
             ->assertSessionHasInput($data);
     }
 
-    private function getSubscribeRoute(array $data = []): TestResponse
+    protected function getSubscribeRoute(array $data = []): TestResponse
     {
         return $this->post(route('newsletter.subscribe'), $data);
     }
