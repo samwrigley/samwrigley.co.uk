@@ -1,4 +1,6 @@
-## Personal Website
+# Personal Website
+
+[![StyleCI](https://styleci.io/repos/108089774/shield)](https://styleci.io/repos/108089774)
 
 Hello, I'm Sam Wrigley. I'm a Web-Developer and Graphic Designer.
 

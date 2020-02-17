@@ -1,0 +1,13 @@
+.author-links {
+    li {
+        display: inline-block;
+
+        &:not(:last-of-type) {
+            margin-right: $site-spacing/2;
+        }
+    }
+
+    .btn--social {
+        min-width: 50px;
+    }
+}

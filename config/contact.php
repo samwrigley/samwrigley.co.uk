@@ -7,6 +7,6 @@
 */
 
 return [
-    'email' => 'sam@samwrigley.co.uk',
-    'telephone' => '+447428535310',
+    'email' => env('CONTACT_EMAIL'),
+    'telephone' => env('CONTACT_TELEPHONE'),
 ];

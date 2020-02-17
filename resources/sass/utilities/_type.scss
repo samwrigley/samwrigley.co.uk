@@ -1,0 +1,72 @@
+html {
+    font-size: 10px;
+    font-family: $font-family-primary;
+    color: $colour-font-medium;
+}
+
+body {
+    @include type('body');
+}
+
+p {
+    @include type('p');
+
+    max-width: $max-line-length;
+
+    &:not(:last-child, :only-child) {
+        // TODO: Remove important and fix in Core Sass
+        margin-bottom: $site-spacing !important;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all $transition-primary;
+
+    &:hover {
+        color: $colour-secondary;
+    }
+}
+
+small {
+    @include type('small');
+
+    letter-spacing: $letter-spacing-secondary;
+}
+
+%heading {
+    color: $colour-font-dark;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @extend %heading;
+}
+
+h1 {
+    @include type('h1');
+}
+
+h2 {
+    @include type('h2');
+}
+
+h3 {
+    @include type('h3');
+}
+
+h4 {
+    @include type('h4');
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}

@@ -1,0 +1,113 @@
+// Breakpoints
+$small: 600px;
+$medium: 800px;
+$large: 1050px;
+$vlarge: 1400px;
+$vvlarge: 1600px;
+
+$max: max-width;
+$min: min-width;
+$breakpoints: (
+    'small': $small,
+    'medium': $medium,
+    'large': $large,
+    'vlarge': $vlarge,
+    'vvlarge': $vvlarge,
+);
+
+$site-width: $vvlarge;
+
+// Spacing
+$site-spacing: 20px;
+$max-line-length: 900px;
+
+// Transitions
+$transition-primary: 0.2s ease-in-out;
+$transition-secondary: 0.1s ease-in-out;
+
+// Font families
+$font-family-primary: 'Inter', sans-serif;
+$font-family-secondary: 'Inconsolata', monospace;
+
+// Font weights
+$font-weight-primary: 400;
+$font-weight-secondary: 600;
+$font-weight-alternative: 200;
+
+// Font sizes
+$font-sizes: (
+    'body': 2.2rem,
+    'small': 1.8rem,
+    'p': inherit,
+    'h4': 2.4rem,
+    'h3': 2.8rem,
+    'h2': 3.2rem,
+    'h1': 4rem
+);
+
+// Line heights
+$line-heights: (
+    'body': 1.7,
+    'small': 1.5,
+    'p': inherit,
+    'h4': 1.6,
+    'h3': 1.4,
+    'h2': 1.4,
+    'h1': 1.4
+);
+
+// Letter spacing
+$letter-spacing-primary: 0em;
+$letter-spacing-secondary: 0.04em;
+
+// Colours
+$colours: (
+    'white': #fff,
+    'background': #fdfdfd,
+    'light-grey': #e5e5e5,
+    'line-grey': #d9d9d9,
+    'medium-grey': #868e96,
+    'dark-grey': #323232,
+    'black': #191919,
+    'brand1': #2400f1,
+    'facebook': #305c99,
+    'twitter': #3aaef0,
+    'google-plus': #d34836,
+    'linkedin': #0077b5,
+    'github': #4078c0,
+);
+
+$colour-primary: map-get($colours, 'black');
+$colour-secondary: map-get($colours, 'brand1');
+$colour-background: map-get($colours, 'background');
+
+// Font colours
+$colour-font-dark: map-get($colours, 'black');
+$colour-font-medium: map-get($colours, 'dark-grey');
+$colour-font-light: map-get($colours, 'medium-grey');
+$colour-font-placeholder: map-get($colours, 'medium-grey');
+$colour-font-action: map-get($colours, 'brand1');
+
+// Button colours
+$colour-button: (
+    'primary': $colour-primary,
+    'secondary': $colour-secondary,
+    'danger': $colour-secondary,
+);
+
+// Button colours
+$colour-alert: (
+    'success': #cfebb1,
+    'danger': #f10021,
+);
+
+// Borders
+$border-primary: 1px solid map-get($colours, 'black');
+$border-secondary: 1px solid map-get($colours, 'brand1');
+$border-alternative: 1px solid map-get($colours, 'line-grey');
+
+// Border radiuses
+$border-radius-primary: 5px;
+
+// Box shadows
+$box-shadow-primary: 0 5px 15px 0 rgba(0, 0, 0, 0.1);

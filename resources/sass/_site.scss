@@ -1,0 +1,43 @@
+/**
+ * General site styling
+ */
+
+body {
+    background-color: $colour-background;
+}
+
+.site {
+    max-width: $site-width;
+    margin: 0 auto;
+    padding: 0 $site-spacing;
+
+    // Position flash messages
+    position: relative;
+
+    &__main {
+        &--aside {
+            display: flex;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    &__aside {
+        @include below(medium) {
+            width: 100%;
+        }
+
+        @include above(medium) {
+            padding-left: $site-spacing*4;
+            flex-basis: auto;
+        }
+    }
+}
+
+// Set input placeholder text colour
+::placeholder {
+    color: $colour-font-placeholder;
+}

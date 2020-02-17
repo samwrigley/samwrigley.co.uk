@@ -40,6 +40,12 @@
     <exclude-pattern>*/docs/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/migrations/*</exclude-pattern>
+    <exclude-pattern>*/public/index.php</exclude-pattern>
+
+    <!-- Allow snake case method names in tests -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>*Test.php</exclude-pattern>
+    </rule>
 
     <!--
        You can hard-code command line values into your custom standard.

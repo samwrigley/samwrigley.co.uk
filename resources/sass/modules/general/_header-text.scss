@@ -1,0 +1,15 @@
+.header-text {
+    margin-bottom: $site-spacing*4;
+
+    &__pre-heading {
+        @extend small;
+
+        margin-bottom: $site-spacing;
+    }
+
+    &__heading {
+        &:not(:last-child) {
+            margin-bottom: $site-spacing*2;
+        }
+    }
+}
