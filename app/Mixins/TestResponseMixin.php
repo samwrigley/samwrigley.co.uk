@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace App\Mixins;
 
 use Closure;
 use DOMDocument;
