@@ -8,12 +8,7 @@ use Illuminate\View\View;
 
 class ArticleCategoryController extends Controller
 {
-    /**
-     * The route namespace.
-     *
-     * @var string
-     */
-    protected $namespace = 'categories.';
+    protected string $namespace = 'categories.';
 
     public function index(): View
     {

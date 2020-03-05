@@ -30,7 +30,7 @@ class Article extends Model implements Feedable
      *
      * @var array
      */
-    protected $namespaces = [
+    protected array $namespaces = [
         'web' => 'blog.articles.',
         'admin' => 'admin.articles.',
     ];
