@@ -14,7 +14,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v1
         with:
-            php-version: '7.3'
+            php-version: '7.4'
             coverage: none
 
       - name: Copy environment file
@@ -54,7 +54,7 @@ jobs:
         run: php artisan dusk --stop-on-error --stop-on-failure
 
       - name: PHP Insights
-        run: php artisan insights --no-interaction --min-quality=93 --min-complexity=98 --min-architecture=95 --min-style=98
+        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=95 --min-architecture=90 --min-style=95 --format=github-action
 
       - name: PHP Linting
         run: npm run lint:php

@@ -20,7 +20,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $namespaces = [
+    protected array $namespaces = [
         'web' => 'users.',
         'admin' => 'admin.users.',
     ];
