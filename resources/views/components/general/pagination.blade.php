@@ -1,13 +1,13 @@
 @if ($paginator->hasPages())
-    <div class="mb-12 flex text-3xl">
+    <div class="flex flex-col text-3xl sm:flex-row">
         {{-- Previous Page --}}
         @if ($paginator->onFirstPage())
-            <div class="w-1/2 border border-gray-900"></div>
+            <div class="hidden w-1/2 border border-gray-900 sm:block"></div>
         @else
             <a
                 href="{{ $paginator->previousPageUrl() }}"
                 rel="prev"
-                class="group w-1/2 p-12 border border-gray-900 hover:bg-gray-800 hover:text-white"
+                class="group w-full p-6 border border-gray-900 hover:bg-gray-800 hover:text-white sm:w-1/2 sm:p-12"
             >
                 <div class="mb-3 leading-none">
                     @lang('Previous')
@@ -23,7 +23,11 @@
             <a
                 href="{{ $paginator->nextPageUrl() }}"
                 rel="next"
-                class="group w-1/2 p-12 text-right border border-l-0 border-gray-900 hover:bg-gray-800 hover:text-white"
+                class="group w-full p-6 text-right border border-gray-900 hover:bg-gray-800 hover:text-white
+                    @if (!$paginator->onFirstPage())
+                        border-t-0
+                    @endif
+                    sm:w-1/2 sm:border-t sm:border-l-0 sm:p-12"
             >
                 <div class="mb-3 leading-none">
                         @lang('Next')
@@ -33,7 +37,7 @@
                 </div>
             </a>
         @else
-            <div class="w-1/2 border border-l-0 border-gray-900"></div>
+            <div class="hidden w-1/2 border border-l-0 border-gray-900 sm:block"></div>
         @endif
     </div>
 @endif
