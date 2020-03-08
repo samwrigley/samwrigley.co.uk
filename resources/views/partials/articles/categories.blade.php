@@ -1,5 +1,5 @@
 @if ($article->categories && $article->categories->count())
-    <ul class="mb-4 text-sm uppercase tracking-widest">
+    <ul class="mb-4 text-xs uppercase tracking-widest sm:text-sm">
         @foreach ($article->categories as $category)
             <li class="leading-none">
                 <a href="{{ $category->showPath() }}"
