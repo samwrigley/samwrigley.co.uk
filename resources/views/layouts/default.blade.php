@@ -4,7 +4,7 @@
         @include('partials.general.head')
     </head>
     <body class="min-h-screen">
-        <div id="app" class="p-8 flex flex-col min-h-screen">
+        <div id="app" class="px-4 py-6 flex flex-col min-h-screen sm:p-8">
             <div class="flex mb-8 text-base leading-none">
                 @include('partials.general.header')
             </div>
