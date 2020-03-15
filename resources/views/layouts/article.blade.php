@@ -6,7 +6,7 @@
             @include('partials.articles.outOfDate')
             @include('partials.articles.categories')
 
-            <h1 class="mb-4 text-3xl font-black leading-tight sm:text-6xl">
+            <h1 class="mb-4 text-3xl font-black leading-tight md:text-4xl lg:text-6xl">
                 <a href="{{ $article->showPath() }}">
                     {{ $article->title }}
                 </a>
@@ -31,7 +31,7 @@
             @yield('body')
         </div>
 
-        <footer class="flex flex-col border border-black sm:flex-row">
+        <footer class="flex flex-col border border-black lg:flex-row">
             @include('partials.articles.info')
             @include('partials.articles.newsletter')
         </footer>
