@@ -1,7 +1,7 @@
 @if ($article->categories && $article->categories->count())
-    <ul class="mb-4 text-xs uppercase tracking-widest sm:text-sm">
+    <ul class="flex flex-col sm:flex-row">
         @foreach ($article->categories as $category)
-            <li class="leading-none">
+            <li class="mb-1 last-child:mb-0 sm:mr-3 sm:mb-0 sm:last-child:mr-0">
                 <a href="{{ $category->showPath() }}"
                     class="block text-gray-600 hover:text-gray-900"
                 >
