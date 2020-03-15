@@ -1,9 +1,9 @@
-<div class="flex-1 p-6 border-b border-black sm:p-16 sm:border-r sm:border-b-0">
-    <h3 class="mb-2 text-2xl sm:text-4xl">
+<div class="flex-1 p-6 border-b border-black lg:p-16 lg:border-r lg:border-b-0">
+    <h3 class="mb-2 text-2xl lg:text-4xl">
         Want to get in touch?
     </h3>
 
-    <p class="text-base text-gray-600 sm:text-2xl">
+    <p class="text-base text-gray-600 lg:text-2xl">
         Say Hi on
         <a href="https://twitter.com/samwrigley" class="text-gray-900">Twitter</a>,
         <a href="https://github.com/samwrigley" class="text-gray-900">Github</a>,
