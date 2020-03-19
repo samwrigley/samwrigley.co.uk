@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Contact;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactRequest extends FormRequest
@@ -20,10 +21,12 @@ class ContactRequest extends FormRequest
 
     public function rules(): array
     {
+        $maxMessageLength = Contact::MAX_MESSAGE_LENGTH;
+
         return [
             'name' => 'required|string',
             'email' => 'required|email',
-            'message' => 'required|string',
+            'message' => "required|string|max:{$maxMessageLength}",
         ];
     }
 }
