@@ -1,24 +1,28 @@
 @if ($article->series && $article->series->articles->count())
-    <div class="text-xl py-8 border-t border-b border-gray-200">
-        <p class="mb-4 text-sm uppercase tracking-widest text-gray-600">
+    <div class="py-6 border-t border-b border-gray-200 sm:py-8">
+        <p class="mb-4 text-xs uppercase tracking-widest sm:text-sm">
             @lang('article.in_series', ['count' => $article->series->articles->count()])
         </p>
-        <ul>
+        <ul class="text-base sm:text-xl">
             @foreach ($article->series->articles as $seriesArticle)
-                <li class="mb-1 last-child:mb-0">
+                <li class="mb-2 last-child:mb-0">
                     @if ($seriesArticle->id === $article->id)
-                        <span class="text-gray-600">
-                            <span class="mr-1 font-semibold">
+                        <div class="flex items-start text-gray-600">
+                            <span class="flex-shrink-0 mr-2">
                                 @lang('Part') {{ $loop->index + 1}}:
                             </span>
-                            {{ $seriesArticle->title }}
-                        </span>
+                            <span>
+                                {{ $seriesArticle->title }}
+                            </span>
+                        </div>
                     @else
-                        <a href="{{ $seriesArticle->showPath() }}" class="hover:text-gray-600">
-                            <span class="mr-1 font-semibold">
+                        <a href="{{ $seriesArticle->showPath() }}" class="flex items-start hover:text-gray-600">
+                            <span class="flex-shrink-0 mr-2">
                                 @lang('Part') {{ $loop->index + 1}}:
                             </span>
-                            {{ $seriesArticle->title }}
+                            <span class="font-semibold">
+                                {{ $seriesArticle->title }}
+                            </span>
                         </a>
                     @endif
                 </li>
