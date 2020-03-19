@@ -139,6 +139,21 @@ class ContactTest extends TestCase
     }
 
     /** @test */
+    public function message_must_be_shorter_than_maximum_length(): void
+    {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->paragraphs(20, true),
+        ];
+
+        $this->from(route('contact'))
+            ->postContactRoute($data)
+            ->assertSessionHasErrorsIn($this->errorBag, 'message')
+            ->assertSessionHasInput($data);
+    }
+
+    /** @test */
     public function data_is_persisted_in_database(): void
     {
         $data = [
