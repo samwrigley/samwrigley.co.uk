@@ -10,6 +10,9 @@ class CreateArticleSeriesTable extends Migration
     {
         Schema::create('article_series', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
