@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Article;
-use Illuminate\Database\Eloquent\Model;
+use App\Model;
 use App\Traits\HasArticles;
 use App\Traits\HasPublishableRelationship;
 use Illuminate\Database\Eloquent\Relations\HasMany;
