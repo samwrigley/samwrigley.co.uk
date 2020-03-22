@@ -9,7 +9,7 @@
                     @if ($seriesArticle->id === $article->id)
                         <div class="flex items-start text-gray-600">
                             <span class="flex-shrink-0 mr-2">
-                                @lang('Part') {{ $loop->index + 1}}:
+                                @lang('Part') {{ $loop->index + 1 }}:
                             </span>
                             <span>
                                 {{ $seriesArticle->title }}
@@ -18,7 +18,7 @@
                     @else
                         <a href="{{ $seriesArticle->showPath() }}" class="flex items-start hover:text-gray-600">
                             <span class="flex-shrink-0 mr-2">
-                                @lang('Part') {{ $loop->index + 1}}:
+                                @lang('Part') {{ $loop->index + 1 }}:
                             </span>
                             <span class="font-semibold">
                                 {{ $seriesArticle->title }}
