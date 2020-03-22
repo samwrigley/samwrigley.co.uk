@@ -13,6 +13,16 @@ class ArticleSeries extends Model
     use HasArticles;
     use HasPublishableRelationship;
 
+    /**
+     * The route namespace.
+     *
+     * @var array
+     */
+    protected array $namespaces = [
+        'web' => 'blog.series.',
+        'admin' => 'admin.blog.series.',
+    ];
+
     public function articles(): HasMany
     {
         return $this->hasMany(Article::class)
