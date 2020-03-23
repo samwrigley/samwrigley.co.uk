@@ -1,15 +1,11 @@
 @if ($article->series && $article->series->articles->count())
     <div class="py-6 border-t border-b border-gray-200 sm:py-8">
         <p class="mb-6 text-xs uppercase tracking-widest sm:text-sm sm:mb-8">
-            @if ($article->series->title && $article->series->showPath())
-                @lang('article.in_the_series', ['count' => $article->series->articles->count()])
+            @lang('article.in_series', ['count' => $article->series->articles->count()])
 
-                <a href="{{ $article->series->showPath() }}" class="font-bold">
-                    {{ $article->series->title }}
-                </a>
-            @else
-                @lang('article.in_a_series', ['count' => $article->series->articles->count()])
-            @endif
+            <a href="{{ $article->series->showPath() }}" class="font-bold">
+                {{ $article->series->title }}
+            </a>
         </p>
 
         <ul class="text-base sm:text-lg">
