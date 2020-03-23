@@ -90,7 +90,24 @@ class ArticleShowTest extends TestCase
     }
 
     /** @test */
-    public function can_see_in_series_notice_when_part_of_a_series(): void
+    public function can_see_in_a_series_notice_when_part_of_a_series_with_no_title(): void
+    {
+        $articleCount = 2;
+        $articles = factory(Article::class, $articleCount)->states('published')->create();
+        $articleSeries = factory(ArticleSeries::class)->create(['title' => null]);
+        $articleSeries->articles()->saveMany($articles);
+
+        $this->getArticleShowRoute($articles->first()->slug)
+            ->assertSee(__('article.in_a_series', ['count' => $articleCount]))
+            ->assertSee($articles->last()->title);
+
+        $this->getArticleShowRoute($articles->last()->slug)
+            ->assertSee(__('article.in_a_series', ['count' => $articleCount]))
+            ->assertSee($articles->first()->title);
+    }
+
+    /** @test */
+    public function can_see_in_the_series_notice_when_part_of_a_series_with_title(): void
     {
         $articleCount = 2;
         $articles = factory(Article::class, $articleCount)->states('published')->create();
@@ -98,11 +115,11 @@ class ArticleShowTest extends TestCase
         $articleSeries->articles()->saveMany($articles);
 
         $this->getArticleShowRoute($articles->first()->slug)
-            ->assertSee(__('article.in_series', ['count' => $articleCount]))
+            ->assertSee(__('article.in_the_series', ['count' => $articleCount]))
             ->assertSee($articles->last()->title);
 
         $this->getArticleShowRoute($articles->last()->slug)
-            ->assertSee(__('article.in_series', ['count' => $articleCount]))
+            ->assertSee(__('article.in_the_series', ['count' => $articleCount]))
             ->assertSee($articles->first()->title);
     }
 
@@ -114,7 +131,8 @@ class ArticleShowTest extends TestCase
         $this->assertNull($article->series);
 
         $this->getArticleShowRoute($article->slug)
-            ->assertDontSee(__('article.in_series', ['count' => 1]));
+            ->assertDontSee(__('article.in_a_series', ['count' => 1]))
+            ->assertDontSee(__('article.in_the_series', ['count' => 1]));
     }
 
     /** @test */
