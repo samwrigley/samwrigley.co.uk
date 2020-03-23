@@ -17,11 +17,21 @@ trait InSeries
 
     public function next(): ?Article
     {
-        return $this->series->articles->find($this->id + 1);
+        return $this->series
+            ->hasMany(Article::class)
+            ->published()
+            ->whereDate('published_at', '>', $this->published_at)
+            ->oldest('published_at')
+            ->first();
     }
 
     public function previous(): ?Article
     {
-        return $this->series->articles->find($this->id - 1);
+        return $this->series
+            ->hasMany(Article::class)
+            ->published()
+            ->whereDate('published_at', '<', $this->published_at)
+            ->latest('published_at')
+            ->first();
     }
 }
