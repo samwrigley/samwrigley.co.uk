@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', $series->name)
+@section('title', $series->title ?: 'Series')
 
 @section('content')
     <div class="flex flex-wrap border-t border-l border-gray-900 mb-12">
