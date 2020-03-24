@@ -1,9 +1,10 @@
 <?php
 
+use App\ArticleSeries;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
-$factory->define(App\ArticleSeries::class, function (Faker $faker) {
+$factory->define(ArticleSeries::class, function (Faker $faker): array {
     $title = $faker->unique()->words(5, true);
 
     return [
