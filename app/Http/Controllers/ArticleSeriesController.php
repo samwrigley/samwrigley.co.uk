@@ -13,6 +13,7 @@ class ArticleSeriesController extends Controller
     {
         $series = ArticleSeries::hasPublished('articles')
             ->latest()
+            ->withArticles()
             ->paginate();
 
         return view($this->namespace . 'index', [
