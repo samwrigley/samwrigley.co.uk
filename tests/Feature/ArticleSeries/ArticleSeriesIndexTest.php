@@ -26,6 +26,15 @@ class ArticleSeriesIndexTest extends TestCase
             ->assertSeeInOrder($series->sortByDesc('created_at')->pluck('title')->toArray());
     }
 
+    /** @test */
+    public function can_see_a_list_of_paginated_series(): void
+    {
+        $series = factory(ArticleSeries::class, 18)->state('withArticles')->create();
+        $seriesTitles = $series->pluck('title');
+
+        $this->getSeriesIndexRoute()
+            ->assertSeeInOrder($seriesTitles->forPage(1, 9)->toArray())
+            ->assertDontSee($seriesTitles->forPage(2, 9)->first());
     }
 
     /** @test */
