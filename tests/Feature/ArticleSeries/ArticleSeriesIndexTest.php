@@ -13,7 +13,7 @@ class ArticleSeriesIndexTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function can_see_a_list_of_categories(): void
+    public function can_see_a_list_of_series(): void
     {
         $series = factory(ArticleSeries::class)->create();
         $articles = factory(Article::class, 5)->create();

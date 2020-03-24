@@ -90,7 +90,7 @@ class ArticleShowTest extends TestCase
     }
 
     /** @test */
-    public function can_see_in_the_series_notice_when_part_of_a_series(): void
+    public function can_see_in_series_notice_when_part_of_a_series(): void
     {
         $articleCount = 2;
         $articles = factory(Article::class, $articleCount)->states('published')->create();
