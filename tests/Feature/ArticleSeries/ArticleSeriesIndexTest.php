@@ -13,16 +13,19 @@ class ArticleSeriesIndexTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function can_see_a_list_of_series(): void
+    public function can_see_a_list_of_series_in_chronological_order(): void
     {
-        $series = factory(ArticleSeries::class)->create();
-        $articles = factory(Article::class, 5)->create();
-
-        $series->articles()->saveMany($articles);
+        $series = collect([
+            factory(ArticleSeries::class)->state('withArticles')->create(['created_at' => now()->subDays(2)]),
+            factory(ArticleSeries::class)->state('withArticles')->create(['created_at' => now()->subDay()]),
+            factory(ArticleSeries::class)->state('withArticles')->create(['created_at' => now()]),
+        ]);
 
         $this->getSeriesIndexRoute()
             ->assertOk()
-            ->assertSee($series->title);
+            ->assertSeeInOrder($series->sortByDesc('created_at')->pluck('title')->toArray());
+    }
+
     }
 
     /** @test */
