@@ -15,12 +15,12 @@
                 class="block group relative p-6 pb-16 hover:bg-gray-100 sm:p-12 sm:pb-32"
             >
                 <article>
-                    <header class="mb-6">
+                    <header class="mb-6 last-child:mb-0">
                         <div class="mb-6 text-xs text-gray-600 uppercase tracking-widest leading-none sm:mb-12 sm:text-sm">
                             {{ $series->publishedArticleCount() }} part series
                         </div>
 
-                        <h2 class="mb-2 text-2xl leading-tight font-bold sm:text-4xl">
+                        <h2 class="text-2xl leading-tight font-bold sm:text-4xl">
                             {{ $series->title }}
                         </h2>
                     </header>
