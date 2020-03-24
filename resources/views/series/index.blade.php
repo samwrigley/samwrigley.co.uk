@@ -7,7 +7,7 @@
         All Series
     </h1>
 
-    <div class="grid">
+    <div class="grid mb-6 sm:mb-12">
         @foreach ($allSeries as $series)
             <a href="{{ $series->showPath() }}"
                 aria-label="Read {{ $series->title }}"
@@ -46,4 +46,6 @@
             </a>
         @endforeach
     </div>
+
+    @include('partials.general.pagination', ['items' => $allSeries])
 @endsection
