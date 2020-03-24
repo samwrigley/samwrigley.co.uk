@@ -122,7 +122,7 @@ a {
     @apply flex flex-wrap border-l border-gray-900;
 
     > * {
-        @apply border-r border-b border-gray-900;
+        @apply w-full border-r border-b border-gray-900;
 
         &:first-child {
             @apply border-t;
