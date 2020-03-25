@@ -48,7 +48,7 @@
                             {{ $article->title }}
                         </h2>
 
-                        @if ($article->published_at)
+                        @if ($article->published())
                             <time datetime="{{ $article->published_at }}"
                                 aria-label="@lang('Posted On')"
                                 class="text-base text-gray-600"
