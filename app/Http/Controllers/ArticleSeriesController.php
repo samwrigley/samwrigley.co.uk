@@ -28,7 +28,9 @@ class ArticleSeriesController extends Controller
             ->withArticles()
             ->firstOrFail();
 
-        $articles = $series->articles()->paginate();
+        $articles = $series->articles()
+            ->withCategories()
+            ->paginate();
 
         return view($this->namespace . 'show', [
             'series' => $series,
