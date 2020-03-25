@@ -1,5 +1,5 @@
 @if ($article->author)
-    <div class="flex items-center mb-12 last-child:mb-0 sm:mb-16">
+    <div class="flex items-center mb-12 last:mb-0 sm:mb-16">
         @if ($article->author->avatar)
             <a href="{{ route('about') }}"
                 class="mr-3 sm:mr-4"

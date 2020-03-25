@@ -10,7 +10,7 @@
 
         <ul class="text-base sm:text-lg">
             @foreach ($article->series->articles as $seriesArticle)
-                <li class="mb-2 last-child:mb-0">
+                <li class="mb-2 last:mb-0">
                     @if ($seriesArticle->id === $article->id)
                         <div class="flex items-start text-gray-600">
                             <span class="flex-shrink-0 mr-2">

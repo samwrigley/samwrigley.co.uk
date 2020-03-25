@@ -15,7 +15,7 @@
                 class="block group relative p-6 pb-16 hover:bg-gray-100 sm:p-12 sm:pb-32"
             >
                 <article>
-                    <header class="mb-6 last-child:mb-0">
+                    <header class="mb-6 last:mb-0">
                         <div class="mb-6 text-xs text-gray-600 uppercase tracking-widest leading-none sm:mb-12 sm:text-sm">
                             {{ $series->publishedArticleCount() }} part series
                         </div>
