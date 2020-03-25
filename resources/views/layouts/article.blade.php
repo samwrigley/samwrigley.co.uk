@@ -6,7 +6,7 @@
             @include('partials.articles.outOfDate')
 
             <div class="flex flex-col mb-4 text-xs uppercase tracking-widest sm:flex-row sm:text-sm">
-                @if ($article->published_at)
+                @if ($article->published())
                     <time datetime="{{ $article->published_at }}"
                         aria-label="@lang('Posted On')"
                         class="mb-2 sm:mr-6 sm:mb-0"

@@ -23,7 +23,7 @@ class ArticleSeriesTest extends TestCase
     }
 
     /** @test */
-    public function its_articles_are_ordered_by_ascending_published_at(): void
+    public function its_articles_are_ordered_chronologically(): void
     {
         $article = factory(Article::class)->create(['published_at' => now()->subMonth()]);
         $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
