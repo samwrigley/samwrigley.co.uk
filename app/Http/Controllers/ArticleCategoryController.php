@@ -13,6 +13,7 @@ class ArticleCategoryController extends Controller
     public function index(): View
     {
         $categories = ArticleCategory::hasPublished('articles')
+            ->latest()
             ->paginate();
 
         return view($this->namespace . 'index', [
