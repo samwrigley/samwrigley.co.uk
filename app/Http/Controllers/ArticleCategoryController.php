@@ -12,7 +12,8 @@ class ArticleCategoryController extends Controller
 
     public function index(): View
     {
-        $categories = ArticleCategory::hasPublished('articles')->get();
+        $categories = ArticleCategory::hasPublished('articles')
+            ->paginate();
 
         return view($this->namespace . 'index', [
             'categories' => $categories,
