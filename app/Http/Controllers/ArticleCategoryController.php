@@ -27,15 +27,12 @@ class ArticleCategoryController extends Controller
             ->withArticles()
             ->firstOrFail();
 
-        $categories = ArticleCategory::hasPublished('articles')->get();
-
         $articles = $category->articles()
             ->published()
             ->paginate();
 
         return view($this->namespace . 'show', [
             'category' => $category,
-            'categories' => $categories,
             'articles' => $articles,
         ]);
     }
