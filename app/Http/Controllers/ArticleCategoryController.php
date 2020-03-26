@@ -14,6 +14,7 @@ class ArticleCategoryController extends Controller
     {
         $categories = ArticleCategory::hasPublished('articles')
             ->latest()
+            ->withArticles()
             ->paginate();
 
         return view($this->namespace . 'index', [
@@ -30,6 +31,7 @@ class ArticleCategoryController extends Controller
 
         $articles = $category->articles()
             ->published()
+            ->withCategories()
             ->paginate();
 
         return view($this->namespace . 'show', [
