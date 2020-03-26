@@ -32,8 +32,8 @@ class ArticleCategoryController extends Controller
             ->paginate();
 
         return view($this->namespace . 'show', [
-            'category' => $category,
             'articles' => $articles,
+            'category' => $category,
         ]);
     }
 }
