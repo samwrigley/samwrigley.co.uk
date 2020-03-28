@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Blog Series')
+@section('title', 'Blog Categories')
 
 @section('content')
     <h1 class="text-2xl font-black mb-4 md:text-4xl lg:mb-8 lg:text-5xl">
