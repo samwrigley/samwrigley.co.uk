@@ -3,13 +3,15 @@
 @section('title', 'Blog Categories')
 
 @section('content')
-    <header class="header-text">
-        <h1 class="header-text__heading">
-            @lang('All Categories')
-        </h1>
-    </header>
+    <h1 class="text-2xl font-black mb-4 md:text-4xl lg:mb-8 lg:text-5xl">
+        All Categories
+    </h1>
 
-    <ul class="categories">
-        @include('partials.categories.index')
-    </ul>
+    <div class="grid mb-6 sm:mb-12">
+        @foreach ($categories as $category)
+            @include('partials.categories.preview', ['category' => $category])
+        @endforeach
+    </div>
+
+    @include('partials.general.pagination', ['items' => $categories])
 @endsection

@@ -12,7 +12,10 @@ class ArticleCategoryController extends Controller
 
     public function index(): View
     {
-        $categories = ArticleCategory::hasPublished('articles')->get();
+        $categories = ArticleCategory::hasPublished('articles')
+            ->latest()
+            ->withArticles()
+            ->paginate();
 
         return view($this->namespace . 'index', [
             'categories' => $categories,
@@ -26,16 +29,14 @@ class ArticleCategoryController extends Controller
             ->withArticles()
             ->firstOrFail();
 
-        $categories = ArticleCategory::hasPublished('articles')->get();
-
         $articles = $category->articles()
             ->published()
+            ->withCategories()
             ->paginate();
 
         return view($this->namespace . 'show', [
-            'category' => $category,
-            'categories' => $categories,
             'articles' => $articles,
+            'category' => $category,
         ]);
     }
 }

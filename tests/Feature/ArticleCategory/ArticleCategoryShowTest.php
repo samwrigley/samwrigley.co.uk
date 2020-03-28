@@ -26,7 +26,7 @@ class ArticleCategoryShowTest extends TestCase
 
         $this->getCategoryShowRoute($category->slug)
             ->assertOk()
-            ->assertSeeInOrder($articles->sortByDesc('published_at')->pluck('title')->toArray());
+            ->assertSeeTextInOrder($articles->sortByDesc('published_at')->pluck('title')->toArray());
     }
 
     /** @test */
@@ -39,8 +39,8 @@ class ArticleCategoryShowTest extends TestCase
         $category->articles()->saveMany($articles);
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertSeeInOrder($articleTitles->forPage(1, 9)->toArray())
-            ->assertDontSee($articleTitles->forPage(2, 9)->first());
+            ->assertSeeTextInOrder($articleTitles->forPage(1, 9)->toArray())
+            ->assertDontSeeText($articleTitles->forPage(2, 9)->first());
     }
 
     /** @test */
@@ -51,7 +51,7 @@ class ArticleCategoryShowTest extends TestCase
         $category = factory(ArticleCategory::class)->create();
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertDontSee($article->title);
+            ->assertDontSeeText($article->title);
     }
 
     /** @test */
@@ -63,7 +63,7 @@ class ArticleCategoryShowTest extends TestCase
         $category->articles()->save($article);
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertDontSee($article->title);
+            ->assertDontSeeText($article->title);
     }
 
     /** @test */
@@ -75,7 +75,7 @@ class ArticleCategoryShowTest extends TestCase
         $category->articles()->save($article);
 
         $this->getCategoryShowRoute($category->slug)
-            ->assertDontSee($article->title);
+            ->assertDontSeeText($article->title);
     }
 
     /** @test */

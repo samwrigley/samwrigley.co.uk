@@ -13,16 +13,41 @@ class ArticleCategoryIndexTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function can_see_a_list_of_categories(): void
+    public function can_see_a_list_of_categories_in_chronological_order(): void
     {
-        $category = factory(ArticleCategory::class)->create();
-        $articles = factory(Article::class, 5)->create();
+        $categories = collect([
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
+        ]);
 
-        $category->articles()->saveMany($articles);
+        $categoryNames = $categories->sortByDesc('created_at')->pluck('name')->toArray();
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertSee($category->name);
+            ->assertSeeTextInOrder($categoryNames);
+    }
+
+    /** @test */
+    public function can_see_a_list_of_paginated_categories(): void
+    {
+        $categories = collect([
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(3)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(4)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(5)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(6)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(7)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(8)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(9)]),
+        ]);
+        $categoryNames = $categories->sortByDesc('created_at')->pluck('name');
+
+        $this->getCategoryIndexRoute()
+            ->assertSeeTextInOrder($categoryNames->forPage(1, 9)->toArray())
+            ->assertDontSeeText($categoryNames->forPage(2, 9)->first());
     }
 
     /** @test */
@@ -32,7 +57,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSee($category->name);
+            ->assertDontSeeText($category->name);
     }
 
     /** @test */
@@ -47,7 +72,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSee($category->name);
+            ->assertDontSeeText($category->name);
     }
 
     /** @test */
@@ -62,7 +87,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSee($category->name);
+            ->assertDontSeeText($category->name);
     }
 
     private function getCategoryIndexRoute(): TestResponse
