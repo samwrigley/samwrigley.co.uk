@@ -6,7 +6,7 @@
     <article>
         <header class="mb-6 last:mb-0">
             <div class="mb-6 text-xs text-gray-600 uppercase tracking-widest leading-none sm:mb-12 sm:text-sm">
-                {{ $category->publishedArticleCount() }} articles
+                {{ $category->publishedArticleCount() }} {{ Str::plural('article', $category->publishedArticleCount()) }}
             </div>
 
             <h2 class="text-2xl leading-tight font-bold sm:text-4xl">
