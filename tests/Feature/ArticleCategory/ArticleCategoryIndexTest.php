@@ -25,7 +25,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertSeeInOrder($categoryNames);
+            ->assertSeeTextInOrder($categoryNames);
     }
 
     /** @test */
