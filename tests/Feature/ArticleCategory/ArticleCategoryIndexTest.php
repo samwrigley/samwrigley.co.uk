@@ -16,9 +16,9 @@ class ArticleCategoryIndexTest extends TestCase
     public function can_see_a_list_of_categories_in_chronological_order(): void
     {
         $categories = collect([
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
             factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
         ]);
 
         $categoryNames = $categories->sortByDesc('created_at')->pluck('name')->toArray();
