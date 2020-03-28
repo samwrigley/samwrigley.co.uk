@@ -35,7 +35,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSee($category->name);
+            ->assertDontSeeText($category->name);
     }
 
     /** @test */
@@ -50,7 +50,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSee($category->name);
+            ->assertDontSeeText($category->name);
     }
 
     /** @test */
@@ -65,7 +65,7 @@ class ArticleCategoryIndexTest extends TestCase
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSee($category->name);
+            ->assertDontSeeText($category->name);
     }
 
     private function getCategoryIndexRoute(): TestResponse
