@@ -29,6 +29,28 @@ class ArticleCategoryIndexTest extends TestCase
     }
 
     /** @test */
+    public function can_see_a_list_of_paginated_categories(): void
+    {
+        $categories = collect([
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(3)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(4)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(5)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(6)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(7)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(8)]),
+            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(9)]),
+        ]);
+        $categoryNames = $categories->sortByDesc('created_at')->pluck('name');
+
+        $this->getCategoryIndexRoute()
+            ->assertSeeTextInOrder($categoryNames->forPage(1, 9)->toArray())
+            ->assertDontSeeText($categoryNames->forPage(2, 9)->first());
+    }
+
+    /** @test */
     public function cannot_see_a_category_that_has_no_articles(): void
     {
         $category = factory(ArticleCategory::class)->create();
