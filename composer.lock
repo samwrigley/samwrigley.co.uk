@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da7ad529a226872a70b4b984793f358a",
+    "content-hash": "fdd93b8385de1b7ba63ce43b232bcfd4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2073,6 +2073,66 @@
                 "spatie"
             ],
             "time": "2019-11-08T15:10:51+00:00"
+        },
+        {
+            "name": "spatie/schema-org",
+            "version": "2.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/schema-org.git",
+                "reference": "367c57cf16a93dc9e119dea507a353bca2b87580"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/367c57cf16a93dc9e119dea507a353bca2b87580",
+                "reference": "367c57cf16a93dc9e119dea507a353bca2b87580",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "graham-campbell/analyzer": "^2.1.1",
+                "league/flysystem": "^1.0",
+                "phpunit/phpunit": "^8.0",
+                "scrutinizer/ocular": "^1.5",
+                "symfony/console": "^3.2",
+                "symfony/css-selector": "^3.2",
+                "symfony/dom-crawler": "^3.2",
+                "twig/twig": "^1.28"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SchemaOrg\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A fluent builder Schema.org types and ld+json generator",
+            "homepage": "https://github.com/spatie/schema-org",
+            "keywords": [
+                "schema-org",
+                "spatie"
+            ],
+            "time": "2020-03-17T11:08:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8081,7 +8141,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3"
+        "php": "^7.4"
     },
     "platform-dev": []
 }
