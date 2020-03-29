@@ -1,6 +1,7 @@
 <?php
 
 use App\Article;
+use App\ArticleCategory;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -32,3 +33,9 @@ $factory->state(Article::class, 'scheduled', [
 $factory->state(Article::class, 'published', [
     'published_at' => now(),
 ]);
+
+$factory->afterCreatingState(Article::class, 'withCategories', function (Article $article): void {
+    $article->categories()->saveMany(
+        factory(ArticleCategory::class, 3)->make()
+    );
+});

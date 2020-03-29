@@ -7,3 +7,7 @@
         @markdown($article->body)
     </div>
 @endsection
+
+@push('schema')
+    {!! $articleSchema->toScript() !!}
+@endpush

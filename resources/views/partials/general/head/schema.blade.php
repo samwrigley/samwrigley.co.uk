@@ -45,3 +45,5 @@
         }
     ]
 </script>
+
+@stack('schema')

@@ -5,6 +5,7 @@ namespace Tests\Feature\Article;
 use App\Article;
 use App\ArticleCategory;
 use App\ArticleSeries;
+use App\ViewModels\ArticleViewModel;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
@@ -128,6 +129,16 @@ class ArticleShowTest extends TestCase
             ->assertViewIs('articles.show')
             ->assertOk()
             ->assertSeeText(__('newsletter.success'));
+    }
+
+    /** @test */
+    public function has_article_schema_script(): void
+    {
+        $article = factory(Article::class)->states('published')->create();
+        $viewModel = (new ArticleViewModel($article))->toArray();
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertSee($viewModel['articleSchema']->toScript());
     }
 
     protected function getArticleShowRoute(string $slug): TestResponse
