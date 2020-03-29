@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Http\Controllers\Controller;
+use App\ViewModels\ArticleViewModel;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
@@ -32,8 +33,8 @@ class ArticleController extends Controller
             ->withSeries()
             ->firstOrFail();
 
-        return view($this->namespace . 'show', [
-            'article' => $article,
-        ]);
+        $viewModel = new ArticleViewModel($article);
+
+        return view($this->namespace . 'show', $viewModel);
     }
 }
