@@ -11,12 +11,6 @@ class BladeServiceProvider extends ServiceProvider
         $this->addDateBladeDirective();
     }
 
-    /**
-     * Format given string instance into a date string.
-     *
-     * @example @date($value)
-     * @return void
-     */
     private function addDateBladeDirective(): void
     {
         Blade::directive('date', static function (string $date): string {
