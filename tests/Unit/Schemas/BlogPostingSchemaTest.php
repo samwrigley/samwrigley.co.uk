@@ -16,7 +16,7 @@ class BlogPostingSchemaTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_generates_article_schema(): void
+    public function it_generates_blog_posting_schema(): void
     {
         $article = factory(Article::class)->states('published')->make();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
@@ -41,7 +41,7 @@ class BlogPostingSchemaTest extends TestCase
     }
 
     /** @test */
-    public function it_generates_article_schema_with_correct_genre_when_article_has_multiple_categories(): void
+    public function it_generates_blog_posting_schema_with_correct_genre_when_article_has_multiple_categories(): void
     {
         $article = factory(Article::class)->states(['published', 'withCategories'])->create();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
@@ -53,7 +53,7 @@ class BlogPostingSchemaTest extends TestCase
     }
 
     /** @test */
-    public function it_generates_article_schema_with_correct_genre_when_article_has_not_categories(): void
+    public function it_generates_blog_posting_schema_with_correct_genre_when_article_has_no_categories(): void
     {
         $article = factory(Article::class)->states(['published'])->create();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
