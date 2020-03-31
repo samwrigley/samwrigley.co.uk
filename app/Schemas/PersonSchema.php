@@ -21,10 +21,15 @@ class PersonSchema implements SchemaContract
             ->nationality('British')
             ->telephone(Config::get('contact.telephone'))
             ->url(Config::get('app.url'))
-            ->sameAs([
-                'https://twitter.com/' . Config::get('social.twitter'),
-                'https://instagram.com/' . Config::get('social.instagram'),
-                'https://github.com/' . Config::get('social.instagram'),
-            ]);
+            ->sameAs($this->generateSameAs());
+    }
+
+    private function generateSameAs(): array
+    {
+        return [
+            'https://twitter.com/' . Config::get('social.twitter'),
+            'https://instagram.com/' . Config::get('social.instagram'),
+            'https://github.com/' . Config::get('social.instagram'),
+        ];
     }
 }

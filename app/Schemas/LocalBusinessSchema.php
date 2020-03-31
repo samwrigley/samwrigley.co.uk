@@ -17,10 +17,14 @@ class LocalBusinessSchema implements SchemaContract
             ->image(asset('images/sam-wrigley.png'))
             ->telephone(Config::get('contact.telephone'))
             ->openingHours('Mo,Tu,We,Th,Fr 09:00-18:00')
-            ->sameAs([
-                'https://twitter.com/' . Config::get('social.twitter'),
-                'https://instagram.com/' . Config::get('social.instagram'),
-                'https://github.com/' . Config::get('social.instagram'),
-            ]);
+            ->sameAs($this->generateSameAs());
+
+    private function generateSameAs(): array
+    {
+        return [
+            'https://twitter.com/' . Config::get('social.twitter'),
+            'https://instagram.com/' . Config::get('social.instagram'),
+            'https://github.com/' . Config::get('social.instagram'),
+        ];
     }
 }
