@@ -54,7 +54,7 @@ jobs:
         run: php artisan dusk --stop-on-error --stop-on-failure
 
       - name: PHP Insights
-        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=95 --min-architecture=90 --min-style=95 --format=github-action
+        run: php artisan insights --no-interaction --min-quality=85 --min-complexity=95 --min-architecture=90 --min-style=95 --format=github-action
 
       - name: PHP Linting
         run: npm run lint:php
