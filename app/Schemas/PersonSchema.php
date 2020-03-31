@@ -14,7 +14,7 @@ class PersonSchema implements SchemaContract
         return Schema::person()
             ->email(Config::get('contact.email'))
             ->image(asset('images/sam-wrigley.png'))
-            ->jobTitle('Web-Developer')
+            ->jobTitle('Front End Engineer')
             ->name(Config::get('app.name'))
             ->alumniOf('Falmouth University')
             ->gender('male')
