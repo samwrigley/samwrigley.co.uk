@@ -6,6 +6,7 @@ use App\Article;
 use App\ArticleCategory;
 use App\ArticleSeries;
 use App\Schemas\BlogPostingSchema;
+use App\Schemas\SiteSchema;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
@@ -139,6 +140,16 @@ class ArticleShowTest extends TestCase
 
         $this->getArticleShowRoute($article->slug)
             ->assertSee($blogPostingSchema->toScript());
+    }
+
+    /** @test */
+    public function has_site_schema_script(): void
+    {
+        $article = factory(Article::class)->states('published')->create();
+        $siteSchema = (new SiteSchema())->generate();
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertSee($siteSchema->toScript());
     }
 
     protected function getArticleShowRoute(string $slug): TestResponse
