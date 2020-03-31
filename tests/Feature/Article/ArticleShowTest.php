@@ -5,7 +5,8 @@ namespace Tests\Feature\Article;
 use App\Article;
 use App\ArticleCategory;
 use App\ArticleSeries;
-use App\ViewModels\ArticleViewModel;
+use App\Schemas\BlogPostingSchema;
+use App\Schemas\SiteSchema;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
@@ -132,13 +133,23 @@ class ArticleShowTest extends TestCase
     }
 
     /** @test */
-    public function has_article_schema_script(): void
+    public function has_blog_posting_schema_script(): void
     {
         $article = factory(Article::class)->states('published')->create();
-        $viewModel = (new ArticleViewModel($article))->toArray();
+        $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->getArticleShowRoute($article->slug)
-            ->assertSee($viewModel['articleSchema']->toScript());
+            ->assertSee($blogPostingSchema->toScript());
+    }
+
+    /** @test */
+    public function has_site_schema_script(): void
+    {
+        $article = factory(Article::class)->states('published')->create();
+        $siteSchema = (new SiteSchema())->generate();
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertSee($siteSchema->toScript());
     }
 
     protected function getArticleShowRoute(string $slug): TestResponse

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Pages;
 
+use App\Schemas\SiteSchema;
 use Tests\TestCase;
 
 class PagesTest extends TestCase
@@ -19,5 +20,14 @@ class PagesTest extends TestCase
         $this->get(route('about'))
             ->assertViewIs('pages.about')
             ->assertOk();
+    }
+
+    /** @test */
+    public function about_view_has_site_schema_script(): void
+    {
+        $siteSchema = (new SiteSchema())->generate();
+
+        $this->get(route('about'))
+            ->assertSee($siteSchema->toScript());
     }
 }

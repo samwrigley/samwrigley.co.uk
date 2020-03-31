@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Article;
 
+use App\Schemas\SiteSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -165,6 +166,15 @@ class ContactTest extends TestCase
         $this->postContactRoute($data);
 
         $this->assertDatabaseHas('contacts', $data);
+    }
+
+    /** @test */
+    public function has_site_schema_script(): void
+    {
+        $siteSchema = (new SiteSchema())->generate();
+
+        $this->get(route('contact'))
+            ->assertSee($siteSchema->toScript());
     }
 
     protected function postContactRoute(array $data = []): TestResponse
