@@ -15,7 +15,7 @@ class LocalBusinessSchema implements SchemaContract
     {
         return Schema::localBusiness()
             ->description(Config::get('meta.tagline'))
-            ->name('Sam Wrigley')
+            ->name(Config::get('app.name'))
             ->image(asset('images/sam-wrigley.png'))
             ->telephone(Config::get('contact.telephone'))
             ->openingHoursSpecification($this->generateOpeningHoursSpecificationSchema())
