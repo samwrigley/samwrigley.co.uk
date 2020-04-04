@@ -12,7 +12,7 @@
         "fideloper/proxy": "^4.0",
         "graham-campbell/markdown": "^11.1",
         "jtant/laravel-env-sync": "^3.0",
-        "laravel/framework": "^6.0",
+        "laravel/framework": "^7.0",
         "laravel/telescope": "^3.0",
         "laravel/tinker": "^1.0",
         "nothingworks/blade-svg": "^0.3.1",
