@@ -174,7 +174,7 @@ class ContactTest extends TestCase
         $siteSchema = (new SiteSchema())->generate();
 
         $this->get(route('contact'))
-            ->assertSee($siteSchema->toScript());
+            ->assertSee($siteSchema->toScript(), false);
     }
 
     protected function postContactRoute(array $data = []): TestResponse
