@@ -8,6 +8,7 @@ use App\Model;
 use App\Traits\HasAge;
 use App\Traits\InSeries;
 use App\User;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
@@ -54,6 +55,11 @@ class Article extends Model implements Feedable
      * @var int
      */
     protected $perPage = 9;
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 
     public function author(): BelongsTo
     {
