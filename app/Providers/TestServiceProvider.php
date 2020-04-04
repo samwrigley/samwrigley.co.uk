@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Mixins\TestResponseMixin;
-use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Testing\TestResponse;
 
 class TestServiceProvider extends ServiceProvider
 {

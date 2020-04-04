@@ -4,8 +4,8 @@ namespace Tests\Feature\Article;
 
 use App\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Support\Carbon;
+use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 
 class ArticleIndexTest extends TestCase

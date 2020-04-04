@@ -4,9 +4,9 @@ namespace Tests\Feature\Article;
 
 use App\Schemas\SiteSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 use TiMacDonald\Log\LogFake;
 
