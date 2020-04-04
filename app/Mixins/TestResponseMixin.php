@@ -6,7 +6,7 @@ use Closure;
 use DOMDocument;
 use DOMNodeList;
 use DOMXPath;
-use Illuminate\Foundation\Testing\Assert as PHPUnit;
+use Illuminate\Testing\Assert as PHPUnit;
 use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class TestResponseMixin
