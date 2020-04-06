@@ -23,12 +23,7 @@ class Article extends Model implements Feedable
     use HasAge;
     use InSeries;
 
-    /**
-     * The route namespace.
-     *
-     * @var array
-     */
-    protected array $namespaces = [
+    public array $routeNamespaces = [
         'web' => 'blog.articles.',
         'admin' => 'admin.articles.',
     ];
