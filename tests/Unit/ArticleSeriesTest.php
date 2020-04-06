@@ -55,4 +55,14 @@ class ArticleSeriesTest extends TestCase
         $this->assertCount(1, $articleSeries->articles);
         $this->assertTrue($articleSeries->articles->contains($publishedArticle));
     }
+
+    /** @test */
+    public function can_get_show_route(): void
+    {
+        $series = factory(ArticleSeries::class)->make();
+
+        $route = route($series->routeNamespaces['web'] . 'show', [$series->slug]);
+
+        $this->assertEquals($route, $series->showRoute());
+    }
 }

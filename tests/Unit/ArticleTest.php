@@ -341,6 +341,16 @@ class ArticleTest extends TestCase
         $this->assertEquals($betweenArticles->first()->id, $februaryArticle->id);
     }
 
+    /** @test */
+    public function can_get_show_route(): void
+    {
+        $article = factory(Article::class)->states('published')->make();
+
+        $route = route($article->routeNamespaces['web'] . 'show', [$article->slug]);
+
+        $this->assertEquals($route, $article->showRoute());
+    }
+
     protected function freezeTime(?Carbon $time = null): void
     {
         $now = Carbon::createFromFormat('Y-m-d H:i:s', $time ?: now());

@@ -84,4 +84,14 @@ class ArticleCategoryTest extends TestCase
 
         $this->assertEquals(1, $articleCategory->draftArticleCount());
     }
+
+    /** @test */
+    public function can_get_show_route(): void
+    {
+        $category = factory(ArticleCategory::class)->make();
+
+        $route = route($category->routeNamespaces['web'] . 'show', [$category->slug]);
+
+        $this->assertEquals($route, $category->showRoute());
+    }
 }
