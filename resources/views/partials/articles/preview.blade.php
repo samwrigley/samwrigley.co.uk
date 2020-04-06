@@ -1,4 +1,4 @@
-<a href="{{ $article->showPath() }}"
+<a href="{{ $article->showRoute() }}"
     aria-label="@lang('Read') {{ $article->title }}"
     title="@lang('Read') {{ $article->title }}"
     class="block group relative p-6 pb-16 hover:bg-gray-100 sm:p-12 sm:pb-32"

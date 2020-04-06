@@ -32,7 +32,7 @@ class BlogPostingSchema implements SchemaContract
             ->headline($this->article->title)
             ->image(asset('images/sam-wrigley.png'))
             ->publisher($this->generatePublisherSchema())
-            ->url($this->article->showPath())
+            ->url($this->article->showRoute())
             ->wordCount(str_word_count($this->article->body));
     }
 

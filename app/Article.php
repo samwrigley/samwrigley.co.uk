@@ -85,7 +85,7 @@ class Article extends Model implements Feedable
             ->title($this->title)
             ->summary($this->excerpt)
             ->updated($this->published_at)
-            ->link($this->showPath())
+            ->link($this->showRoute())
             ->author($this->author->name)
             ->category($this->categories()->first()->name);
     }

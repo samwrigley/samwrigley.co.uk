@@ -1,4 +1,4 @@
-<a href="{{ $category->showPath() }}"
+<a href="{{ $category->showRoute() }}"
     aria-label="Read {{ $category->name }}"
     title="Read {{ $category->name }}"
     class="block group relative p-6 pb-16 hover:bg-gray-100 sm:p-12 sm:pb-32"

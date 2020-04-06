@@ -3,7 +3,7 @@
         <p class="mb-6 text-xs uppercase tracking-widest sm:text-sm sm:mb-8">
             @lang('article.in_series', ['count' => $article->series->articles->count()])
 
-            <a href="{{ $article->series->showPath() }}" class="font-bold">
+            <a href="{{ $article->series->showRoute() }}" class="font-bold">
                 {{ $article->series->title }}
             </a>
         </p>
@@ -21,7 +21,7 @@
                             </span>
                         </div>
                     @else
-                        <a href="{{ $seriesArticle->showPath() }}" class="flex items-start hover:text-gray-600">
+                        <a href="{{ $seriesArticle->showRoute() }}" class="flex items-start hover:text-gray-600">
                             <span class="flex-shrink-0 mr-2">
                                 @lang('Part') {{ $loop->index + 1 }}:
                             </span>

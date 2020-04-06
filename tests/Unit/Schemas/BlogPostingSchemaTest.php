@@ -28,7 +28,7 @@ class BlogPostingSchemaTest extends TestCase
         $this->assertEquals($blogPostingSchema['description'], $article->excerpt);
         $this->assertEquals($blogPostingSchema['headline'], $article->title);
         $this->assertEquals($blogPostingSchema['image'], asset('images/sam-wrigley.png'));
-        $this->assertEquals($blogPostingSchema['url'], $article->showPath());
+        $this->assertEquals($blogPostingSchema['url'], $article->showRoute());
         $this->assertEquals($blogPostingSchema['wordCount'], str_word_count($article->body));
 
         $this->assertInstanceOf(Person::class, $blogPostingSchema['author']);

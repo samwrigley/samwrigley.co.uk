@@ -151,7 +151,7 @@ class ArticleTest extends TestCase
         $this->assertEquals($article->title, $feedItem->title);
         $this->assertEquals($article->excerpt, $feedItem->summary);
         $this->assertEquals($article->published_at, $feedItem->updated);
-        $this->assertEquals($article->showPath(), $feedItem->link);
+        $this->assertEquals($article->showRoute(), $feedItem->link);
         $this->assertEquals($article->author->name, $feedItem->author);
         $this->assertEquals($article->categories()->first()->name, $feedItem->category);
     }
