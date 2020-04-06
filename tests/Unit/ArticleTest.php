@@ -53,33 +53,6 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
-    public function it_can_be_published(): void
-    {
-        $publishedArticle = tap(factory(Article::class)->create())->publish();
-
-        $this->assertTrue($publishedArticle->isPublished());
-        $this->assertFalse($publishedArticle->isScheduled());
-    }
-
-    /** @test */
-    public function it_can_be_scheduled(): void
-    {
-        $scheduledArticle = tap(factory(Article::class)->create())
-            ->publish(now()->addDays(7));
-
-        $this->assertTrue($scheduledArticle->isScheduled());
-        $this->assertFalse($scheduledArticle->isPublished());
-    }
-
-    /** @test */
-    public function it_can_be_draft(): void
-    {
-        $draftArticle = tap(factory(Article::class)->create())->draft();
-
-        $this->assertTrue($draftArticle->isDraft());
-    }
-
-    /** @test */
     public function its_new_when_published_a_month_ago_or_less(): void
     {
         $this->freezeTime();
@@ -194,6 +167,178 @@ class ArticleTest extends TestCase
 
         $this->assertCount(1, $feedItems);
         $this->assertEquals($publishedArticle->fresh(), $feedItems->first());
+    }
+
+    /** @test */
+    public function it_can_be_marked_as_published(): void
+    {
+        $this->freezeTime();
+
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->published_at);
+        $article->markAsPublished();
+        $this->assertEquals($article->published_at, now());
+    }
+
+    /** @test */
+    public function it_can_be_marked_as_scheduled(): void
+    {
+        $this->freezeTime();
+
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->published_at);
+        $article->markAsScheduled(now()->addWeek());
+        $this->assertEquals($article->published_at, now()->addWeek());
+    }
+
+    /** @test */
+    public function it_can_be_marked_as_draft(): void
+    {
+        $this->freezeTime();
+
+        $article = factory(Article::class)->states('published')->make();
+
+        $this->assertEquals($article->published_at, now());
+        $article->markAsDraft();
+        $this->assertNull($article->published_at);
+    }
+
+    /** @test */
+    public function can_check_if_published(): void
+    {
+        $article = factory(Article::class)->states('published')->make();
+
+        $this->assertNotNull($article->published_at);
+        $this->assertTrue($article->published_at < now());
+        $this->assertTrue($article->isPublished());
+    }
+
+    /** @test */
+    public function can_check_if_scheduled(): void
+    {
+        $article = factory(Article::class)->states('scheduled')->make();
+
+        $this->assertNotNull($article->published_at);
+        $this->assertTrue($article->published_at > now());
+        $this->assertTrue($article->isScheduled());
+    }
+
+    /** @test */
+    public function can_check_if_draft(): void
+    {
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->published_at);
+        $this->assertTrue($article->isDraft());
+    }
+
+    /** @test */
+    public function can_get_published(): void
+    {
+        factory(Article::class)->states('draft')->create();
+        factory(Article::class)->states('scheduled')->create();
+        $publishedArticle = factory(Article::class)->states('published')->create();
+
+        $publishedArticles = Article::published()->get();
+
+        $this->assertCount(1, $publishedArticles);
+        $this->assertEquals($publishedArticles->first()->id, $publishedArticle->id);
+    }
+
+    /** @test */
+    public function can_get_scheduled(): void
+    {
+        factory(Article::class)->states('draft')->create();
+        $scheduledArticle = factory(Article::class)->states('scheduled')->create();
+        factory(Article::class)->states('published')->create();
+
+        $scheduledArticles = Article::scheduled()->get();
+
+        $this->assertCount(1, $scheduledArticles);
+        $this->assertEquals($scheduledArticles->first()->id, $scheduledArticle->id);
+    }
+
+    /** @test */
+    public function can_get_draft(): void
+    {
+        $draftArticle = factory(Article::class)->states('draft')->create();
+        factory(Article::class)->states('scheduled')->create();
+        factory(Article::class)->states('published')->create();
+
+        $draftArticles = Article::draft()->get();
+
+        $this->assertCount(1, $draftArticles);
+        $this->assertEquals($draftArticles->first()->id, $draftArticle->id);
+    }
+
+    /** @test */
+    public function can_get_published_in_a_given_month(): void
+    {
+        $januaryArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 1)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 2)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 3)]);
+
+        $januaryArticles = Article::publishedInMonth('1')->get();
+
+        $this->assertCount(1, $januaryArticles);
+        $this->assertEquals($januaryArticles->first()->id, $januaryArticle->id);
+    }
+
+    /** @test */
+    public function can_get_published_in_a_given_year(): void
+    {
+        factory(Article::class)->create(['published_at' => Carbon::create(2018)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2019)]);
+        $twentyTwentyArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020)]);
+
+        $twentyTwentyArticles = Article::publishedInYear('2020')->get();
+
+        $this->assertCount(1, $twentyTwentyArticles);
+        $this->assertEquals($twentyTwentyArticles->first()->id, $twentyTwentyArticle->id);
+    }
+
+    /** @test */
+    public function can_get_published_before_given_date(): void
+    {
+        $januaryArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 1, 1)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 2, 1)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 3, 1)]);
+
+        $beforeArticles = Article::publishedBefore(Carbon::create(2020, 1, 31))->get();
+
+        $this->assertCount(1, $beforeArticles);
+        $this->assertEquals($beforeArticles->first()->id, $januaryArticle->id);
+    }
+
+    /** @test */
+    public function can_get_published_after_given_date(): void
+    {
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 1, 1)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 2, 1)]);
+        $marchArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 3, 1)]);
+
+        $afterArticles = Article::publishedAfter(Carbon::create(2020, 2, 2))->get();
+
+        $this->assertCount(1, $afterArticles);
+        $this->assertEquals($afterArticles->first()->id, $marchArticle->id);
+    }
+
+    /** @test */
+    public function can_get_published_between_given_dates(): void
+    {
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 1, 1)]);
+        $februaryArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 2, 1)]);
+        factory(Article::class)->create(['published_at' => Carbon::create(2020, 3, 1)]);
+
+        $betweenArticles = Article::publishedBetween(
+            Carbon::create(2020, 1, 31),
+            Carbon::create(2020, 2, 2)
+        )->get();
+
+        $this->assertCount(1, $betweenArticles);
+        $this->assertEquals($betweenArticles->first()->id, $februaryArticle->id);
     }
 
     protected function freezeTime(?Carbon $time = null): void
