@@ -41,9 +41,9 @@ class ArticleSeriesTest extends TestCase
     /** @test */
     public function its_articles_are_all_published(): void
     {
-        $publishedArticle = tap(factory(Article::class)->create())->publish();
-        $scheduledArticle = tap(factory(Article::class)->create())->publish(now()->addMonth());
-        $draftArticle = tap(factory(Article::class)->create())->draft();
+        $publishedArticle = tap(factory(Article::class)->create())->markAsPublished();
+        $scheduledArticle = tap(factory(Article::class)->create())->markAsScheduled(now()->addMonth());
+        $draftArticle = tap(factory(Article::class)->create())->markAsDraft();
 
         $articleSeries = factory(ArticleSeries::class)->create();
         $articleSeries->articles()->saveMany([

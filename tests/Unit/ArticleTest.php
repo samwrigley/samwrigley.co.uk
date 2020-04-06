@@ -57,7 +57,7 @@ class ArticleTest extends TestCase
     {
         $this->freezeTime();
 
-        $article = tap(factory(Article::class)->create())->publish();
+        $article = tap(factory(Article::class)->create())->markAsPublished();
 
         $this->assertTrue($article->isNew());
         $this->assertFalse($article->isOld());
@@ -70,7 +70,7 @@ class ArticleTest extends TestCase
 
         $months = 2;
         $article = tap(factory(Article::class)->create())
-            ->publish(now()->subMonths($months));
+            ->markAsScheduled(now()->subMonths($months));
 
         $this->assertTrue($article->isNew($months));
         $this->assertFalse($article->isOld($months));
@@ -82,7 +82,7 @@ class ArticleTest extends TestCase
         $this->freezeTime();
 
         $article = tap(factory(Article::class)->create())
-            ->publish(now()->subMonth(6)->subSecond());
+            ->markAsScheduled(now()->subMonth(6)->subSecond());
 
         $this->assertTrue($article->isOld());
         $this->assertFalse($article->isNew());
@@ -95,7 +95,7 @@ class ArticleTest extends TestCase
 
         $months = 7;
         $article = tap(factory(Article::class)->create())
-            ->publish(now()->subMonth($months)->subSecond());
+            ->markAsScheduled(now()->subMonth($months)->subSecond());
 
         $this->assertTrue($article->isOld($months));
         $this->assertFalse($article->isNew($months));
