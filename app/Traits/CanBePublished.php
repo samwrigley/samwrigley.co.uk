@@ -38,9 +38,9 @@ trait CanBePublished
         $this->save();
     }
 
-    public function markAsScheduled(Carbon $publishedDateTime): void
+    public function markAsScheduled(Carbon $publishedAt): void
     {
-        $this->published_at = $publishedDateTime;
+        $this->published_at = $publishedAt;
         $this->save();
     }
 
