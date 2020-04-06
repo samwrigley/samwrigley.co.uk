@@ -76,13 +76,13 @@ trait HasRoutes
 
     protected function getRoute(array $parameters): ?string
     {
-        if (!Arr::has($parameters, ['action', 'key', 'namespace'])) {
+        if (! Arr::has($parameters, ['action', 'key', 'namespace'])) {
             return null;
         }
 
         $routeName = $this->getRouteName($parameters['namespace'], $parameters['action']);
 
-        if (!Route::has($routeName)) {
+        if (! Route::has($routeName)) {
             return null;
         }
 
