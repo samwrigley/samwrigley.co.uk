@@ -9,12 +9,7 @@ Route::get('/', static function (): RedirectResponse {
     return Redirect::route('blog.articles.index');
 })->name('home');
 
-Route::get('about', static function (): View {
-    return view('pages.about');
-})->name('about');
-
-Route::get('contact', static function (): View {
-    return view('pages.contact');
-})->name('contact');
+Route::view('about', 'pages.about')->name('about');
+Route::view('contact', 'pages.contact')->name('contact');
 
 Route::feeds();
