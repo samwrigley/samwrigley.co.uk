@@ -211,7 +211,7 @@ class ArticleTest extends TestCase
         $article = factory(Article::class)->states('published')->make();
 
         $this->assertNotNull($article->published_at);
-        $this->assertTrue($article->published_at < now());
+        $this->assertTrue($article->published_at <= now());
         $this->assertTrue($article->isPublished());
     }
 
