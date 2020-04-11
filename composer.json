@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.4",
         "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^1.0",
         "graham-campbell/markdown": "^12.0",
         "jtant/laravel-env-sync": "^4.0",
         "laravel/framework": "^7.0",
