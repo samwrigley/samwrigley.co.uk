@@ -53,7 +53,7 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
 
         $user->publish($article);
-        $article->publish();
+        $article->markAsPublished();
 
         $this->assertEquals(1, $user->articleCount());
     }
@@ -65,7 +65,7 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
 
         $user->publish($article);
-        $article->publish();
+        $article->markAsPublished();
 
         $this->assertEquals(1, $user->publishedArticleCount());
     }
@@ -77,7 +77,7 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
 
         $user->publish($article);
-        $article->publish(now()->addDays(7));
+        $article->markAsScheduled(now()->addDays(7));
 
         $this->assertEquals(1, $user->scheduledArticleCount());
     }
@@ -89,7 +89,7 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
 
         $user->publish($article);
-        $article->draft();
+        $article->markAsDraft();
 
         $this->assertEquals(1, $user->draftArticleCount());
     }

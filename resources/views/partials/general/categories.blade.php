@@ -8,7 +8,7 @@
     <ul>
         @foreach ($categories as $category)
             <li>
-                <a href="{{ $category->showPath() }}">
+                <a href="{{ $category->showRoute() }}">
                     {{ $category->name }}
                 </a>
 

@@ -2,10 +2,10 @@
 
 namespace App;
 
+use App\Traits\HasRoutes;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use SamWrigley\Support\Traits\HasPaths;
 
 class Model extends EloquentModel
 {
-    use HasPaths;
+    use HasRoutes;
 }

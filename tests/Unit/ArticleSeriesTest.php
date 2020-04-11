@@ -41,9 +41,9 @@ class ArticleSeriesTest extends TestCase
     /** @test */
     public function its_articles_are_all_published(): void
     {
-        $publishedArticle = tap(factory(Article::class)->create())->publish();
-        $scheduledArticle = tap(factory(Article::class)->create())->publish(now()->addMonth());
-        $draftArticle = tap(factory(Article::class)->create())->draft();
+        $publishedArticle = tap(factory(Article::class)->create())->markAsPublished();
+        $scheduledArticle = tap(factory(Article::class)->create())->markAsScheduled(now()->addMonth());
+        $draftArticle = tap(factory(Article::class)->create())->markAsDraft();
 
         $articleSeries = factory(ArticleSeries::class)->create();
         $articleSeries->articles()->saveMany([
@@ -54,5 +54,15 @@ class ArticleSeriesTest extends TestCase
 
         $this->assertCount(1, $articleSeries->articles);
         $this->assertTrue($articleSeries->articles->contains($publishedArticle));
+    }
+
+    /** @test */
+    public function can_get_show_route(): void
+    {
+        $series = factory(ArticleSeries::class)->make();
+
+        $route = route($series->routeNamespaces['web'] . 'show', [$series->slug]);
+
+        $this->assertEquals($route, $series->showRoute());
     }
 }

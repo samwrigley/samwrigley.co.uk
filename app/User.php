@@ -7,23 +7,11 @@ use App\Traits\HasManyArticles;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use SamWrigley\Support\Traits\HasPaths;
 
 class User extends Authenticatable
 {
-    use HasPaths;
     use HasManyArticles;
     use Notifiable;
-
-    /**
-     * The route namespace.
-     *
-     * @var array
-     */
-    protected array $namespaces = [
-        'web' => 'users.',
-        'admin' => 'admin.users.',
-    ];
 
     /**
      * The attributes that are mass assignable.

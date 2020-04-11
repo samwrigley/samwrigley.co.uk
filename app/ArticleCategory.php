@@ -13,12 +13,7 @@ class ArticleCategory extends Model
     use BelongsToManyArticles;
     use HasPublishableRelationship;
 
-    /**
-     * The route namespace.
-     *
-     * @var array
-     */
-    protected array $namespaces = [
+    public array $routeNamespaces = [
         'web' => 'blog.categories.',
         'admin' => 'admin.blog.categories.',
     ];

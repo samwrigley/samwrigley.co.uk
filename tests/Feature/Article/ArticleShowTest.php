@@ -9,9 +9,9 @@ use App\Schemas\BlogPostingSchema;
 use App\Schemas\SiteSchema;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
+use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 
 class ArticleShowTest extends TestCase
@@ -37,7 +37,7 @@ class ArticleShowTest extends TestCase
             ->assertSee($article->categories()->first()->title)
             ->assertSee($article->title)
             ->assertSee($article->author->name)
-            ->assertSee($body)
+            ->assertSee($body, false)
             ->assertSee($formattedPublishedAt)
             ->assertSee($article->published_at);
     }
@@ -139,7 +139,7 @@ class ArticleShowTest extends TestCase
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->getArticleShowRoute($article->slug)
-            ->assertSee($blogPostingSchema->toScript());
+            ->assertSee($blogPostingSchema->toScript(), false);
     }
 
     /** @test */
@@ -149,7 +149,7 @@ class ArticleShowTest extends TestCase
         $siteSchema = (new SiteSchema())->generate();
 
         $this->getArticleShowRoute($article->slug)
-            ->assertSee($siteSchema->toScript());
+            ->assertSee($siteSchema->toScript(), false);
     }
 
     protected function getArticleShowRoute(string $slug): TestResponse

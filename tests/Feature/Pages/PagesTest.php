@@ -28,6 +28,6 @@ class PagesTest extends TestCase
         $siteSchema = (new SiteSchema())->generate();
 
         $this->get(route('about'))
-            ->assertSee($siteSchema->toScript());
+            ->assertSee($siteSchema->toScript(), false);
     }
 }

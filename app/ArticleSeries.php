@@ -13,12 +13,7 @@ class ArticleSeries extends Model
     use HasArticles;
     use HasPublishableRelationship;
 
-    /**
-     * The route namespace.
-     *
-     * @var array
-     */
-    protected array $namespaces = [
+    public array $routeNamespaces = [
         'web' => 'blog.series.',
         'admin' => 'admin.blog.series.',
     ];

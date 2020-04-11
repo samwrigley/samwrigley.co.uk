@@ -5,15 +5,15 @@ namespace App;
 use App\ArticleCategory;
 use App\ArticleSeries;
 use App\Model;
+use App\Traits\CanBePublished;
 use App\Traits\HasAge;
 use App\Traits\InSeries;
 use App\User;
+use DateTimeInterface;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
-use SamWrigley\Support\Traits\CanBePublished;
-use SamWrigley\Support\Traits\HasAuthor;
-use SamWrigley\Support\Traits\HasCategories;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
@@ -21,16 +21,9 @@ class Article extends Model implements Feedable
 {
     use CanBePublished;
     use HasAge;
-    use HasAuthor;
-    use HasCategories;
     use InSeries;
 
-    /**
-     * The route namespace.
-     *
-     * @var array
-     */
-    protected array $namespaces = [
+    public array $routeNamespaces = [
         'web' => 'blog.articles.',
         'admin' => 'admin.articles.',
     ];
@@ -70,6 +63,16 @@ class Article extends Model implements Feedable
         return $this->belongsTo(ArticleSeries::class, 'article_series_id');
     }
 
+    public function scopeWithAuthor(Builder $query): Builder
+    {
+        return $query->with('author');
+    }
+
+    public function scopeWithCategories(Builder $query): Builder
+    {
+        return $query->with('categories');
+    }
+
     public function toFeedItem(): FeedItem
     {
         return FeedItem::create()
@@ -77,7 +80,7 @@ class Article extends Model implements Feedable
             ->title($this->title)
             ->summary($this->excerpt)
             ->updated($this->published_at)
-            ->link($this->showPath())
+            ->link($this->showRoute())
             ->author($this->author->name)
             ->category($this->categories()->first()->name);
     }
@@ -85,5 +88,10 @@ class Article extends Model implements Feedable
     public static function getFeedItems(): Collection
     {
         return self::published()->get();
+    }
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }
