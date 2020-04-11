@@ -3,7 +3,6 @@
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
-use Illuminate\View\View;
 
 Route::get('/', static function (): RedirectResponse {
     return Redirect::route('blog.articles.index');

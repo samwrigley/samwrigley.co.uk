@@ -40,9 +40,7 @@ class TestResponseMixin
             $converter = new CssSelectorConverter();
             $xpathSelector = $converter->toXPath($selector);
 
-            $elements = $xpath->query($xpathSelector);
-
-            return $elements;
+            return $xpath->query($xpathSelector);
         };
     }
 }

@@ -48,11 +48,6 @@ class Article extends Model implements Feedable
      */
     protected $perPage = 9;
 
-    protected function serializeDate(DateTimeInterface $date): string
-    {
-        return $date->format('Y-m-d H:i:s');
-    }
-
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -93,5 +88,10 @@ class Article extends Model implements Feedable
     public static function getFeedItems(): Collection
     {
         return self::published()->get();
+    }
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }
