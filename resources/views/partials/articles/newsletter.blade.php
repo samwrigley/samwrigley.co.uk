@@ -9,6 +9,7 @@
 
     <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex">
         @csrf
+        @honeypot
 
         <input
             type="email"
