@@ -23,6 +23,7 @@
         <div class="p-6 text-base lg:w-1/2 lg:text-xl lg:p-16">
             <form action="{{ route('contact.store') }}" method="POST">
                 @csrf
+                @honeypot
 
                 <div class="mb-6 md:mb-8">
                     <label for="name" class="block mb-2">
