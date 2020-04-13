@@ -141,6 +141,18 @@ class ArticleShowTest extends TestCase
     }
 
     /** @test */
+    public function newsletter_form_has_honeypot_fields(): void
+    {
+        Config::set('honeypot.enabled', true);
+
+        $article = factory(Article::class)->states('published')->create();
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertSee(Config::get('honeypot.name_field_name'))
+            ->assertSee(Config::get('honeypot.valid_from_field_name'));
+    }
+
+    /** @test */
     public function has_blog_posting_schema_script(): void
     {
         $article = factory(Article::class)->states('published')->create();

@@ -40,6 +40,16 @@ class ContactTest extends TestCase
     }
 
     /** @test */
+    public function contact_form_has_honeypot_fields(): void
+    {
+        Config::set('honeypot.enabled', true);
+
+        $this->get(route('contact'))
+            ->assertSee(Config::get('honeypot.name_field_name'))
+            ->assertSee(Config::get('honeypot.valid_from_field_name'));
+    }
+
+    /** @test */
     public function redirected_back_after_successful_submission(): void
     {
         $data = [
