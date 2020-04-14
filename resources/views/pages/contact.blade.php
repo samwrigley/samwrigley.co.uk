@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Contact')
+@section('title', __('contact.page_title'))
 
 @section('content')
     <div class="flex flex-col border-black border lg:flex-row">
