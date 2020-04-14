@@ -11,6 +11,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 
@@ -18,6 +19,13 @@ class ArticleShowTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        Config::set('honeypot.enabled', false);
+    }
 
     /** @test */
     public function can_view_a_published_article(): void
@@ -130,6 +138,18 @@ class ArticleShowTest extends TestCase
             ->assertViewIs('articles.show')
             ->assertOk()
             ->assertSeeText(__('newsletter.success'));
+    }
+
+    /** @test */
+    public function newsletter_form_has_honeypot_fields(): void
+    {
+        Config::set('honeypot.enabled', true);
+
+        $article = factory(Article::class)->states('published')->create();
+
+        $this->getArticleShowRoute($article->slug)
+            ->assertSee(Config::get('honeypot.name_field_name'))
+            ->assertSee(Config::get('honeypot.valid_from_field_name'));
     }
 
     /** @test */

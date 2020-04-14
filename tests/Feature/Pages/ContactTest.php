@@ -5,6 +5,7 @@ namespace Tests\Feature\Article;
 use App\Schemas\SiteSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
@@ -27,6 +28,7 @@ class ContactTest extends TestCase
         parent::setUp();
 
         Log::swap(new LogFake);
+        Config::set('honeypot.enabled', false);
     }
 
     /** @test */
@@ -35,6 +37,16 @@ class ContactTest extends TestCase
         $this->get(route('contact'))
             ->assertViewIs('pages.contact')
             ->assertOk();
+    }
+
+    /** @test */
+    public function contact_form_has_honeypot_fields(): void
+    {
+        Config::set('honeypot.enabled', true);
+
+        $this->get(route('contact'))
+            ->assertSee(Config::get('honeypot.name_field_name'))
+            ->assertSee(Config::get('honeypot.valid_from_field_name'));
     }
 
     /** @test */
