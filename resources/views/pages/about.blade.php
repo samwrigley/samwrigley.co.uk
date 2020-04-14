@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'About')
+@section('title', __('about.page_title'))
 
 @section('content')
     <div class="max-w-4xl mt-8">
