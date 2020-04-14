@@ -1,5 +1,0 @@
-.rich-text-editor {
-    &[aria-invalid="true"] {
-        border-color: map-get($colour-alert, 'danger');
-    }
-}
