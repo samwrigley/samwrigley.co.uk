@@ -41,6 +41,7 @@
         "eslint-plugin-vue": "^4.2.2",
         "husky": "^0.14.3",
         "laravel-mix": "^4.0.7",
+        "laravel-mix-purgecss": "^5.0.0-rc.1",
         "lint-staged": "^6.1.1",
         "resolve-url-loader": "3.1.0",
         "sass": "^1.22.3",
