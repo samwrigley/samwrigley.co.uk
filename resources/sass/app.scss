@@ -23,14 +23,6 @@
 |--------------------------------------------------------------------------
 */
 
-a {
-    transition: color 0.05s ease-in, background-color 0.05s ease-in;
-
-    p & {
-        @apply text-red-700;
-    }
-}
-
 .rotate-90 {
     transform: rotate(90deg);
 }
