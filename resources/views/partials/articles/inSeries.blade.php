@@ -25,7 +25,7 @@
                             <span class="flex-shrink-0 mr-2">
                                 @lang('Part') {{ $loop->index + 1 }}:
                             </span>
-                            <span class="font-semibold">
+                            <span class="font-bold">
                                 {{ $seriesArticle->title }}
                             </span>
                         </a>

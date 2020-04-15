@@ -23,7 +23,7 @@
 
         <button
             type="submit"
-            class="font-medium text-white tracking-wide bg-gray-900 py-4 px-6 hover:bg-gray-800"
+            class="text-white bg-gray-900 py-4 px-6 hover:bg-gray-800"
             title="Subscribe"
             aria-label="Subscribe"
         >

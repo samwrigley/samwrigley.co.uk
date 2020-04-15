@@ -5,7 +5,7 @@
 >
     <article>
         @if ($article->isNew())
-            <div class="absolute top-0 right-0 flex items-center justify-center bg-yellow-400 w-12 h-12 font-medium text-sm sm:w-16 sm:h-16 sm:text-base"
+            <div class="absolute top-0 right-0 flex items-center justify-center bg-yellow-400 w-12 h-12 text-sm sm:w-16 sm:h-16 sm:text-base"
                 title="@lang('This article was published recently')"
             >
                 New
