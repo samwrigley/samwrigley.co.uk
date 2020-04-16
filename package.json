@@ -52,7 +52,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "highlight.js": "^9.15.9",
         "tailwindcss": "^1.2.0"
     }
 }
