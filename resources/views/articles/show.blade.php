@@ -3,7 +3,7 @@
 @section('title', $article->title)
 
 @section('body')
-    <div class="markdown text-xl leading-relaxed sm:text-2xl">
+    <div class="markdown-body text-xl leading-relaxed sm:text-2xl">
         {!! GitDown::parseAndCache($article->body) !!}
     </div>
 @endsection
