@@ -4,7 +4,7 @@
 
 @section('body')
     <div class="markdown text-xl leading-relaxed sm:text-2xl">
-        @markdown($article->body)
+        {!! GitDown::parseAndCache($article->body) !!}
     </div>
 @endsection
 
