@@ -35,11 +35,8 @@ jobs:
       - name: Check environment files are in sync
         run: php artisan env:check
 
-      - name: Cache views
-        run: php artisan view:cache
-
-      - name: Run PHPUnit
-        run: vendor/bin/phpunit
+      - name: Run PHP tests
+        run: php artisan test
 
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver 78
@@ -58,6 +55,12 @@ jobs:
 
       - name: PHP Linting
         run: npm run lint:php
+
+      - name: JavaScript Linting
+        run: npm run lint:js
+
+      - name: CSS Linting
+        run: npm run lint:scss
 
       - name: Check Bundle size
         run: npm run test:size

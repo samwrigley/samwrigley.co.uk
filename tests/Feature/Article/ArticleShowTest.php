@@ -7,7 +7,7 @@ use App\ArticleCategory;
 use App\ArticleSeries;
 use App\Schemas\BlogPostingSchema;
 use App\Schemas\SiteSchema;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use GitDown\Facades\GitDown;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
@@ -38,7 +38,7 @@ class ArticleShowTest extends TestCase
         $formattedPublishedAt = Carbon::parse($article->published_at)
             ->format('jS F Y');
 
-        $body = Markdown::convertToHtml($article->body);
+        $body = GitDown::parse($article->body);
 
         $this->getArticleShowRoute($article->slug)
             ->assertOk()
