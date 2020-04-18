@@ -44,7 +44,7 @@ jobs:
       - name: Cache views
         run: php artisan view:cache
 
-      - name: Run PHP test
+      - name: Run PHP tests
         run: php artisan test
 
       - name: Upgrade Chrome Driver
