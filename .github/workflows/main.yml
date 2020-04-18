@@ -59,5 +59,11 @@ jobs:
       - name: PHP Linting
         run: npm run lint:php
 
+      - name: JavaScript Linting
+        run: npm run lint:js
+
+      - name: CSS Linting
+        run: npm run lint:scss
+
       - name: Check Bundle size
         run: npm run test:size
