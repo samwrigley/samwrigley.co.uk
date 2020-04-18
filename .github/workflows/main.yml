@@ -35,12 +35,6 @@ jobs:
       - name: Check environment files are in sync
         run: php artisan env:check
 
-      - name: Cache config files
-        run: php artisan config:cache
-
-      - name: Cache views
-        run: php artisan view:cache
-
       - name: Run PHP tests
         run: vendor/bin/phpunit
 
