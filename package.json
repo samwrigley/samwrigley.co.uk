@@ -3,12 +3,12 @@
     "bundlesize": [
         {
             "path": "./public/js/app.js",
-            "maxSize": "60 kB",
+            "maxSize": "10 kB",
             "compression": "brotli"
         },
         {
             "path": "./public/css/app.css",
-            "maxSize": "50 kB",
+            "maxSize": "10 kB",
             "compression": "brotli"
         }
     ],
