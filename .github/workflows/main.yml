@@ -42,7 +42,7 @@ jobs:
         run: php artisan view:cache
 
       - name: Run PHP tests
-        run: php artisan test
+        run: vendor/bin/phpunit
 
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver 78
