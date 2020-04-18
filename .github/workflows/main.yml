@@ -36,7 +36,7 @@ jobs:
         run: php artisan env:check
 
       - name: Run PHP tests
-        run: vendor/bin/phpunit
+        run: php artisan test
 
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver 78
