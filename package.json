@@ -18,7 +18,7 @@
         "lint:php": "./vendor/bin/phpcs .",
         "lint": "npm run lint:php && npm run lint:scss && npm run lint:js",
         "test:size": "bundlesize",
-        "test": "./vendor/bin/phpunit",
+        "test": "php artisan test",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
