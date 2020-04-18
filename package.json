@@ -13,8 +13,10 @@
         }
     ],
     "scripts": {
+        "lint:scss": "stylelint ./resources/sass/**/*.scss",
+        "lint:js": "eslint ./resources/js/**/*.js",
         "lint:php": "./vendor/bin/phpcs .",
-        "lint": "npm run lint:php",
+        "lint": "npm run lint:php && npm run lint:scss && npm run lint:js",
         "test:size": "bundlesize",
         "test": "./vendor/bin/phpunit",
         "dev": "npm run development",
