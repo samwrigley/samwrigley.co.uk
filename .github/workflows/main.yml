@@ -7,7 +7,24 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+        mysql:
+            image: mysql:5.7
+            env:
+                MYSQL_DATABASE: test
+                MYSQL_USER: root
+                MYSQL_ROOT_PASSWORD: secret
+            ports:
+                - 33306:3306
+            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
+      - name: Verify MySQL connection
+        run: |
+          mysql --version
+          sudo apt-get install -y mysql-client
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -psecret -e "SHOW DATABASES"
+
       - name: Checkout code
         uses: actions/checkout@v1
 
@@ -18,10 +35,16 @@ jobs:
             coverage: none
 
       - name: Copy environment file
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        run: cp .env.ci .env
 
       - name: Install PHP dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      - name: Run database migrations
+        run: php artisan migrate:fresh --force --no-interaction --no-ansi
+
+      - name: Seed database
+        run: php artisan db:seed --force --no-interaction --no-ansi
 
       - name: Install NPM dependencies
         run: yarn install
@@ -30,7 +53,7 @@ jobs:
         run: npm run production
 
       - name: Generate key
-        run: php artisan key:generate
+        run: php artisan key:generate --no-ansi
 
       - name: Check environment files are in sync
         run: php artisan env:check
@@ -39,7 +62,7 @@ jobs:
         run: php artisan test
 
       - name: Upgrade Chrome Driver
-        run: php artisan dusk:chrome-driver 78
+        run: php artisan dusk:chrome-driver 78 --no-ansi
 
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
@@ -64,3 +87,16 @@ jobs:
 
       - name: Check Bundle size
         run: npm run test:size
+
+      - name: Run Lighthouse Audits
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+            configPath: ./lighthouserc.json
+            uploadArtifacts: true
+            urls: |
+                http://127.0.0.1:8000/
+                http://127.0.0.1:8000/about
+                http://127.0.0.1:8000/contact
+                http://127.0.0.1:8000/blog
+                http://127.0.0.1:8000/blog/series
+                http://127.0.0.1:8000/blog/categories
