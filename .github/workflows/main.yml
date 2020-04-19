@@ -47,6 +47,12 @@ jobs:
       - name: Seed database
         run: php artisan db:seed --force --no-interaction --no-ansi
 
+      - name: Install NPM dependencies
+        run: yarn install
+
+      - name: Generated assets
+        run: npm run production
+
       - name: Generate key
         run: php artisan key:generate --no-ansi
 
