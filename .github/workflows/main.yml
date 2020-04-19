@@ -90,6 +90,7 @@ jobs:
                 http://127.0.0.1:8000/about
                 http://127.0.0.1:8000/contact
                 http://127.0.0.1:8000/blog
+                http://127.0.0.1:8000/blog/test
                 http://127.0.0.1:8000/blog/series
                 http://127.0.0.1:8000/blog/categories
 
