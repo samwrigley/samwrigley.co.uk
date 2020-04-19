@@ -3,7 +3,7 @@
         Want to read more articles like this?
     </h3>
 
-    <label class="block mb-8 text-base text-gray-600 lg:text-2xl" id="emailLabel">
+    <label class="block mb-8 text-base text-gray-700 lg:text-2xl">
         Subscribe to my newsletter and you'll be the first to know.
     </label>
 
@@ -16,7 +16,7 @@
             name="email"
             placeholder="Subscribe for updates"
             required
-            aria-describedby="emailLabel"
+            aria-label="Subscribe to my newsletter"
             autocomplete="email"
             class="flex-1 p-4 text-base bg-gray-200 focus:outline-none lg:text-xl lg:px-6"
         >

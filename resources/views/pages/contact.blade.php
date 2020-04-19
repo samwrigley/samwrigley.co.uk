@@ -10,11 +10,11 @@
             </h1>
 
             <div class="text-base md:text-xl lg:text-2xl">
-                <p class="text-gray-600 mb-4 lg:mb-8">
+                <p class="text-gray-700 mb-4 lg:mb-8">
                     How can I help you? Tell me about yourself or your company.
                 </p>
 
-                <p class="text-gray-600">
+                <p class="text-gray-700">
                     Fill out the form, or send me an <a href="mailto:{{ config('contact.email') }}" class="text-gray-900">email</a>.
                 </p>
             </div>
@@ -73,7 +73,7 @@
                         aria-describedby="messageInformation"
                         max="{{ \App\Contact::MAX_MESSAGE_LENGTH }}"
                     ></textarea>
-                    <div id="messageInformation" class="text-md text-gray-600">
+                    <div id="messageInformation" class="text-md text-gray-700">
                         Maximum {{ \App\Contact::MAX_MESSAGE_LENGTH }} characters
                     </div>
                 </div>

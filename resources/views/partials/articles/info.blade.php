@@ -3,7 +3,7 @@
         Want to get in touch?
     </h3>
 
-    <p class="text-base text-gray-600 lg:text-2xl">
+    <p class="text-base text-gray-700 lg:text-2xl">
         Say Hi on
         <a href="https://twitter.com/samwrigley" class="text-gray-900">Twitter</a>,
         <a href="https://github.com/samwrigley" class="text-gray-900">Github</a>,

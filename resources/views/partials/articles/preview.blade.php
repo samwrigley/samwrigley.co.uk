@@ -14,7 +14,7 @@
 
         <header class="mb-6">
             @if ($article->categories->count())
-                <ul class="flex items-center mb-6 text-xs text-gray-600 uppercase tracking-widest sm:mb-12 sm:text-sm">
+                <ul class="flex items-center mb-6 text-xs text-gray-700 uppercase tracking-widest sm:mb-12 sm:text-sm">
                     @foreach ($article->categories as $category)
                         <li class="leading-4">
                             {{ $category->name }}
@@ -30,7 +30,7 @@
             @if ($article->published())
                 <time datetime="{{ $article->published_at }}"
                     aria-label="@lang('Posted On')"
-                    class="text-sm text-gray-600 sm:text-base"
+                    class="text-sm text-gray-700 sm:text-base"
                 >
                     @date($article->published_at)
                 </time>

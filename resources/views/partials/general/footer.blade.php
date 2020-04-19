@@ -3,7 +3,7 @@
         &copy; Sam Wrigley
     </li>
 
-    <li class="mb-3 text-gray-600 sm:mr-4 sm:mb-0">
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
         <a href="https://github.com/{{ config('social.github') }}"
             target="_blank"
             rel="noopener"
@@ -12,7 +12,7 @@
         </a>
     </li>
 
-    <li class="mb-3 text-gray-600 sm:mr-4 sm:mb-0">
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
         <a href="https://www.linkedin.com/in/{{ config('social.linkedin') }}"
             target="_blank"
             rel="noopener"
@@ -21,7 +21,7 @@
         </a>
     </li>
 
-    <li class="mb-3 text-gray-600 sm:mr-4 sm:mb-0">
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
         <a href="https://twitter.com/{{ config('social.twitter') }}"
             target="_blank"
             rel="noopener"
@@ -30,7 +30,7 @@
         </a>
     </li>
 
-    <li class="mb-3 text-gray-600 sm:mr-4 sm:mb-0">
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
         <a href="https://www.instagram.com/{{ config('social.instagram') }}"
             target="_blank"
             rel="noopener"
@@ -39,7 +39,7 @@
         </a>
     </li>
 
-    <li class="text-gray-600">
+    <li class="text-gray-700">
         <a href="mailto:{{ config('contact.email') }}"
             aria-label="Send me an email"
         >
