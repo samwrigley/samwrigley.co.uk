@@ -53,7 +53,7 @@ jobs:
         run: npm run production
 
       - name: Generate key
-        run: php artisan key:generate
+        run: php artisan key:generate --no-ansi
 
       - name: Check environment files are in sync
         run: php artisan env:check
@@ -62,7 +62,7 @@ jobs:
         run: php artisan test
 
       - name: Upgrade Chrome Driver
-        run: php artisan dusk:chrome-driver 78
+        run: php artisan dusk:chrome-driver 78 --no-ansi
 
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
