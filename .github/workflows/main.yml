@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
 
-  tests:
+  test_application:
 
     runs-on: ubuntu-latest
 
@@ -87,7 +87,7 @@ jobs:
                 http://127.0.0.1:8000/blog/series
                 http://127.0.0.1:8000/blog/categories
 
-  assets:
+  test_assets:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
