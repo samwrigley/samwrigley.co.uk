@@ -32,6 +32,12 @@ jobs:
       - name: Install PHP dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
+      - name: Run database migrations
+        run: php artisan migrate
+
+      - name: Seed database
+        run: php artisan db:seed
+
       - name: Install NPM dependencies
         run: yarn install
 
