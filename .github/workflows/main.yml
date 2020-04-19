@@ -64,3 +64,16 @@ jobs:
 
       - name: Check Bundle size
         run: npm run test:size
+
+      - name: Run Lighthouse Audits
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+            configPath: ./lighthouserc.json
+            uploadArtifacts: true
+            urls: |
+                http://127.0.0.1:8000/
+                http://127.0.0.1:8000/about
+                http://127.0.0.1:8000/contact
+                http://127.0.0.1:8000/blog
+                http://127.0.0.1:8000/blog/series
+                http://127.0.0.1:8000/blog/categories
