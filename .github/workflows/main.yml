@@ -28,7 +28,7 @@ jobs:
             coverage: none
 
       - name: Copy environment file
-        run: cp .env.example .env
+        run: cp .env.ci .env
 
       - name: Install PHP dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
