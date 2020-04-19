@@ -12,7 +12,7 @@
             @foreach ($article->series->articles as $seriesArticle)
                 <li class="mb-2 last:mb-0">
                     @if ($seriesArticle->id === $article->id)
-                        <div class="flex items-start text-gray-600">
+                        <div class="flex items-start text-gray-700">
                             <span class="flex-shrink-0 mr-2">
                                 @lang('Part') {{ $loop->index + 1 }}:
                             </span>
@@ -21,7 +21,7 @@
                             </span>
                         </div>
                     @else
-                        <a href="{{ $seriesArticle->showRoute() }}" class="flex items-start hover:text-gray-600">
+                        <a href="{{ $seriesArticle->showRoute() }}" class="flex items-start hover:text-gray-700">
                             <span class="flex-shrink-0 mr-2">
                                 @lang('Part') {{ $loop->index + 1 }}:
                             </span>

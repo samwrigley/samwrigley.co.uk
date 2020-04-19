@@ -5,7 +5,7 @@
 >
     <article>
         <header class="mb-6 last:mb-0">
-            <div class="mb-6 text-xs text-gray-600 uppercase tracking-widest leading-none sm:mb-12 sm:text-sm">
+            <div class="mb-6 text-xs text-gray-700 uppercase tracking-widest leading-none sm:mb-12 sm:text-sm">
                 {{ $category->publishedArticleCount() }} {{ Str::plural('article', $category->publishedArticleCount()) }}
             </div>
 

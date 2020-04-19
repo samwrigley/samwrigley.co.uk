@@ -12,7 +12,7 @@
                 <div class="mb-3 leading-none">
                     @lang('Previous')
                 </div>
-                <div class="text-base text-gray-600 leading-none group-hover:text-gray-500">
+                <div class="text-base text-gray-700 leading-none group-hover:text-gray-500">
                     Page {{ $paginator->currentPage() - 1 }}
                 </div>
             </a>
@@ -32,7 +32,7 @@
                 <div class="mb-3 leading-none">
                         @lang('Next')
                 </div>
-                <div class="text-base text-gray-600 leading-none group-hover:text-gray-500">
+                <div class="text-base text-gray-700 leading-none group-hover:text-gray-500">
                     Page {{ $paginator->currentPage() + 1 }}
                 </div>
             </a>

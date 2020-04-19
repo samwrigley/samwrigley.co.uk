@@ -3,7 +3,7 @@
         Want to read more articles like this?
     </h3>
 
-    <label class="block mb-8 text-base text-gray-600 lg:text-2xl">
+    <label class="block mb-8 text-base text-gray-700 lg:text-2xl">
         Subscribe to my newsletter and you'll be the first to know.
     </label>
 
