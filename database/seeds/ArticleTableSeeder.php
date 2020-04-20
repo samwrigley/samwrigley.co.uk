@@ -8,6 +8,11 @@ class ArticleTableSeeder extends Seeder
 {
     public function run(): void
     {
+        factory(Article::class)->states('published')->create([
+            'title' => 'Test',
+            'slug' => 'test',
+        ]);
+
         factory(Article::class, 50)
             ->create()
             ->each(function (Article $article): void {

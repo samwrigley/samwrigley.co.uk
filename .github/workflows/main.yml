@@ -1,9 +1,10 @@
 name: CI
 
-on: [push]
+on: 'push'
 
 jobs:
-  tests:
+
+  test_application:
 
     runs-on: ubuntu-latest
 
@@ -79,15 +80,6 @@ jobs:
       - name: PHP Linting
         run: npm run lint:php
 
-      - name: JavaScript Linting
-        run: npm run lint:js
-
-      - name: CSS Linting
-        run: npm run lint:scss
-
-      - name: Check Bundle size
-        run: npm run test:size
-
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
         with:
@@ -98,5 +90,27 @@ jobs:
                 http://127.0.0.1:8000/about
                 http://127.0.0.1:8000/contact
                 http://127.0.0.1:8000/blog
+                http://127.0.0.1:8000/blog/test
                 http://127.0.0.1:8000/blog/series
                 http://127.0.0.1:8000/blog/categories
+
+  test_assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install NPM dependencies
+        run: yarn install
+
+      - name: Generated assets
+        run: npm run production
+
+      - name: JavaScript Linting
+        run: npm run lint:js
+
+      - name: CSS Linting
+        run: npm run lint:scss
+
+      - name: Check Bundle size
+        run: npm run test:size
