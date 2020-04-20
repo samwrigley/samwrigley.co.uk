@@ -102,6 +102,38 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
+    public function can_get_next_article(): void
+    {
+        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+
+        $firstArticle = $articleOne;
+        $secondArticle = $firstArticle->next();
+        $thirdArticle = $secondArticle->next();
+
+        $this->assertEquals($articleTwo->id, $secondArticle->id);
+        $this->assertEquals($articleThree->id, $thirdArticle->id);
+        $this->assertNull($thirdArticle->next());
+    }
+
+    /** @test */
+    public function can_get_previous_article(): void
+    {
+        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+
+        $thirdArticle = $articleThree;
+        $secondArticle = $thirdArticle->previous();
+        $firstArticle = $secondArticle->previous();
+
+        $this->assertEquals($articleTwo->id, $secondArticle->id);
+        $this->assertEquals($articleOne->id, $firstArticle->id);
+        $this->assertNull($firstArticle->previous());
+    }
+
+    /** @test */
     public function can_get_next_article_in_series(): void
     {
         $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
