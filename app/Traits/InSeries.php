@@ -15,7 +15,7 @@ trait InSeries
         return $query->with('series');
     }
 
-    public function next(): ?Article
+    public function nextInSeries(): ?Article
     {
         return $this->series
             ->hasMany(Article::class)
@@ -25,7 +25,7 @@ trait InSeries
             ->first();
     }
 
-    public function previous(): ?Article
+    public function previousInSeries(): ?Article
     {
         return $this->series
             ->hasMany(Article::class)

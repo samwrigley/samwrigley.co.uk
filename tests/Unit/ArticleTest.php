@@ -111,12 +111,12 @@ class ArticleTest extends TestCase
         $articleSeries->articles()->saveMany([$articleOne, $articleTwo, $articleThree]);
 
         $firstArticle = $articleSeries->articles->first();
-        $secondArticle = $firstArticle->next();
-        $thirdArticle = $secondArticle->next();
+        $secondArticle = $firstArticle->nextInSeries();
+        $thirdArticle = $secondArticle->nextInSeries();
 
         $this->assertEquals($articleTwo->id, $secondArticle->id);
         $this->assertEquals($articleThree->id, $thirdArticle->id);
-        $this->assertNull($thirdArticle->next());
+        $this->assertNull($thirdArticle->nextInSeries());
     }
 
     /** @test */
@@ -129,12 +129,12 @@ class ArticleTest extends TestCase
         $articleSeries->articles()->saveMany([$articleOne, $articleTwo, $articleThree]);
 
         $thirdArticle = $articleSeries->articles->last();
-        $secondArticle = $thirdArticle->previous();
-        $firstArticle = $secondArticle->previous();
+        $secondArticle = $thirdArticle->previousInSeries();
+        $firstArticle = $secondArticle->previousInSeries();
 
         $this->assertEquals($articleTwo->id, $secondArticle->id);
         $this->assertEquals($articleOne->id, $firstArticle->id);
-        $this->assertNull($firstArticle->previous());
+        $this->assertNull($firstArticle->previousInSeries());
     }
 
     /** @test */
