@@ -65,6 +65,22 @@ trait CanBePublished
         return is_null($this->published_at);
     }
 
+    public function next(): ?self
+    {
+        return $this->published()
+            ->whereDate('published_at', '>', $this->published_at)
+            ->oldest('published_at')
+            ->first();
+    }
+
+    public function previous(): ?self
+    {
+        return $this->published()
+            ->whereDate('published_at', '<', $this->published_at)
+            ->latest('published_at')
+            ->first();
+    }
+
     public function scopePublished(Builder $query): Builder
     {
         return $query

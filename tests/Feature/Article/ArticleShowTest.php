@@ -163,6 +163,30 @@ class ArticleShowTest extends TestCase
     }
 
     /** @test */
+    public function can_see_next_article_link(): void
+    {
+        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
+        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+
+        $this->getArticleShowRoute($articleOne->slug)
+            ->assertSeeText('Next')
+            ->assertSeeText($articleTwo->title)
+            ->assertSee($articleTwo->showRoute());
+    }
+
+    /** @test */
+    public function can_see_previous_article_link(): void
+    {
+        $articleOne = factory(Article::class)->create(['published_at' => now()]);
+        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+
+        $this->getArticleShowRoute($articleOne->slug)
+            ->assertSeeText('Prev')
+            ->assertSeeText($articleTwo->title)
+            ->assertSee($articleTwo->showRoute());
+    }
+
+    /** @test */
     public function has_site_schema_script(): void
     {
         $article = factory(Article::class)->states('published')->create();
