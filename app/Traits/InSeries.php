@@ -17,7 +17,7 @@ trait InSeries
     public function nextInSeries(): ?self
     {
         return $this->series
-            ->hasMany(get_class($this))
+            ->hasMany(self::class)
             ->published()
             ->whereDate('published_at', '>', $this->published_at)
             ->oldest('published_at')
@@ -27,7 +27,7 @@ trait InSeries
     public function previousInSeries(): ?self
     {
         return $this->series
-            ->hasMany(get_class($this))
+            ->hasMany(self::class)
             ->published()
             ->whereDate('published_at', '<', $this->published_at)
             ->latest('published_at')
