@@ -2,7 +2,6 @@
 
 namespace App\Traits;
 
-use App\Article;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -15,20 +14,20 @@ trait InSeries
         return $query->with('series');
     }
 
-    public function nextInSeries(): ?Article
+    public function nextInSeries(): ?self
     {
         return $this->series
-            ->hasMany(Article::class)
+            ->hasMany(get_class($this))
             ->published()
             ->whereDate('published_at', '>', $this->published_at)
             ->oldest('published_at')
             ->first();
     }
 
-    public function previousInSeries(): ?Article
+    public function previousInSeries(): ?self
     {
         return $this->series
-            ->hasMany(Article::class)
+            ->hasMany(get_class($this))
             ->published()
             ->whereDate('published_at', '<', $this->published_at)
             ->latest('published_at')
