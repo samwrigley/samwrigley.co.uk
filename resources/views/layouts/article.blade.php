@@ -33,6 +33,10 @@
             @yield('body')
         </div>
 
+        @include('partials.articles.pagination', [
+            'classes' => 'mb-6 md:mb-8 lg:mb-12'
+        ])
+
         <footer class="flex flex-col border border-black lg:flex-row">
             @include('partials.articles.info')
             @include('partials.articles.newsletter')
