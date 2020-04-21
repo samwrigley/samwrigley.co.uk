@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ArticleSeries;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ArticleSeriesController extends Controller
@@ -15,6 +16,8 @@ class ArticleSeriesController extends Controller
             ->latest()
             ->withArticles()
             ->paginate();
+
+        abort_unless($series->count() > 0, Response::HTTP_NOT_FOUND);
 
         return view($this->namespace . 'index', [
             'allSeries' => $series,

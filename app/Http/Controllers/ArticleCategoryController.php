@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ArticleCategory;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ArticleCategoryController extends Controller
@@ -16,6 +17,8 @@ class ArticleCategoryController extends Controller
             ->latest()
             ->withArticles()
             ->paginate();
+
+        abort_unless($categories->count() > 0, Response::HTTP_NOT_FOUND);
 
         return view($this->namespace . 'index', [
             'categories' => $categories,

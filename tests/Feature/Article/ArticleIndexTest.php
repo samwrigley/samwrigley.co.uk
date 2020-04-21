@@ -13,6 +13,15 @@ class ArticleIndexTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function can_see_no_article_message_when_no_articles(): void
+    {
+        $this->getArticleIndexRoute()
+            ->assertOk()
+            ->assertSeeText(__('article.no_articles_heading'))
+            ->assertSeeText(__('article.no_articles_subheading'));
+    }
+
+    /** @test */
     public function can_see_a_list_of_articles_in_reverse_chronological_order(): void
     {
         $articles = collect([
