@@ -46,43 +46,43 @@ class ArticleSeriesIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_series_that_has_no_articles(): void
     {
-        $seriesWithoutArticle = factory(ArticleSeries::class)->create();
-        $seriesWithArticle = factory(ArticleSeries::class)->state('withArticles')->create();
+        $seriesWithoutArticles = factory(ArticleSeries::class)->create();
+        $seriesWithArticles = factory(ArticleSeries::class)->state('withArticles')->create();
 
         $this->getSeriesIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($seriesWithoutArticle->title)
-            ->assertSeeText($seriesWithArticle->title);
+            ->assertDontSeeText($seriesWithoutArticles->title)
+            ->assertSeeText($seriesWithArticles->title);
     }
 
     /** @test */
     public function cannot_see_a_series_that_only_has_scheduled_articles(): void
     {
-        $seriesWithScheduledArticle = factory(ArticleSeries::class)->create();
+        $seriesWithScheduledArticles = factory(ArticleSeries::class)->create();
         $seriesWithPublishedArticle = factory(ArticleSeries::class)->state('withArticles')->create();
         $scheduledArticles = factory(Article::class, 2)->state('scheduled')->create();
 
-        $seriesWithScheduledArticle->articles()->saveMany($scheduledArticles);
+        $seriesWithScheduledArticles->articles()->saveMany($scheduledArticles);
 
         $this->getSeriesIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($seriesWithScheduledArticle->title)
+            ->assertDontSeeText($seriesWithScheduledArticles->title)
             ->assertSeeText($seriesWithPublishedArticle->title);
     }
 
     /** @test */
     public function cannot_see_a_series_that_only_has_draft_articles(): void
     {
-        $seriesWithDraftArticle = factory(ArticleSeries::class)->create();
-        $seriesWithPublishedArticle = factory(ArticleSeries::class)->state('withArticles')->create();
+        $seriesWithDraftArticles = factory(ArticleSeries::class)->create();
+        $seriesWithPublishedArticles = factory(ArticleSeries::class)->state('withArticles')->create();
         $draftArticles = factory(Article::class, 2)->states('draft')->create();
 
-        $seriesWithDraftArticle->articles()->saveMany($draftArticles);
+        $seriesWithDraftArticles->articles()->saveMany($draftArticles);
 
         $this->getSeriesIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($seriesWithDraftArticle->title)
-            ->assertSeeText($seriesWithPublishedArticle->title);
+            ->assertDontSeeText($seriesWithDraftArticles->title)
+            ->assertSeeText($seriesWithPublishedArticles->title);
     }
 
     private function getSeriesIndexRoute(): TestResponse
