@@ -59,7 +59,7 @@ class ArticleSeriesIndexTest extends TestCase
     public function cannot_see_a_series_that_only_has_scheduled_articles(): void
     {
         $seriesWithScheduledArticles = factory(ArticleSeries::class)->create();
-        $seriesWithPublishedArticle = factory(ArticleSeries::class)->state('withArticles')->create();
+        $seriesWithPublishedArticles = factory(ArticleSeries::class)->state('withArticles')->create();
         $scheduledArticles = factory(Article::class, 2)->state('scheduled')->create();
 
         $seriesWithScheduledArticles->articles()->saveMany($scheduledArticles);
@@ -67,7 +67,7 @@ class ArticleSeriesIndexTest extends TestCase
         $this->getSeriesIndexRoute()
             ->assertOk()
             ->assertDontSeeText($seriesWithScheduledArticles->title)
-            ->assertSeeText($seriesWithPublishedArticle->title);
+            ->assertSeeText($seriesWithPublishedArticles->title);
     }
 
     /** @test */
