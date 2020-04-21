@@ -13,6 +13,12 @@ class ArticleCategoryIndexTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function see_not_found_page_when_no_categories(): void
+    {
+        $this->getCategoryIndexRoute()->assertNotFound();
+    }
+
+    /** @test */
     public function can_see_a_list_of_categories_in_chronological_order(): void
     {
         $categories = collect([
@@ -53,41 +59,43 @@ class ArticleCategoryIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_category_that_has_no_articles(): void
     {
-        $category = factory(ArticleCategory::class)->create();
+        $categoryWithoutArticle = factory(ArticleCategory::class)->create();
+        $categoryWithArticle = factory(ArticleCategory::class)->state('withArticle')->create();
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($category->name);
+            ->assertDontSeeText($categoryWithoutArticle->name)
+            ->assertSeeText($categoryWithArticle->name);
     }
 
     /** @test */
-    public function cannot_see_a_category_that_only_has_scheduled_articles(): void
+    public function cannot_see_a_category_that_only_has_scheduled_article(): void
     {
-        $category = factory(ArticleCategory::class)->create();
-        $articles = factory(Article::class, 2)->create([
-            'published_at' => now()->addDays(7),
-        ]);
+        $categoryWithScheduledArticle = factory(ArticleCategory::class)->create();
+        $categoryWithPublishedArticle = factory(ArticleCategory::class)->state('withArticle')->create();
+        $scheduledArticle = factory(Article::class)->state('scheduled')->create();
 
-        $category->articles()->saveMany($articles);
+        $categoryWithScheduledArticle->articles()->save($scheduledArticle);
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($category->name);
+            ->assertDontSeeText($categoryWithScheduledArticle->name)
+            ->assertSeeText($categoryWithPublishedArticle->name);
     }
 
     /** @test */
-    public function cannot_see_a_category_that_only_has_draft_articles(): void
+    public function cannot_see_a_category_that_only_has_draft_article(): void
     {
-        $category = factory(ArticleCategory::class)->create();
-        $articles = factory(Article::class, 2)->create([
-            'published_at' => null,
-        ]);
+        $categoryWithDraftArticle = factory(ArticleCategory::class)->create();
+        $categoryWithPublishedArticle = factory(ArticleCategory::class)->state('withArticle')->create();
+        $draftArticle = factory(Article::class)->states('draft')->create();
 
-        $category->articles()->saveMany($articles);
+        $categoryWithDraftArticle->articles()->save($draftArticle);
 
         $this->getCategoryIndexRoute()
             ->assertOk()
-            ->assertDontSeeText($category->name);
+            ->assertDontSeeText($categoryWithDraftArticle->name)
+            ->assertSeeText($categoryWithPublishedArticle->name);
     }
 
     private function getCategoryIndexRoute(): TestResponse
