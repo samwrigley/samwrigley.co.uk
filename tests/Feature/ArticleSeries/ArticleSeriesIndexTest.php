@@ -60,9 +60,9 @@ class ArticleSeriesIndexTest extends TestCase
     {
         $seriesWithScheduledArticle = factory(ArticleSeries::class)->create();
         $seriesWithPublishedArticle = factory(ArticleSeries::class)->state('withArticles')->create();
-        $scheduledArticle = factory(Article::class)->state('scheduled')->create();
+        $scheduledArticles = factory(Article::class, 2)->state('scheduled')->create();
 
-        $seriesWithScheduledArticle->articles()->save($scheduledArticle);
+        $seriesWithScheduledArticle->articles()->saveMany($scheduledArticles);
 
         $this->getSeriesIndexRoute()
             ->assertOk()
@@ -75,9 +75,9 @@ class ArticleSeriesIndexTest extends TestCase
     {
         $seriesWithDraftArticle = factory(ArticleSeries::class)->create();
         $seriesWithPublishedArticle = factory(ArticleSeries::class)->state('withArticles')->create();
-        $draftArticle = factory(Article::class)->states('draft')->create();
+        $draftArticles = factory(Article::class, 2)->states('draft')->create();
 
-        $seriesWithDraftArticle->articles()->save($draftArticle);
+        $seriesWithDraftArticle->articles()->saveMany($draftArticles);
 
         $this->getSeriesIndexRoute()
             ->assertOk()
