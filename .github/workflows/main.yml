@@ -35,11 +35,23 @@ jobs:
             php-version: '7.4'
             coverage: none
 
-      - name: Copy environment file
-        run: cp .env.ci .env
+      - name: Get Composer cache directory path
+        id: composer-cache-dir-path
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache PHP dependencies
+        uses: actions/cache@v1
+        with:
+            path: ${{ steps.composer-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-composer-${{ hashFiles('./composer.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-composer-
 
       - name: Install PHP dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      - name: Copy environment file
+        run: cp .env.ci .env
 
       - name: Run database migrations
         run: php artisan migrate:fresh --force --no-interaction --no-ansi
@@ -95,10 +107,25 @@ jobs:
                 http://127.0.0.1:8000/blog/categories
 
   test_assets:
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
+
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        id: yarn-cache
+        with:
+            path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-yarn-
 
       - name: Install NPM dependencies
         run: yarn install
