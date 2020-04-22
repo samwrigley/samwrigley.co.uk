@@ -35,9 +35,11 @@ jobs:
             php-version: '7.4'
             coverage: none
 
-      - name: Cache PHP dependencies
+      - name: Get Composer cache directory path
         id: composer-cache-dir-path
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache PHP dependencies
         uses: actions/cache@v1
         with:
             path: ${{ steps.composer-cache.outputs.dir }}
@@ -112,9 +114,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v1
 
-      - name: Cache NPM dependencies
+      - name: Get Yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
         uses: actions/cache@v1
         id: yarn-cache
         with:
