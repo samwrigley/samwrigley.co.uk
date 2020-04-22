@@ -35,6 +35,15 @@ jobs:
             php-version: '7.4'
             coverage: none
 
+      - name: Cache PHP dependencies
+        id: composer-cache-dir-path
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+        uses: actions/cache@v1
+        with:
+            path: ${{ steps.composer-cache.outputs.dir }}
+            key: ${{ runner.os }}-composer-${{ hashFiles('./composer.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-composer-
 
       - name: Install PHP dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
