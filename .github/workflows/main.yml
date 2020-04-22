@@ -105,7 +105,9 @@ jobs:
                 http://127.0.0.1:8000/blog/categories
 
   test_assets:
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
