@@ -20,9 +20,7 @@
             </div>
 
             <h1 class="mb-4 text-3xl font-black leading-tight md:text-4xl lg:text-6xl">
-                <a href="{{ $article->showRoute() }}">
-                    {{ $article->title }}
-                </a>
+                {{ $article->title }}
             </h1>
 
             @include('partials.articles.author')
