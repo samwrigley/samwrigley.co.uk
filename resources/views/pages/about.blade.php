@@ -8,7 +8,7 @@
             About
         </h1>
 
-        <div class="text-xl leading-relaxed">
+        <div class="text-xl text-gray-700 leading-relaxed">
             <p class="mb-6">
                 I'm Sam Wrigley, a Front-End Engineer on the Contribution Experience team at <a href="https://www.imdb.com">IMDb.com</a>.
                 I specialise in all things front-end, including UX and UI, with a strong emphasis on modern, scalable JavaScript.
