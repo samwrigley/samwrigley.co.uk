@@ -18,7 +18,7 @@
             required
             aria-label="Subscribe to my newsletter"
             autocomplete="email"
-            class="flex-1 p-4 text-base bg-gray-200 focus:outline-none lg:text-xl lg:px-6"
+            class="flex-1 p-4 text-base bg-gray-200 lg:text-xl lg:px-6"
         >
 
         <button

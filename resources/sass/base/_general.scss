@@ -1,0 +1,6 @@
+a:focus,
+input:focus,
+textarea:focus,
+button:focus {
+    @apply shadow-outline outline-none;
+}

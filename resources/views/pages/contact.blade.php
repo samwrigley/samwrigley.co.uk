@@ -10,12 +10,12 @@
             </h1>
 
             <div class="text-base md:text-xl lg:text-2xl">
-                <p class="text-gray-700 mb-4 lg:mb-8">
+                <p class="text-gray-700 mb-2 lg:mb-4">
                     How can I help you? Tell me about yourself or your company.
                 </p>
 
                 <p class="text-gray-700">
-                    Fill out the form, or send me an <a href="mailto:{{ config('contact.email') }}" class="text-gray-900">email</a>.
+                    Fill out the form, or send me an <a href="mailto:{{ config('contact.email') }}">email</a>.
                 </p>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 @honeypot
 
                 <div class="mb-6 md:mb-8">
-                    <label for="name" class="block mb-2">
+                    <label for="name" class="block mb-2 text-gray-700">
                         Let's start with your name
                     </label>
                     <input
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="mb-6 md:mb-8">
-                    <label for="email" class="block mb-2">
+                    <label for="email" class="block mb-2 text-gray-700">
                         Your email, so I can get back to you
                     </label>
                     <input
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="mb-6 md:mb-8">
-                    <label for="message" class="block mb-2">
+                    <label for="message" class="block mb-2 text-gray-700">
                         How can I help you?
                     </label>
                     <textarea
@@ -73,7 +73,7 @@
                         aria-describedby="messageInformation"
                         max="{{ \App\Contact::MAX_MESSAGE_LENGTH }}"
                     ></textarea>
-                    <div id="messageInformation" class="text-md text-gray-700">
+                    <div id="messageInformation" class="text-sm text-gray-700">
                         Maximum {{ \App\Contact::MAX_MESSAGE_LENGTH }} characters
                     </div>
                 </div>
