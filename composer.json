@@ -25,6 +25,7 @@
         "spatie/schema-org": "^2.12"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.3",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9",
         "laravel/dusk": "^5.11",
