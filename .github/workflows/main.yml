@@ -59,6 +59,9 @@ jobs:
       - name: Seed database
         run: php artisan db:seed --force --no-interaction --no-ansi
 
+      - name: Generate sitemap
+        run: php artisan sitemap:generate
+
       - name: Install NPM dependencies
         run: yarn install
 
