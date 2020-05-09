@@ -10,7 +10,7 @@
 
         <div class="text-xl text-gray-700 leading-relaxed">
             <p class="mb-6">
-                I'm Sam Wrigley, a Front-End Engineer on the Contribution Experience team at
+                I'm Sam Wrigley, a Front-End Engineer working on the contribution experiences at
                 <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb.com</a>.
                 I specialise in all things front-end, including UX and UI, with a strong emphasis on modern, scalable JavaScript.
             </p>
@@ -24,14 +24,10 @@
             </p>
 
             <p class="mb-6">
-                I’m passionate about code-quality and accessibility and have an eye for detail. I pride myself on the
-                quality of my work and take great satisfaction in doing things to the best of my ability. I’m hard
-                working and enjoy overcoming challenges through problem-solving.
-            </p>
-
-            <p class="mb-6">
                 Outside of web-development, I have a passion for photography and I’m also a keen outdoor runner.
             </p>
+
+            <p><a href="{{ route('contact') }}">Get in touch</a> and say Hi!</p>
         </div>
     </div>
 @endsection
