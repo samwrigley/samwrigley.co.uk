@@ -14,7 +14,7 @@ class LocalBusinessSchema implements SchemaContract
     public function generate(): LocalBusiness
     {
         return Schema::localBusiness()
-            ->description(Config::get('meta.tagline'))
+            ->description(Config::get('meta.description'))
             ->name(Config::get('app.name'))
             ->image(asset('images/sam-wrigley.png'))
             ->telephone(Config::get('contact.telephone'))
