@@ -27,7 +27,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapBlogRoutes();
         $this->mapContactRoutes();
         $this->mapNewsletterRoutes();
-        $this->mapApiRoutes();
     }
 
     protected function mapWebRoutes(): void
@@ -56,13 +55,5 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/newsletter.php'));
-    }
-
-    protected function mapApiRoutes(): void
-    {
-        Route::prefix('api')
-            ->middleware('api')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
     }
 }
