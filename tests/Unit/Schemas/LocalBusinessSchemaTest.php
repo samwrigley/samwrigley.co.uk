@@ -18,7 +18,7 @@ class LocalBusinessSchemaTest extends TestCase
         $localBusinessSchema = (new LocalBusinessSchema())->generate();
 
         $this->assertInstanceOf(LocalBusiness::class, $localBusinessSchema);
-        $this->assertEquals($localBusinessSchema['description'], Config::get('meta.tagline'));
+        $this->assertEquals($localBusinessSchema['description'], Config::get('meta.description'));
         $this->assertEquals($localBusinessSchema['name'], Config::get('app.name'));
         $this->assertEquals($localBusinessSchema['image'], asset('images/sam-wrigley.png'));
         $this->assertEquals($localBusinessSchema['telephone'], Config::get('contact.telephone'));

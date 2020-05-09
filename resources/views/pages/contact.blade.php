@@ -11,7 +11,7 @@
 
             <div class="text-base md:text-xl lg:text-2xl">
                 <p class="text-gray-700 mb-2 lg:mb-4">
-                    How can I help you? Tell me about yourself or your company.
+                    Do you have a question or want to say Hi? Drop me a line as I'd love to hear from you.
                 </p>
 
                 <p class="text-gray-700">
