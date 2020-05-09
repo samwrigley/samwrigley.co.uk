@@ -65,7 +65,7 @@ jobs:
       - name: Install NPM dependencies
         run: yarn install
 
-      - name: Generated assets
+      - name: Generate assets
         run: npm run production
 
       - name: Generate key
@@ -133,7 +133,7 @@ jobs:
       - name: Install NPM dependencies
         run: yarn install
 
-      - name: Generated assets
+      - name: Generate assets
         run: npm run production
 
       - name: JavaScript Linting
