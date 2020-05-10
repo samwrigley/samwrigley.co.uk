@@ -21,8 +21,9 @@ class ContactController extends Controller
     {
         $contact = Contact::create($request->only(['name', 'email', 'message']));
 
-        Log::info("Contact: {$request->email}");
         $contact->notify(new ContactReceived($contact));
+
+        Log::info("{$request->name} has been in touch using '{$request->email}'");
 
         return Redirect::back()->with($request->errorBag, __('contact.success'));
     }
