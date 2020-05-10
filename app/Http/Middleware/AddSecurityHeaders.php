@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AddSecurityHeaders
 {
+    protected const HEADER_REFERRER_POLICY = 'Referrer-Policy';
+    protected const HEADER_X_FRAME_OPTIONS = 'X-Frame-Options';
+    protected const HEADER_X_XSS_PROTECTION = 'X-Xss-Protection';
+
     /**
      * Handle an incoming request.
      *
@@ -19,9 +23,9 @@ class AddSecurityHeaders
         $response = $next($request);
 
         return $response->withHeaders([
-            'X-Frame-Options' => 'SAMEORIGIN',
-            'Referrer-Policy' => 'no-referrer-when-downgrade',
-            'X-Xss-Protection' => $this->getXssHeaderValue(),
+            self::HEADER_REFERRER_POLICY => 'no-referrer-when-downgrade',
+            self::HEADER_X_FRAME_OPTIONS => 'SAMEORIGIN',
+            self::HEADER_X_XSS_PROTECTION => $this->getXssHeaderValue(),
         ]);
     }
 
