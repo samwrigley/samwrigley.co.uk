@@ -30,9 +30,7 @@ class Policy extends BasePolicy
         return $this
             ->addDirective(Directive::FONT, 'fonts.gstatic.com')
             ->addDirective(Directive::SCRIPT, 'fonts.googleapis.com')
-            ->addDirective(Directive::STYLE, 'fonts.googleapis.com')
-            ->addDirective(Directive::FONT, 'rsms.me')
-            ->addDirective(Directive::STYLE, 'rsms.me');
+            ->addDirective(Directive::STYLE, 'fonts.googleapis.com');
     }
 
     protected function addDirectivesForGoogleAnalytics(): BasePolicy

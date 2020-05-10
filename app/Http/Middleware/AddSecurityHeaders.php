@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AddSecurityHeaders
 {
+    public const HEADER_REFERRER_POLICY = 'Referrer-Policy';
+    public const HEADER_X_FRAME_OPTIONS = 'X-Frame-Options';
+    public const HEADER_X_XSS_PROTECTION = 'X-Xss-Protection';
+
     /**
      * Handle an incoming request.
      *
@@ -19,18 +23,13 @@ class AddSecurityHeaders
         $response = $next($request);
 
         return $response->withHeaders([
-            'X-Xss-Protection' => $this->xssHeader(),
-            'Referrer-Policy' => 'strict-origin',
-            'X-Frame-Options' => 'SAMEORIGIN',
+            self::HEADER_REFERRER_POLICY => 'no-referrer-when-downgrade',
+            self::HEADER_X_FRAME_OPTIONS => 'SAMEORIGIN',
+            self::HEADER_X_XSS_PROTECTION => $this->getXssHeaderValue(),
         ]);
     }
 
-    /**
-     * Get cross-site scripting (XSS) header value.
-     *
-     * @return string
-     */
-    private function xssHeader(): string
+    protected function getXssHeaderValue(): string
     {
         $xssHeader = '1; mode=block';
 
