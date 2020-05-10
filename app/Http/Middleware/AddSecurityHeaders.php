@@ -20,8 +20,8 @@ class AddSecurityHeaders
 
         return $response->withHeaders([
             'X-Xss-Protection' => $this->xssHeader(),
-            'Referrer-Policy' => 'strict-origin',
             'X-Frame-Options' => 'SAMEORIGIN',
+            'Referrer-Policy' => 'no-referrer-when-downgrade',
         ]);
     }
 
