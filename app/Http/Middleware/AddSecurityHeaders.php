@@ -19,18 +19,13 @@ class AddSecurityHeaders
         $response = $next($request);
 
         return $response->withHeaders([
-            'X-Xss-Protection' => $this->xssHeader(),
             'X-Frame-Options' => 'SAMEORIGIN',
             'Referrer-Policy' => 'no-referrer-when-downgrade',
+            'X-Xss-Protection' => $this->getXssHeaderValue(),
         ]);
     }
 
-    /**
-     * Get cross-site scripting (XSS) header value.
-     *
-     * @return string
-     */
-    private function xssHeader(): string
+    protected function getXssHeaderValue(): string
     {
         $xssHeader = '1; mode=block';
 
