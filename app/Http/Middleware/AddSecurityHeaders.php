@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class AddSecurityHeaders
 {
-    protected const HEADER_REFERRER_POLICY = 'Referrer-Policy';
-    protected const HEADER_X_FRAME_OPTIONS = 'X-Frame-Options';
-    protected const HEADER_X_XSS_PROTECTION = 'X-Xss-Protection';
+    public const HEADER_REFERRER_POLICY = 'Referrer-Policy';
+    public const HEADER_X_FRAME_OPTIONS = 'X-Frame-Options';
+    public const HEADER_X_XSS_PROTECTION = 'X-Xss-Protection';
 
     /**
      * Handle an incoming request.
