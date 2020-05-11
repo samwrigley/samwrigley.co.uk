@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Config;
 use Laravel\Horizon\Horizon;
 use Laravel\Horizon\HorizonApplicationServiceProvider;
 
@@ -12,7 +13,7 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
         parent::boot();
 
         Horizon::routeSlackNotificationsTo(
-            'https://hooks.slack.com/services/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',
+            Config::get('notifications.slack.queue'),
             '#queue'
         );
     }
