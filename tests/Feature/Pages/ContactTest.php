@@ -65,7 +65,7 @@ class ContactTest extends TestCase
             ->assertOk()
             ->assertSeeText(__('contact.success'));
 
-        Log::assertLoggedMessage('info', "Contact: {$data['email']}");
+        Log::assertLoggedMessage('info', "{$data['name']} has been in touch using '{$data['email']}'");
     }
 
     /** @test */
@@ -83,7 +83,7 @@ class ContactTest extends TestCase
             ->assertSessionHas('contact', __('contact.success'))
             ->assertSessionHasNoErrors();
 
-        Log::assertLoggedMessage('info', "Contact: {$data['email']}");
+        Log::assertLoggedMessage('info', "{$data['name']} has been in touch using '{$data['email']}'");
     }
 
     /** @test */
