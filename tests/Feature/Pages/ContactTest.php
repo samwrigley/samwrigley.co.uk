@@ -2,11 +2,14 @@
 
 namespace Tests\Feature\Article;
 
+use App\Notifications\ContactReceived;
 use App\Schemas\SiteSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 use TiMacDonald\Log\LogFake;
@@ -27,6 +30,7 @@ class ContactTest extends TestCase
     {
         parent::setUp();
 
+        Notification::fake();
         Log::swap(new LogFake);
         Config::set('honeypot.enabled', false);
     }
@@ -64,8 +68,42 @@ class ContactTest extends TestCase
             ->assertViewIs('pages.contact')
             ->assertOk()
             ->assertSeeText(__('contact.success'));
+    }
 
-        Log::assertLoggedMessage('info', "Contact: {$data['email']}");
+    /** @test */
+    public function sends_contact_received_notification_after_successful_submission(): void
+    {
+        Notification::assertNothingSent();
+
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->sentence,
+        ];
+
+        $this->postContactRoute($data);
+
+        Notification::assertSentTo(
+            new AnonymousNotifiable,
+            ContactReceived::class,
+            function ($notification, $channels, $notifiable) {
+                return $notifiable->routes['slack'] === Config::get('notifications.slack.contact');
+            }
+        );
+    }
+
+    /** @test */
+    public function logs_contact_after_successful_submission(): void
+    {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->sentence,
+        ];
+
+        $this->postContactRoute($data);
+
+        Log::assertLoggedMessage('info', "{$data['name']} has been in touch using '{$data['email']}'");
     }
 
     /** @test */
@@ -82,8 +120,6 @@ class ContactTest extends TestCase
             ->assertRedirect(route('contact'))
             ->assertSessionHas('contact', __('contact.success'))
             ->assertSessionHasNoErrors();
-
-        Log::assertLoggedMessage('info', "Contact: {$data['email']}");
     }
 
     /** @test */
@@ -100,6 +136,8 @@ class ContactTest extends TestCase
             ->assertSessionHasErrorsIn($this->errorBag, 'email')
             ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
+
+        Notification::assertNothingSent();
     }
 
     /** @test */
@@ -117,6 +155,8 @@ class ContactTest extends TestCase
             ->assertSessionHasErrorsIn($this->errorBag, 'email')
             ->assertSessionDoesntHaveErrors(['name', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
+
+        Notification::assertNothingSent();
     }
 
     /** @test */
@@ -133,6 +173,8 @@ class ContactTest extends TestCase
             ->assertSessionHasErrorsIn($this->errorBag, 'name')
             ->assertSessionDoesntHaveErrors(['email', 'message'], null, $this->errorBag)
             ->assertSessionHasInput($data);
+
+        Notification::assertNothingSent();
     }
 
     /** @test */
@@ -149,6 +191,8 @@ class ContactTest extends TestCase
             ->assertSessionHasErrorsIn($this->errorBag, 'message')
             ->assertSessionDoesntHaveErrors(['name', 'email'], null, $this->errorBag)
             ->assertSessionHasInput($data);
+
+        Notification::assertNothingSent();
     }
 
     /** @test */
@@ -164,6 +208,8 @@ class ContactTest extends TestCase
             ->postContactRoute($data)
             ->assertSessionHasErrorsIn($this->errorBag, 'message')
             ->assertSessionHasInput($data);
+
+        Notification::assertNothingSent();
     }
 
     /** @test */
