@@ -6,7 +6,9 @@ use App\Contact;
 use App\Http\Requests\ContactRequest;
 use App\Notifications\ContactReceived;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -21,7 +23,8 @@ class ContactController extends Controller
     {
         $contact = Contact::create($request->only(['name', 'email', 'message']));
 
-        $contact->notify(new ContactReceived($contact));
+        Notification::route('slack', Config::get('notifications.slack.contact'))
+            ->notify(new ContactReceived($contact));
 
         Log::info("{$request->name} has been in touch using '{$request->email}'");
 
