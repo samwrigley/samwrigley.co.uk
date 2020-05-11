@@ -1,34 +1,49 @@
-<ul>
-
-    <li>
-        <a
-            href="https://twitter.com/{{ config('social.twitter') }}"
-            target="_blank"
-            rel="noopener"
-        >@lang('Twitter')</a>
+<ul class="flex flex-col text-sm sm:flex-row">
+    <li class="font-bold mb-6 sm:mr-8 sm:mb-0">
+        &copy; Sam Wrigley
     </li>
 
-    <li>
-        <a
-            href="https://github.com/{{ config('social.github') }}"
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
+        <a href="https://github.com/{{ config('social.github') }}"
             target="_blank"
             rel="noopener"
-        >@lang('Github')</a>
+        >
+            @lang('Github')
+        </a>
     </li>
 
-    <li>
-        <a
-            href="https://www.instagram.com/{{ config('social.instagram') }}"
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
+        <a href="https://www.linkedin.com/in/{{ config('social.linkedin') }}"
             target="_blank"
             rel="noopener"
-        >@lang('Instagram')</a>
+        >
+            @lang('LinkedIn')
+        </a>
     </li>
 
-    <li>
-        <a
-            href="mailto:{{ config('contact.email') }}"
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
+        <a href="https://twitter.com/{{ config('social.twitter') }}"
+            target="_blank"
+            rel="noopener"
+        >
+            @lang('Twitter')
+        </a>
+    </li>
+
+    <li class="mb-3 text-gray-700 sm:mr-4 sm:mb-0">
+        <a href="https://www.instagram.com/{{ config('social.instagram') }}"
+            target="_blank"
+            rel="noopener"
+        >
+            @lang('Instagram')
+        </a>
+    </li>
+
+    <li class="text-gray-700">
+        <a href="mailto:{{ config('contact.email') }}"
             aria-label="Send me an email"
-        >@lang('Email')</a>
+        >
+            @lang('Email')
+        </a>
     </li>
-
 </ul>

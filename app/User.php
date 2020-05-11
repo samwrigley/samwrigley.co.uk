@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Article;
+use App\Traits\HasManyArticles;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasManyArticles;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +17,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'slug',
+        'name',
+        'email',
+        'password',
+        'bio',
     ];
 
     /**
@@ -24,6 +30,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function publish(Article $article): void
+    {
+        $this->articles()->save($article);
+    }
 }

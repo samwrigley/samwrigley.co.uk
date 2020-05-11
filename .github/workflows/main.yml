@@ -1,0 +1,146 @@
+name: CI
+
+on: 'push'
+
+jobs:
+
+  test_application:
+
+    runs-on: ubuntu-latest
+
+    services:
+        mysql:
+            image: mysql:5.7
+            env:
+                MYSQL_DATABASE: test
+                MYSQL_USER: root
+                MYSQL_ROOT_PASSWORD: secret
+            ports:
+                - 33306:3306
+            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Verify MySQL connection
+        run: |
+          mysql --version
+          sudo apt-get install -y mysql-client
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -psecret -e "SHOW DATABASES"
+
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+            php-version: '7.4'
+            coverage: none
+
+      - name: Get Composer cache directory path
+        id: composer-cache-dir-path
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache PHP dependencies
+        uses: actions/cache@v1
+        with:
+            path: ${{ steps.composer-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-composer-${{ hashFiles('./composer.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-composer-
+
+      - name: Install PHP dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      - name: Copy environment file
+        run: cp .env.ci .env
+
+      - name: Run database migrations
+        run: php artisan migrate:fresh --force --no-interaction --no-ansi
+
+      - name: Seed database
+        run: php artisan db:seed --force --no-interaction --no-ansi
+
+      - name: Generate sitemap
+        run: php artisan sitemap:generate
+
+      - name: Install NPM dependencies
+        run: yarn install
+
+      - name: Generate assets
+        run: npm run production
+
+      - name: Generate key
+        run: php artisan key:generate --no-ansi
+
+      - name: Check environment files are in sync
+        run: php artisan env:check
+
+      - name: Run PHP tests
+        run: php artisan test
+
+      - name: Upgrade Chrome Driver
+        run: php artisan dusk:chrome-driver 78 --no-ansi
+
+      - name: Start Chrome Driver
+        run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
+
+      - name: Run Laravel Server
+        run: php artisan serve > /dev/null 2>&1 &
+
+      - name: Run Laravel Dusk
+        run: php artisan dusk --stop-on-error --stop-on-failure
+
+      - name: PHP Insights
+        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=95 --min-architecture=90 --min-style=95 --format=github-action
+
+      - name: PHP Linting
+        run: npm run lint:php
+
+      - name: Run Lighthouse Audits
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+            configPath: ./lighthouserc.json
+            uploadArtifacts: true
+            urls: |
+                http://127.0.0.1:8000/
+                http://127.0.0.1:8000/about
+                http://127.0.0.1:8000/contact
+                http://127.0.0.1:8000/blog
+                http://127.0.0.1:8000/blog/test
+                http://127.0.0.1:8000/blog/series
+                http://127.0.0.1:8000/blog/categories
+
+  test_assets:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        id: yarn-cache
+        with:
+            path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-yarn-
+
+      - name: Install NPM dependencies
+        run: yarn install
+
+      - name: Generate assets
+        run: npm run production
+
+      - name: JavaScript Linting
+        run: npm run lint:js
+
+      - name: CSS Linting
+        run: npm run lint:scss
+
+      - name: Check Bundle size
+        run: npm run test:size

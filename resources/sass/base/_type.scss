@@ -1,0 +1,11 @@
+a {
+    transition: color 0.05s ease-in;
+
+    p & {
+        @apply text-black font-bold border-b border-black border-dotted;
+
+        &:hover {
+            @apply text-gray-700;
+        }
+    }
+}

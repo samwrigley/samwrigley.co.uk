@@ -7,15 +7,15 @@ use Spatie\Csp\Policies\Policy as BasePolicy;
 
 class Policy extends BasePolicy
 {
-    public function configure()
+    public function configure(): void
     {
         $this->addGeneralDirectives();
-        $this->addDirectivesForGoogleFonts();
+        $this->addDirectivesForFonts();
         $this->addDirectivesForGoogleAnalytics();
         $this->addDirectivesForGoogleTagManager();
     }
 
-    protected function addGeneralDirectives(): self
+    protected function addGeneralDirectives(): BasePolicy
     {
         return $this
             ->addDirective(Directive::DEFAULT, 'self')
@@ -25,7 +25,7 @@ class Policy extends BasePolicy
             ->addNonceForDirective(Directive::SCRIPT);
     }
 
-    protected function addDirectivesForGoogleFonts(): self
+    protected function addDirectivesForFonts(): BasePolicy
     {
         return $this
             ->addDirective(Directive::FONT, 'fonts.gstatic.com')
@@ -33,14 +33,14 @@ class Policy extends BasePolicy
             ->addDirective(Directive::STYLE, 'fonts.googleapis.com');
     }
 
-    protected function addDirectivesForGoogleAnalytics(): self
+    protected function addDirectivesForGoogleAnalytics(): BasePolicy
     {
         return $this
             ->addDirective(Directive::SCRIPT, '*.google-analytics.com')
             ->addDirective(Directive::IMG, '*.google-analytics.com');
     }
 
-    protected function addDirectivesForGoogleTagManager(): self
+    protected function addDirectivesForGoogleTagManager(): BasePolicy
     {
         return $this->addDirective(Directive::SCRIPT, '*.googletagmanager.com');
     }

@@ -6,7 +6,7 @@
     "rules": {
         "indentation": 4,
         "at-rule-no-unknown": [true, {
-            ignoreAtRules: ['include', 'extend']
+            ignoreAtRules: ['include', 'extend', 'each', 'tailwind', 'screen']
         }]
     },
     "ignoreFiles": [
