@@ -3,7 +3,7 @@
 </a>
 
 <nav>
-    <ul class="flex text-sm">
+    <ul class="flex text-sm text-gray-700">
         <li class="mr-3">
             <a href="{{ route('blog.articles.index') }}">Blog</a>
         </li>
