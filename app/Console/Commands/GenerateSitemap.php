@@ -83,17 +83,21 @@ class GenerateSitemap extends Command
                 ->setPriority(0.7)
         );
 
-        $this->sitemap->add(
-            Url::create(route('blog.categories.index'))
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                ->setPriority(0.7)
-        );
+        if (ArticleCategory::hasPublished('articles')->count()) {
+            $this->sitemap->add(
+                Url::create(route('blog.categories.index'))
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                    ->setPriority(0.7)
+            );
+        }
 
-        $this->sitemap->add(
-            Url::create(route('blog.series.index'))
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                ->setPriority(0.7)
-        );
+        if (ArticleSeries::hasPublished('articles')->count()) {
+            $this->sitemap->add(
+                Url::create(route('blog.series.index'))
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                    ->setPriority(0.7)
+            );
+        }
     }
 
     protected function addBlogArticlesToSitemap(): void
