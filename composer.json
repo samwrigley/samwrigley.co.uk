@@ -12,7 +12,7 @@
         "calebporzio/gitdown": "1.3.2",
         "fideloper/proxy": "4.3.0",
         "fruitcake/laravel-cors": "1.0.6",
-        "guzzlehttp/guzzle": "6.5.2",
+        "guzzlehttp/guzzle": "6.5.3",
         "jtant/laravel-env-sync": "4.0.0",
         "laravel/framework": "7.4.0",
         "laravel/horizon": "4.3.2",
