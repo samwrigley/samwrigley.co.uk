@@ -17,7 +17,7 @@
         "laravel/framework": "7.11.0",
         "laravel/horizon": "4.3.2",
         "laravel/slack-notification-channel": "2.0.2",
-        "laravel/telescope": "3.2.0",
+        "laravel/telescope": "3.4.0",
         "laravel/tinker": "2.3.0",
         "nothingworks/blade-svg": "0.3.4",
         "spatie/laravel-csp": "2.5.1",
