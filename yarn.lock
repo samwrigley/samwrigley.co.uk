@@ -7109,7 +7109,7 @@ postcss-scss@^2.0.0:
   dependencies:
     postcss "^7.0.0"
 
-postcss-selector-parser@^3.0.0, postcss-selector-parser@^3.1.0, postcss-selector-parser@^3.1.1:
+postcss-selector-parser@^3.0.0, postcss-selector-parser@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-3.1.1.tgz#4f875f4afb0c96573d5cf4d74011aee250a7e865"
   integrity sha1-T4dfSvsMllc9XPTXQBGu4lCn6GU=
@@ -7167,6 +7167,11 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.0.3.tgz#651ff4593aa9eda8d5d0d66593a2417aeaeb325d"
   integrity sha512-N7h4pG+Nnu5BEIzyeaaIYWs0LI5XC40OrRh5L60z0QjFsqGWcHcbkBvpe1WYpcIS9yQ8sOi/vIPt1ejQCrMVrg==
+
+postcss-value-parser@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
+  integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
 postcss@7.0.21:
   version "7.0.21"
@@ -8663,16 +8668,16 @@ stylelint-config-standard@18.3.0:
   dependencies:
     stylelint-config-recommended "^2.2.0"
 
-stylelint-scss@2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-2.5.0.tgz#ac4c83474c53b19cc1f9e93d332786cf89c8d217"
-  integrity sha512-+joZpza5nQxAyGwzRMancFEl0EH9+1Vy88YzBghRMS0wHulzDPE9fEkBi6ZOlz+I3tYIBI4x9NbqO5/LkbeE3Q==
+stylelint-scss@3.17.2:
+  version "3.17.2"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.17.2.tgz#4d849a153f9241834396f5880db2c3c964def4e3"
+  integrity sha512-e0dmxqsofy/HZj4urcGSJw4S6yHDJxiQdT20/1ciCsd5lomisa7YM4+Qtt1EG4hsqEG1dbEeF855tec1UyqcSA==
   dependencies:
-    lodash "^4.17.4"
+    lodash "^4.17.15"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
-    postcss-selector-parser "^3.1.1"
-    postcss-value-parser "^3.3.0"
+    postcss-selector-parser "^6.0.2"
+    postcss-value-parser "^4.1.0"
 
 stylelint@9.10.1:
   version "9.10.1"
