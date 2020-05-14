@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62171e6056501288af30f7e26f4aa263",
+    "content-hash": "844a221d1cf836e5976c09fd2d16a794",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3421,16 +3421,16 @@
         },
         {
             "name": "spatie/schema-org",
-            "version": "2.12.1",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "367c57cf16a93dc9e119dea507a353bca2b87580"
+                "reference": "1000009d7d25666b4c6a81312e6ebff24b46c644"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/367c57cf16a93dc9e119dea507a353bca2b87580",
-                "reference": "367c57cf16a93dc9e119dea507a353bca2b87580",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/1000009d7d25666b4c6a81312e6ebff24b46c644",
+                "reference": "1000009d7d25666b4c6a81312e6ebff24b46c644",
                 "shasum": ""
             },
             "require": {
@@ -3441,7 +3441,6 @@
                 "graham-campbell/analyzer": "^2.1.1",
                 "league/flysystem": "^1.0",
                 "phpunit/phpunit": "^8.0",
-                "scrutinizer/ocular": "^1.5",
                 "symfony/console": "^3.2",
                 "symfony/css-selector": "^3.2",
                 "symfony/dom-crawler": "^3.2",
@@ -3477,7 +3476,17 @@
                 "schema-org",
                 "spatie"
             ],
-            "time": "2020-03-17T11:08:16+00:00"
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-04-17T11:50:06+00:00"
         },
         {
             "name": "spatie/temporary-directory",
