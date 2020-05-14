@@ -51,7 +51,7 @@
         "stylelint": "9.10.1",
         "stylelint-config-standard": "18.3.0",
         "stylelint-scss": "2.5.0",
-        "vue-template-compiler": "2.6.10"
+        "vue-template-compiler": "2.6.11"
     },
     "dependencies": {
         "@primer/css": "14.3.0",
