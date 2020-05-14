@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3600887a9089e22a34bad27a692db717",
+    "content-hash": "6a360dc682d76af6d3f31ae83f7c9f56",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4930,16 +4930,16 @@
         },
         {
             "name": "spatie/laravel-feed",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-feed.git",
-                "reference": "1d405afaa1411f8f9916cddcceea8ad85cd553d7"
+                "reference": "58596045035f9f2ec2cd64a16c23352807ee4c09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/1d405afaa1411f8f9916cddcceea8ad85cd553d7",
-                "reference": "1d405afaa1411f8f9916cddcceea8ad85cd553d7",
+                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/58596045035f9f2ec2cd64a16c23352807ee4c09",
+                "reference": "58596045035f9f2ec2cd64a16c23352807ee4c09",
                 "shasum": ""
             },
             "require": {
@@ -5003,7 +5003,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-03-02T17:01:46+00:00"
+            "time": "2020-04-23T07:40:56+00:00"
         },
         {
             "name": "spatie/laravel-honeypot",
