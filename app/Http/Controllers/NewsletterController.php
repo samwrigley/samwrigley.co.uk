@@ -14,7 +14,7 @@ use Newsletter;
 
 class NewsletterController extends Controller
 {
-    public function store(NewsletterRequest $request): RedirectResponse
+    public function __invoke(NewsletterRequest $request): RedirectResponse
     {
         if (Newsletter::isSubscribed($request->email)) {
             Log::info('Newsletter: Already subscribed', ['email' => $request->email]);
@@ -34,27 +34,5 @@ class NewsletterController extends Controller
         Log::info('Newsletter: Subscribed', ['email' => $request->email]);
 
         return Redirect::back()->with('newsletter', __('newsletter.subscribe_success'));
-    }
-
-    public function destroy(NewsletterRequest $request): RedirectResponse
-    {
-        if (! Newsletter::isSubscribed($request->email)) {
-            Log::info('Newsletter: Already unsubscribed', ['email' => $request->email]);
-
-            return Redirect::back()->with('newsletter', __('newsletter.already_unsubscribed'));
-        }
-
-        if (! Newsletter::unsubscribe($request->email)) {
-            Log::error('Newsletter: Unsubscribe failure', ['message' => Newsletter::getLastError()]);
-
-            return Redirect::back()->with('newsletter', __('newsletter.unsubscribe_failure'));
-        }
-
-        Notification::route('slack', Config::get('notifications.slack.newsletter'))
-            ->notify(new NewsletterUnsubscribed($request->email));
-
-        Log::info('Newsletter: Unsubscribed', ['email' => $request->email]);
-
-        return Redirect::back()->with('newsletter', __('newsletter.unsubscribe_success'));
     }
 }
