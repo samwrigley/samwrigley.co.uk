@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Redirect;
 use Newsletter;
 
-class NewsletterController extends Controller
+class NewsletterSubscriptionController extends Controller
 {
     public function __invoke(NewsletterRequest $request): RedirectResponse
     {
