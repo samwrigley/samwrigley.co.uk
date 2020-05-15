@@ -13,6 +13,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Testing\TestResponse;
+use Spatie\Newsletter\Newsletter;
 use Tests\TestCase;
 
 class ArticleShowTest extends TestCase
@@ -130,14 +131,20 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function can_subscribe_to_newsletter_with_valid_email(): void
     {
+        $email = $this->faker->email;
         $article = factory(Article::class)->states('published')->create();
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($email)->once()->andReturn(true);
+        });
 
         $this->followingRedirects()
             ->from(route('blog.articles.show', $article->slug))
-            ->post(route('newsletter.subscribe'), ['email' => $this->faker->email])
+            ->post(route('newsletter.subscribe'), ['email' => $email])
             ->assertViewIs('articles.show')
             ->assertOk()
-            ->assertSeeText(__('newsletter.success'));
+            ->assertSeeText(__('newsletter.subscribe_success'));
     }
 
     /** @test */
