@@ -2,11 +2,17 @@
 
 namespace Tests\Feature\Article;
 
+use App\Notifications\NewsletterSubscribed;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Testing\TestResponse;
+use Spatie\Newsletter\Newsletter;
 use Tests\TestCase;
+use TiMacDonald\Log\LogFake;
 
 class NewsletterTest extends TestCase
 {
@@ -17,24 +23,95 @@ class NewsletterTest extends TestCase
     {
         parent::setUp();
 
+        Notification::fake();
+        Log::swap(new LogFake);
         Config::set('honeypot.enabled', false);
+    }
+
+    /** @test */
+    public function it_redirects_back_with_message_when_email_already_subscribed(): void
+    {
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(true);
+        });
+
+        Log::assertNothingLogged();
+
+        $this->from(route('blog.articles.index'))
+            ->postSubscribeRoute(['email' => $email])
+            ->assertSessionHas('newsletter', __('newsletter.already_subscribed'))
+            ->assertSessionHasNoErrors()
+            ->assertRedirect(route('blog.articles.index'));
+
+        Log::assertLogged('info');
+    }
+
+    /** @test */
+    public function it_redirects_back_with_message_when_subscription_fails(): void
+    {
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($email)->once()->andReturn(false);
+            $mock->shouldReceive()->getLastError()->once()->andReturn('Error');
+        });
+
+        Log::assertNothingLogged();
+
+        $this->from(route('blog.articles.index'))
+            ->postSubscribeRoute(['email' => $email])
+            ->assertSessionHas('newsletter', __('newsletter.subscribe_failure'))
+            ->assertSessionHasNoErrors()
+            ->assertRedirect(route('blog.articles.index'));
+
+        Log::assertLogged('error');
     }
 
     /** @test */
     public function can_subscribe_to_newsletter_with_valid_email(): void
     {
-        $this->followingRedirects()
-            ->postSubscribeRoute(['email' => $this->faker->email])
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($email)->once()->andReturn(true);
+        });
+
+        Log::assertNothingLogged();
+
+        $this->from(route('blog.articles.index'))
+            ->postSubscribeRoute(['email' => $email])
+            ->assertSessionHas('newsletter', __('newsletter.subscribe_success'))
             ->assertSessionHasNoErrors()
-            ->assertOk();
+            ->assertRedirect(route('blog.articles.index'));
+
+        Log::assertLogged('info');
     }
 
     /** @test */
-    public function session_has_correct_data_after_successful_subscription(): void
+    public function it_sends_newsletter_notification_on_successful_subscription(): void
     {
-        $this->postSubscribeRoute(['email' => $this->faker->email])
-            ->assertSessionHas('newsletter', __('newsletter.success'))
-            ->assertSessionHasNoErrors();
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($email)->once()->andReturn(true);
+        });
+
+        Notification::assertNothingSent();
+
+        $this->postSubscribeRoute(['email' => $email]);
+
+        Notification::assertSentTo(
+            new AnonymousNotifiable,
+            NewsletterSubscribed::class,
+            function ($notification, $channels, $notifiable) {
+                return $notifiable->routes['slack'] === Config::get('notifications.slack.newsletter');
+            }
+        );
     }
 
     /** @test */
