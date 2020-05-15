@@ -6,6 +6,7 @@ use App\Http\Requests\NewsletterRequest;
 use App\Notifications\NewsletterSubscribed;
 use App\Notifications\NewsletterUnsubscribed;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Redirect;
