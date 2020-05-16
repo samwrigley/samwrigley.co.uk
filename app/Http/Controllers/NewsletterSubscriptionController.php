@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsletterRequest;
+use App\NewsletterSubscription;
 use App\Notifications\NewsletterSubscribed;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Config;
@@ -26,6 +27,8 @@ class NewsletterSubscriptionController extends Controller
 
             return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
         }
+
+        NewsletterSubscription::create(['email' => $request->email]);
 
         Notification::route('slack', Config::get('notifications.slack.newsletter'))
             ->notify(new NewsletterSubscribed($request->email));
