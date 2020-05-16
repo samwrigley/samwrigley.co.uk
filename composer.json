@@ -26,6 +26,7 @@
         "spatie/laravel-newsletter": "^4.8",
         "spatie/laravel-sitemap": "5.7.0",
         "spatie/laravel-view-models": "1.3.0",
+        "spatie/laravel-webhook-client": "^2.7",
         "spatie/schema-org": "2.13.0"
     },
     "require-dev": {
