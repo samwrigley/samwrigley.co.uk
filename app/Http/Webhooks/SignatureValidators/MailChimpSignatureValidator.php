@@ -16,6 +16,6 @@ class MailChimpSignatureValidator implements SignatureValidator
             return false;
         }
 
-        return $request->query('secret') === $config->signingSecret;
+        return $secret === $config->signingSecret;
     }
 }
