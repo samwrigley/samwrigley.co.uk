@@ -14,7 +14,7 @@ use Spatie\Newsletter\Newsletter;
 use Tests\TestCase;
 use TiMacDonald\Log\LogFake;
 
-class NewsletterTest extends TestCase
+class NewsletterSubscriptionTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
