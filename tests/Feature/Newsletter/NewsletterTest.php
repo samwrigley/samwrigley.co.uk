@@ -115,6 +115,21 @@ class NewsletterTest extends TestCase
     }
 
     /** @test */
+    public function data_is_persisted_in_database(): void
+    {
+        $data = ['email' => $this->faker->email];
+
+        $this->mock(Newsletter::class, function ($mock) use ($data) {
+            $mock->shouldReceive()->isSubscribed($data['email'])->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($data['email'])->once()->andReturn(true);
+        });
+
+        $this->postSubscribeRoute($data);
+
+        $this->assertDatabaseHas('newsletter_subscriptions', $data);
+    }
+
+    /** @test */
     public function email_is_required(): void
     {
         $this->postSubscribeRoute()
