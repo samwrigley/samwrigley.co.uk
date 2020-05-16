@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeriesTableSeeder::class,
             ArticleTableSeeder::class,
             ContactsTableSeeder::class,
+            NewsletterSubscriptionsTableSeeder::class,
         ]);
     }
 }
