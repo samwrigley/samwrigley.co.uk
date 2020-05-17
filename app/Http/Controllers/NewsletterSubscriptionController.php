@@ -36,7 +36,7 @@ class NewsletterSubscriptionController extends Controller
 
     protected function subscribeFailed(): RedirectResponse
     {
-        Log::error('Newsletter : Subscribe failure', ['message' => Newsletter::getLastError()]);
+        Log::error('Newsletter : Subscribe failed', ['message' => Newsletter::getLastError()]);
 
         return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
     }

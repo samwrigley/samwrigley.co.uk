@@ -25,7 +25,7 @@ class MailChimpSignatureValidator implements SignatureValidator
             return false;
         }
 
-        Log::info('Newsletter : Webhook : Valid call : Matching secret', ['request' => $request]);
+        Log::info('Newsletter : Webhook : Valid call : Valid secret', ['request' => $request]);
 
         return true;
     }
