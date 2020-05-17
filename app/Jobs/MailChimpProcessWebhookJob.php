@@ -21,6 +21,8 @@ class MailChimpProcessWebhookJob extends SpatieProcessWebhookJob
 
         if (! $subscription) {
             Log::info('Newsletter : No subscription exists', ['email' => $data['email']]);
+
+            return;
         }
 
         switch ($data['action']) {
