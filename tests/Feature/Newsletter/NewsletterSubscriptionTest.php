@@ -92,7 +92,7 @@ class NewsletterSubscriptionTest extends TestCase
     }
 
     /** @test */
-    public function it_sends_newsletter_notification_on_successful_subscription(): void
+    public function it_sends_newsletter_subscribed_notification_on_successful_subscription(): void
     {
         $email = $this->faker->email;
 
