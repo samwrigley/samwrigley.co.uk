@@ -14,9 +14,11 @@ class MailChimpWebhookProfile implements WebhookProfile
         switch ($request->type) {
             case MailChimpWebhookType::UNSUBSCRIBE:
                 Log::info('Newsletter : Webhook : Valid type', ['request' => $request]);
+
                 return true;
             default:
                 Log::info('Newsletter : Webhook : Invalid type', ['request' => $request]);
+
                 return false;
         }
     }
