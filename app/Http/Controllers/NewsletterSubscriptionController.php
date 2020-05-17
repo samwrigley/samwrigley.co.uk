@@ -17,23 +17,38 @@ class NewsletterSubscriptionController extends Controller
     public function __invoke(NewsletterRequest $request): RedirectResponse
     {
         if (Newsletter::isSubscribed($request->email)) {
-            Log::info('Newsletter : Already subscribed', ['email' => $request->email]);
-
-            return Redirect::back()->with('newsletter', __('newsletter.already_subscribed'));
+            return $this->hasSubscribed($request);
         }
 
         if (! Newsletter::subscribe($request->email)) {
-            Log::error('Newsletter : Subscribe failure', ['message' => Newsletter::getLastError()]);
-
-            return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
+            return $this->subscribeFailed();
         }
 
+        return $this->subscribe($request);
+    }
+
+    protected function hasSubscribed(NewsletterRequest $request): RedirectResponse
+    {
+        Log::info('Newsletter : Already subscribed', ['email' => $request->email]);
+
+        return Redirect::back()->with('newsletter', __('newsletter.already_subscribed'));
+    }
+
+    protected function subscribeFailed(): RedirectResponse
+    {
+        Log::error('Newsletter : Subscribe failure', ['message' => Newsletter::getLastError()]);
+
+        return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
+    }
+
+    protected function subscribe(NewsletterRequest $request): RedirectResponse
+    {
         $subscription = NewsletterSubscription::create(['email' => $request->email]);
+
+        Log::info('Newsletter : Subscribed', ['subscription' => $subscription]);
 
         Notification::route('slack', Config::get('notifications.slack.newsletter'))
             ->notify(new NewsletterSubscribed($subscription));
-
-        Log::info('Newsletter : Subscribed', ['subscription' => $subscription]);
 
         return Redirect::back()->with('newsletter', __('newsletter.subscribe_success'));
     }
