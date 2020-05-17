@@ -28,10 +28,10 @@ class NewsletterSubscriptionController extends Controller
             return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
         }
 
-        NewsletterSubscription::create(['email' => $request->email]);
+        $subscription = NewsletterSubscription::create(['email' => $request->email]);
 
         Notification::route('slack', Config::get('notifications.slack.newsletter'))
-            ->notify(new NewsletterSubscribed($request->email));
+            ->notify(new NewsletterSubscribed($subscription));
 
         Log::info('Newsletter: Subscribed', ['email' => $request->email]);
 

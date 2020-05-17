@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\NewsletterSubscription;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\SlackMessage;
@@ -11,11 +12,11 @@ class NewsletterUnsubscribed extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    private string $email;
+    protected NewsletterSubscription $subscription;
 
-    public function __construct(string $email)
+    public function __construct(NewsletterSubscription $subscription)
     {
-        $this->email = $email;
+        $this->subscription = $subscription;
     }
 
     public function via(): array
@@ -29,6 +30,6 @@ class NewsletterUnsubscribed extends Notification implements ShouldQueue
             ->from(config('app.name'))
             ->to('#newsletter')
             ->info()
-            ->content("{$this->email} has unsubscribed");
+            ->content("{$this->subscription->email} has unsubscribed");
     }
 }
