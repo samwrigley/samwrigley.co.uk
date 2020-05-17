@@ -12,7 +12,7 @@ use BenSampo\Enum\Enum;
  * @method static static UNSUBSCRIBE()
  * @method static static UPDATE_MAIL()
  */
-final class MailChimpWebhookType extends Enum
+class MailChimpWebhookType extends Enum
 {
     public const CAMPAIGN = 'campaign';
     public const CLEANED = 'cleaned';
