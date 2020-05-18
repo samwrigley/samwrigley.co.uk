@@ -24,7 +24,7 @@ class NewsletterSubscriptionController extends Controller
             return $this->subscribeFailed();
         }
 
-        return $this->subscribe($request);
+        return $this->subscribeSuccessful($request);
     }
 
     protected function hasSubscribed(NewsletterRequest $request): RedirectResponse
@@ -41,7 +41,7 @@ class NewsletterSubscriptionController extends Controller
         return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
     }
 
-    protected function subscribe(NewsletterRequest $request): RedirectResponse
+    protected function subscribeSuccessful(NewsletterRequest $request): RedirectResponse
     {
         $subscription = NewsletterSubscription::create(['email' => $request->email]);
 
