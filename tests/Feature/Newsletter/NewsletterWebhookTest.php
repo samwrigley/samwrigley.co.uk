@@ -33,7 +33,7 @@ class NewsletterWebhookTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_500_when_called_with_no_secret_passed(): void
+    public function it_returns_500_when_webhook_request_has_no_secret_passed(): void
     {
         $this->postWebHookRoute()->assertStatus(500);
 
@@ -41,7 +41,7 @@ class NewsletterWebhookTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_500_when_called_with_empty_secret(): void
+    public function it_returns_500_when_webhook_request_has_empty_secret(): void
     {
         $this->postWebHookRoute(['secret' => ''])->assertStatus(500);
 
@@ -49,7 +49,7 @@ class NewsletterWebhookTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_500_when_called_with_invalid_secret(): void
+    public function it_returns_500_when_webhook_request_has_invalid_secret(): void
     {
         $this->postWebHookRoute(['secret' => 'invalid-secret'])->assertStatus(500);
 
@@ -57,7 +57,7 @@ class NewsletterWebhookTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_ok_when_called_with_unsupported_type(): void
+    public function it_returns_ok_when_webhook_request_is_unsupported_type(): void
     {
         $this->postWebHookRoute(
             ['secret' => $this->config->signingSecret],
@@ -68,7 +68,7 @@ class NewsletterWebhookTest extends TestCase
     }
 
     /** @test */
-    public function it_processes_job_when_called_with_supported_type(): void
+    public function it_processes_job_when_webhook_request_is_supported_type(): void
     {
         Queue::assertNothingPushed();
 
