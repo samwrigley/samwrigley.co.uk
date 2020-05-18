@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Enums\MailChimpUnsubscribeWebhookAction;
+use App\Enums\MailChimpWebhookType;
 use App\NewsletterSubscription;
 use App\Notifications\NewsletterUnsubscribed;
 use Illuminate\Support\Facades\Config;
@@ -16,23 +17,47 @@ class MailChimpProcessWebhookJob extends SpatieProcessWebhookJob
     {
         Log::info('Newsletter : Processing webhook', ['payload' => $this->webhookCall->payload]);
 
+        $type = $this->webhookCall->payload['type'];
         $data = $this->webhookCall->payload['data'];
-        $subscription = NewsletterSubscription::whereEmail($data['email'])->first();
+        $email = $data['email'] ?? $data['old_email'];
+        $subscription = NewsletterSubscription::whereEmail($email)->first();
 
         if (! $subscription) {
-            Log::info('Newsletter : No subscription exists', ['email' => $data['email']]);
+            Log::info('Newsletter : No subscription exists', ['email' => $email]);
 
             return;
         }
 
-        switch ($data['action']) {
-            case MailChimpUnsubscribeWebhookAction::UNSUBSCRIBE:
-                $this->unsubscribeSubscription($subscription);
-                break;
-            case MailChimpUnsubscribeWebhookAction::DELETE:
-                $this->deleteSubscription($subscription);
-                break;
+        if ($type === MailChimpWebhookType::UNSUBSCRIBE) {
+            $this->handleUnsubscribe($subscription);
+        } elseif ($type === MailChimpWebhookType::UPDATE_MAIL) {
+            $this->handleUpdateEmail($subscription);
         }
+    }
+
+    protected function handleUnsubscribe(NewsletterSubscription $subscription): void
+    {
+        $action = $this->webhookCall->payload['data']['action'];
+
+        if ($action === MailChimpUnsubscribeWebhookAction::UNSUBSCRIBE) {
+            $this->unsubscribeSubscription($subscription);
+        } elseif ($action === MailChimpUnsubscribeWebhookAction::DELETE) {
+            $this->deleteSubscription($subscription);
+        }
+    }
+
+    protected function handleUpdateEmail(NewsletterSubscription $subscription): void
+    {
+        $data = $this->webhookCall->payload['data'];
+
+        $subscription->email = $data['new_email'];
+        $subscription->save();
+
+        Log::info('Newsletter : Updated email', [
+            'old_email' => $data['old_email'],
+            'new_email' => $data['new_email'],
+            'subscription' => $subscription,
+        ]);
     }
 
     protected function unsubscribeSubscription(NewsletterSubscription $subscription): void

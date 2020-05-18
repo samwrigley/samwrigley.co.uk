@@ -176,4 +176,34 @@ class MailChimpProcessWebhookJobTest extends TestCase
         Log::assertLoggedMessage('info', 'Newsletter : Processing webhook');
         Log::assertLoggedMessage('info', 'Newsletter : Deleted subscription');
     }
+
+    /** @test */
+    public function it_updates_subscription_email_when_passed_update_email_webhook_call(): void
+    {
+        $email = $this->faker->email;
+        $newEmail = $this->faker->email;
+
+        factory(NewsletterSubscription::class)->create(['email' => $email]);
+
+        $job = new MailChimpProcessWebhookJob(WebhookCall::create([
+            'name' => Config::get('webhook-client.names.newsletter'),
+            'payload' => [
+                'type' => MailChimpWebhookType::UPDATE_MAIL,
+                'data' => [
+                    'old_email' => $email,
+                    'new_email' => $newEmail,
+                ],
+            ],
+        ]));
+
+        Log::assertNothingLogged();
+        $this->assertDatabaseHas('newsletter_subscriptions', ['email' => $email]);
+
+        $job->handle();
+
+        $this->assertDatabaseHas('newsletter_subscriptions', ['email' => $newEmail]);
+        $this->assertDatabaseMissing('newsletter_subscriptions', ['email' => $email]);
+        Log::assertLoggedMessage('info', 'Newsletter : Processing webhook');
+        Log::assertLoggedMessage('info', 'Newsletter : Updated email');
+    }
 }
