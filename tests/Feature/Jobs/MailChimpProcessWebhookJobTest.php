@@ -34,7 +34,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
     public function it_logs_when_no_subscription_exists(): void
     {
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
-            'name' => 'mailchimp',
+            'name' => Config::get('webhook-client.names.newsletter'),
             'payload' => [
                 'type' => MailChimpWebhookType::UNSUBSCRIBE,
                 'data' => [
@@ -63,7 +63,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
         ]);
 
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
-            'name' => 'mailchimp',
+            'name' => Config::get('webhook-client.names.newsletter'),
             'payload' => [
                 'type' => MailChimpWebhookType::UNSUBSCRIBE,
                 'data' => [
@@ -95,7 +95,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
         ]);
 
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
-            'name' => 'mailchimp',
+            'name' => Config::get('webhook-client.names.newsletter'),
             'payload' => [
                 'type' => MailChimpWebhookType::UNSUBSCRIBE,
                 'data' => [
@@ -130,7 +130,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
         ]);
 
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
-            'name' => 'mailchimp',
+            'name' => Config::get('webhook-client.names.newsletter'),
             'payload' => [
                 'type' => MailChimpWebhookType::UNSUBSCRIBE,
                 'data' => [
@@ -159,7 +159,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
         factory(NewsletterSubscription::class)->create(['email' => $email]);
 
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
-            'name' => 'mailchimp',
+            'name' => Config::get('webhook-client.names.newsletter'),
             'payload' => [
                 'type' => MailChimpWebhookType::UNSUBSCRIBE,
                 'data' => [

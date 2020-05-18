@@ -25,7 +25,7 @@ class NewsletterWebhookTest extends TestCase
         parent::setUp();
 
         $mailChimpConfig = collect(Config::get('webhook-client.configs'))
-            ->firstWhere('name', 'mailchimp');
+            ->firstWhere('name', Config::get('webhook-client.names.newsletter'));
 
         $this->config = new WebhookConfig($mailChimpConfig);
 

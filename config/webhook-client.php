@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'names' => [
+        'newsletter' => 'mailchimp',
+    ],
     'configs' => [
         [
             'name' => 'mailchimp',
