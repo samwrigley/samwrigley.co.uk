@@ -155,7 +155,6 @@ class UnsubscribeNewsletterSubscriptionTest extends TestCase
         $listener = new UnsubscribeNewsletterSubscription;
         $listener->handle(new NewsletterUnsubscribedEvent($subscription, $webhookCall));
 
-
         $this->assertDeleted('newsletter_subscriptions', ['email' => $email]);
         Log::assertLoggedMessage('info', 'Newsletter : Deleted subscription');
     }
