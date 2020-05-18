@@ -6,7 +6,7 @@ use App\Enums\MailChimpUnsubscribeWebhookAction;
 use App\Enums\MailChimpWebhookType;
 use App\Events\NewsletterSubscriptionEmailUpdated;
 use App\Events\NewsletterUnsubscribed;
-use App\Jobs\MailChimpProcessWebhookJob;
+use App\Jobs\ProcessMailChimpWebhookJob;
 use App\NewsletterSubscription;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -17,7 +17,7 @@ use Spatie\WebhookClient\Models\WebhookCall;
 use Tests\TestCase;
 use TiMacDonald\Log\LogFake;
 
-class MailChimpProcessWebhookJobTest extends TestCase
+class ProcessMailChimpWebhookJobTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
@@ -44,7 +44,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
             ],
         ]);
 
-        $job = new MailChimpProcessWebhookJob($webhookCall);
+        $job = new ProcessMailChimpWebhookJob($webhookCall);
 
         Log::assertNothingLogged();
 
@@ -74,7 +74,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
             ],
         ]);
 
-        $job = new MailChimpProcessWebhookJob($webhookCall);
+        $job = new ProcessMailChimpWebhookJob($webhookCall);
 
         $job->handle();
 
@@ -107,7 +107,7 @@ class MailChimpProcessWebhookJobTest extends TestCase
             ],
         ]);
 
-        $job = new MailChimpProcessWebhookJob($webhookCall);
+        $job = new ProcessMailChimpWebhookJob($webhookCall);
 
         $job->handle();
 

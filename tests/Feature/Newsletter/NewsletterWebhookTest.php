@@ -4,7 +4,7 @@ namespace Tests\Feature\Newsletter;
 
 use App\Enums\MailChimpUnsubscribeWebhookAction;
 use App\Enums\MailChimpWebhookType;
-use App\Jobs\MailChimpProcessWebhookJob;
+use App\Jobs\ProcessMailChimpWebhookJob;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Config;
@@ -77,7 +77,7 @@ class NewsletterWebhookTest extends TestCase
             ['type' => MailChimpWebhookType::UNSUBSCRIBE]
         )->assertOk();
 
-        Queue::assertPushed(MailChimpProcessWebhookJob::class);
+        Queue::assertPushed(ProcessMailChimpWebhookJob::class);
     }
 
     protected function postWebHookRoute(array $parameters = [], array $data = []): TestResponse

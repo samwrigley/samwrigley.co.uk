@@ -9,7 +9,7 @@ use App\NewsletterSubscription;
 use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\ProcessWebhookJob as SpatieProcessWebhookJob;
 
-class MailChimpProcessWebhookJob extends SpatieProcessWebhookJob
+class ProcessMailChimpWebhookJob extends SpatieProcessWebhookJob
 {
     public function handle(): void
     {

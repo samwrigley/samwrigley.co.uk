@@ -12,7 +12,7 @@ return [
             'webhook_profile' => \App\Http\Webhooks\Profiles\MailChimpWebhookProfile::class,
             'webhook_response' => \Spatie\WebhookClient\WebhookResponse\DefaultRespondsTo::class,
             'webhook_model' => \Spatie\WebhookClient\Models\WebhookCall::class,
-            'process_webhook_job' => \App\Jobs\MailChimpProcessWebhookJob::class,
+            'process_webhook_job' => \App\Jobs\ProcessMailChimpWebhookJob::class,
         ],
     ],
 ];
