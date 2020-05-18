@@ -57,10 +57,9 @@ class MailChimpProcessWebhookJobTest extends TestCase
     {
         $email = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)->create([
-            'email' => $email,
-            'unsubscribed_at' => null,
-        ]);
+        $subscription = factory(NewsletterSubscription::class)
+            ->states('unsubscribed')
+            ->create(['email' => $email]);
 
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
             'name' => Config::get('webhook-client.names.newsletter'),
@@ -89,10 +88,9 @@ class MailChimpProcessWebhookJobTest extends TestCase
     {
         $email = $this->faker->email;
 
-        factory(NewsletterSubscription::class)->create([
-            'email' => $email,
-            'unsubscribed_at' => null,
-        ]);
+        factory(NewsletterSubscription::class)
+            ->states('unsubscribed')
+            ->create(['email' => $email]);
 
         $job = new MailChimpProcessWebhookJob(WebhookCall::create([
             'name' => Config::get('webhook-client.names.newsletter'),

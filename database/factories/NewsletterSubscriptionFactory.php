@@ -17,3 +17,11 @@ $factory->define(NewsletterSubscription::class, function (Faker $faker) {
         'unsubscribed_at' => $unsubscribed_at,
     ];
 });
+
+$factory->state(NewsletterSubscription::class, 'subscribed', [
+    'unsubscribed_at' => now(),
+]);
+
+$factory->state(NewsletterSubscription::class, 'unsubscribed', [
+    'unsubscribed_at' => null,
+]);
