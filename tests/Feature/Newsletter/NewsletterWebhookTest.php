@@ -33,6 +33,12 @@ class NewsletterWebhookTest extends TestCase
     }
 
     /** @test */
+    public function get_request_returns_ok(): void
+    {
+        $this->get(route('newsletter-webhook-test'))->assertOk();
+    }
+
+    /** @test */
     public function it_returns_500_when_webhook_request_has_no_secret_passed(): void
     {
         $this->postWebHookRoute()->assertStatus(500);
