@@ -48,11 +48,12 @@
             </div>
         </div>
         <div class="hidden w-80 self-end xl:block">
-            <div class="profile-image">
-                <img
-                    src="{{ asset('images/sam-wrigley-profile.jpg') }}"
+            <div class="relative">
+                <img src="{{ secure_asset('/e_grayscale/w_320/v1590338144/sam-wrigley-profile') }}"
                     alt="{{ config('app.name') }}"
+                    class="relative z-10"
                 >
+                <div class="absolute top-0 left-0 w-full h-full bg-blue-700 transform rotate-4"></div>
             </div>
         </div>
     </section>
