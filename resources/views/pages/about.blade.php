@@ -20,6 +20,7 @@
                 <a href="#who-am-i">Who am I</a>
             </h2>
         </div>
+
         <div class="p-6 border border-black md:p-8 xl:mr-12 xl:p-16 xl:w-1/2 xxl:w-1/3">
             <div class="flex flex-col items-start text-gray-700 leading-relaxed md:text-xl">
                 <p class="mb-6">
@@ -27,17 +28,14 @@
                     <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>.
                     I specialise in all things front-end with a strong emphasis on modern, scalable JavaScript.
                 </p>
-
                 <p class="mb-6">
                     I know my way around a back-end too, having previously <a href="#experience">worked</a> as a Full-Stack Developer and Software Developer.
                     I also have a strong understanding of user-experience and user-interface design—having studied Graphic Design at
                     <a href="https://www.falmouth.ac.uk/study/undergraduate/graphic-design" target="_blank" rel="noopener">university</a>.
                 </p>
-
                 <p class="mb-6">
                     Outside of web-development, I have a passion for photography and I’m also a keen outdoor runner.
                 </p>
-
                 <a href="{{ route('contact') }}"
                     class="flex items-center font-black text-blue-700 hover:text-blue-900"
                 >
@@ -52,6 +50,7 @@
                 </a>
             </div>
         </div>
+
         <div class="flex-shrink-0 hidden w-56 self-end xl:block xxl:w-80">
             <div class="relative">
                 <img src="{{ secure_asset('/e_grayscale/w_320/v1590338144/sam-wrigley-profile') }}"
@@ -71,6 +70,7 @@
                 <a href="#experience">Experience</a>
             </h2>
         </div>
+
         <div class="border border-black md:p-8 xl:w-3/4 xl:p-16">
             <div class="flex flex-col border-black border-b p-6 md:p-0 md:border-0 md:mb-16 md:flex-row">
                 <div class="mb-4 md:mr-8 md:w-1/3">
