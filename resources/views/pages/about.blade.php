@@ -7,7 +7,7 @@
         md:text-10xl
         lg:text-16xl lg:-mt-24 lg:-mr-8
         xl:text-20xl xl:-mt-32 xl:-mr-12
-        xxl:-mt-40 xxl:-mr-16 xxl:text-26xl"
+        xxl:-mt-40 xxl:mr-0 xxl:text-26xl"
     >
         About
     </h1>
