@@ -3,7 +3,7 @@
 @section('title', __('about.page_title'))
 
 @section('content')
-    <h1 class="absolute top-0 right-0 text-7xl text-gray-300 font-black leading-none text-6xl mt-16 -mr-6 xl:-mt-40 xl:-mr-16 xl:text-20xl">
+    <h1 class="absolute top-0 right-0 text-9xl text-gray-300 font-black leading-none text-6xl mt-16 -mr-6 xl:-mt-40 xl:-mr-16 xl:text-26xl">
         About
     </h1>
 
