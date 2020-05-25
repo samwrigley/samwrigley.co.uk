@@ -10,6 +10,7 @@ class Policy extends BasePolicy
     public function configure(): void
     {
         $this->addGeneralDirectives();
+        $this->addDirectivesImages();
         $this->addDirectivesForFonts();
         $this->addDirectivesForGoogleAnalytics();
         $this->addDirectivesForGoogleTagManager();
@@ -23,6 +24,11 @@ class Policy extends BasePolicy
             ->addDirective(Directive::STYLE, 'self')
             ->addDirective(Directive::IMG, 'self')
             ->addNonceForDirective(Directive::SCRIPT);
+    }
+
+    protected function addDirectivesImages(): BasePolicy
+    {
+        return $this->addDirective(Directive::IMG, '*.cloudinary.com');
     }
 
     protected function addDirectivesForFonts(): BasePolicy
