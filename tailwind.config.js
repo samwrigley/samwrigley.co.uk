@@ -8,6 +8,9 @@ module.exports = {
             },
             fontSize: {
                 '9xl': '7rem',
+                '10xl': '8rem',
+                '16xl': '14rem',
+                '20xl': '18rem',
                 '26xl': '24rem',
             },
             rotate: {
