@@ -3,7 +3,7 @@
 @section('title', __('about.page_title'))
 
 @section('content')
-    <h1 class="absolute top-0 right-0 text-9xl text-gray-300 font-black leading-none text-6xl mt-16 -mr-6
+    <h1 class="absolute top-0 right-0 text-gray-300 font-black leading-none text-8xl mt-16 -mr-6
         md:text-10xl
         lg:text-16xl lg:-mt-24 lg:-mr-8
         xl:text-20xl xl:-mt-32 xl:-mr-12
