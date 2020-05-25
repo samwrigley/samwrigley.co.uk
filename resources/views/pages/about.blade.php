@@ -3,19 +3,24 @@
 @section('title', __('about.page_title'))
 
 @section('content')
-    <h1 class="absolute top-0 right-0 text-9xl text-gray-300 font-black leading-none text-6xl mt-16 -mr-6 xl:-mt-40 xl:-mr-16 xl:text-26xl">
+    <h1 class="absolute top-0 right-0 text-9xl text-gray-300 font-black leading-none text-6xl mt-16 -mr-6
+        md:text-10xl
+        lg:text-16xl lg:-mt-24 lg:-mr-8
+        xl:text-20xl xl:-mt-32 xl:-mr-12
+        xxl:-mt-40 xxl:-mr-16 xxl:text-26xl"
+    >
         About
     </h1>
 
     <section class="flex flex-col mb-12 mt-32 md:mb-16 xl:mb-32 xl:flex-row xl:mt-40">
-        <div class="relative mb-3 xl:w-32 xl:mb-0 xl:mr-12">
+        <div class="flex-shrink-0 relative mb-3 xl:w-32 xl:mb-0 xl:mr-12">
             <h2 id="who-am-i"
                 class="text-xl font-bold xl:tracking-wide xl:text-2xl xl:absolute xl:top-0 xl:right-0 xl:transform xl:origin-top-right xl:-rotate-90"
             >
                 <a href="#who-am-i">Who am I</a>
             </h2>
         </div>
-        <div class="p-6 border border-black md:p-8 xl:w-1/3 xl:mr-12 xl:p-16">
+        <div class="p-6 border border-black md:p-8 xl:mr-12 xl:p-16 xl:w-1/2 xxl:w-1/3">
             <div class="flex flex-col items-start text-gray-700 leading-relaxed md:text-xl">
                 <p class="mb-6">
                     I'm Sam Wrigley, a Front-End Engineer helping to create the contribution experiences at
@@ -47,7 +52,7 @@
                 </a>
             </div>
         </div>
-        <div class="hidden w-80 self-end xl:block">
+        <div class="flex-shrink-0 hidden w-56 self-end xl:block xxl:w-80">
             <div class="relative">
                 <img src="{{ secure_asset('/e_grayscale/w_320/v1590338144/sam-wrigley-profile') }}"
                     alt="{{ config('app.name') }}"
