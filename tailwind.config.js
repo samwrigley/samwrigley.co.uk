@@ -15,5 +15,5 @@ module.exports = {
         margin: ['responsive', 'first', 'last'],
         backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
         textColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    }
+    },
 }
