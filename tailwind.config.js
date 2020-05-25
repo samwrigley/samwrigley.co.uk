@@ -16,6 +16,9 @@ module.exports = {
             rotate: {
                 '4': '4deg',
             },
+            screens: {
+                'xxl': '1600px',
+            },
         },
     },
     variants: {
