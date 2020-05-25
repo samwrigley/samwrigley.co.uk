@@ -6,6 +6,10 @@ module.exports = {
                 '80': '20rem',
                 '88': '22rem',
             },
+            fontSize: {
+                '9xl': '7rem',
+                '26xl': '24rem',
+            },
             rotate: {
                 '4': '4deg',
             },
