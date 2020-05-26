@@ -1,7 +1,7 @@
 # Personal Website
 
 [![CI](https://github.com/samwrigley/samwrigley.co.uk/workflows/CI/badge.svg?label=tests)](https://github.com/samwrigley/samwrigley.co.uk/actions)
-[![StyleCI](https://styleci.io/repos/108089774/shield)](https://styleci.io/repos/108089774)
+[![StyleCI](https://styleci.io/repos/121969775/shield)](https://styleci.io/repos/121969775)
 
 Hello, I'm Sam Wrigley. I'm a Web-Developer and Graphic Designer.
 

@@ -8,7 +8,7 @@
             target="_blank"
             rel="noopener"
         >
-            @lang('Github')
+            @lang('GitHub')
         </a>
     </li>
 
