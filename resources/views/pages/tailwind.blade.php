@@ -18,13 +18,9 @@
             </h2>
             <p class="mb-6">
                 I'm Sam Wrigley, a Front-End Engineer helping to create contribution experiences at
-                <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>.
-                I specialise in all things front-end with a strong emphasis on modern, scalable JavaScript.
-            </p>
-            <p class="mb-6">
-                I know my way around a back-end too, having previously <a href="{{ route('about') . '#experience' }}">worked</a> as a
-                Full-Stack Developer and Software Developer. I also have a strong understanding of user-experience and user-interface design—having
-                studied Graphic Design at <a href="https://www.falmouth.ac.uk/study/undergraduate/graphic-design" target="_blank" rel="noopener">university</a>.
+                <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>. I specialise in all things front-end, but I know my way
+                around a back-end too. I also have a strong understanding of design—having studied Graphic Design at
+                <a href="https://www.falmouth.ac.uk/study/undergraduate/graphic-design" target="_blank" rel="noopener">university</a>.
             </p>
             <p class="mb-6">
                 Outside of web development, I have a passion for photography and I’m also a keen outdoor runner.
@@ -48,9 +44,9 @@
                 things I value and strive for myself. I take great satisfaction in doing things to the best of my ability and take pride in my work.
             </p>
             <p class="mb-6">
-                I enjoy learning new skills and challenging myself; for me, that’s the best part about being a developer. Over the years, this has
-                led me to work across the ‘front-end’, ‘back-end’ and design and enjoyed them all equally. I believe having a diverse range of skills
-                 and experience is one of the best ways to improve your ability to problem-solve.
+                I enjoy learning new skills and challenging myself; for me, that’s the best part of being a developer. Over the years, this has
+                led me to work across the ‘front-end’, ‘back-end’ and design and I've enjoyed them all equally. I believe having a diverse range of
+                skills and experience is one of the best ways to improve your problem-solving abilities.
             </p>
             <p class="mb-6">
                 Whilst I certainly wouldn’t call myself a great designer, I’d like to think I was OK. Before transitioning into web-development,
@@ -59,7 +55,7 @@
                 Whilst I didn’t realise it at the time, these skills have proved invaluable in my career as a web-developer.
             </p>
             <p>
-                I have a passion for front-end development and care deeply about creating the best possible user experience for customers,
+                I'm passionate about front-end development and care deeply about creating the best possible user experience for customers,
                 whoever they might be.
             </p>
         </div>
@@ -69,14 +65,17 @@
                 <a href="#worked-together">What I see the future being like if we worked together</a>
             </h2>
             <p class="mb-6">
-                For me, the idea of official React and Vue libraries is incredibly exciting and I think the logical next step for Tailwind UI.
-                Most UI components require at least some JavaScript to provide the best user experience. There’s a huge value proposition for
-                fully functional Tailwind UI components that work out of the box.
+                I see us working closely together to continue improving Tailwind and Tailwind UI. I’d want to get stuck in and help wherever I
+                could, from building UI components and working on the web application to writing documentation and fixing bugs.
+            </p>
+            <p class="mb-6">
+                A project that sounds incredibly exciting is developing official Tailwind UI React and Vue libraries. Most core UI components require
+                at least some JavaScript to provide the best user experience, especially when it comes to accessibility. Providing customers with
+                ‘official’, fully functioning components would help boost their productivity and improve the developer experience of using Tailwind UI.
             </p>
             <p>
-                Providing customers with an ‘official’ way to use fully functional Tailwind UI components helps to improve their productivity
-                as well as the developer experience. It would also allow accessibility best practises to be baked into the components, which
-                can often be the first victim of budget and time constraints or developer inexperience.
+                I’d also want to share my own ideas for potential projects, such as those mentioned <a href="#build-together">below</a>. I’d obsess over
+                every detail of Tailwind trying to create the best possible developer experience.
             </p>
         </div>
 
@@ -87,10 +86,10 @@
             <p class="mb-6">
                 Whilst not specific to tech, I’m interested to see what effect the current situation has on our industry. If more and more tech
                 companies transition to remote-only, it’s going to have a huge impact on the jobs market. Suddenly, developers can work for many
-                more companies and companies have access to a much larger talent pool.
+                more companies.
             </p>
             <p>
-                Will we see more freelance developers? Will those developers need to be full-stack? Will they reach for tools like Tailwind to
+                Will this lead to more freelance developers? Will those developers need to be full-stack? Will they reach for tools like Tailwind to
                 improve their productivity?
             </p>
         </div>
@@ -112,7 +111,7 @@
                 Part of the reason I love Tailwind so much is that it’s only a slight abstraction on top of plain old CSS. If you’re familiar
                 with CSS, then Tailwind is simple to understand and reason about whilst allowing you to be more productive as a developer.
                 At the same time, for those who have little to no experience writing CSS, its power lies in its ability to abstract away the
-                complexities and inconsistencies of CSS, allowing them to focus on what’s really important—building their project.
+                complexities and inconsistencies of CSS, allowing them to focus on what’s important—building their project.
             </p>
         </div>
 
@@ -129,7 +128,7 @@
                 <li class="mb-6">
                     <span class="text-gray-900 font-bold">Tailwind Playground:</span>
                     Simple, interactive UI for quickly experimenting and prototyping with Tailwind. The ability to select different versions of Tailwind
-                    and see any differences could be helpful when upgrading to a newer version.
+                    could be helpful when upgrading to a newer version.
                 </li>
                 <li class="mb-6">
                     <span class="text-gray-900 font-bold">Tailwind Showcase:</span>
@@ -151,7 +150,7 @@
                 <a href="#closing">Closing</a>
             </h2>
             <p class="mb-6">
-                I have experience working in a small team, having been one of only two developers at
+                I have experience working in small teams, having been one of only two developers at
                 <a href="https://www.twineapp.com" target="_blank" rel="noopener">Twine</a>,
                 where I was responsible for all things front-end. Working remotely is also something I’m accustomed to, having done so at
                 <a href="https://www.dewsign.co.uk" target="_blank" rel="noopener">Dewsign</a>,
