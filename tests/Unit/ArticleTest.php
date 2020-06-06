@@ -245,6 +245,8 @@ class ArticleTest extends TestCase
         $this->assertNotNull($article->published_at);
         $this->assertTrue($article->published_at <= now());
         $this->assertTrue($article->isPublished());
+        $this->assertFalse($article->isScheduled());
+        $this->assertFalse($article->isDraft());
     }
 
     /** @test */
@@ -255,6 +257,8 @@ class ArticleTest extends TestCase
         $this->assertNotNull($article->published_at);
         $this->assertTrue($article->published_at > now());
         $this->assertTrue($article->isScheduled());
+        $this->assertFalse($article->isPublished());
+        $this->assertFalse($article->isDraft());
     }
 
     /** @test */
@@ -264,6 +268,8 @@ class ArticleTest extends TestCase
 
         $this->assertNull($article->published_at);
         $this->assertTrue($article->isDraft());
+        $this->assertFalse($article->isScheduled());
+        $this->assertFalse($article->isPublished());
     }
 
     /** @test */

@@ -52,12 +52,12 @@ trait CanBePublished
 
     public function isPublished(): bool
     {
-        return $this->published_at <= now();
+        return ! $this->isDraft() && $this->published_at <= now();
     }
 
     public function isScheduled(): bool
     {
-        return $this->published_at > now();
+        return ! $this->isDraft() && $this->published_at > now();
     }
 
     public function isDraft(): bool
