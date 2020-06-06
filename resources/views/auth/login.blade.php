@@ -23,30 +23,14 @@
                     'autofocus' => true,
                 ])
 
-                <div class="mb-6">
-                    <div class="flex mb-1">
-                        <label for="password" class="block text-lg font-bold">
-                            {{ __('Password') }}
-                        </label>
-                        @if (Route::has('password.request'))
-                            <a class="ml-auto text-gray-700" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                        @endif
-                    </div>
-                    <input
-                        id="password"
-                        type="password"
-                        class="block w-full p-4 bg-gray-200 rounded @error('password') bg-red-100 @enderror"
-                        name="password"
-                        autocomplete="current-password"
-                        placeholder="{{  __('Your password') }}"
-                        required
-                    >
-                    @error('password')
-                        <div class="mt-2" role="alert">{{ $message }}</div>
-                    @enderror
-                </div>
+                @include('admin.partials.form.input', [
+                    'name' => 'password',
+                    'type' => 'password',
+                    'label' => __('Password'),
+                    'placeholder' =>  __('Your Password'),
+                    'autoComplete' => 'current-password',
+                    'required' => true,
+                ])
 
                 <div class="mb-6">
                     <label>
