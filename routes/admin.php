@@ -13,6 +13,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'auth'], static function (): voi
             Route::post('/', [ArticleController::class, 'store'])->name('store');
             Route::get('{article}/edit', [ArticleController::class, 'edit'])->name('edit');
             Route::put('{article}', [ArticleController::class, 'update'])->name('update');
+            Route::delete('{article}', [ArticleController::class, 'destroy'])->name('destroy');
         });
     });
 });
