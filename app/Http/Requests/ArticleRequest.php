@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Article;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -12,7 +13,7 @@ class ArticleRequest extends FormRequest
      *
      * @var string
      */
-    protected $errorBag = 'article';
+    public $errorBag = 'article';
 
     public function authorize(): bool
     {
@@ -23,23 +24,26 @@ class ArticleRequest extends FormRequest
     {
         $article = $this->route('article');
         $articleId = optional($article)->id;
+        $maxExcerptLength = Article::MAX_EXCERPT_LENGTH;
 
         return [
             'title' => [
                 'required',
                 'string',
-                'max:100',
+                'max:255',
                 Rule::unique('articles')->ignore($articleId),
             ],
             'slug' => [
                 'required',
                 'alpha_dash',
-                'max:50',
+                'max:255',
                 Rule::unique('articles')->ignore($articleId),
             ],
-            'excerpt' => 'nullable|max:500',
+            'excerpt' => "nullable|max:{$maxExcerptLength}",
             'body' => 'required',
             'categories' => 'nullable|array',
+            'date' => 'required_with:time|date|after:yesterday',
+            'time' => 'required_with:date|date_format:H:i',
         ];
     }
 }
