@@ -23,6 +23,8 @@ class Article extends Model implements Feedable
     use HasAge;
     use InSeries;
 
+    public const MAX_EXCERPT_LENGTH = 500;
+
     public array $routeNamespaces = [
         'web' => 'blog.articles.',
         'admin' => 'admin.articles.',
