@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
@@ -35,11 +36,36 @@ class ArticleController extends Controller
             );
         }
 
-        return Redirect::back()->with($request->errorBag, __('admin.articles.successfully_created'));
+        return Redirect::back()
+            ->with($request->errorBag, __('admin.articles.successfully_created'));
     }
 
     public function edit(Article $article): View
     {
         return view('admin.articles.edit')->with('article', $article);
+    }
+
+    public function update(Article $article, ArticleRequest $request): RedirectResponse
+    {
+        $article->update($request->validated());
+
+        if ($request->filled(['date', 'time'])) {
+            $article->markAsScheduled(
+                Carbon::parse("{$request->date} {$request->time}")
+            );
+        } else {
+            $article->markAsDraft();
+        }
+
+        return Redirect::back()
+            ->with($request->errorBag, __('admin.articles.successfully_updated'));
+    }
+
+    public function destroy(Article $article): RedirectResponse
+    {
+        $article->delete();
+
+        return Redirect::route('admin.articles.index')
+            ->with('article', __('admin.articles.successfully_delete'));
     }
 }
