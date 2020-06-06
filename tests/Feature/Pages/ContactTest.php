@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Article;
 
+use App\Contact;
 use App\Notifications\ContactReceived;
 use App\Schemas\SiteSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,6 +11,7 @@ use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Str;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 use TiMacDonald\Log\LogFake;
@@ -19,12 +21,7 @@ class ContactTest extends TestCase
     use WithFaker;
     use RefreshDatabase;
 
-    /**
-     * The name of the view error bag.
-     *
-     * @var string
-     */
-    protected $errorBag = 'contact';
+    protected string $errorBag = 'contact';
 
     public function setUp(): void
     {
@@ -203,6 +200,8 @@ class ContactTest extends TestCase
             'email' => $this->faker->email,
             'message' => $this->faker->paragraphs(20, true),
         ];
+
+        $this->assertTrue(Str::length($data['message']) > Contact::MAX_MESSAGE_LENGTH);
 
         $this->from(route('contact'))
             ->postContactRoute($data)
