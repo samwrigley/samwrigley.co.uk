@@ -6,7 +6,7 @@
     <div class="flex min-h-screen">
         <div class="w-1/6 bg-gray-800 text-white text-lg">
             <div class="h-20 flex items-center bg-gray-900 py-4 px-6 font-bold hover:text-gray-300">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('admin.dashboard') }}">
                     {{ config('app.name') }}
                 </a>
             </div>
