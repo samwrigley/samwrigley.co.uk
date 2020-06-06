@@ -2,7 +2,7 @@
 
 @section('title', 'Tailwind')
 
-@section('content')
+@section('body')
     <article class="max-w-4xl mx-auto mt-24 mb-20 text-xl text-gray-700 leading-relaxed xl:mt-56 xl:mb-32 md:text-2xl">
         <h1 class="absolute top-0 right-0 text-gray-300 font-black leading-none text-8xl mt-16 -mr-6
             lg:text-10xl lg:-mt-8 lg:-mr-8

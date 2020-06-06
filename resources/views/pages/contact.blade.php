@@ -2,7 +2,7 @@
 
 @section('title', __('contact.page_title'))
 
-@section('content')
+@section('body')
     <div class="flex flex-col border-black border lg:flex-row">
         <div class="p-6 border-b border-black lg:w-1/2 lg:border-r lg:border-b-0 lg:p-16">
             <h1 class="text-2xl font-black mb-4 md:text-4xl lg:mb-8 lg:text-5xl">
