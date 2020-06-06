@@ -266,7 +266,7 @@ class ArticleCreateTest extends TestCase
         ]);
 
         $exceptedArticle = array_merge($this->validArticle, [
-            'published_at' => Carbon::parse("{$article['date']} {$article['time']}")
+            'published_at' => Carbon::parse("{$article['date']} {$article['time']}"),
         ]);
 
         $this->actingAs($user)->postArticleRoute($article);
