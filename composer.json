@@ -15,7 +15,7 @@
         "fruitcake/laravel-cors": "1.0.6",
         "guzzlehttp/guzzle": "6.5.4",
         "jtant/laravel-env-sync": "4.0.0",
-        "laravel/framework": "7.13.0",
+        "laravel/framework": "7.15.0",
         "laravel/horizon": "4.3.3",
         "laravel/slack-notification-channel": "2.0.2",
         "laravel/telescope": "3.5.0",
