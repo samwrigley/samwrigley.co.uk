@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26d0b3648c0a2b9f2c9c8ff1a80d9838",
+    "content-hash": "45be8d52d400b6da28c78a4291b21184",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3925,16 +3925,16 @@
         },
         {
             "name": "spatie/schema-org",
-            "version": "2.13.0",
+            "version": "2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "1000009d7d25666b4c6a81312e6ebff24b46c644"
+                "reference": "a17c65150f97caf81cea490294b376fd37bee660"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/1000009d7d25666b4c6a81312e6ebff24b46c644",
-                "reference": "1000009d7d25666b4c6a81312e6ebff24b46c644",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/a17c65150f97caf81cea490294b376fd37bee660",
+                "reference": "a17c65150f97caf81cea490294b376fd37bee660",
                 "shasum": ""
             },
             "require": {
@@ -3942,7 +3942,7 @@
                 "php": "^7.3"
             },
             "require-dev": {
-                "graham-campbell/analyzer": "^2.1.1",
+                "graham-campbell/analyzer": "^2.3",
                 "league/flysystem": "^1.0",
                 "phpunit/phpunit": "^8.0",
                 "symfony/console": "^3.2",
@@ -3990,7 +3990,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-04-17T11:50:06+00:00"
+            "time": "2020-06-10T17:06:18+00:00"
         },
         {
             "name": "spatie/temporary-directory",
