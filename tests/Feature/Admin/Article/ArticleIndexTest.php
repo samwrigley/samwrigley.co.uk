@@ -25,18 +25,20 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function cannot_view_admin_article_index_page_when_not_authenticated(): void
     {
-        $this->get(route('admin.articles.index'))->assertRedirect();
+        $this->followingRedirects()
+            ->get(route('admin.articles.index'))
+            ->assertViewIs('auth.login');
     }
 
     /** @test */
-    public function can_see_a_list_of_articles_in_reverse_chronological_order(): void
+    public function can_see_a_list_of_articles_in_chronological_created_order(): void
     {
         $user = factory(User::class)->create();
 
         $articles = collect([
-            factory(Article::class)->create(['created_at' => now()->subDays(2)]),
-            factory(Article::class)->create(['created_at' => now()->subDay()]),
             factory(Article::class)->create(['created_at' => now()]),
+            factory(Article::class)->create(['created_at' => now()->subDay()]),
+            factory(Article::class)->create(['created_at' => now()->subDays(2)]),
         ]);
 
         $this->actingAs($user)
