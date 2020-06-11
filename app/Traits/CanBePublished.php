@@ -10,6 +10,8 @@ trait CanBePublished
     protected array $canBePublishedFillable = [
         'published_at',
     ];
+    public static $PUBLISHED_DATE_FORMAT = 'Y-m-d';
+    public static $PUBLISHED_TIME_FORMAT = 'H-i-s';
 
     protected array $canBePublishedDates = [
         'published_at',
@@ -63,6 +65,26 @@ trait CanBePublished
     public function isDraft(): bool
     {
         return is_null($this->published_at);
+    }
+
+    public function getPublishedDateAttribute(): ?string
+    {
+        if ($this->isDraft()) {
+            return null;
+        }
+
+        return Carbon::parse($this->published_at)
+            ->format(self::$PUBLISHED_DATE_FORMAT);
+    }
+
+    public function getPublishedTimeAttribute(): ?string
+    {
+        if ($this->isDraft()) {
+            return null;
+        }
+
+        return Carbon::parse($this->published_at)
+            ->format(self::$PUBLISHED_TIME_FORMAT);
     }
 
     public function next(): ?self

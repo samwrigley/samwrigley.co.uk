@@ -389,6 +389,46 @@ class ArticleTest extends TestCase
         $this->assertEquals($route, $article->showRoute());
     }
 
+    /** @test */
+    public function can_get_published_date_when_article_is_published(): void
+    {
+        $publishedAt = now();
+        $article = factory(Article::class)->make(['published_at' => $publishedAt]);
+
+        $this->assertEquals(
+            $article->publishedDate,
+            Carbon::parse($publishedAt)->format(Article::$PUBLISHED_DATE_FORMAT)
+        );
+    }
+
+    /** @test */
+    public function cannot_get_published_date_when_article_is_not_published(): void
+    {
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->publishedDate);
+    }
+
+    /** @test */
+    public function can_get_published_time_when_article_is_published(): void
+    {
+        $publishedAt = now();
+        $article = factory(Article::class)->make(['published_at' => $publishedAt]);
+
+        $this->assertEquals(
+            $article->publishedTime,
+            Carbon::parse($publishedAt)->format(Article::$PUBLISHED_TIME_FORMAT)
+        );
+    }
+
+    /** @test */
+    public function cannot_get_published_time_when_article_is_not_published(): void
+    {
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->publishedTime);
+    }
+
     protected function freezeTime(?Carbon $time = null): void
     {
         $now = Carbon::createFromFormat('Y-m-d H:i:s', $time ?: now());
