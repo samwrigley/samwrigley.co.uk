@@ -16,8 +16,6 @@ class ArticleCreateTest extends TestCase
     use RefreshDatabase;
     use WithFaker;
 
-    protected string $errorBag = 'article';
-
     protected array $validArticle;
 
     public function setUp(): void
@@ -45,11 +43,13 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function cannot_view_admin_article_create_page_when_not_authenticated(): void
     {
-        $this->get(route('admin.articles.create'))->assertRedirect();
+        $this->followingRedirects()
+            ->get(route('admin.articles.create'))
+            ->assertViewIs('auth.login');
     }
 
     /** @test */
-    public function redirected_back_to_article_create_view_after_successful_submission(): void
+    public function can_create_article(): void
     {
         $user = factory(User::class)->create();
 
@@ -57,22 +57,20 @@ class ArticleCreateTest extends TestCase
             ->followingRedirects()
             ->from(route('admin.articles.create'))
             ->postArticleRoute($this->validArticle)
-            ->assertViewIs('admin.articles.create')
             ->assertOk()
-            ->assertSeeText(__('admin.articles.successfully_created'));
+            ->assertViewIs('admin.articles.create')
+            ->assertSeeText(__('admin.articles.successfully_created'))
+            ->assertSessionHasNoErrors();
     }
 
     /** @test */
-    public function session_has_correct_data_after_successful_submission(): void
+    public function article_is_persisted_in_database(): void
     {
         $user = factory(User::class)->create();
 
-        $this->actingAs($user)
-            ->from(route('admin.articles.create'))
-            ->postArticleRoute($this->validArticle)
-            ->assertRedirect(route('admin.articles.create'))
-            ->assertSessionHas('article', __('admin.articles.successfully_created'))
-            ->assertSessionHasNoErrors();
+        $this->actingAs($user)->postArticleRoute($this->validArticle);
+
+        $this->assertDatabaseHas('articles', $this->validArticle);
     }
 
     /** @test */
@@ -88,8 +86,8 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'title')
-            ->assertSessionDoesntHaveErrors(['slug', 'body'], null, $this->errorBag)
+            ->assertSessionHasErrorsIn('article', 'title')
+            ->assertSessionDoesntHaveErrors(['slug', 'body'], null, 'article')
             ->assertSessionHasInput($data);
     }
 
@@ -110,8 +108,8 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'title')
-            ->assertSessionDoesntHaveErrors(['slug', 'body'], null, $this->errorBag)
+            ->assertSessionHasErrorsIn('article', 'title')
+            ->assertSessionDoesntHaveErrors(['slug', 'body'], null, 'article')
             ->assertSessionHasInput($data);
     }
 
@@ -128,8 +126,8 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'slug')
-            ->assertSessionDoesntHaveErrors(['title', 'body'], null, $this->errorBag)
+            ->assertSessionHasErrorsIn('article', 'slug')
+            ->assertSessionDoesntHaveErrors(['title', 'body'], null, 'article')
             ->assertSessionHasInput($data);
     }
 
@@ -150,8 +148,8 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'slug')
-            ->assertSessionDoesntHaveErrors(['title', 'body'], null, $this->errorBag)
+            ->assertSessionHasErrorsIn('article', 'slug')
+            ->assertSessionDoesntHaveErrors(['title', 'body'], null, 'article')
             ->assertSessionHasInput($data);
     }
 
@@ -169,8 +167,8 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'slug')
-            ->assertSessionDoesntHaveErrors(['title', 'body'], null, $this->errorBag)
+            ->assertSessionHasErrorsIn('article', 'slug')
+            ->assertSessionDoesntHaveErrors(['title', 'body'], null, 'article')
             ->assertSessionHasInput($data);
     }
 
@@ -191,7 +189,7 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'excerpt')
+            ->assertSessionHasErrorsIn('article', 'excerpt')
             ->assertSessionHasInput($data);
     }
 
@@ -208,25 +206,9 @@ class ArticleCreateTest extends TestCase
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($data)
-            ->assertSessionHasErrorsIn($this->errorBag, 'body')
-            ->assertSessionDoesntHaveErrors(['title', 'slug'], null, $this->errorBag)
+            ->assertSessionHasErrorsIn('article', 'body')
+            ->assertSessionDoesntHaveErrors(['title', 'slug'], null, 'article')
             ->assertSessionHasInput($data);
-    }
-
-    /** @test */
-    public function time_is_required_when_date_is_present(): void
-    {
-        $user = factory(User::class)->create();
-
-        $article = array_merge($this->validArticle, [
-            'time' => '05:55',
-        ]);
-
-        $this->actingAs($user)
-            ->from(route('admin.articles.create'))
-            ->postArticleRoute($article)
-            ->assertSessionHasErrorsIn($this->errorBag, 'date')
-            ->assertSessionHasInput($article);
     }
 
     /** @test */
@@ -234,44 +216,53 @@ class ArticleCreateTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $article = array_merge($this->validArticle, [
-            'date' => '20/10/2020',
-        ]);
+        $article = collect($this->validArticle)
+            ->merge(['time' => now()->format('H:i')])
+            ->toArray();
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
             ->postArticleRoute($article)
-            ->assertSessionHasErrorsIn($this->errorBag, 'time')
+            ->assertSessionHasErrorsIn('article', 'date')
             ->assertSessionHasInput($article);
     }
 
     /** @test */
-    public function article_is_persisted_in_database(): void
+    public function time_is_required_when_date_is_present(): void
     {
         $user = factory(User::class)->create();
 
-        $this->actingAs($user)->postArticleRoute($this->validArticle);
+        $article = collect($this->validArticle)
+            ->merge(['date' => now()->addWeek()->format('Y/m/d')])
+            ->toArray();
 
-        $this->assertDatabaseHas('articles', $this->validArticle);
+        $this->actingAs($user)
+            ->from(route('admin.articles.create'))
+            ->postArticleRoute($article)
+            ->assertSessionHasErrorsIn('article', 'time')
+            ->assertSessionHasInput($article);
     }
 
     /** @test */
     public function article_is_marked_as_scheduled_when_created_with_publish_date_and_time(): void
     {
+        $date = now()->addWeek()->format('Y/m/d');
+        $time = now()->format('H:i');
         $user = factory(User::class)->create();
 
-        $article = array_merge($this->validArticle, [
-            'date' => '10/05/2020',
-            'time' => '15:35',
-        ]);
+        $article = collect($this->validArticle)
+            ->merge(['date' => $date, 'time' => $time])
+            ->toArray();
 
-        $exceptedArticle = array_merge($this->validArticle, [
-            'published_at' => Carbon::parse("{$article['date']} {$article['time']}")
-        ]);
+        $expectedArticle = collect($this->validArticle)
+            ->merge(['published_at' => Carbon::parse("{$date} {$time}")])
+            ->toArray();
 
-        $this->actingAs($user)->postArticleRoute($article);
+        $this->actingAs($user)
+            ->postArticleRoute($article)
+            ->assertSessionHasNoErrors();
 
-        $this->assertDatabaseHas('articles', $exceptedArticle);
+        $this->assertDatabaseHas('articles', $expectedArticle);
     }
 
     protected function postArticleRoute(array $data = []): TestResponse
