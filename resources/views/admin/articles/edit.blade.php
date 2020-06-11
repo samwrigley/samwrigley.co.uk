@@ -61,7 +61,7 @@
                         'class' => 'flex-1 mr-4',
                         'type' => 'date',
                         'name' => 'date',
-                        'value' => Carbon::parse($article->published_at)->format('Y-m-d'),
+                        'value' => $article->publishedDate,
                         'label' => __('Publish date'),
                         'min' => now()->toDateString(),
                     ])
@@ -70,7 +70,7 @@
                         'class' => 'flex-1',
                         'type' => 'time',
                         'name' => 'time',
-                        'value' => Carbon::parse($article->published_at)->format('H:i'),
+                        'value' => $article->publishedTime,
                         'label' => __('Publish time'),
                     ])
                 </div>
