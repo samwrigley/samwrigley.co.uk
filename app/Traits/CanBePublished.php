@@ -7,31 +7,13 @@ use Illuminate\Support\Carbon;
 
 trait CanBePublished
 {
-    protected array $canBePublishedFillable = [
-        'published_at',
-    ];
     public static $PUBLISHED_DATE_FORMAT = 'Y-m-d';
     public static $PUBLISHED_TIME_FORMAT = 'H-i-s';
 
-    protected array $canBePublishedDates = [
-        'published_at',
-    ];
-
-    public static function bootCanBePublished(): void
+    public function initializeCanBePublished(): void
     {
-        static::retrieved(
-            function ($model) {
-                $model->fillable = array_merge(
-                    $model->fillable,
-                    $model->canBePublishedFillable
-                );
-
-                $model->dates = array_merge(
-                    $model->dates,
-                    $model->canBePublishedDates
-                );
-            }
-        );
+        $this->fillable[] = 'published_at';
+        $this->dates[] = 'published_at';
     }
 
     public function markAsPublished(): void
