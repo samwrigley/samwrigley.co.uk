@@ -4,7 +4,9 @@ namespace App\Http\Requests;
 
 use App\Article;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 
 class ArticleRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class ArticleRequest extends FormRequest
      *
      * @var string
      */
-    public $errorBag = 'article';
+    protected $errorBag = 'article';
 
     public function authorize(): bool
     {
@@ -39,11 +41,12 @@ class ArticleRequest extends FormRequest
                 'max:255',
                 Rule::unique('articles')->ignore($articleId),
             ],
-            'excerpt' => "nullable|max:{$maxExcerptLength}",
-            'body' => 'required',
-            'categories' => 'nullable|array',
-            'date' => 'required_with:time|date|after:yesterday',
-            'time' => 'required_with:date|date_format:H:i',
+            'excerpt' => ['nullable', 'string', "max:{$maxExcerptLength}"],
+            'body' => ['required', 'string'],
+            'date' => ['nullable', 'required_with:time', 'date'],
+            'time' => ['nullable', 'required_with:date', 'date_format:H:i'],
+            'categories' => ['nullable', 'array'],
+            'series' => ['nullable', 'string', 'exists:article_series,id'],
         ];
     }
 
