@@ -46,4 +46,20 @@ class ArticleRequest extends FormRequest
             'time' => 'required_with:date|date_format:H:i',
         ];
     }
+
+    public function withValidator(Validator $validator): void
+    {
+        $validator->after(function (): void {
+            $this->addPublishedAt();
+        });
+    }
+
+    protected function addPublishedAt(): void
+    {
+        $publishedAt = $this->filled(['date', 'time'])
+            ? Carbon::parse("{$this->date} {$this->time}")
+            : null;
+
+        $this->request->add(['published_at' => $publishedAt]);
+    }
 }
