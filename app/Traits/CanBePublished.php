@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 trait CanBePublished
 {
     public static $PUBLISHED_DATE_FORMAT = 'Y-m-d';
-    public static $PUBLISHED_TIME_FORMAT = 'H-i-s';
+    public static $PUBLISHED_TIME_FORMAT = 'H:i:s';
 
     public function initializeCanBePublished(): void
     {
