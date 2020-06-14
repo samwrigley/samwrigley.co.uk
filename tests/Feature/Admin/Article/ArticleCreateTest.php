@@ -3,6 +3,8 @@
 namespace Tests\Feature\Admin\Article;
 
 use App\Article;
+use App\ArticleCategory;
+use App\ArticleSeries;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -217,7 +219,7 @@ class ArticleCreateTest extends TestCase
         $user = factory(User::class)->create();
 
         $article = collect($this->validArticle)
-            ->merge(['time' => now()->format('H:i')])
+            ->merge(['time' => now()->format(Article::$PUBLISHED_TIME_FORMAT)])
             ->toArray();
 
         $this->actingAs($user)
@@ -233,7 +235,7 @@ class ArticleCreateTest extends TestCase
         $user = factory(User::class)->create();
 
         $article = collect($this->validArticle)
-            ->merge(['date' => now()->addWeek()->format('Y/m/d')])
+            ->merge(['date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT)])
             ->toArray();
 
         $this->actingAs($user)
@@ -246,8 +248,8 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_is_marked_as_scheduled_when_created_with_publish_date_and_time(): void
     {
-        $date = now()->addWeek()->format('Y/m/d');
-        $time = now()->format('H:i');
+        $date = now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT);
+        $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
         $user = factory(User::class)->create();
 
         $article = collect($this->validArticle)
@@ -263,6 +265,69 @@ class ArticleCreateTest extends TestCase
             ->assertSessionHasNoErrors();
 
         $this->assertDatabaseHas('articles', $expectedArticle);
+    }
+
+    /** @test */
+    public function can_add_to_single_category(): void
+    {
+        $user = factory(User::class)->create();
+        $category = factory(ArticleCategory::class)->create();
+        $article = array_merge($this->validArticle, ['categories' => [$category->id]]);
+
+        $this->assertDatabaseCount('articles', 0);
+
+        $this->actingAs($user)->postArticleRoute($article);
+
+        $this->assertDatabaseCount('articles', 1);
+        $this->assertCount(1, Article::first()->categories);
+    }
+
+    /** @test */
+    public function can_add_to_multiple_categories(): void
+    {
+        $user = factory(User::class)->create();
+        $categoryCount = 2;
+        $categories = factory(ArticleCategory::class, $categoryCount)->create();
+        $article = array_merge($this->validArticle, ['categories' => $categories->pluck('id')->toArray()]);
+
+        $this->assertDatabaseCount('articles', 0);
+
+        $this->actingAs($user)->postArticleRoute($article);
+
+        $this->assertDatabaseCount('articles', 1);
+        $this->assertCount($categoryCount, Article::first()->categories);
+    }
+
+    /** @test */
+    public function can_add_to_a_series(): void
+    {
+        $user = factory(User::class)->create();
+        $series = factory(ArticleSeries::class)->create();
+        $article = array_merge($this->validArticle, ['series' => (string) $series->id]);
+
+        $this->assertDatabaseCount('articles', 0);
+
+        $this->actingAs($user)->postArticleRoute($article);
+
+        $this->assertDatabaseCount('articles', 1);
+        $this->assertInstanceOf(ArticleSeries::class, Article::first()->series);
+    }
+
+    /** @test */
+    public function can_only_add_to_series_that_exists(): void
+    {
+        $user = factory(User::class)->create();
+        $article = array_merge($this->validArticle, ['series' => 1]);
+
+        $this->assertDatabaseCount('articles', 0);
+
+        $this->actingAs($user)
+            ->from(route('admin.articles.create'))
+            ->postArticleRoute($article)
+            ->assertSessionHasErrorsIn('article', 'series')
+            ->assertSessionHasInput($article);
+
+        $this->assertDatabaseCount('articles', 0);
     }
 
     protected function postArticleRoute(array $data = []): TestResponse
