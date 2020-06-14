@@ -3,6 +3,8 @@
 namespace Tests\Feature\Admin\Article;
 
 use App\Article;
+use App\ArticleCategory;
+use App\ArticleSeries;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -195,7 +197,7 @@ class ArticleEditTest extends TestCase
         $article = factory(Article::class)->states('draft')->create();
 
         $editedArticle = collect($article)
-            ->merge(['time' => now()->format('H:i')])
+            ->merge(['time' => now()->format(Article::$PUBLISHED_TIME_FORMAT)])
             ->toArray();
 
         $this->actingAs($user)
@@ -212,21 +214,41 @@ class ArticleEditTest extends TestCase
         $article = factory(Article::class)->states('draft')->create();
 
         $editedArticle = collect($article)
-            ->merge(['date' => now()->addWeek()->format('Y/m/d')])
+            ->merge(['date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT)])
             ->toArray();
 
         $this->actingAs($user)
             ->putArticleRoute($article, $editedArticle)
             ->assertSessionHasErrorsIn('article', 'time')
-            ->assertSessionDoesntHaveErrors(['title', 'body', 'excerpt'], null, 'article')
+            ->assertSessionDoesntHaveErrors(['title', 'body', 'excerpt', 'date'], null, 'article')
             ->assertSessionHasInput(['title', 'body', 'excerpt', 'date']);
     }
 
     /** @test */
-    public function article_is_marked_as_scheduled_when_edited_with_publish_date_and_time(): void
+    public function time_must_be_the_correct_format(): void
     {
-        $date = now()->addWeek()->format('Y/m/d');
-        $time = now()->format('H:i');
+        $user = factory(User::class)->create();
+        $article = factory(Article::class)->states('draft')->create();
+
+        $editedArticle = collect($article)
+            ->merge([
+                'date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT),
+                'time' => now()->format('H:i'),
+            ])
+            ->toArray();
+
+        $this->actingAs($user)
+            ->putArticleRoute($article, $editedArticle)
+            ->assertSessionHasErrorsIn('article', 'time')
+            ->assertSessionDoesntHaveErrors(['title', 'body', 'excerpt', 'date'], null, 'article')
+            ->assertSessionHasInput(['title', 'body', 'excerpt', 'date']);
+    }
+
+    /** @test */
+    public function is_marked_as_scheduled_when_edited_with_date_and_time(): void
+    {
+        $date = now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT);
+        $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
         $user = factory(User::class)->create();
         $article = factory(Article::class)->states('draft')->create();
 
@@ -243,6 +265,159 @@ class ArticleEditTest extends TestCase
             ->assertSessionHasNoErrors();
 
         $this->assertDatabaseHas('articles', $expectedArticle);
+    }
+
+    /** @test */
+    public function can_edit_single_category(): void
+    {
+        $user = factory(User::class)->create();
+        $categoryOne = factory(ArticleCategory::class)->create();
+        $categoryTwo = factory(ArticleCategory::class)->create();
+        $article = factory(Article::class)->create();
+        $article->categories()->attach($categoryOne);
+        $editedArticle = collect($article)->merge(['categories' => [$categoryTwo->id]])->toArray();
+        $expectedArticle = Article::first();
+
+        $this->assertCount(1, $expectedArticle->categories);
+        $this->assertEquals($categoryOne->id, $expectedArticle->categories()->first()->id);
+
+        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+
+        $this->assertCount(1, $expectedArticle->categories);
+        $this->assertEquals($categoryTwo->id, $expectedArticle->categories()->first()->id);
+    }
+
+     /** @test */
+     public function can_remove_from_a_category(): void
+     {
+        $user = factory(User::class)->create();
+        $category = factory(ArticleCategory::class)->create();
+        $article = factory(Article::class)->create();
+        $article->categories()->attach($category);
+        $editedArticle = collect($article)->merge(['categories' => []])->toArray();
+        $expectedArticle = Article::first();
+
+        $this->assertCount(1, $expectedArticle->categories);
+        $this->assertEquals($category->id, $expectedArticle->categories()->first()->id);
+
+        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+        $expectedArticle->refresh();
+
+        $this->assertCount(0, $expectedArticle->categories);
+     }
+
+    /** @test */
+    public function can_edit_multiple_categories(): void
+    {
+        $user = factory(User::class)->create();
+        $categoriesOne = factory(ArticleCategory::class, 2)->create();
+        $article = factory(Article::class)->create();
+        $article->categories()->attach($categoriesOne);
+
+        $categoriesTwo = factory(ArticleCategory::class, 2)->create();
+        $editedArticle = collect($article)
+            ->merge(['categories' => $categoriesTwo->pluck('id')->toArray()])
+            ->toArray();
+
+        $expectedArticle = Article::first();
+
+        $this->assertCount(2, $expectedArticle->categories);
+        $this->assertEquals(
+            $categoriesOne->pluck('id'),
+            $expectedArticle->categories()->pluck('id')
+        );
+
+        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+
+        $this->assertCount(2, $expectedArticle->categories);
+        $this->assertEquals(
+            $categoriesTwo->pluck('id'),
+            $expectedArticle->categories()->pluck('id')
+        );
+    }
+
+    /** @test */
+    public function can_remove_from_multiple_categories(): void
+    {
+        $user = factory(User::class)->create();
+        $categories = factory(ArticleCategory::class, 2)->create();
+        $article = factory(Article::class)->create();
+        $article->categories()->attach($categories);
+
+        $editedArticle = collect($article)->merge(['categories' => []])->toArray();
+
+        $expectedArticle = Article::first();
+
+        $this->assertCount(2, $expectedArticle->categories);
+        $this->assertEquals(
+            $categories->pluck('id'),
+            $expectedArticle->categories()->pluck('id')
+        );
+
+        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+        $expectedArticle->refresh();
+
+        $this->assertCount(0, $expectedArticle->categories);
+    }
+
+    /** @test */
+    public function can_edit_series(): void
+    {
+        $user = factory(User::class)->create();
+        $seriesOne = factory(ArticleSeries::class)->create();
+        $seriesTwo = factory(ArticleSeries::class)->create();
+
+        $article = factory(Article::class)->create();
+        $article->series()->associate($seriesOne);
+        $article->save();
+
+        $editedArticle = collect($article)
+            ->merge(['series' => (string) $seriesTwo->id])
+            ->toArray();
+
+        $this->assertEquals($seriesOne->id, $article->series->id);
+
+        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+        $article->refresh();
+
+        $this->assertEquals($seriesTwo->id, $article->series->id);
+    }
+
+    /** @test */
+    public function can_only_add_to_series_that_exists(): void
+    {
+        $user = factory(User::class)->create();
+        $series = factory(ArticleSeries::class)->create();
+        $article = factory(Article::class)->create();
+        $article->series()->associate($series);
+        $article->save();
+
+        $editedArticle = collect($article)
+            ->merge(['series' => '2'])
+            ->toArray();
+
+        $this->assertEquals($series->id, $article->series->id);
+
+        $this->actingAs($user)
+            ->from(route('admin.articles.create'))
+            ->putArticleRoute($article, $editedArticle)
+            ->assertSessionHasErrorsIn('article', 'series')
+            ->assertSessionHasInput($editedArticle);
+    }
+
+    /** @test */
+    public function can_remove_from_a_series(): void
+    {
+        $user = factory(User::class)->create();
+        $article = factory(Article::class)->state('withSeries')->create();
+        $editedArticle = $article->toArray();
+
+        $this->assertNotNull($article->series);
+
+        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+        $article->refresh();
+
+        $this->assertNull($article->series);
     }
 
     protected function putArticleRoute(Article $article, array $data = []): TestResponse
