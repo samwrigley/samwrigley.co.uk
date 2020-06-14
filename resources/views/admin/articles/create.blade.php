@@ -12,53 +12,80 @@
             <form method="POST" action="{{ route('admin.articles.store') }}">
                 @csrf
 
-                @include('admin.partials.form.input', [
-                    'name' => 'title',
-                    'label' => __('Title'),
-                    'placeholder' => __('Article title'),
-                    'required' => true,
-                    'maxLength' => 255,
-                ])
+                <x-input
+                    name="title"
+                    label="{{ __('Title') }}"
+                    placeholder="{{ __('Article title') }}"
+                    required="true"
+                    maxlength="255"
+                />
 
-                @include('admin.partials.form.input', [
-                    'name' => 'slug',
-                    'label' => __('Slug'),
-                    'placeholder' => __('Article slug'),
-                    'required' => true,
-                    'maxLength' => 255,
-                ])
+                <x-input
+                    name="slug"
+                    label="{{ __('Slug') }}"
+                    placeholder="{{ __('Article slug') }}"
+                    required="true"
+                    maxlength="255"
+                />
 
-                @include('admin.partials.form.textarea', [
-                    'name' => 'excerpt',
-                    'label' => __('Excerpt'),
-                    'placeholder' => __('Article excerpt'),
-                    'maxLength' => App\Article::MAX_EXCERPT_LENGTH,
-                ])
+                <x-textarea
+                    name="excerpt"
+                    label="{{ __('Excerpt') }}"
+                    placeholder="{{ __('Article excerpt') }}"
+                    maxlength="{{ App\Article::MAX_EXCERPT_LENGTH }}"
+                />
 
-                @include('admin.partials.form.textarea', [
-                    'name' => 'body',
-                    'label' => __('Body'),
-                    'placeholder' => __('Article body'),
-                    'rows' => 10,
-                    'required' => true,
-                ])
+                <x-textarea
+                    name="body"
+                    label="{{ __('Body') }}"
+                    placeholder="{{ __('Article body') }}"
+                    rows="10"
+                    required="true"
+                />
 
                 <div class="flex">
-                    @include('admin.partials.form.input', [
-                        'class' => 'flex-1 mr-4',
-                        'type' => 'date',
-                        'name' => 'date',
-                        'label' => __('Publish date'),
-                        'min' => now()->toDateString(),
-                    ])
+                    <x-input
+                        type="date"
+                        name="date"
+                        label="{{ __('Publish date') }}"
+                        class="flex-1 mr-4"
+                    />
 
-                    @include('admin.partials.form.input', [
-                        'class' => 'flex-1',
-                        'type' => 'time',
-                        'name' => 'time',
-                        'label' => __('Publish time'),
-                    ])
+                    <x-input
+                        type="time"
+                        name="time"
+                        label="{{ __('Publish time') }}"
+                        class="flex-1"
+                        step="1"
+                    />
                 </div>
+
+                <x-select
+                    name="categories[]"
+                    label="{{ __('Categories') }}"
+                    :items="$categories"
+                    multiple
+                >
+                    <option></option>
+                    @foreach ($component->items as $category)
+                        <option value="{{ $category->id }}">
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </x-select>
+
+                <x-select
+                    name="series"
+                    label="{{ __('Series') }}"
+                    :items="$series"
+                >
+                    <option></option>
+                    @foreach ($series as $series)
+                        <option value="{{ $series->id }}">
+                            {{ $series->title }}
+                        </option>
+                    @endforeach
+                </x-select>
 
                 @include('admin.partials.buttons.default', ['text' => __('Create')])
             </form>
