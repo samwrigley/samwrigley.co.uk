@@ -27,6 +27,7 @@ class ArticleRequest extends FormRequest
         $article = $this->route('article');
         $articleId = optional($article)->id;
         $maxExcerptLength = Article::MAX_EXCERPT_LENGTH;
+        $publishedTimeFormat = Article::$PUBLISHED_TIME_FORMAT;
 
         return [
             'title' => [
@@ -43,8 +44,8 @@ class ArticleRequest extends FormRequest
             ],
             'excerpt' => ['nullable', 'string', "max:{$maxExcerptLength}"],
             'body' => ['required', 'string'],
-            'date' => ['nullable', 'required_with:time', 'date'],
-            'time' => ['nullable', 'required_with:date', 'date_format:H:i'],
+            'date' => ['nullable', 'date', 'required_with:time'],
+            'time' => ['nullable', "date_format:{$publishedTimeFormat}", 'required_with:date'],
             'categories' => ['nullable', 'array'],
             'series' => ['nullable', 'string', 'exists:article_series,id'],
         ];
