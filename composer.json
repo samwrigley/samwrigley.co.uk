@@ -41,7 +41,7 @@
         "nunomaduro/phpinsights": "1.14.0",
         "phpunit/phpunit": "9.2.3",
         "squizlabs/php_codesniffer": "3.5.5",
-        "symfony/css-selector": "5.1.0",
+        "symfony/css-selector": "5.1.2",
         "timacdonald/log-fake": "1.6.0"
     },
     "config": {
