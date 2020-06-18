@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bd5e346a9239025380662cd8d851eee",
+    "content-hash": "61b98a4c4813545a4b604d4165cbc19b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7494,16 +7494,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v6.2.0",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "6c1e4f648696c697ef048b7f983b65defa3b2003"
+                "reference": "5481bfd50c80599d26529b7f2c9adeb2154a57fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/6c1e4f648696c697ef048b7f983b65defa3b2003",
-                "reference": "6c1e4f648696c697ef048b7f983b65defa3b2003",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/5481bfd50c80599d26529b7f2c9adeb2154a57fc",
+                "reference": "5481bfd50c80599d26529b7f2c9adeb2154a57fc",
                 "shasum": ""
             },
             "require": {
@@ -7558,7 +7558,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2020-05-26T18:05:08+00:00"
+            "time": "2020-06-16T19:05:20+00:00"
         },
         {
             "name": "league/container",
