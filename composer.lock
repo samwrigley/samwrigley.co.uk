@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ee6e9cd04d6bbae571c3d813d547b0c",
+    "content-hash": "1c5c654c646f03951db131c2e4b0ed7b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2329,16 +2329,16 @@
         },
         {
             "name": "nothingworks/blade-svg",
-            "version": "0.4.0",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "5547d8e7ec1424168d945a02c253b18b27bded0b"
+                "reference": "2bd05e9cbe026f38a11cd26221e287f5ce678af4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/5547d8e7ec1424168d945a02c253b18b27bded0b",
-                "reference": "5547d8e7ec1424168d945a02c253b18b27bded0b",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/2bd05e9cbe026f38a11cd26221e287f5ce678af4",
+                "reference": "2bd05e9cbe026f38a11cd26221e287f5ce678af4",
                 "shasum": ""
             },
             "require": {
@@ -2394,8 +2394,14 @@
                 "laravel",
                 "svg"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/driesvints",
+                    "type": "github"
+                }
+            ],
             "abandoned": "blade-ui-kit/blade-icons",
-            "time": "2020-06-17T18:41:21+00:00"
+            "time": "2020-06-27T17:30:25+00:00"
         },
         {
             "name": "opis/closure",
