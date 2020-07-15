@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "977e4d3be291d146f491ff816a22afdc",
+    "content-hash": "217d7c4a0bf02732016e223c7470b345",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2335,16 +2335,16 @@
         },
         {
             "name": "nothingworks/blade-svg",
-            "version": "0.4.2",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "2bd05e9cbe026f38a11cd26221e287f5ce678af4"
+                "reference": "709cc25c732f0e88c103af2ee423e7220e53c5bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/2bd05e9cbe026f38a11cd26221e287f5ce678af4",
-                "reference": "2bd05e9cbe026f38a11cd26221e287f5ce678af4",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/709cc25c732f0e88c103af2ee423e7220e53c5bd",
+                "reference": "709cc25c732f0e88c103af2ee423e7220e53c5bd",
                 "shasum": ""
             },
             "require": {
@@ -2407,7 +2407,7 @@
                 }
             ],
             "abandoned": "blade-ui-kit/blade-icons",
-            "time": "2020-06-27T17:30:25+00:00"
+            "time": "2020-07-09T20:12:04+00:00"
         },
         {
             "name": "opis/closure",
