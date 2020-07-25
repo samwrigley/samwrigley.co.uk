@@ -303,9 +303,9 @@ class ArticleEditTest extends TestCase
         $this->assertEquals($categoryTwo->id, $expectedArticle->categories()->first()->id);
     }
 
-     /** @test */
-     public function can_remove_from_a_category(): void
-     {
+    /** @test */
+    public function can_remove_from_a_category(): void
+    {
         $user = factory(User::class)->create();
         $category = factory(ArticleCategory::class)->create();
         $article = factory(Article::class)->create();
@@ -320,7 +320,7 @@ class ArticleEditTest extends TestCase
         $expectedArticle->refresh();
 
         $this->assertCount(0, $expectedArticle->categories);
-     }
+    }
 
     /** @test */
     public function can_edit_multiple_categories(): void
