@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff78b80dc93ef0ec94336e402763d3ac",
+    "content-hash": "3c57658d4d8adc199a8a9129206803d0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4268,7 +4268,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v5.1.2",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
