@@ -8,8 +8,7 @@ use App\ArticleSeries;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
@@ -31,9 +30,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request): RedirectResponse
     {
-        $article = Auth::user()
-            ->articles()
-            ->create($request->all());
+        $article = auth()->user()->articles()->create($request->all());
 
         if ($request->filled('categories')) {
             $article->categories()->attach($request->categories);
@@ -44,10 +41,7 @@ class ArticleController extends Controller
             $article->save();
         }
 
-        return Redirect::back()->with(
-            'article',
-            __('admin.articles.successfully_created')
-        );
+        return back()->with('article', __('admin.articles.successfully_created'));
     }
 
     public function edit(Article $article): View
@@ -61,33 +55,43 @@ class ArticleController extends Controller
 
     public function update(Article $article, ArticleRequest $request): RedirectResponse
     {
+        $response = Gate::inspect('update', $article);
+
+        if ($response->denied()) {
+            return back()->with('article', __('admin.articles.forbidden_update'));
+        }
+
         $article->update($request->all());
 
         $article->categories()->detach();
 
-        $article->series()->dissociate();
-        $article->save();
-
         if ($request->filled('categories')) {
             $article->categories()->attach($request->categories);
         }
+
+        $article->series()->dissociate();
+        $article->save();
 
         if ($request->filled('series')) {
             $article->series()->associate($request->series);
             $article->save();
         }
 
-        return Redirect::back()->with(
-            'article',
-            __('admin.articles.successfully_updated')
-        );
+        return back()->with('article',  __('admin.articles.successfully_updated'));
     }
 
     public function destroy(Article $article): RedirectResponse
     {
+        $response = Gate::inspect('delete', $article);
+
+        if ($response->denied()) {
+            return back()->with('article', __('admin.articles.forbidden_delete'));
+        }
+
         $article->delete();
 
-        return Redirect::route('admin.articles.index')
-            ->with('article', __('admin.articles.successfully_delete'));
+        return redirect()
+            ->route('admin.articles.index')
+            ->with('article', __('admin.articles.successfully_deleted'));
     }
 }
