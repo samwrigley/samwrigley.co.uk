@@ -47,10 +47,10 @@ class ArticleEditTest extends TestCase
     }
 
     /** @test */
-    public function can_edit_article(): void
+    public function author_can_edit_article(): void
     {
         $user = factory(User::class)->create();
-        $article = factory(Article::class)->create();
+        $article = $user->articles()->create(factory(Article::class)->make()->toArray());
 
         $this->actingAs($user)
             ->followingRedirects()
@@ -59,6 +59,22 @@ class ArticleEditTest extends TestCase
             ->assertOk()
             ->assertViewIs('admin.articles.edit')
             ->assertSeeText(__('admin.articles.successfully_updated'))
+            ->assertSessionHasNoErrors();
+    }
+
+    /** @test */
+    public function non_author_cannot_edit_article(): void
+    {
+        $userOne = factory(User::class)->create();
+        $userTwo = factory(User::class)->create();
+        $article = $userTwo->articles()->create(factory(Article::class)->make()->toArray());
+
+        $this->actingAs($userOne)
+            ->followingRedirects()
+            ->from(route('admin.articles.edit', ['article' => $article]))
+            ->putArticleRoute($article, $article->toArray())
+            ->assertViewIs('admin.articles.edit')
+            ->assertSeeText(__('admin.articles.forbidden_update'))
             ->assertSessionHasNoErrors();
     }
 
@@ -388,7 +404,7 @@ class ArticleEditTest extends TestCase
     {
         $user = factory(User::class)->create();
         $series = factory(ArticleSeries::class)->create();
-        $article = factory(Article::class)->create();
+        $article = factory(Article::class)->state('published')->create();
         $article->series()->associate($series);
         $article->save();
 
