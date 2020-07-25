@@ -77,7 +77,7 @@ class ArticleController extends Controller
             $article->save();
         }
 
-        return back()->with('article',  __('admin.articles.successfully_updated'));
+        return back()->with('article', __('admin.articles.successfully_updated'));
     }
 
     public function destroy(Article $article): RedirectResponse
