@@ -44,6 +44,15 @@ class Article extends Model implements Feedable
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'user_id' => 'integer',
+    ];
+
+    /**
      * The number of models to return for pagination.
      *
      * @var int
