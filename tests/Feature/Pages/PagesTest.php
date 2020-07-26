@@ -23,14 +23,6 @@ class PagesTest extends TestCase
     }
 
     /** @test */
-    public function can_visit_tailwind_view(): void
-    {
-        $this->get(route('tailwind'))
-            ->assertViewIs('pages.tailwind')
-            ->assertOk();
-    }
-
-    /** @test */
     public function about_view_has_site_schema_script(): void
     {
         $siteSchema = (new SiteSchema())->generate();
