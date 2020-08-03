@@ -37,7 +37,7 @@
         "laravel/dusk": "6.4.1",
         "mockery/mockery": "1.4.1",
         "nunomaduro/collision": "4.2.0",
-        "nunomaduro/larastan": "0.6.1",
+        "nunomaduro/larastan": "0.6.2",
         "nunomaduro/phpinsights": "1.14.0",
         "phpunit/phpunit": "9.2.6",
         "squizlabs/php_codesniffer": "3.5.5",
