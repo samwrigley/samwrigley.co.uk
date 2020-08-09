@@ -130,11 +130,8 @@ jobs:
       - name: Generate assets
         run: npm run production
 
-      - name: JavaScript Linting
-        run: npm run lint:js
-
-      - name: CSS Linting
-        run: npm run lint:scss
+      - name: Lint assets
+        run: npm run lint:prettier
 
       - name: Check Bundle size
         run: npm run test:size
