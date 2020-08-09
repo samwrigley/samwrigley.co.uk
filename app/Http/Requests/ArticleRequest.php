@@ -14,11 +14,6 @@ class ArticleRequest extends FormRequest
      */
     protected $errorBag = 'article';
 
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function rules(): array
     {
         $article = $this->route('article');

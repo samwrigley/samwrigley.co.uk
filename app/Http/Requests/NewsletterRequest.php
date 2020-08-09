@@ -13,11 +13,6 @@ class NewsletterRequest extends FormRequest
      */
     protected $errorBag = 'newsletter';
 
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function rules(): array
     {
         return [
