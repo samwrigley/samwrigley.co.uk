@@ -21,7 +21,7 @@
         </div>
 
         <div class="p-6 text-base lg:w-1/2 lg:text-xl lg:p-16">
-            <form action="{{ route('contact.store') }}" method="POST">
+            <form action="{{ route('contact.store') }}" method="POST" id="contact">
                 @csrf
                 @honeypot
 
