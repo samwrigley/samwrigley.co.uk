@@ -131,7 +131,7 @@ jobs:
         run: npm run production
 
       - name: Lint assets
-        run: npm run lint:prettier
+        run: npm run lint:assets
 
       - name: Check Bundle size
         run: npm run test:size
