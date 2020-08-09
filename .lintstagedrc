@@ -1,14 +1,4 @@
 {
-    "*.php": [
-        "./vendor/bin/phpcs"
-    ],
-    "*.scss": [
-        "stylelint --syntax=scss"
-    ],
-    "*.vue": [
-        "eslint"
-    ],
-    "*.js": [
-        "eslint"
-    ]
+    "*.php": "./vendor/bin/phpcs",
+    "*.{js,ts,tsx,json,scss,md}": "prettier --write"
 }

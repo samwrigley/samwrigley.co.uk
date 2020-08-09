@@ -1,8 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 require('laravel-mix-purgecss');
-/* eslint-enable import/no-extraneous-dependencies */
 
 /*
  |--------------------------------------------------------------------------
