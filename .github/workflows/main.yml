@@ -135,3 +135,6 @@ jobs:
 
       - name: Check Bundle size
         run: npm run test:size
+
+      - name: Run Cypress tests
+        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run
