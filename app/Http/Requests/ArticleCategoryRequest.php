@@ -14,11 +14,6 @@ class ArticleCategoryRequest extends FormRequest
      */
     protected $errorBag = 'article_category';
 
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function rules(): array
     {
         $category = $this->route('category');

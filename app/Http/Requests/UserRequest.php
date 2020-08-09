@@ -14,11 +14,6 @@ class UserRequest extends FormRequest
      */
     protected $errorBag = 'user';
 
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function rules(): array
     {
         $user = $this->route('user');
