@@ -17,7 +17,7 @@ module.exports = {
                 '4': '4deg',
             },
             screens: {
-                'xxl': '1600px',
+                xxl: '1600px',
             },
         },
     },
@@ -26,4 +26,4 @@ module.exports = {
         backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
         textColor: ['responsive', 'hover', 'focus', 'group-hover'],
     },
-}
+};
