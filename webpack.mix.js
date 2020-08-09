@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const mix = require('laravel-mix')
-const tailwindcss = require('tailwindcss')
-require('laravel-mix-purgecss')
+const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 /* eslint-enable import/no-extraneous-dependencies */
 
 /*
@@ -10,7 +10,7 @@ require('laravel-mix-purgecss')
  |--------------------------------------------------------------------------
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,11 +18,10 @@ mix.js('resources/js/app.js', 'public/js')
  |--------------------------------------------------------------------------
  */
 
-mix.sass('resources/sass/app.scss', 'public/css')
-    .options({
-        processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.config.js')],
-    })
+mix.sass('resources/sass/app.scss', 'public/css').options({
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.config.js')],
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -33,7 +32,7 @@ mix.sass('resources/sass/app.scss', 'public/css')
 mix.purgeCss({
     whitelistPatterns: [/pl-/],
     whitelistPatternsChildren: [/markdown-/],
-})
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -43,12 +42,9 @@ mix.purgeCss({
 
 mix.webpackConfig({
     watchOptions: {
-        ignored: [
-            /node_modules/,
-            /vendor/,
-        ],
+        ignored: [/node_modules/, /vendor/],
     },
-})
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -58,7 +54,7 @@ mix.webpackConfig({
 
 mix.browserSync({
     proxy: process.env.APP_URL,
-})
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -66,6 +62,4 @@ mix.browserSync({
  |--------------------------------------------------------------------------
  */
 
-mix.copyDirectory('resources/images', 'public/images')
-    .version()
-    .sourceMaps()
+mix.copyDirectory('resources/images', 'public/images').version().sourceMaps();
