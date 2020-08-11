@@ -31,7 +31,7 @@
         "spatie/schema-org": "2.13.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "3.3.3",
+        "barryvdh/laravel-debugbar": "3.4.1",
         "facade/ignition": "2.3.6",
         "fzaninotto/faker": "1.9.1",
         "laravel/dusk": "6.4.1",
