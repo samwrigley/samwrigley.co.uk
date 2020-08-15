@@ -1,4 +1,9 @@
-import { MOBILE_VIEWPORT, TABLET_VIEWPORT, DESKTOP_VIEWPORT } from '../../constants';
+import {
+    BLOG_INDEX_PATH,
+    DESKTOP_VIEWPORT,
+    MOBILE_VIEWPORT,
+    TABLET_VIEWPORT,
+} from '../../constants';
 
 describe('Blog Index', () => {
     beforeEach(() => {
