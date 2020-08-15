@@ -1,12 +1,15 @@
 import * as strings from '../../strings';
 import { CONTACT_FORM_ID } from '../../selectors';
-import { MOBILE_VIEWPORT, TABLET_VIEWPORT, DESKTOP_VIEWPORT } from '../../constants';
-
-const CONTACT_PAGE_PATH = 'contact';
+import {
+    MOBILE_VIEWPORT,
+    TABLET_VIEWPORT,
+    DESKTOP_VIEWPORT,
+    CONTACT_INDEX_PATH,
+} from '../../constants';
 
 describe('Contact', () => {
     beforeEach(() => {
-        cy.visit(CONTACT_PAGE_PATH);
+        cy.visit(CONTACT_INDEX_PATH);
     });
 
     it('matches mobile screenshot', () => {

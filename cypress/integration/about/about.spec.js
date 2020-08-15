@@ -1,10 +1,13 @@
-import { MOBILE_VIEWPORT, TABLET_VIEWPORT, DESKTOP_VIEWPORT } from '../../constants';
-
-const ABOUT_PAGE_PATH = 'about';
+import {
+    MOBILE_VIEWPORT,
+    TABLET_VIEWPORT,
+    DESKTOP_VIEWPORT,
+    ABOUT_INDEX_PATH,
+} from '../../constants';
 
 describe('About', () => {
     beforeEach(() => {
-        cy.visit(ABOUT_PAGE_PATH);
+        cy.visit(ABOUT_INDEX_PATH);
     });
 
     it('matches mobile screenshot', () => {
