@@ -4,7 +4,7 @@ import { MOBILE_VIEWPORT, TABLET_VIEWPORT, DESKTOP_VIEWPORT } from '../../consta
 
 const CONTACT_PAGE_PATH = 'contact';
 
-describe('Contact Page', () => {
+describe('Contact', () => {
     beforeEach(() => {
         cy.visit(CONTACT_PAGE_PATH);
     });
