@@ -1,11 +1,27 @@
 import * as strings from '../../strings';
 import { CONTACT_FORM_ID } from '../../selectors';
+import { MOBILE_VIEWPORT, TABLET_VIEWPORT, DESKTOP_VIEWPORT } from '../../constants';
 
 const CONTACT_PAGE_PATH = 'contact';
 
 describe('Contact Page', () => {
     beforeEach(() => {
         cy.visit(CONTACT_PAGE_PATH);
+    });
+
+    it('matches mobile screenshot', () => {
+        cy.viewport(MOBILE_VIEWPORT);
+        cy.document().toMatchImageSnapshot();
+    });
+
+    it('matches tablet screenshot', () => {
+        cy.viewport(TABLET_VIEWPORT);
+        cy.document().toMatchImageSnapshot();
+    });
+
+    it('matches desktop screenshot', () => {
+        cy.viewport(DESKTOP_VIEWPORT);
+        cy.document().toMatchImageSnapshot();
     });
 
     it('has page title', () => {
