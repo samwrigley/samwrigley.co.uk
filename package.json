@@ -26,7 +26,6 @@
         "lint:fix": "prettier --write '**/*.{js,ts,tsx,json,scss,md}'",
         "lint": "npm run lint:php && npm run lint:assets",
         "test:size": "bundlesize",
-        "test": "php artisan test",
         "cypress:open": "cypress open",
         "cypress:run": "cypress run --headless --config video=false",
         "dev": "npm run development",
