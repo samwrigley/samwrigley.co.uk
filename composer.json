@@ -34,6 +34,7 @@
         "barryvdh/laravel-debugbar": "3.3.3",
         "facade/ignition": "2.3.5",
         "fzaninotto/faker": "1.9.1",
+        "laracasts/cypress": "^1.1",
         "laravel/dusk": "6.4.1",
         "mockery/mockery": "1.4.1",
         "nunomaduro/collision": "4.2.0",
