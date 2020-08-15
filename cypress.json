@@ -1,4 +1,10 @@
 {
     "baseUrl": "https://samwrigley.test",
-    "videoCompression": false
+    "videoCompression": false,
+    "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"],
+    "env": {
+        "cypress-plugin-snapshots": {
+            "autoCleanUp": true
+        }
+    }
 }

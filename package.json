@@ -45,6 +45,7 @@
         "bundlesize": "0.18.0",
         "cross-env": "7.0.2",
         "cypress": "^4.12.1",
+        "cypress-plugin-snapshots": "^1.4.3",
         "husky": "4.2.5",
         "laravel-mix": "5.0.4",
         "laravel-mix-purgecss": "5.0.0",
