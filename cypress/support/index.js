@@ -1,6 +1,5 @@
 import './commands';
 import './laravel-commands';
-import './assertions';
 
 before(() => {
     cy.task('activateCypressEnvFile', {}, { log: false });
