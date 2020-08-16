@@ -4,7 +4,10 @@
     "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"],
     "env": {
         "cypress-plugin-snapshots": {
-            "autoCleanUp": true
+            "autoCleanUp": true,
+            "screenshotConfig": {
+                "blackout": ["time"]
+            }
         }
     }
 }
