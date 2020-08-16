@@ -28,7 +28,10 @@ class Policy extends BasePolicy
 
     protected function addDirectivesImages(): BasePolicy
     {
-        return $this->addDirective(Directive::IMG, '*.cloudinary.com');
+        return $this->addDirective(Directive::IMG, [
+            '*.cloudinary.com',
+            '*.placeholder.com', // Faker
+        ]);
     }
 
     protected function addDirectivesForFonts(): BasePolicy
