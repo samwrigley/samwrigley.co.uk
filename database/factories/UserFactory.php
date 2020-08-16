@@ -13,7 +13,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'),
         'bio' => $faker->paragraph,
-        'avatar' => $faker->imageUrl(200, 200),
+        'avatar' => 'https://via.placeholder.com/48',
         'remember_token' => Str::random(10),
     ];
 });
