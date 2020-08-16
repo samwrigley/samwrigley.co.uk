@@ -17,7 +17,7 @@
             "pre-commit": "lint-staged",
             "post-commit": "git update-index --again",
             "post-checkout": "php artisan env:check",
-            "pre-push": "npm run lint && npm test && php artisan env:check --reverse"
+            "pre-push": "php artisan env:check --reverse"
         }
     },
     "scripts": {
