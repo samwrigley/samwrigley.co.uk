@@ -7,7 +7,7 @@ import {
 
 const TEST_ARTICLE_SHOW_PATH = BLOG_INDEX_PATH + 'test';
 
-describe.only('Blog Article Index', () => {
+describe('Blog Article Index', () => {
     beforeEach(() => {
         cy.visit(TEST_ARTICLE_SHOW_PATH);
     });
