@@ -7,7 +7,7 @@
         Subscribe to my newsletter and you'll be the first to know.
     </label>
 
-    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex">
+    <form action="{{ route('newsletter.subscribe') }}" method="POST" id="newsletter">
         @csrf
         @honeypot
 
