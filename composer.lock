@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1de70a8fc62a7ecae9aa36fb9c9bc9c",
+    "content-hash": "607fc84b5bc74e371cbca6c84d705d49",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7767,30 +7767,30 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v6.4.1",
+            "version": "v6.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "db10ac70d01f332614a54cd7f1fe4757066db7cc"
+                "reference": "ebf081d312bc1e702337668e13831d25ab324ce3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/db10ac70d01f332614a54cd7f1fe4757066db7cc",
-                "reference": "db10ac70d01f332614a54cd7f1fe4757066db7cc",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/ebf081d312bc1e702337668e13831d25ab324ce3",
+                "reference": "ebf081d312bc1e702337668e13831d25ab324ce3",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-zip": "*",
-                "illuminate/console": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/console": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
                 "nesbot/carbon": "^2.0",
                 "php": "^7.2",
                 "php-webdriver/webdriver": "^1.8.1",
                 "symfony/console": "^4.3|^5.0",
                 "symfony/finder": "^4.3|^5.0",
                 "symfony/process": "^4.3|^5.0",
-                "vlucas/phpdotenv": "^3.0|^4.0"
+                "vlucas/phpdotenv": "^3.0|^4.0|^5.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
@@ -7831,7 +7831,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2020-07-14T18:02:46+00:00"
+            "time": "2020-08-28T14:37:02+00:00"
         },
         {
             "name": "league/container",

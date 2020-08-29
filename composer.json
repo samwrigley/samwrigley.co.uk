@@ -34,7 +34,7 @@
         "barryvdh/laravel-debugbar": "3.4.1",
         "facade/ignition": "2.3.6",
         "fzaninotto/faker": "1.9.1",
-        "laravel/dusk": "6.4.1",
+        "laravel/dusk": "6.5.1",
         "mockery/mockery": "1.4.2",
         "nunomaduro/collision": "4.2.0",
         "nunomaduro/larastan": "0.6.2",
