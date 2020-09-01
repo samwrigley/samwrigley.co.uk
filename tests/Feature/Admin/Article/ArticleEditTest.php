@@ -307,6 +307,7 @@ class ArticleEditTest extends TestCase
         $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
         $user = factory(User::class)->create();
         $article = factory(Article::class)->states('draft')->create();
+        $user->articles()->save($article);
 
         $editedArticle = collect($article)
             ->merge(['date' => $date, 'time' => $time])
@@ -330,6 +331,7 @@ class ArticleEditTest extends TestCase
         $categoryOne = factory(ArticleCategory::class)->create();
         $categoryTwo = factory(ArticleCategory::class)->create();
         $article = factory(Article::class)->create();
+        $user->articles()->save($article);
         $article->categories()->attach($categoryOne);
         $editedArticle = collect($article)->merge(['categories' => [$categoryTwo->id]])->toArray();
         $expectedArticle = Article::first();
@@ -349,6 +351,7 @@ class ArticleEditTest extends TestCase
         $user = factory(User::class)->create();
         $category = factory(ArticleCategory::class)->create();
         $article = factory(Article::class)->create();
+        $user->articles()->save($article);
         $article->categories()->attach($category);
         $editedArticle = collect($article)->merge(['categories' => []])->toArray();
         $expectedArticle = Article::first();
@@ -368,6 +371,7 @@ class ArticleEditTest extends TestCase
         $user = factory(User::class)->create();
         $categoriesOne = factory(ArticleCategory::class, 2)->create();
         $article = factory(Article::class)->create();
+        $user->articles()->save($article);
         $article->categories()->attach($categoriesOne);
 
         $categoriesTwo = factory(ArticleCategory::class, 2)->create();
@@ -398,6 +402,7 @@ class ArticleEditTest extends TestCase
         $user = factory(User::class)->create();
         $categories = factory(ArticleCategory::class, 2)->create();
         $article = factory(Article::class)->create();
+        $user->articles()->save($article);
         $article->categories()->attach($categories);
 
         $editedArticle = collect($article)->merge(['categories' => []])->toArray();
@@ -424,6 +429,7 @@ class ArticleEditTest extends TestCase
         $seriesTwo = factory(ArticleSeries::class)->create();
 
         $article = factory(Article::class)->create();
+        $user->articles()->save($article);
         $article->series()->associate($seriesOne);
         $article->save();
 
