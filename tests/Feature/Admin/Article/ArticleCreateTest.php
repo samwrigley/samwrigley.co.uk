@@ -230,6 +230,17 @@ class ArticleCreateTest extends TestCase
     }
 
     /** @test */
+    public function publish_date_must_be_the_correct_format(): void
+    {
+        $date = '2020-01-31';
+        $article = factory(Article::class)->create([
+            'published_at' => Carbon::parse($date),
+        ]);
+
+        $this->assertEquals($date, $article->published_date);
+    }
+
+    /** @test */
     public function time_is_required_when_date_is_present(): void
     {
         $user = factory(User::class)->create();
@@ -243,6 +254,17 @@ class ArticleCreateTest extends TestCase
             ->postArticleRoute($article)
             ->assertSessionHasErrorsIn('article', 'time')
             ->assertSessionHasInput($article);
+    }
+
+    /** @test */
+    public function publish_time_must_be_the_correct_format(): void
+    {
+        $time = '21:15:30';
+        $article = factory(Article::class)->create([
+            'published_at' => Carbon::parse($time),
+        ]);
+
+        $this->assertEquals($time, $article->published_time);
     }
 
     /** @test */

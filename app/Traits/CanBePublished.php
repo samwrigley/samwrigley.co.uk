@@ -55,8 +55,7 @@ trait CanBePublished
             return null;
         }
 
-        return Carbon::parse($this->published_at)
-            ->format(self::$PUBLISHED_DATE_FORMAT);
+        return $this->published_at->format(self::$PUBLISHED_DATE_FORMAT);
     }
 
     public function getPublishedTimeAttribute(): ?string
@@ -65,8 +64,7 @@ trait CanBePublished
             return null;
         }
 
-        return Carbon::parse($this->published_at)
-            ->format(self::$PUBLISHED_TIME_FORMAT);
+        return $this->published_at->format(self::$PUBLISHED_TIME_FORMAT);
     }
 
     public function next(): ?self
