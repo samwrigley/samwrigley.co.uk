@@ -27,6 +27,7 @@ class ArticleRequest extends FormRequest
         $article = $this->route('article');
         $articleId = optional($article)->id;
         $maxExcerptLength = Article::MAX_EXCERPT_LENGTH;
+        $publishedDateFormat = Article::$PUBLISHED_DATE_FORMAT;
         $publishedTimeFormat = Article::$PUBLISHED_TIME_FORMAT;
 
         return [
@@ -44,7 +45,7 @@ class ArticleRequest extends FormRequest
             ],
             'excerpt' => ['nullable', 'string', "max:{$maxExcerptLength}"],
             'body' => ['required', 'string'],
-            'date' => ['nullable', 'date', 'required_with:time'],
+            'date' => ['nullable', "date_format:{$publishedDateFormat}", 'required_with:time'],
             'time' => ['nullable', "date_format:{$publishedTimeFormat}", 'required_with:date'],
             'categories' => ['nullable', 'array'],
             'series' => ['nullable', 'string', 'exists:article_series,id'],
@@ -53,9 +54,9 @@ class ArticleRequest extends FormRequest
 
     public function withValidator(Validator $validator): void
     {
-        $validator->after(function (): void {
+        if ($validator->passes()) {
             $this->addPublishedAt();
-        });
+        };
     }
 
     protected function addPublishedAt(): void

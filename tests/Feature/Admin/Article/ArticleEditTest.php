@@ -224,6 +224,26 @@ class ArticleEditTest extends TestCase
     }
 
     /** @test */
+    public function date_must_be_valid(): void
+    {
+        $user = factory(User::class)->create();
+        $article = factory(Article::class)->states('draft')->create();
+
+        $editedArticle = collect($article)
+            ->merge([
+                'date' => 'invalid-date',
+                'time' => now()->format(Article::$PUBLISHED_TIME_FORMAT),
+            ])
+            ->toArray();
+
+        $this->actingAs($user)
+            ->putArticleRoute($article, $editedArticle)
+            ->assertSessionHasErrorsIn('article', 'date')
+            ->assertSessionDoesntHaveErrors(['title', 'body', 'excerpt', 'time'], null, 'article')
+            ->assertSessionHasInput(['title', 'body', 'excerpt', 'time']);
+    }
+
+    /** @test */
     public function time_is_required_when_date_is_present(): void
     {
         $user = factory(User::class)->create();
@@ -231,6 +251,26 @@ class ArticleEditTest extends TestCase
 
         $editedArticle = collect($article)
             ->merge(['date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT)])
+            ->toArray();
+
+        $this->actingAs($user)
+            ->putArticleRoute($article, $editedArticle)
+            ->assertSessionHasErrorsIn('article', 'time')
+            ->assertSessionDoesntHaveErrors(['title', 'body', 'excerpt', 'date'], null, 'article')
+            ->assertSessionHasInput(['title', 'body', 'excerpt', 'date']);
+    }
+
+    /** @test */
+    public function time_must_be_valid(): void
+    {
+        $user = factory(User::class)->create();
+        $article = factory(Article::class)->states('draft')->create();
+
+        $editedArticle = collect($article)
+            ->merge([
+                'date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT),
+                'time' => 'invalid-time',
+            ])
             ->toArray();
 
         $this->actingAs($user)
