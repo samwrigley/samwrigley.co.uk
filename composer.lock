@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e1f6ba57d1cdb375e543929cbe49ca7",
+    "content-hash": "996bd6698f73147cebe80fcc804a262f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -184,16 +184,16 @@
         },
         {
             "name": "cakephp/chronos",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/chronos.git",
-                "reference": "9309d85c33c65917c0e582c0a6b07df56fe27dd9"
+                "reference": "30baea51824076719921c6c2d720bfd6b49e6dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/chronos/zipball/9309d85c33c65917c0e582c0a6b07df56fe27dd9",
-                "reference": "9309d85c33c65917c0e582c0a6b07df56fe27dd9",
+                "url": "https://api.github.com/repos/cakephp/chronos/zipball/30baea51824076719921c6c2d720bfd6b49e6dca",
+                "reference": "30baea51824076719921c6c2d720bfd6b49e6dca",
                 "shasum": ""
             },
             "require": {
@@ -235,7 +235,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-05-26T01:27:20+00:00"
+            "time": "2020-08-22T02:42:12+00:00"
         },
         {
             "name": "calebporzio/gitdown",
@@ -1515,16 +1515,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v4.3.3",
+            "version": "v4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "0172084dd26f93fc3521b9118f4e3a330a36eda8"
+                "reference": "ffce0a8f69c19bdd63a22d972e605388903d70b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/0172084dd26f93fc3521b9118f4e3a330a36eda8",
-                "reference": "0172084dd26f93fc3521b9118f4e3a330a36eda8",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/ffce0a8f69c19bdd63a22d972e605388903d70b4",
+                "reference": "ffce0a8f69c19bdd63a22d972e605388903d70b4",
                 "shasum": ""
             },
             "require": {
@@ -1584,7 +1584,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2020-05-26T18:27:29+00:00"
+            "time": "2020-09-01T16:09:46+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
