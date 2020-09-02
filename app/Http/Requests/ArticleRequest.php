@@ -38,12 +38,34 @@ class ArticleRequest extends FormRequest
                 'max:255',
                 Rule::unique('articles')->ignore($articleId),
             ],
-            'excerpt' => ['nullable', 'string', "max:{$maxExcerptLength}"],
-            'body' => ['required', 'string'],
-            'date' => ['nullable', "date_format:{$publishedDateFormat}", 'required_with:time'],
-            'time' => ['nullable', "date_format:{$publishedTimeFormat}", 'required_with:date'],
-            'categories' => ['nullable', 'array'],
-            'series' => ['nullable', 'string', 'exists:article_series,id'],
+            'excerpt' => [
+                'nullable',
+                'string',
+                "max:{$maxExcerptLength}",
+            ],
+            'body' => [
+                'required',
+                'string',
+            ],
+            'date' => [
+                'nullable',
+                "date_format:{$publishedDateFormat}",
+                'required_with:time',
+            ],
+            'time' => [
+                'nullable',
+                "date_format:{$publishedTimeFormat}",
+                'required_with:date',
+            ],
+            'categories' => [
+                'nullable',
+                'array',
+            ],
+            'series' => [
+                'nullable',
+                'string',
+                'exists:article_series,id',
+            ],
         ];
     }
 
