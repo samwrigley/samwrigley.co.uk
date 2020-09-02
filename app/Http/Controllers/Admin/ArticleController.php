@@ -63,18 +63,17 @@ class ArticleController extends Controller
 
         $article->update($request->all());
 
-        $article->categories()->detach();
-
         if ($request->filled('categories')) {
-            $article->categories()->attach($request->categories);
+            $article->categories()->sync($request->categories);
+        } else {
+            $article->categories()->detach();
         }
-
-        $article->series()->dissociate();
-        $article->save();
 
         if ($request->filled('series')) {
             $article->series()->associate($request->series);
             $article->save();
+        } else {
+            $article->series()->dissociate();
         }
 
         return back()->with('article', __('admin.articles.successfully_updated'));
