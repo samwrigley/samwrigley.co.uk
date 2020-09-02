@@ -19,9 +19,19 @@ class ContactRequest extends FormRequest
         $maxMessageLength = Contact::MAX_MESSAGE_LENGTH;
 
         return [
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'message' => "required|string|max:{$maxMessageLength}",
+            'name' => [
+                'required',
+                'string',
+            ],
+            'email' => [
+                'required',
+                'email',
+            ],
+            'message' => [
+                'required',
+                'string',
+                "max:{$maxMessageLength}"
+            ],
         ];
     }
 }
