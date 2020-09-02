@@ -30,7 +30,7 @@ class ContactRequest extends FormRequest
             'message' => [
                 'required',
                 'string',
-                "max:{$maxMessageLength}"
+                "max:{$maxMessageLength}",
             ],
         ];
     }
