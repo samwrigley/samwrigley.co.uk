@@ -51,7 +51,7 @@ class ArticleRequest extends FormRequest
     {
         if ($validator->passes()) {
             $this->addPublishedAt();
-        };
+        }
     }
 
     protected function addPublishedAt(): void
