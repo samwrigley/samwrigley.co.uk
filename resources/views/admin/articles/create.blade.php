@@ -83,7 +83,7 @@
                     @endforeach
                 </x-select>
 
-                @include('admin.partials.buttons.default', ['text' => __('Create')])
+                <x-admin.buttons.default text="{{ __('Create') }}" />
             </form>
 
             <div class="mt-4">

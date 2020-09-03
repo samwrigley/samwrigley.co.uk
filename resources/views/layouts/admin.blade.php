@@ -37,7 +37,7 @@
                 <div class="ml-auto">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        @include('admin.partials.buttons.default', ['text' => __('Logout')])
+                        <x-admin.buttons.default text="{{ __('Logout') }}" />
                     </form>
                 </div>
             </div>

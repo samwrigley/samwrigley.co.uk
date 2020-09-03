@@ -5,7 +5,7 @@
         <form action="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="POST">
             @csrf
             @method('DELETE')
-            @include('admin.partials.buttons.default', ['text' => __('Delete article')])
+            <x-admin.buttons.default text="{{ __('Delete article') }}" />
         </form>
     </x-admin.section-header>
 
@@ -104,7 +104,7 @@
                     @endforeach
                 </x-select>
 
-                @include('admin.partials.buttons.default', ['text' => __('Save')])
+                <x-admin.buttons.default text="{{ __('Save') }}" />
             </form>
 
             <div class="mt-4">
