@@ -31,17 +31,10 @@
                     required="true"
                 />
 
-                <div class="mb-6">
-                    <label>
-                        <input
-                            class="mr-1"
-                            type="checkbox"
-                            name="remember"
-                            {{ old('remember') ? 'checked' : '' }}
-                        >
-                        <span>{{ __('Remember me') }}</span>
-                    </label>
-                </div>
+                <x-checkbox
+                    name="remember"
+                    label="{{ __('Remember me') }}"
+                />
 
                 <button
                     type="submit"
