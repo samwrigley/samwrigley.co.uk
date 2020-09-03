@@ -73,11 +73,15 @@
                     name="categories[]"
                     label="{{ __('Categories') }}"
                     :items="$categories"
+                    :selected="$article->categories->pluck('id')->toArray()"
                     multiple
                 >
                     <option></option>
                     @foreach ($component->items as $category)
-                        <option value="{{ $category->id }}">
+                        <option
+                            value="{{ $category->id }}"
+                            {{ $component->isSelected($category->id) ? 'selected="selected"' : '' }}
+                        >
                             {{ $category->name }}
                         </option>
                     @endforeach
@@ -87,10 +91,14 @@
                     name="series"
                     label="{{ __('Series') }}"
                     :items="$series"
+                    :selected="optional($article->series)->id"
                 >
                     <option></option>
                     @foreach ($component->items as $series)
-                        <option value="{{ $series->id }}">
+                        <option
+                            value="{{ $series->id }}"
+                            {{ $component->isSelected($series->id) ? 'selected="selected"' : '' }}
+                        >
                             {{ $series->title }}
                         </option>
                     @endforeach
