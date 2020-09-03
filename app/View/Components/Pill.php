@@ -38,5 +38,4 @@ class Pill extends Component
                 return '';
         }
     }
-
 }
