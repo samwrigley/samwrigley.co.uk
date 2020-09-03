@@ -73,6 +73,7 @@ class ArticleRequest extends FormRequest
     {
         if ($validator->passes()) {
             $this->addPublishedAt();
+            $this->removeEmptyCategories();
         }
     }
 
@@ -83,5 +84,18 @@ class ArticleRequest extends FormRequest
             : null;
 
         $this->request->add(['published_at' => $publishedAt]);
+    }
+
+    protected function removeEmptyCategories(): void
+    {
+        $categories = $this->categories ?: [];
+
+        foreach ($categories as $key => $value) {
+            if (empty($value)) {
+                unset($categories[$key]);
+            }
+        }
+
+        $this->categories = $categories;
     }
 }
