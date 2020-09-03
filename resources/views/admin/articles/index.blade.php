@@ -21,17 +21,20 @@
                                 </div>
                                 <div class="w-64 p-4">
                                     @if ($article->isPublished())
-                                        <div class="inline-block rounded-full py-1 px-2 text-sm leading-tight bg-green-200 text-green-800">
-                                            Published
-                                        </div>
+                                        <x-pill
+                                            colour="{{ App\View\Components\Pill::GREEN }}"
+                                            text="{{ __('Published') }}"
+                                        />
                                     @elseif ($article->isScheduled())
-                                        <div class="inline-block rounded-full py-1 px-2 text-sm leading-tight bg-orange-200 text-orange-800">
-                                            Scheduled
-                                        </div>
+                                        <x-pill
+                                            colour="{{ App\View\Components\Pill::ORANGE }}"
+                                            text="{{ __('Scheduled') }}"
+                                        />
                                     @elseif ($article->isDraft())
-                                        <div class="inline-block rounded-full py-1 px-2 text-sm leading-tight bg-yellow-200 text-yellow-800">
-                                            Draft
-                                        </div>
+                                        <x-pill
+                                            colour="{{ App\View\Components\Pill::YELLOW }}"
+                                            text="{{ __('Draft') }}"
+                                        />
                                     @endif
                                 </div>
                             </a>
