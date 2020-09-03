@@ -71,10 +71,11 @@ class ArticleController extends Controller
 
         if ($request->filled('series')) {
             $article->series()->associate($request->series);
-            $article->save();
         } else {
             $article->series()->dissociate();
         }
+
+        $article->save();
 
         return back()->with('article', __('admin.articles.successfully_updated'));
     }
