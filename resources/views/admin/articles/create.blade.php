@@ -1,11 +1,7 @@
 @extends('layouts.admin')
 
 @section('body')
-    <header class="flex items-center py-6 px-8 border-b border-gray-300">
-        <h1 class="font-bold text-3xl">
-            {{ __('Create article') }}
-        </h1>
-    </header>
+    <x-admin.section-header heading="{{ __('Create article') }}" />
 
     <div class="p-8">
         <div class="w-1/2">

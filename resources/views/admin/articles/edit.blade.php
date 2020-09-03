@@ -1,19 +1,13 @@
 @extends('layouts.admin')
 
 @section('body')
-    <header class="flex items-center py-6 px-8 border-b border-gray-300">
-        <h1 class="font-bold text-3xl">
-            {{ __('Edit article') }}
-        </h1>
-
-        <div class="ml-auto">
-            <form action="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                @include('admin.partials.buttons.default', ['text' => __('Delete article')])
-            </form>
-        </div>
-    </header>
+    <x-admin.section-header heading="{{ __('Edit article') }}">
+        <form action="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            @include('admin.partials.buttons.default', ['text' => __('Delete article')])
+        </form>
+    </x-admin.section-header>
 
     <div class="p-8">
         <div class="w-1/2">
