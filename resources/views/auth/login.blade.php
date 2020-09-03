@@ -12,25 +12,24 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                @include('admin.partials.form.input', [
-                    'name' => 'email',
-                    'type' => 'email',
-                    'value' => old('email'),
-                    'label' => __('Email'),
-                    'placeholder' =>  __('Your email'),
-                    'autoComplete' => 'email',
-                    'required' => true,
-                    'autofocus' => true,
-                ])
+                <x-input
+                    name="email"
+                    type="email"
+                    label="{{ __('Email') }}"
+                    placeholder="{{ __('Your email') }}"
+                    auto-complete="email"
+                    required="true"
+                    autofocus="true"
+                />
 
-                @include('admin.partials.form.input', [
-                    'name' => 'password',
-                    'type' => 'password',
-                    'label' => __('Password'),
-                    'placeholder' =>  __('Your Password'),
-                    'autoComplete' => 'current-password',
-                    'required' => true,
-                ])
+                <x-input
+                    name="password"
+                    type="password"
+                    label="{{ __('Password') }}"
+                    placeholder="{{ __('Your password') }}"
+                    auto-complete="current-password"
+                    required="true"
+                />
 
                 <div class="mb-6">
                     <label>
