@@ -63,7 +63,7 @@ class ArticleController extends Controller
 
         $article->update($request->all());
 
-        if (!empty($request->categories)) {
+        if (! empty($request->categories)) {
             $article->categories()->sync($request->categories);
         } else {
             $article->categories()->detach();
