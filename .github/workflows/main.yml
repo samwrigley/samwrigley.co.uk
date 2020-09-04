@@ -71,6 +71,9 @@ jobs:
       - name: Run PHP tests
         run: php artisan test
 
+      - name: Analyse PHP
+        run: ./vendor/bin/phpstan analyse
+
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver 78 --no-ansi
 
