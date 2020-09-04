@@ -74,6 +74,12 @@ jobs:
       - name: Analyse PHP
         run: ./vendor/bin/phpstan analyse
 
+      - name: PHP Insights
+        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=85 --min-style=95 --format=github-action
+
+      - name: PHP Linting
+        run: npm run lint:php
+
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver 78 --no-ansi
 
@@ -85,12 +91,6 @@ jobs:
 
       - name: Run Laravel Dusk
         run: php artisan dusk --stop-on-error --stop-on-failure
-
-      - name: PHP Insights
-        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=85 --min-style=95 --format=github-action
-
-      - name: PHP Linting
-        run: npm run lint:php
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
