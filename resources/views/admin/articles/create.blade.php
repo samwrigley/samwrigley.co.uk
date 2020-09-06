@@ -12,6 +12,7 @@
                     placeholder="{{ __('Article title') }}"
                     required="true"
                     maxlength="{{ App\Article::MAX_TITLE_LENGTH }}"
+                    errorBag="article"
                 />
 
                 <x-input
@@ -20,6 +21,7 @@
                     placeholder="{{ __('Article slug') }}"
                     required="true"
                     maxlength="{{ App\Article::MAX_SLUG_LENGTH }}"
+                    errorBag="article"
                 />
 
                 <x-textarea
@@ -27,6 +29,7 @@
                     label="{{ __('Excerpt') }}"
                     placeholder="{{ __('Article excerpt') }}"
                     maxlength="{{ App\Article::MAX_EXCERPT_LENGTH }}"
+                    errorBag="article"
                 />
 
                 <x-textarea
@@ -35,6 +38,7 @@
                     placeholder="{{ __('Article body') }}"
                     rows="10"
                     required="true"
+                    errorBag="article"
                 />
 
                 <div class="flex">
@@ -43,6 +47,7 @@
                         name="date"
                         label="{{ __('Publish date') }}"
                         class="flex-1 mr-4"
+                        errorBag="article"
                     />
 
                     <x-input
@@ -51,6 +56,7 @@
                         label="{{ __('Publish time') }}"
                         class="flex-1"
                         step="1"
+                        errorBag="article"
                     />
                 </div>
 
@@ -59,6 +65,7 @@
                     label="{{ __('Categories') }}"
                     :items="$categories"
                     multiple
+                    errorBag="article"
                 >
                     <option></option>
                     @foreach ($component->items as $category)
@@ -72,6 +79,7 @@
                     name="series"
                     label="{{ __('Series') }}"
                     :items="$series"
+                    errorBag="article"
                 >
                     <option></option>
                     @foreach ($series as $series)

@@ -3,14 +3,14 @@
         {{ $label }}
     </label>
     <textarea
-        class="block w-full p-4 bg-gray-200 rounded"
+        class="block w-full p-4 bg-gray-200 rounded @error($name, $errorBag) bg-red-100 @enderror"
         {{ $attributes->except('class')->merge([
             'id' => $name,
             'name' => $name,
             'rows' => '5',
         ]) }}
     >{{  $value ?? old($name) }}</textarea>
-    @error($name)
-        <div class="mt-2" role="alert">{{ $message }}</div>
+    @error($name, $errorBag)
+        <x-error message="{{ $message }}" />
     @enderror
 </div>

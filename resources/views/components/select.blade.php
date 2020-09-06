@@ -4,7 +4,7 @@
             {{ $label }}
         </label>
         <select
-            class="block w-full p-4 bg-gray-200 rounded @error($name) bg-red-100 @enderror"
+            class="block w-full p-4 bg-gray-200 rounded @error($name, $errorBag) bg-red-100 @enderror"
             {{ $attributes->except('class')->merge([
                 'id' => $name,
                 'name' => $name,
@@ -12,8 +12,8 @@
         >
             {{ $slot }}
         </select>
-        @error($name)
-            <div class="mt-2" role="alert">{{ $message }}</div>
+        @error($name, $errorBag)
+            <x-error message="{{ $message }}" />
         @enderror
     </div>
 @endif

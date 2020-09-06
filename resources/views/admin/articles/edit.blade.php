@@ -17,6 +17,7 @@
                     :value="$article->title"
                     required="true"
                     maxlength="{{ App\Article::MAX_TITLE_LENGTH }}"
+                    errorBag="article"
                 />
 
                 <x-input
@@ -26,6 +27,7 @@
                     :value="$article->slug"
                     required="true"
                     maxlength="{{ App\Article::MAX_SLUG_LENGTH }}"
+                    errorBag="article"
                 />
 
                 <x-textarea
@@ -34,6 +36,7 @@
                     placeholder="{{ __('Article excerpt') }}"
                     :value="$article->excerpt"
                     maxlength="{{ App\Article::MAX_EXCERPT_LENGTH }}"
+                    errorBag="article"
                 />
 
                 <x-textarea
@@ -43,6 +46,7 @@
                     :value="$article->body"
                     rows="10"
                     required="true"
+                    errorBag="article"
                 />
 
                 <div class="flex">
@@ -52,6 +56,7 @@
                         label="{{ __('Publish date') }}"
                         :value="$article->publishedDate"
                         class="flex-1 mr-4"
+                        errorBag="article"
                     />
 
                     <x-input
@@ -61,6 +66,7 @@
                         :value="$article->publishedTime"
                         class="flex-1"
                         step="1"
+                        errorBag="article"
                     />
                 </div>
 
@@ -70,6 +76,7 @@
                     :items="$categories"
                     :selected="$article->categories->pluck('id')->toArray()"
                     multiple
+                    errorBag="article"
                 >
                     <option></option>
                     @foreach ($component->items as $category)
@@ -87,6 +94,7 @@
                     label="{{ __('Series') }}"
                     :items="$series"
                     :selected="optional($article->series)->id"
+                    errorBag="article"
                 >
                     <option></option>
                     @foreach ($component->items as $series)

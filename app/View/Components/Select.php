@@ -15,12 +15,20 @@ class Select extends Component
     /** @var array|string|int|null */
     public $selected;
 
-    public function __construct(string $name, string $label, Collection $items, $selected = null)
-    {
+    public ?string $errorBag;
+
+    public function __construct(
+        string $name,
+        string $label,
+        Collection $items,
+        $selected = null,
+        $errorBag = null
+    ) {
         $this->name = $name;
         $this->label = $label;
         $this->items = $items;
         $this->selected = $selected;
+        $this->errorBag = $errorBag;
     }
 
     public function render(): View
