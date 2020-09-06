@@ -14,11 +14,6 @@ class ContactRequest extends FormRequest
      */
     public $errorBag = 'contact';
 
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function rules(): array
     {
         $maxMessageLength = Contact::MAX_MESSAGE_LENGTH;
