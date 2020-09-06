@@ -35,10 +35,9 @@
         <div class="w-5/6 bg-gray-200">
             <div class="h-20 flex items-center bg-white py-4 px-6 border-b border-gray-300">
                 <div class="ml-auto">
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
+                    <x-form route="{{ route('logout') }}">
                         <x-admin.buttons.default text="{{ __('Logout') }}" />
-                    </form>
+                    </x-form>
                 </div>
             </div>
             <div class="p-16">

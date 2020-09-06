@@ -5,9 +5,7 @@
 
     <div class="p-8">
         <div class="w-1/2">
-            <form method="POST" action="{{ route('admin.articles.store') }}">
-                @csrf
-
+            <x-form route="{{ route('admin.articles.store') }}">
                 <x-input
                     name="title"
                     label="{{ __('Title') }}"
@@ -84,7 +82,7 @@
                 </x-select>
 
                 <x-admin.buttons.default text="{{ __('Create') }}" />
-            </form>
+            </x-form>
 
             <div class="mt-4">
                 @include('components.general.errors', ['errorBag' => 'article'])

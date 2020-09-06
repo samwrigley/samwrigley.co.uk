@@ -9,9 +9,7 @@
         </h1>
 
         <div class="p-8 bg-white rounded shadow-md">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-
+            <x-form route="{{ route('login') }}">
                 <x-input
                     name="email"
                     type="email"
@@ -43,7 +41,7 @@
                     <span class="mr-2">{{ __('Login') }}</span>
                     <x-heroicon-o-arrow-right class="w-3 fill-current md:w-4" />
                 </button>
-            </form>
+            </x-form>
         </div>
     </div>
 @endsection

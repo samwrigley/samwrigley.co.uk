@@ -2,19 +2,14 @@
 
 @section('body')
     <x-admin.section-header heading="{{ __('Edit article') }}">
-        <form action="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="POST">
-            @csrf
-            @method('DELETE')
+        <x-form route="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="DELETE">
             <x-admin.buttons.default text="{{ __('Delete article') }}" />
-        </form>
+        <x-form />
     </x-admin.section-header>
 
     <div class="p-8">
         <div class="w-1/2">
-            <form method="POST" action="{{ route('admin.articles.update', ['article' => $article]) }}">
-                @csrf
-                @method('PUT')
-
+            <x-form route="{{ route('admin.articles.update', ['article' => $article]) }}" method="PUT">
                 <x-input
                     name="title"
                     label="{{ __('Title') }}"
@@ -105,7 +100,7 @@
                 </x-select>
 
                 <x-admin.buttons.default text="{{ __('Save') }}" />
-            </form>
+            </x-form>
 
             <div class="mt-4">
                 @include('components.general.errors', ['errorBag' => 'article'])
