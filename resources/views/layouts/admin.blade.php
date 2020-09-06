@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', __('Dashboard'))
-
 @section('content')
     <div class="flex min-h-screen">
         <div class="w-1/6 bg-gray-800 text-white text-lg">

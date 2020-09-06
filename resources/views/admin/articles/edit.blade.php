@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', __("Edit {$article->title}"))
+
 @section('body')
     <x-admin.section-header heading="{{ __('Edit article') }}">
         <x-form route="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="DELETE">

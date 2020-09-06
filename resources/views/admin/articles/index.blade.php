@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', __('All articles'))
+
 @section('body')
     <x-admin.section-header heading="{{ __('All articles') }}" />
 
