@@ -4,7 +4,7 @@
     <x-admin.section-header heading="{{ __('Edit article') }}">
         <x-form route="{{ route('admin.articles.destroy', ['article' => $article]) }}" method="DELETE">
             <x-admin.buttons.default text="{{ __('Delete article') }}" />
-        <x-form />
+        </x-form>
     </x-admin.section-header>
 
     <div class="p-8">
