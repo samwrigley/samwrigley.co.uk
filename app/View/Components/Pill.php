@@ -25,7 +25,7 @@ class Pill extends Component
         return view('components.pill');
     }
 
-    public function backgroundClasses(): string
+    public function colourClasses(): string
     {
         switch ($this->colour) {
             case self::GREEN:
