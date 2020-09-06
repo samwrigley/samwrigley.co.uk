@@ -13,7 +13,7 @@
                     label="{{ __('Title') }}"
                     placeholder="{{ __('Article title') }}"
                     required="true"
-                    maxlength="255"
+                    maxlength="{{ App\Article::MAX_TITLE_LENGTH }}"
                 />
 
                 <x-input
@@ -21,7 +21,7 @@
                     label="{{ __('Slug') }}"
                     placeholder="{{ __('Article slug') }}"
                     required="true"
-                    maxlength="255"
+                    maxlength="{{ App\Article::MAX_SLUG_LENGTH }}"
                 />
 
                 <x-textarea

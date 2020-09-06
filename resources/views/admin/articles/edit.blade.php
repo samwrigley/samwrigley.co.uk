@@ -21,7 +21,7 @@
                     placeholder="{{ __('Article title') }}"
                     :value="$article->title"
                     required="true"
-                    maxlength="255"
+                    maxlength="{{ App\Article::MAX_TITLE_LENGTH }}"
                 />
 
                 <x-input
@@ -30,7 +30,7 @@
                     placeholder="{{ __('Article slug') }}"
                     :value="$article->slug"
                     required="true"
-                    maxlength="255"
+                    maxlength="{{ App\Article::MAX_SLUG_LENGTH }}"
                 />
 
                 <x-textarea

@@ -21,6 +21,8 @@ class ArticleRequest extends FormRequest
     {
         $article = $this->route('article');
         $articleId = optional($article)->id;
+        $maxTitleLength = Article::MAX_TITLE_LENGTH;
+        $maxSlugLength = Article::MAX_SLUG_LENGTH;
         $maxExcerptLength = Article::MAX_EXCERPT_LENGTH;
         $publishedDateFormat = Article::$PUBLISHED_DATE_FORMAT;
         $publishedTimeFormat = Article::$PUBLISHED_TIME_FORMAT;
@@ -29,13 +31,13 @@ class ArticleRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                'max:255',
+                "max:{$maxTitleLength}",
                 Rule::unique('articles')->ignore($articleId),
             ],
             'slug' => [
                 'required',
                 'alpha_dash',
-                'max:255',
+                "max:{$maxSlugLength}",
                 Rule::unique('articles')->ignore($articleId),
             ],
             'excerpt' => [

@@ -23,6 +23,8 @@ class Article extends Model implements Feedable
     use HasAge;
     use InSeries;
 
+    public const MAX_TITLE_LENGTH = 255;
+    public const MAX_SLUG_LENGTH = 255;
     public const MAX_EXCERPT_LENGTH = 500;
 
     public array $routeNamespaces = [
