@@ -30,7 +30,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request): RedirectResponse
     {
-        $article = auth()->user()->articles()->create($request->all());
+        $article = auth()->user()->articles()->create($request->validated());
 
         if ($request->filled('categories')) {
             $article->categories()->attach($request->categories);
@@ -61,7 +61,7 @@ class ArticleController extends Controller
             return back()->with('article', __('admin.articles.forbidden_update'));
         }
 
-        $article->update($request->all());
+        $article->update($request->validated());
 
         if (! empty($request->categories)) {
             $article->categories()->sync($request->categories);
