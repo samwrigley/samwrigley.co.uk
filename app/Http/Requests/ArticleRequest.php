@@ -6,7 +6,6 @@ use App\Article;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Validator;
 
 class ArticleRequest extends FormRequest
 {
@@ -16,6 +15,11 @@ class ArticleRequest extends FormRequest
      * @var string
      */
     protected $errorBag = 'article';
+
+    protected function prepareForValidation(): void
+    {
+        $this->removeEmptyCategories();
+    }
 
     public function rules(): array
     {
@@ -71,33 +75,28 @@ class ArticleRequest extends FormRequest
         ];
     }
 
-    public function withValidator(Validator $validator): void
+    public function validated(): array
     {
-        if ($validator->passes()) {
-            $this->addPublishedAt();
-            $this->removeEmptyCategories();
+        $validatedData = collect($this->validator->validated());
+
+        if ($publishedAt = $this->getPublishedAt()) {
+            $validatedData->put('published_at', $publishedAt);
+            $validatedData->forget(['date', 'time']);
         }
-    }
 
-    protected function addPublishedAt(): void
-    {
-        $publishedAt = $this->filled(['date', 'time'])
-            ? Carbon::parse("{$this->date} {$this->time}")
-            : null;
-
-        $this->request->add(['published_at' => $publishedAt]);
+        return $validatedData->toArray();
     }
 
     protected function removeEmptyCategories(): void
     {
-        $categories = $this->categories ?: [];
+        $this->categories = collect($this->categories)
+            ->reject(fn (?string $category): bool => is_null($category));
+    }
 
-        foreach ($categories as $key => $value) {
-            if (empty($value)) {
-                unset($categories[$key]);
-            }
-        }
-
-        $this->categories = $categories;
+    protected function getPublishedAt(): ?Carbon
+    {
+        return $this->filled(['date', 'time'])
+            ? Carbon::parse("{$this->date} {$this->time}")
+            : null;
     }
 }
