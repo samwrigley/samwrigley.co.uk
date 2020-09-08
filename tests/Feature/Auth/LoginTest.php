@@ -92,11 +92,17 @@ class LoginTest extends TestCase
 
         $this->assertGuest();
 
-        $this->post(route('login'), $data)->assertRedirect();
+        $this->followingRedirects()
+            ->post(route('login'), $data)
+            ->assertOk()
+            ->assertViewIs('admin.dashboard');
 
         $this->assertAuthenticatedAs($user);
 
-        $this->post(route('logout'))->assertRedirect();
+        $this->followingRedirects()
+            ->post(route('logout'))
+            ->assertOk()
+            ->assertViewIs('articles.index');
 
         $this->assertGuest();
     }

@@ -18,19 +18,6 @@ class ArticleCreateTest extends TestCase
     use RefreshDatabase;
     use WithFaker;
 
-    protected array $validArticle;
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->validArticle = [
-            'title' => $this->faker->sentence,
-            'slug' => Str::slug($this->faker->sentence),
-            'body' => $this->faker->paragraphs(10, true),
-        ];
-    }
-
     /** @test */
     public function can_view_admin_article_create_page_when_authenticated(): void
     {
@@ -54,11 +41,16 @@ class ArticleCreateTest extends TestCase
     public function can_create_article(): void
     {
         $user = factory(User::class)->create();
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+        ];
 
         $this->actingAs($user)
             ->followingRedirects()
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($this->validArticle)
+            ->postArticleRoute($articleData)
             ->assertOk()
             ->assertViewIs('admin.articles.create')
             ->assertSeeText(__('admin.articles.successfully_created'))
@@ -69,28 +61,32 @@ class ArticleCreateTest extends TestCase
     public function article_is_persisted_in_database(): void
     {
         $user = factory(User::class)->create();
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+        ];
 
-        $this->actingAs($user)->postArticleRoute($this->validArticle);
+        $this->actingAs($user)->postArticleRoute($articleData);
 
-        $this->assertDatabaseHas('articles', $this->validArticle);
+        $this->assertDatabaseHas('articles', $articleData);
     }
 
     /** @test */
     public function article_title_is_required(): void
     {
         $user = factory(User::class)->create();
-
-        $data = [
+        $articleData = [
             'slug' => Str::slug($this->faker->sentence),
             'body' => $this->faker->paragraphs(10, true),
         ];
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'title')
             ->assertSessionDoesntHaveErrors(['slug', 'body'], null, 'article')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
@@ -98,39 +94,37 @@ class ArticleCreateTest extends TestCase
     {
         $title = $this->faker->sentence;
         $user = factory(User::class)->create();
-
-        factory(Article::class)->create(['title' => $title]);
-
-        $data = [
+        $articleData = [
             'title' => $title,
             'slug' => Str::slug($this->faker->sentence),
             'body' => $this->faker->paragraphs(10, true),
         ];
 
+        factory(Article::class)->create(['title' => $title]);
+
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'title')
             ->assertSessionDoesntHaveErrors(['slug', 'body'], null, 'article')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
     public function article_slug_is_required(): void
     {
         $user = factory(User::class)->create();
-
-        $data = [
+        $articleData = [
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraphs(10, true),
         ];
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'slug')
             ->assertSessionDoesntHaveErrors(['title', 'body'], null, 'article')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
@@ -138,29 +132,27 @@ class ArticleCreateTest extends TestCase
     {
         $slug = Str::slug($this->faker->sentence);
         $user = factory(User::class)->create();
-
-        factory(Article::class)->create(['slug' => $slug]);
-
-        $data = [
+        $articleData = [
             'title' => $this->faker->sentence,
             'slug' => $slug,
             'body' => $this->faker->paragraphs(10, true),
         ];
 
+        factory(Article::class)->create(['slug' => $slug]);
+
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'slug')
             ->assertSessionDoesntHaveErrors(['title', 'body'], null, 'article')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
     public function article_slug_must_be_alpha_dash(): void
     {
         $user = factory(User::class)->create();
-
-        $data = [
+        $articleData = [
             'title' => $this->faker->sentence,
             'slug' => $this->faker->sentence,
             'body' => $this->faker->paragraphs(10, true),
@@ -168,57 +160,60 @@ class ArticleCreateTest extends TestCase
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'slug')
             ->assertSessionDoesntHaveErrors(['title', 'body'], null, 'article')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
     public function article_excerpt_must_be_shorter_than_maximum_length(): void
     {
         $user = factory(User::class)->create();
-
-        $data = [
+        $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
             'excerpt' => $this->faker->paragraphs(20, true),
             'body' => $this->faker->paragraphs(10, true),
         ];
 
-        $this->assertTrue(Str::length($data['excerpt']) > Article::MAX_EXCERPT_LENGTH);
+        $this->assertTrue(Str::length($articleData['excerpt']) > Article::MAX_EXCERPT_LENGTH);
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'excerpt')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
     public function article_body_is_required(): void
     {
         $user = factory(User::class)->create();
-
-        $data = [
+        $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
         ];
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($data)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'body')
             ->assertSessionDoesntHaveErrors(['title', 'slug'], null, 'article')
-            ->assertSessionHasInput($data);
+            ->assertSessionHasInput($articleData);
     }
 
     /** @test */
     public function date_is_required_when_time_is_present(): void
     {
         $user = factory(User::class)->create();
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+        ];
 
-        $article = collect($this->validArticle)
+        $article = collect($articleData)
             ->merge(['time' => now()->format(Article::$PUBLISHED_TIME_FORMAT)])
             ->toArray();
 
@@ -244,8 +239,13 @@ class ArticleCreateTest extends TestCase
     public function time_is_required_when_date_is_present(): void
     {
         $user = factory(User::class)->create();
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+        ];
 
-        $article = collect($this->validArticle)
+        $article = collect($articleData)
             ->merge(['date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT)])
             ->toArray();
 
@@ -273,12 +273,17 @@ class ArticleCreateTest extends TestCase
         $date = now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT);
         $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
         $user = factory(User::class)->create();
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+        ];
 
-        $article = collect($this->validArticle)
+        $article = collect($articleData)
             ->merge(['date' => $date, 'time' => $time])
             ->toArray();
 
-        $expectedArticle = collect($this->validArticle)
+        $expectedArticle = collect($articleData)
             ->merge(['published_at' => Carbon::parse("{$date} {$time}")])
             ->toArray();
 
@@ -294,11 +299,16 @@ class ArticleCreateTest extends TestCase
     {
         $user = factory(User::class)->create();
         $category = factory(ArticleCategory::class)->create();
-        $article = array_merge($this->validArticle, ['categories' => [$category->id]]);
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+            'categories' => [$category->id],
+        ];
 
         $this->assertDatabaseCount('articles', 0);
 
-        $this->actingAs($user)->postArticleRoute($article);
+        $this->actingAs($user)->postArticleRoute($articleData);
 
         $this->assertDatabaseCount('articles', 1);
         $this->assertCount(1, Article::first()->categories);
@@ -310,11 +320,16 @@ class ArticleCreateTest extends TestCase
         $user = factory(User::class)->create();
         $categoryCount = 2;
         $categories = factory(ArticleCategory::class, $categoryCount)->create();
-        $article = array_merge($this->validArticle, ['categories' => $categories->pluck('id')->toArray()]);
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+            'categories' => $categories->pluck('id')->toArray(),
+        ];
 
         $this->assertDatabaseCount('articles', 0);
 
-        $this->actingAs($user)->postArticleRoute($article);
+        $this->actingAs($user)->postArticleRoute($articleData);
 
         $this->assertDatabaseCount('articles', 1);
         $this->assertCount($categoryCount, Article::first()->categories);
@@ -325,11 +340,16 @@ class ArticleCreateTest extends TestCase
     {
         $user = factory(User::class)->create();
         $series = factory(ArticleSeries::class)->create();
-        $article = array_merge($this->validArticle, ['series' => (string) $series->id]);
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+            'series' => (string) $series->id,
+        ];
 
         $this->assertDatabaseCount('articles', 0);
 
-        $this->actingAs($user)->postArticleRoute($article);
+        $this->actingAs($user)->postArticleRoute($articleData);
 
         $this->assertDatabaseCount('articles', 1);
         $this->assertInstanceOf(ArticleSeries::class, Article::first()->series);
@@ -339,15 +359,20 @@ class ArticleCreateTest extends TestCase
     public function can_only_add_to_series_that_exists(): void
     {
         $user = factory(User::class)->create();
-        $article = array_merge($this->validArticle, ['series' => 1]);
+        $articleData = [
+            'title' => $this->faker->sentence,
+            'slug' => Str::slug($this->faker->sentence),
+            'body' => $this->faker->paragraphs(10, true),
+            'series' => 1,
+        ];
 
         $this->assertDatabaseCount('articles', 0);
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
-            ->postArticleRoute($article)
+            ->postArticleRoute($articleData)
             ->assertSessionHasErrorsIn('article', 'series')
-            ->assertSessionHasInput($article);
+            ->assertSessionHasInput($articleData);
 
         $this->assertDatabaseCount('articles', 0);
     }

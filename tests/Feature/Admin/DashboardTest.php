@@ -17,13 +17,16 @@ class DashboardTest extends TestCase
 
         $this->actingAs($user)
             ->get(route('admin.dashboard'))
-            ->assertViewIs('admin.dashboard')
-            ->assertOk();
+            ->assertOk()
+            ->assertViewIs('admin.dashboard');
     }
 
     /** @test */
     public function cannot_visit_admin_dashboard_when_not_authenticated(): void
     {
-        $this->get(route('admin.dashboard'))->assertRedirect();
+        $this->followingRedirects()
+            ->get(route('admin.dashboard'))
+            ->assertOk()
+            ->assertViewIs('auth.login');
     }
 }
