@@ -268,7 +268,7 @@ class ArticleCreateTest extends TestCase
     }
 
     /** @test */
-    public function article_is_marked_as_scheduled_when_created_with_publish_date_and_time(): void
+    public function is_marked_as_scheduled_when_created_with_published_date_and_time(): void
     {
         $date = now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT);
         $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
