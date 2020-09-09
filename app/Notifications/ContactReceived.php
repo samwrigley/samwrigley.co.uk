@@ -26,7 +26,7 @@ class ContactReceived extends Notification implements ShouldQueue
 
     public function toSlack(): SlackMessage
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->from(config('app.name'))
             ->to('#contact')
             ->info()

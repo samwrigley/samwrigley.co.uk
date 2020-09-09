@@ -30,7 +30,10 @@ class UserRequest extends FormRequest
                 'max:50',
                 Rule::unique('users')->ignore($userId),
             ],
-            'bio' => 'nullable|max:500',
+            'bio' => [
+                'nullable',
+                'max:500',
+            ],
         ];
     }
 }

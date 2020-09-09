@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('content')
+@section('body')
     <div class="flex-1 flex items-center justify-center">
         <div class="text-center">
             <h1 class="mb-1 text-3xl font-black leading-tight md:mb-2 md:text-5xl lg:text-6xl">

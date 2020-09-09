@@ -7,29 +7,13 @@ use Illuminate\Support\Carbon;
 
 trait CanBePublished
 {
-    protected array $canBePublishedFillable = [
-        'published_at',
-    ];
+    public static $PUBLISHED_DATE_FORMAT = 'Y-m-d';
+    public static $PUBLISHED_TIME_FORMAT = 'H:i:s';
 
-    protected array $canBePublishedDates = [
-        'published_at',
-    ];
-
-    public static function bootCanBePublished(): void
+    public function initializeCanBePublished(): void
     {
-        static::retrieved(
-            function ($model) {
-                $model->fillable = array_merge(
-                    $model->fillable,
-                    $model->canBePublishedFillable
-                );
-
-                $model->dates = array_merge(
-                    $model->dates,
-                    $model->canBePublishedDates
-                );
-            }
-        );
+        $this->fillable[] = 'published_at';
+        $this->dates[] = 'published_at';
     }
 
     public function markAsPublished(): void
@@ -52,17 +36,35 @@ trait CanBePublished
 
     public function isPublished(): bool
     {
-        return $this->published_at <= now();
+        return ! $this->isDraft() && $this->published_at <= now();
     }
 
     public function isScheduled(): bool
     {
-        return $this->published_at > now();
+        return ! $this->isDraft() && $this->published_at > now();
     }
 
     public function isDraft(): bool
     {
         return is_null($this->published_at);
+    }
+
+    public function getPublishedDateAttribute(): ?string
+    {
+        if ($this->isDraft()) {
+            return null;
+        }
+
+        return $this->published_at->format(self::$PUBLISHED_DATE_FORMAT);
+    }
+
+    public function getPublishedTimeAttribute(): ?string
+    {
+        if ($this->isDraft()) {
+            return null;
+        }
+
+        return $this->published_at->format(self::$PUBLISHED_TIME_FORMAT);
     }
 
     public function next(): ?self

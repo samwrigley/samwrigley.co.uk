@@ -1,0 +1,25 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    level: 5
+
+    paths:
+        - app
+        - database
+        - routes
+
+    ignoreErrors:
+        - '#Undefined variable: \$this#'
+
+        - path: database/factories/*
+          message: '#Variable \$factory might not be defined\.#'
+
+    excludes_analyse:
+        - app/Http/Controllers/NewsletterSubscriptionController.php
+
+    checkMissingIterableValueType: false
+
+    reportUnmatchedIgnoredErrors: false
+

@@ -245,6 +245,8 @@ class ArticleTest extends TestCase
         $this->assertNotNull($article->published_at);
         $this->assertTrue($article->published_at <= now());
         $this->assertTrue($article->isPublished());
+        $this->assertFalse($article->isScheduled());
+        $this->assertFalse($article->isDraft());
     }
 
     /** @test */
@@ -255,6 +257,8 @@ class ArticleTest extends TestCase
         $this->assertNotNull($article->published_at);
         $this->assertTrue($article->published_at > now());
         $this->assertTrue($article->isScheduled());
+        $this->assertFalse($article->isPublished());
+        $this->assertFalse($article->isDraft());
     }
 
     /** @test */
@@ -264,6 +268,8 @@ class ArticleTest extends TestCase
 
         $this->assertNull($article->published_at);
         $this->assertTrue($article->isDraft());
+        $this->assertFalse($article->isScheduled());
+        $this->assertFalse($article->isPublished());
     }
 
     /** @test */
@@ -381,6 +387,46 @@ class ArticleTest extends TestCase
         $route = route($article->routeNamespaces['web'] . 'show', [$article->slug]);
 
         $this->assertEquals($route, $article->showRoute());
+    }
+
+    /** @test */
+    public function can_get_published_date_when_article_is_published(): void
+    {
+        $publishedAt = now();
+        $article = factory(Article::class)->make(['published_at' => $publishedAt]);
+
+        $this->assertEquals(
+            $article->publishedDate,
+            Carbon::parse($publishedAt)->format(Article::$PUBLISHED_DATE_FORMAT)
+        );
+    }
+
+    /** @test */
+    public function cannot_get_published_date_when_article_is_not_published(): void
+    {
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->publishedDate);
+    }
+
+    /** @test */
+    public function can_get_published_time_when_article_is_published(): void
+    {
+        $publishedAt = now();
+        $article = factory(Article::class)->make(['published_at' => $publishedAt]);
+
+        $this->assertEquals(
+            $article->publishedTime,
+            Carbon::parse($publishedAt)->format(Article::$PUBLISHED_TIME_FORMAT)
+        );
+    }
+
+    /** @test */
+    public function cannot_get_published_time_when_article_is_not_published(): void
+    {
+        $article = factory(Article::class)->states('draft')->make();
+
+        $this->assertNull($article->publishedTime);
     }
 
     protected function freezeTime(?Carbon $time = null): void

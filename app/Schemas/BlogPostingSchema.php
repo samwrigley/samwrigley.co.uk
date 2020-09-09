@@ -9,6 +9,7 @@ use Spatie\SchemaOrg\BlogPosting;
 use Spatie\SchemaOrg\ImageObject;
 use Spatie\SchemaOrg\Organization;
 use Spatie\SchemaOrg\Person;
+use Spatie\SchemaOrg\QuantitativeValue;
 use Spatie\SchemaOrg\Schema;
 
 class BlogPostingSchema implements SchemaContract
@@ -55,7 +56,7 @@ class BlogPostingSchema implements SchemaContract
     {
         return Schema::imageObject()
             ->url(asset('images/sam-wrigley.png'))
-            ->width(1200)
-            ->height(650);
+            ->width((new QuantitativeValue)->value(1200))
+            ->height((new QuantitativeValue)->value(650));
     }
 }

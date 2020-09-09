@@ -2,7 +2,7 @@
 
 @section('title', $category->name)
 
-@section('content')
+@section('body')
     <div class="grid mb-6 sm:mb-12">
         @foreach ($articles as $article)
             @include('partials.articles.preview', ['article' => $article])

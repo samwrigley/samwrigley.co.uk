@@ -2,7 +2,7 @@
 
 @section('title', __('article.index_page_title'))
 
-@section('content')
+@section('body')
     @if ($articles->count())
         <div class="grid mb-6 sm:mb-12">
             @foreach ($articles as $article)
