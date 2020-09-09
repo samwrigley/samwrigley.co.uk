@@ -53,6 +53,18 @@ jobs:
       - name: Seed database
         run: php artisan db:seed --force --no-interaction --no-ansi
 
+      - name: Cache routes
+        run: php artisan route:cache
+
+      - name: Cache views
+        run: php artisan view:cache
+
+      - name: Cache events
+        run: php artisan event:cache
+
+      - name: Cache configs
+        run: php artisan config:cache
+
       - name: Generate sitemap
         run: php artisan sitemap:generate
 
