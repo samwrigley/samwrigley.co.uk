@@ -16,8 +16,8 @@ parameters:
         - path: database/factories/*
           message: '#Variable \$factory might not be defined\.#'
 
-        - path: app/Http/Controllers/NewsletterSubscriptionController.php
-          message: '#Internal error: Internal error: Invalid MailChimp API key supplied.#'
+    excludes_analyse:
+        - app/Http/Controllers/NewsletterSubscriptionController.php
 
     checkMissingIterableValueType: false
 
