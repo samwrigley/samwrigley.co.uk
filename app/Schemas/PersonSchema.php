@@ -16,9 +16,7 @@ class PersonSchema implements SchemaContract
             ->image(asset('images/sam-wrigley.png'))
             ->jobTitle('Front End Engineer')
             ->name(Config::get('app.name'))
-            ->alumniOf('Falmouth University')
             ->gender('male')
-            ->nationality('British')
             ->telephone(Config::get('contact.telephone'))
             ->url(Config::get('app.url'))
             ->sameAs($this->generateSameAs());

@@ -20,11 +20,4 @@ class FeedTest extends TestCase
 
         $this->get(route('feeds.main'))->assertOk();
     }
-
-    /** @test */
-    public function has_feed_link_element(): void
-    {
-        $this->get(route('blog.articles.index'))
-            ->assertElementCount('link[type="application/atom+xml"]');
-    }
 }

@@ -2,6 +2,7 @@
 
 use App\Article;
 use App\ArticleCategory;
+use App\ArticleSeries;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -35,7 +36,10 @@ $factory->state(Article::class, 'published', [
 ]);
 
 $factory->afterCreatingState(Article::class, 'withCategories', function (Article $article): void {
-    $article->categories()->saveMany(
-        factory(ArticleCategory::class, 3)->make()
-    );
+    $article->categories()->saveMany(factory(ArticleCategory::class, 3)->make());
+});
+
+$factory->afterCreatingState(Article::class, 'withSeries', function (Article $article): void {
+    $article->series()->associate(factory(ArticleSeries::class)->make());
+    $article->save();
 });

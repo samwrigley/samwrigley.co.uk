@@ -23,6 +23,10 @@ class Article extends Model implements Feedable
     use HasAge;
     use InSeries;
 
+    public const MAX_TITLE_LENGTH = 255;
+    public const MAX_SLUG_LENGTH = 255;
+    public const MAX_EXCERPT_LENGTH = 500;
+
     public array $routeNamespaces = [
         'web' => 'blog.articles.',
         'admin' => 'admin.articles.',
@@ -39,6 +43,15 @@ class Article extends Model implements Feedable
         'body',
         'excerpt',
         'featured_image',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'user_id' => 'integer',
     ];
 
     /**
