@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('content')
+@section('body')
     <article class="pt-12 sm:pt-20">
         <header class="relative mx-auto max-w-4xl mb-12 sm:mb-20">
             @include('partials.articles.outOfDate')
@@ -28,7 +28,7 @@
         </header>
 
         <div class="mx-auto max-w-4xl mb-12 sm:mb-32">
-            @yield('body')
+            @yield('article')
         </div>
 
         @include('partials.articles.pagination', [

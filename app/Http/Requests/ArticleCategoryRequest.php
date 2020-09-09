@@ -32,7 +32,10 @@ class ArticleCategoryRequest extends FormRequest
                 'max:50',
                 Rule::unique('article_categories')->ignore($categoryId),
             ],
-            'description' => 'nullable|max:500',
+            'description' => [
+                'nullable',
+                'max:500',
+            ],
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 @section('title', __('about.page_title'))
 
-@section('content')
+@section('body')
     <h1 class="absolute top-0 right-0 text-gray-300 font-black leading-none text-8xl mt-16 -mr-6
         md:text-10xl
         lg:text-16xl lg:-mt-24 lg:-mr-8
