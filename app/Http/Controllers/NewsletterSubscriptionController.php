@@ -20,7 +20,7 @@ class NewsletterSubscriptionController extends Controller
             return $this->hasSubscribed($request);
         }
 
-        if (! Newsletter::subscribe($request->email)) {
+        if (app()->isProduction() && ! Newsletter::subscribe($request->email)) {
             return $this->subscribeFailed($request);
         }
 
