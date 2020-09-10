@@ -29,10 +29,12 @@ describe('Blog Article Index', () => {
         cy.document().toMatchImageSnapshot();
     });
 
-    describe('Newsletter', () => {
+    describe.only('Newsletter', () => {
         it('cannot submit form without email', () => {
             cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
-            cy.findByText(strings.NEWSLETTER_FORM_SUCCESS_MESSAGE).should('not.exist');
+            cy.get(NEWSLETTER_FORM_ID)
+                .findByText(strings.NEWSLETTER_FORM_SUCCESS_MESSAGE)
+                .should('not.exist');
         });
 
         it('cannot subscribe using invalid email', () => {
@@ -41,24 +43,14 @@ describe('Blog Article Index', () => {
                 .type('invalid-email');
             cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
             cy.get(NEWSLETTER_FORM_ID)
-                .findByText(strings.NEWSLETTER_FORM_FAILURE_MESSAGE)
-                .should('exist');
-        });
-
-        it('cannot subscribe if email is already subscribed', () => {
-            cy.get(NEWSLETTER_FORM_ID)
-                .findByLabelText(strings.NEWSLETTER_FORM_FIELD_LABEL)
-                .type('invalid-email');
-            cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
-            cy.get(NEWSLETTER_FORM_ID)
-                .findByText(strings.NEWSLETTER_FORM_ALREADY_SUBSCRIBED_MESSAGE)
-                .should('exist');
+                .findByText(strings.NEWSLETTER_FORM_SUCCESS_MESSAGE)
+                .should('not.exist');
         });
 
         it('can see success message on successful subscription', () => {
             cy.get(NEWSLETTER_FORM_ID)
                 .findByLabelText(strings.NEWSLETTER_FORM_FIELD_LABEL)
-                .type('test@example.com');
+                .type('sam@samwrigley.co.uk');
             cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
             cy.get(NEWSLETTER_FORM_ID)
                 .findByText(strings.NEWSLETTER_FORM_SUCCESS_MESSAGE)
