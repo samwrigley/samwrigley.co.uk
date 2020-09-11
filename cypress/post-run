@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FILE=.env.backup
+
+if test -f "$FILE"; then
+    mv .env .env.cypress
+    mv .env.backup .env
+    git checkout HEAD -- .env.cypress database/database.sqlite
+fi

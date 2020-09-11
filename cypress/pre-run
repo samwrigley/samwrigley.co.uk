@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FILE=.env.cypress
+
+if test -f "$FILE"; then
+    mv .env .env.backup
+    mv .env.cypress .env
+    php artisan key:generate
+fi
