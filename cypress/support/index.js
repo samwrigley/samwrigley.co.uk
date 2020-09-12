@@ -1,11 +1,15 @@
 import './commands';
 import './laravel-commands';
+import { getBeforeScriptPath, getAfterScriptPath } from '../utilities';
+
+const BEFORE_SCRIPT_PATH = getBeforeScriptPath();
+const AFTER_SCRIPT_PATH = getAfterScriptPath();
 
 before(() => {
     cy.exec('echo test');
-    cy.exec('./cypress/pre-run', { failOnNonZeroExit: false });
+    cy.exec(BEFORE_SCRIPT_PATH, { failOnNonZeroExit: false });
 });
 
 after(() => {
-    cy.exec('./cypress/post-run', { failOnNonZeroExit: false });
+    cy.exec(AFTER_SCRIPT_PATH, { failOnNonZeroExit: false });
 });
