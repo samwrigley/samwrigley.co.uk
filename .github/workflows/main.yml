@@ -51,7 +51,7 @@ jobs:
         run: php artisan migrate:fresh --force --no-interaction --no-ansi
 
       - name: Seed database
-        run: php artisan db:seed --seeder=DatabaseTestSeeder --force --no-interaction --no-ansi
+        run: php artisan db:seed --class=DatabaseTestSeeder --force --no-interaction --no-ansi
 
       - name: Generate sitemap
         run: php artisan sitemap:generate
