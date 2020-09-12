@@ -9,8 +9,8 @@ $factory->define(ArticleSeries::class, function (Faker $faker): array {
     $title = $faker->unique()->words(5, true);
 
     return [
-        'slug' => Str::slug($title),
         'title' => ucfirst($title),
+        'slug' => Str::slug($title),
         'description' => $faker->paragraph,
     ];
 });

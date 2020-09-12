@@ -9,8 +9,8 @@ $factory->define(ArticleCategory::class, function (Faker $faker) {
     $name = $faker->unique()->words(2, true);
 
     return [
-        'slug' => Str::slug($name),
         'name' => ucfirst($name),
+        'slug' => Str::slug($name),
         'description' => $faker->paragraph,
     ];
 });
