@@ -46,15 +46,5 @@ describe('Blog Article Index', () => {
                 .findByText(strings.NEWSLETTER_FORM_SUCCESS_MESSAGE)
                 .should('not.exist');
         });
-
-        it('can see success message on successful subscription', () => {
-            cy.get(NEWSLETTER_FORM_ID)
-                .findByLabelText(strings.NEWSLETTER_FORM_FIELD_LABEL)
-                .type('sam@samwrigley.co.uk');
-            cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
-            cy.get(NEWSLETTER_FORM_ID)
-                .findByText(strings.NEWSLETTER_FORM_SUCCESS_MESSAGE)
-                .should('exist');
-        });
     });
 });
