@@ -45,7 +45,7 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
       - name: Copy environment file
-        run: cp .env.ci .env
+        run: cp .env.ci.testing .env
 
       - name: Run database migrations
         run: php artisan migrate:fresh --force --no-interaction --no-ansi
