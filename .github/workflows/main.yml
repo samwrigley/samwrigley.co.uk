@@ -90,7 +90,7 @@ jobs:
         run: php artisan serve > /dev/null 2>&1 &
 
       - name: Run Cypress tests
-        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run
+        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run -- --env environment=ci
 
       - name: Run Laravel Dusk
         run: php artisan dusk --stop-on-error --stop-on-failure
