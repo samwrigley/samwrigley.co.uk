@@ -65,9 +65,6 @@ jobs:
       - name: Generate key
         run: php artisan key:generate --no-ansi
 
-      - name: Check environment files are in sync
-        run: php artisan env:check
-
       - name: Run PHP tests
         run: php artisan test
 
