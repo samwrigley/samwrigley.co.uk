@@ -5,6 +5,12 @@ export const BLOG_INDEX_PATH = 'blog/';
 export const BLOG_CATEGORIES_INDEX_PATH = BLOG_INDEX_PATH + 'categories/';
 export const BLOG_SERIES_INDEX_PATH = BLOG_INDEX_PATH + 'series/';
 
+// Admin Paths
+export const ADMIN_DASHBOARD_PATH = 'admin/';
+export const ADMIN_ARTICLE_INDEX_PATH = ADMIN_DASHBOARD_PATH + 'articles/';
+export const ADMIN_ARTICLE_CREATE_PATH = ADMIN_ARTICLE_INDEX_PATH + 'create';
+export const ADMIN_ARTICLE_EDIT_PATH = ADMIN_ARTICLE_INDEX_PATH + '{article}/edit';
+
 // Viewports
 export const MOBILE_VIEWPORT = 'iphone-6';
 export const TABLET_VIEWPORT = 'ipad-2';
