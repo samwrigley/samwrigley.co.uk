@@ -84,7 +84,7 @@ jobs:
         run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
 
       - name: Run Laravel Server
-        run: php artisan serve > /dev/null 2>&1 &
+        run: php artisan serve --env=testing > /dev/null 2>&1 &
 
       - name: Run Cypress tests
         run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run -- --env environment=ci
