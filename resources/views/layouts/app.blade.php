@@ -3,7 +3,7 @@
     <head>
         @include('partials.general.head')
     </head>
-    <body class="relative text-gray-900">
+    <body class="relative text-gray-900 tracking-normal">
         @yield('content')
         @include('partials.general.scripts')
     </body>
