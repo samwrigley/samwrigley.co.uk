@@ -1,11 +1,6 @@
 import * as strings from '../../strings';
 import { CONTACT_FORM_ID } from '../../selectors';
-import {
-    MOBILE_VIEWPORT,
-    TABLET_VIEWPORT,
-    DESKTOP_VIEWPORT,
-    CONTACT_INDEX_PATH,
-} from '../../constants';
+import { TABLET_VIEWPORT, DESKTOP_VIEWPORT, CONTACT_INDEX_PATH } from '../../constants';
 
 describe('Contact', () => {
     beforeEach(() => {
@@ -13,7 +8,7 @@ describe('Contact', () => {
     });
 
     it('matches mobile screenshot', () => {
-        cy.viewport(MOBILE_VIEWPORT);
+        cy.viewport('iphone-6+');
         cy.document().toMatchImageSnapshot();
     });
 
