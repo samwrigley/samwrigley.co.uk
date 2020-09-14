@@ -6,10 +6,10 @@ const BEFORE_SCRIPT_PATH = getBeforeScriptPath();
 const AFTER_SCRIPT_PATH = getAfterScriptPath();
 
 before(() => {
-    cy.exec('echo test');
-    cy.exec(BEFORE_SCRIPT_PATH, { failOnNonZeroExit: false });
+    cy.exec('echo Testing...');
+    cy.exec(BEFORE_SCRIPT_PATH);
 });
 
 after(() => {
-    cy.exec(AFTER_SCRIPT_PATH, { failOnNonZeroExit: false });
+    cy.exec(AFTER_SCRIPT_PATH);
 });
