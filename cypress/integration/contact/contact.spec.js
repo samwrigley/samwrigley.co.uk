@@ -8,7 +8,7 @@ describe('Contact', () => {
     });
 
     it('matches mobile screenshot', () => {
-        cy.viewport('iphone-6+');
+        cy.viewport('ipad-mini');
         cy.document().toMatchImageSnapshot();
     });
 
