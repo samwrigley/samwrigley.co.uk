@@ -77,20 +77,11 @@ jobs:
       - name: PHP Linting
         run: npm run lint:php
 
-      - name: Upgrade Chrome Driver
-        run: php artisan dusk:chrome-driver 78 --no-ansi
-
-      - name: Start Chrome Driver
-        run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
-
       - name: Run Laravel Server
         run: php artisan serve > /dev/null 2>&1 &
 
       - name: Run Cypress tests
         run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run -- --env environment=ci
-
-      - name: Run Laravel Dusk
-        run: php artisan dusk --stop-on-error --stop-on-failure
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
