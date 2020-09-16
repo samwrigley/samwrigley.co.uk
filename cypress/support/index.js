@@ -1,15 +1,17 @@
 import './commands';
 import './laravel-commands';
-import { getBeforeScriptPath, getAfterScriptPath } from '../utilities';
 
-const BEFORE_SCRIPT_PATH = getBeforeScriptPath();
-const AFTER_SCRIPT_PATH = getAfterScriptPath();
+const environment = Cypress.env('environment');
 
 before(() => {
-    cy.exec('echo Testing...');
-    cy.exec(BEFORE_SCRIPT_PATH);
+    if (environment === 'local') {
+        cy.exec('echo Testing...');
+        cy.exec('./cypress/scripts/before');
+    }
 });
 
 after(() => {
-    cy.exec(AFTER_SCRIPT_PATH);
+    if (environment === 'local') {
+        cy.exec('./cypress/scripts/after');
+    }
 });

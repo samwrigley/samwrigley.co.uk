@@ -1,9 +1,0 @@
-#!/bin/bash
-
-FILE=.env.backup
-
-if test -f "$FILE"; then
-    mv .env .env.ci.cypress
-    mv .env.backup .env
-    git checkout HEAD -- .env.ci.cypress
-fi
