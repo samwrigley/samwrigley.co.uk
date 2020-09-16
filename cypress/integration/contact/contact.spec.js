@@ -7,11 +7,6 @@ describe('Contact', () => {
         cy.visit(CONTACT_INDEX_PATH);
     });
 
-    it('matches mobile screenshot', () => {
-        cy.viewport(375, 667);
-        cy.document().toMatchImageSnapshot();
-    });
-
     it('matches tablet screenshot', () => {
         cy.viewport(TABLET_VIEWPORT);
         cy.document().toMatchImageSnapshot();
