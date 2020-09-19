@@ -1,3 +1,4 @@
+import * as strings from '../../strings';
 import {
     BLOG_SERIES_INDEX_PATH,
     DESKTOP_VIEWPORT,
@@ -23,5 +24,9 @@ describe('Blog Series Index', () => {
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
         cy.document().toMatchImageSnapshot();
+    });
+
+    it('has page title', () => {
+        cy.title().should('contain', strings.BLOG_SERIES_INDEX_VIEW_TITLE);
     });
 });

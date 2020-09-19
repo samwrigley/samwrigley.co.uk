@@ -1,3 +1,4 @@
+import * as strings from '../../strings';
 import {
     MOBILE_VIEWPORT,
     TABLET_VIEWPORT,
@@ -23,5 +24,13 @@ describe('About', () => {
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
         cy.document().toMatchImageSnapshot();
+    });
+
+    it('has page title', () => {
+        cy.title().should('contain', strings.ABOUT_VIEW_TITLE);
+    });
+
+    it('has h1 heading', () => {
+        cy.get('h1').should('contain', strings.ABOUT_VIEW_HEADING);
     });
 });

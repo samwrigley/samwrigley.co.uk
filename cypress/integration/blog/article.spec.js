@@ -29,6 +29,14 @@ describe('Blog Article Index', () => {
         cy.document().toMatchImageSnapshot();
     });
 
+    it('has page title', () => {
+        cy.title().should('contain', strings.ARTICLE_SHOW_VIEW_TITLE);
+    });
+
+    it('has h1 heading', () => {
+        cy.get('h1').should('contain', strings.ARTICLE_SHOW_VIEW_HEADING);
+    });
+
     describe.only('Newsletter', () => {
         it('cannot submit form without email', () => {
             cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
