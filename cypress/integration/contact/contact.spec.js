@@ -18,11 +18,11 @@ describe('Contact', () => {
     });
 
     it('has page title', () => {
-        cy.title().should('contain', strings.CONTACT_PAGE_TITLE);
+        cy.title().should('contain', strings.CONTACT_VIEW_TITLE);
     });
 
     it('has h1 heading', () => {
-        cy.get('h1').should('contain', strings.CONTACT_PAGE_HEADING);
+        cy.get('h1').should('contain', strings.CONTACT_VIEW_HEADING);
     });
 
     it('has required name field', () => {

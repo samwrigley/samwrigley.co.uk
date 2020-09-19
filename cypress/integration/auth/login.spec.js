@@ -13,11 +13,11 @@ describe('Login', () => {
     });
 
     it('has page title', () => {
-        cy.title().should('contain', strings.LOGIN_PAGE_TITLE);
+        cy.title().should('contain', strings.LOGIN_VIEW_TITLE);
     });
 
     it('has h1 heading', () => {
-        cy.get('h1').should('contain', strings.LOGIN_PAGE_HEADING);
+        cy.get('h1').should('contain', strings.LOGIN_VIEW_HEADING);
     });
 
     it('has required email field', () => {
