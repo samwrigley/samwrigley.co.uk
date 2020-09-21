@@ -7,7 +7,7 @@
 
     <div class="p-8">
         <div class="w-1/2">
-            <x-form route="{{ route('admin.articles.store') }}">
+            <x-form route="{{ route('admin.articles.store') }}" id="article-create">
                 <x-input
                     name="title"
                     label="{{ __('Title') }}"
