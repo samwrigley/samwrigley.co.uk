@@ -1,3 +1,5 @@
+import { TEST_ARTICLE_TITLE } from './constants';
+
 // Admin
 export const LOGOUT_BUTTON_TEXT = 'Logout';
 export const ALL_ARTICLE_LINK_TEXT = 'All articles';
@@ -19,8 +21,8 @@ export const ABOUT_VIEW_HEADING = 'About';
 export const BLOG_INDEX_VIEW_TITLE = 'Blog';
 export const BLOG_CATEGORIES_INDEX_VIEW_TITLE = 'Categories';
 export const BLOG_SERIES_INDEX_VIEW_TITLE = 'Series';
-export const ARTICLE_SHOW_VIEW_TITLE = 'Test';
-export const ARTICLE_SHOW_VIEW_HEADING = 'Test';
+export const ARTICLE_SHOW_VIEW_TITLE = TEST_ARTICLE_TITLE;
+export const ARTICLE_SHOW_VIEW_HEADING = TEST_ARTICLE_TITLE;
 
 // Newsletter
 export const NEWSLETTER_FORM_FIELD_LABEL = 'Subscribe to my newsletter';
@@ -46,5 +48,5 @@ export const ADMIN_ARTICLE_CREATE_VIEW_TITLE = 'Create article';
 export const ADMIN_ARTICLE_CREATE_VIEW_HEADING = 'Create article';
 
 // Admin Article Edit
-export const ADMIN_ARTICLE_EDIT_VIEW_TITLE = 'Edit Test';
+export const ADMIN_ARTICLE_EDIT_VIEW_TITLE = `Edit ${TEST_ARTICLE_TITLE}`;
 export const ADMIN_ARTICLE_EDIT_VIEW_HEADING = 'Edit article';

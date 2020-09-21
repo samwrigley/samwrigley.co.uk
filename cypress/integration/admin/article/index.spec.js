@@ -4,6 +4,7 @@ import {
     ADMIN_ARTICLE_INDEX_PATH,
     DESKTOP_VIEWPORT,
     TEST_ARTICLE_ID,
+    TEST_ARTICLE_TITLE,
 } from '../../../constants';
 
 describe('Admin Article Index', () => {
@@ -26,7 +27,7 @@ describe('Admin Article Index', () => {
     });
 
     it('can navigate to article edit view', () => {
-        cy.findByText('Test').click();
+        cy.findByText(TEST_ARTICLE_TITLE).click();
         cy.url().should('include', ADMIN_ARTICLE_EDIT_PATH.replace('{article}', TEST_ARTICLE_ID));
     });
 });

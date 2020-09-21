@@ -21,3 +21,4 @@ export const DESKTOP_VIEWPORT = 'macbook-13';
 
 // Other
 export const TEST_ARTICLE_ID = 4;
+export const TEST_ARTICLE_TITLE = 'Test';
