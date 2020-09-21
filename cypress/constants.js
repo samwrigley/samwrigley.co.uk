@@ -18,3 +18,6 @@ export const ADMIN_ARTICLE_EDIT_PATH = ADMIN_ARTICLE_INDEX_PATH + '/{article}/ed
 export const MOBILE_VIEWPORT = 'iphone-6';
 export const TABLET_VIEWPORT = 'ipad-2';
 export const DESKTOP_VIEWPORT = 'macbook-13';
+
+// Other
+export const TEST_ARTICLE_ID = 4;
