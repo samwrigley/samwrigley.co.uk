@@ -37,7 +37,7 @@ describe('Blog Article Index', () => {
         cy.get('h1').should('contain', strings.ARTICLE_SHOW_VIEW_HEADING);
     });
 
-    describe.only('Newsletter', () => {
+    describe('Newsletter', () => {
         it('cannot submit form without email', () => {
             cy.get(NEWSLETTER_FORM_ID).findByRole('button').click();
             cy.get(NEWSLETTER_FORM_ID)
