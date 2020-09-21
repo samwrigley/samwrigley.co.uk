@@ -1,3 +1,8 @@
+// Admin
+export const LOGOUT_BUTTON_TEXT = 'Logout';
+export const ALL_ARTICLE_LINK_TEXT = 'All articles';
+export const CREATE_ARTICLE_LINK_TEXT = 'Create article';
+
 // Contact
 export const CONTACT_VIEW_TITLE = 'Contact';
 export const CONTACT_VIEW_HEADING = 'Get in touch';
