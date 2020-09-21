@@ -4,6 +4,14 @@ import { TEST_ARTICLE_TITLE } from './constants';
 export const LOGOUT_BUTTON_TEXT = 'Logout';
 export const ALL_ARTICLE_LINK_TEXT = 'All articles';
 export const CREATE_ARTICLE_LINK_TEXT = 'Create article';
+export const ARTICLE_CREATE_FORM_TITLE_FIELD_LABEL = 'Title';
+export const ARTICLE_CREATE_FORM_SLUG_FIELD_LABEL = 'Slug';
+export const ARTICLE_CREATE_FORM_BODY_FIELD_LABEL = 'Body';
+export const ARTICLE_CREATE_FORM_TAKEN_TITLE_MESSAGE = 'The title has already been taken.';
+export const ARTICLE_CREATE_FORM_INVALID_SLUG_MESSAGE =
+    'The slug may only contain letters, numbers, and dashes.';
+export const ARTICLE_CREATE_FORM_TAKEN_SLUG_MESSAGE = 'The slug has already been taken.';
+export const ARTICLE_CREATE_FORM_SUCCESS_MESSAGE = 'Successfully created article';
 
 // Contact
 export const CONTACT_VIEW_TITLE = 'Contact';
