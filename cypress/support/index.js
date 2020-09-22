@@ -8,6 +8,8 @@ before(() => {
         cy.exec('echo Testing...');
         cy.exec('./cypress/scripts/before');
     }
+
+    cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
 });
 
 after(() => {
