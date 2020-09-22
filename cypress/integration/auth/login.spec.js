@@ -35,7 +35,7 @@ describe('Login', () => {
     it('requires valid email and password', () => {
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_EMAIL_FIELD_LABEL)
-            .type('test@example.com');
+            .type('invalid-email@example.com');
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_PASSWORD_FIELD_LABEL)
             .type('password');
@@ -47,7 +47,7 @@ describe('Login', () => {
     it('redirects to admin dashboard after successful login', () => {
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_EMAIL_FIELD_LABEL)
-            .type('sam@samwrigley.co.uk');
+            .type('test@example.com');
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_PASSWORD_FIELD_LABEL)
             .type('secret');
