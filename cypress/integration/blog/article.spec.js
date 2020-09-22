@@ -7,7 +7,7 @@ import {
     TABLET_VIEWPORT,
 } from '../../constants';
 
-const TEST_ARTICLE_SHOW_PATH = BLOG_INDEX_PATH + 'test';
+const TEST_ARTICLE_SHOW_PATH = BLOG_INDEX_PATH + '/test';
 
 describe('Blog Article Index', () => {
     beforeEach(() => {
