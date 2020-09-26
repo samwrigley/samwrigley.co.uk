@@ -7,8 +7,6 @@ before(() => {
     if (environment === 'local') {
         cy.task('swapCypressEnvFile', {}, { log: false });
     }
-
-    cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
 });
 
 after(() => {
