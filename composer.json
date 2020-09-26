@@ -33,7 +33,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.4.2",
-        "facade/ignition": "2.3.6",
+        "facade/ignition": "2.3.7",
         "fzaninotto/faker": "1.9.1",
         "laracasts/cypress": "1.1.11",
         "mockery/mockery": "1.4.2",
