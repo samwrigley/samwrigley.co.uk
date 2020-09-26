@@ -8,9 +8,10 @@ before(() => {
 
     if (environment === 'local') {
         cy.exec('./cypress/scripts/before');
+        cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
+    } else if (environment === 'ci') {
+        cy.exec('./cypress/scripts/ci/before');
     }
-
-    cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
 });
 
 after(() => {
