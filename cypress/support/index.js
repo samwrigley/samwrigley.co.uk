@@ -4,8 +4,9 @@ import './laravel-commands';
 const environment = Cypress.env('environment');
 
 before(() => {
+    cy.exec('echo Testing...');
+
     if (environment === 'local') {
-        cy.exec('echo Testing...');
         cy.exec('./cypress/scripts/before');
     }
 
