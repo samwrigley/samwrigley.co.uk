@@ -1,7 +1,11 @@
 {
     "baseUrl": "https://samwrigley.test",
-    "videoCompression": false,
+    "screenshotOnRunFailure": false,
+    "video": false,
     "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"],
+    "retries": {
+        "runMode": 2
+    },
     "env": {
         "environment": "local"
     }

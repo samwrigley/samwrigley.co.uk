@@ -4,18 +4,15 @@ import './laravel-commands';
 const environment = Cypress.env('environment');
 
 before(() => {
-    cy.exec('echo Testing...');
-
     if (environment === 'local') {
-        cy.exec('./cypress/scripts/before');
-        cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
-    } else if (environment === 'ci') {
-        cy.exec('./cypress/scripts/ci/before');
+        cy.task('swapCypressEnvFile', {}, { log: false });
     }
+
+    cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
 });
 
 after(() => {
     if (environment === 'local') {
-        cy.exec('./cypress/scripts/after');
+        cy.task('swapLocalEnvFile', {}, { log: false });
     }
 });

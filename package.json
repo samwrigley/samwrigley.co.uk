@@ -25,7 +25,7 @@
         "lint": "npm run lint:php && npm run lint:assets",
         "test:size": "bundlesize",
         "cypress:open": "cypress open --browser chrome",
-        "cypress:run": "cypress run --browser chrome --headless --config video=false",
+        "cypress:run": "cypress run --browser chrome --headless",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
