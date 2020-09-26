@@ -1,6 +1,5 @@
 <?php
 
-use App\Article;
 use App\ArticleSeries;
 use Illuminate\Database\Seeder;
 

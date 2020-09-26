@@ -21,7 +21,7 @@ class NewsletterSubscriptionController extends Controller
         }
 
         if (! Newsletter::subscribe($request->email)) {
-            return $this->subscribeFailed();
+            return $this->subscribeFailed($request);
         }
 
         return $this->subscribeSuccessful($request);
@@ -34,9 +34,12 @@ class NewsletterSubscriptionController extends Controller
         return Redirect::back()->with('newsletter', __('newsletter.already_subscribed'));
     }
 
-    protected function subscribeFailed(): RedirectResponse
+    protected function subscribeFailed(NewsletterRequest $request): RedirectResponse
     {
-        Log::error('Newsletter : Subscribe failed', ['message' => Newsletter::getLastError()]);
+        Log::error('Newsletter : Subscribe failed', [
+            'email' => $request->email,
+            'message' => Newsletter::getLastError(),
+        ]);
 
         return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
     }

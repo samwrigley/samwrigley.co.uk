@@ -11,7 +11,11 @@
 
     <div class="p-8">
         <div class="w-1/2">
-            <x-form route="{{ route('admin.articles.update', ['article' => $article]) }}" method="PUT">
+            <x-form
+                route="{{ route('admin.articles.update', ['article' => $article]) }}"
+                method="PUT"
+                id="article-edit"
+            >
                 <x-input
                     name="title"
                     label="{{ __('Title') }}"

@@ -9,7 +9,7 @@
         </h1>
 
         <div class="p-8 bg-white rounded shadow-md">
-            <x-form route="{{ route('login') }}">
+            <x-form route="{{ route('login') }}" id="login">
                 <x-input
                     name="email"
                     type="email"
