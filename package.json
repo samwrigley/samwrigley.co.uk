@@ -43,7 +43,7 @@
         "cross-env": "7.0.2",
         "cypress": "5.2.0",
         "cypress-plugin-snapshots": "1.4.4",
-        "husky": "4.2.5",
+        "husky": "4.3.0",
         "laravel-mix": "5.0.5",
         "laravel-mix-purgecss": "5.0.0",
         "lint-staged": "10.2.11",
