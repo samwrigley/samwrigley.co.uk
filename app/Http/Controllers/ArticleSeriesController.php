@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ArticleSeries;
+use App\Models\ArticleSeries;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 

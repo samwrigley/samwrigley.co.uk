@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Schemas;
 
-use App\Article;
+use App\Models\Article;
 use App\Schemas\BlogPostingSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;

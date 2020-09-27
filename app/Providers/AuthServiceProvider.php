@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Article;
+use App\Models\Article;
 use App\Policies\ArticlePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

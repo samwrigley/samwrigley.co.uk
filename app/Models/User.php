@@ -1,15 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Article;
+use App\Models\Article;
 use App\Traits\HasManyArticles;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use HasFactory;
     use HasManyArticles;
     use Notifiable;
 

@@ -7,7 +7,7 @@ use App\Enums\MailChimpWebhookType;
 use App\Events\NewsletterSubscriptionEmailUpdated;
 use App\Events\NewsletterUnsubscribed;
 use App\Jobs\ProcessMailChimpWebhookJob;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Config;

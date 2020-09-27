@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Admin\Article;
 
-use App\Article;
-use App\ArticleCategory;
-use App\ArticleSeries;
-use App\User;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;

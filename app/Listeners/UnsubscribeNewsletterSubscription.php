@@ -4,7 +4,7 @@ namespace App\Listeners;
 
 use App\Enums\MailChimpUnsubscribeWebhookAction;
 use App\Events\NewsletterUnsubscribed as NewsletterUnsubscribedEvent;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use App\Notifications\NewsletterUnsubscribed as NewsletterUnsubscribedNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Config;

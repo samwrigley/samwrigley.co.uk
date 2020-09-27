@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsletterRequest;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use App\Notifications\NewsletterSubscribed;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Config;

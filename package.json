@@ -35,7 +35,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@testing-library/cypress": "7.0.0",
+        "@testing-library/cypress": "7.0.1",
         "axios": "0.20.0",
         "browser-sync": "2.26.12",
         "browser-sync-webpack-plugin": "2.2.2",
@@ -43,19 +43,19 @@
         "cross-env": "7.0.2",
         "cypress": "5.2.0",
         "cypress-plugin-snapshots": "1.4.4",
-        "husky": "4.2.5",
+        "husky": "4.3.0",
         "laravel-mix": "5.0.5",
         "laravel-mix-purgecss": "5.0.0",
-        "lint-staged": "10.2.11",
+        "lint-staged": "10.4.0",
         "prettier": "2.1.2",
         "resolve-url-loader": "3.1.1",
-        "sass": "1.26.10",
-        "sass-loader": "9.0.3",
-        "vue-template-compiler": "2.6.11"
+        "sass": "1.26.11",
+        "sass-loader": "10.0.2",
+        "vue-template-compiler": "2.6.12"
     },
     "dependencies": {
-        "@primer/css": "15.1.0",
+        "@primer/css": "15.2.0",
         "github-syntax-light": "0.5.0",
-        "tailwindcss": "1.6.2"
+        "tailwindcss": "1.8.10"
     }
 }

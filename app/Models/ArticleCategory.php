@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Article;
-use App\Model;
+use App\Models\Article;
+use App\Models\Model;
 use App\Traits\BelongsToManyArticles;
 use App\Traits\HasPublishableRelationship;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

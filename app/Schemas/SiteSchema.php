@@ -2,13 +2,12 @@
 
 namespace App\Schemas;
 
-use App\Schemas\Contracts\SchemaContract;
 use App\Schemas\LocalBusinessSchema;
 use App\Schemas\PersonSchema;
 use App\Schemas\WebsiteSchema;
 use Spatie\SchemaOrg\Graph;
 
-class SiteSchema implements SchemaContract
+class SiteSchema
 {
     public function generate(): Graph
     {

@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\SlackMessage;

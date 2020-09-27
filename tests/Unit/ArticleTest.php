@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Article;
-use App\ArticleCategory;
-use App\ArticleSeries;
-use App\User;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Spatie\Feed\FeedItem;
@@ -173,8 +173,6 @@ class ArticleTest extends TestCase
     public function can_be_converted_to_feed_item(): void
     {
         $article = factory(Article::class)->states('published')->create();
-        $category = factory(ArticleCategory::class)->create();
-        $article->categories()->attach($category);
 
         $feedItem = $article->toFeedItem();
 
@@ -185,7 +183,6 @@ class ArticleTest extends TestCase
         $this->assertEquals($article->published_at, $feedItem->updated);
         $this->assertEquals($article->showRoute(), $feedItem->link);
         $this->assertEquals($article->author->name, $feedItem->author);
-        $this->assertEquals($article->categories()->first()->name, $feedItem->category);
     }
 
     /** @test */

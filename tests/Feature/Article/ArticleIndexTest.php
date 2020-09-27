@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Article;
 
-use App\Article;
+use App\Models\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Illuminate\Testing\TestResponse;

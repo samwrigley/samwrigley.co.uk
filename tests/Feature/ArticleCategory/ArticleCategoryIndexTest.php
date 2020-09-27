@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Article;
 
-use App\Article;
-use App\ArticleCategory;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;

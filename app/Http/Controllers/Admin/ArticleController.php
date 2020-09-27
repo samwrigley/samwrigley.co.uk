@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Article;
-use App\ArticleCategory;
-use App\ArticleSeries;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;

@@ -71,10 +71,10 @@
                         required
                         class="block w-full p-4 bg-gray-200 mb-1 md:px-6"
                         aria-describedby="messageInformation"
-                        max="{{ \App\Contact::MAX_MESSAGE_LENGTH }}"
+                        max="{{ \App\Models\Contact::MAX_MESSAGE_LENGTH }}"
                     ></textarea>
                     <div id="messageInformation" class="text-sm text-gray-700">
-                        Maximum {{ \App\Contact::MAX_MESSAGE_LENGTH }} characters
+                        Maximum {{ \App\Models\Contact::MAX_MESSAGE_LENGTH }} characters
                     </div>
                 </div>
 

@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Spatie\WebhookClient\Models\WebhookCall;

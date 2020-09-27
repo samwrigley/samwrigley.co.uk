@@ -14,7 +14,7 @@
                         label="{{ __('Title') }}"
                         placeholder="{{ __('Article title') }}"
                         required="true"
-                        maxlength="{{ App\Article::MAX_TITLE_LENGTH }}"
+                        maxlength="{{ App\Models\Article::MAX_TITLE_LENGTH }}"
                         errorBag="article"
                     />
 
@@ -23,7 +23,7 @@
                         label="{{ __('Slug') }}"
                         placeholder="{{ __('Article slug') }}"
                         required="true"
-                        maxlength="{{ App\Article::MAX_SLUG_LENGTH }}"
+                        maxlength="{{ App\Models\Article::MAX_SLUG_LENGTH }}"
                         errorBag="article"
                     />
 
@@ -31,7 +31,7 @@
                         name="excerpt"
                         label="{{ __('Excerpt') }}"
                         placeholder="{{ __('Article excerpt') }}"
-                        maxlength="{{ App\Article::MAX_EXCERPT_LENGTH }}"
+                        maxlength="{{ App\Models\Article::MAX_EXCERPT_LENGTH }}"
                         errorBag="article"
                     />
 
