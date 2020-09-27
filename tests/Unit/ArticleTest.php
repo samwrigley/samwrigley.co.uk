@@ -173,8 +173,6 @@ class ArticleTest extends TestCase
     public function can_be_converted_to_feed_item(): void
     {
         $article = factory(Article::class)->states('published')->create();
-        $category = factory(ArticleCategory::class)->create();
-        $article->categories()->attach($category);
 
         $feedItem = $article->toFeedItem();
 
@@ -185,7 +183,6 @@ class ArticleTest extends TestCase
         $this->assertEquals($article->published_at, $feedItem->updated);
         $this->assertEquals($article->showRoute(), $feedItem->link);
         $this->assertEquals($article->author->name, $feedItem->author);
-        $this->assertEquals($article->categories()->first()->name, $feedItem->category);
     }
 
     /** @test */
