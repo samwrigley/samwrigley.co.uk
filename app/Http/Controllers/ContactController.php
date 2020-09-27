@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 use App\Notifications\ContactReceived;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Config;
