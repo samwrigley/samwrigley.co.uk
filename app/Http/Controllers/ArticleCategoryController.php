@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ArticleCategory;
 use App\Http\Controllers\Controller;
+use App\Models\ArticleCategory;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
