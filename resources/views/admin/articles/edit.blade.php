@@ -22,7 +22,7 @@
                     placeholder="{{ __('Article title') }}"
                     :value="$article->title"
                     required="true"
-                    maxlength="{{ App\Article::MAX_TITLE_LENGTH }}"
+                    maxlength="{{ App\Models\Article::MAX_TITLE_LENGTH }}"
                     errorBag="article"
                 />
 
@@ -32,7 +32,7 @@
                     placeholder="{{ __('Article slug') }}"
                     :value="$article->slug"
                     required="true"
-                    maxlength="{{ App\Article::MAX_SLUG_LENGTH }}"
+                    maxlength="{{ App\Models\Article::MAX_SLUG_LENGTH }}"
                     errorBag="article"
                 />
 
@@ -41,7 +41,7 @@
                     label="{{ __('Excerpt') }}"
                     placeholder="{{ __('Article excerpt') }}"
                     :value="$article->excerpt"
-                    maxlength="{{ App\Article::MAX_EXCERPT_LENGTH }}"
+                    maxlength="{{ App\Models\Article::MAX_EXCERPT_LENGTH }}"
                     errorBag="article"
                 />
 

@@ -2,7 +2,7 @@
 
 namespace App\ViewModels;
 
-use App\Article;
+use App\Models\Article;
 use App\Schemas\BlogPostingSchema;
 use Spatie\SchemaOrg\BlogPosting;
 use Spatie\ViewModels\ViewModel;

@@ -1,7 +1,7 @@
 <?php
 
-use App\Article;
-use App\ArticleSeries;
+use App\Models\Article;
+use App\Models\ArticleSeries;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 

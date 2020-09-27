@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Article;
+use App\Models\Article;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;

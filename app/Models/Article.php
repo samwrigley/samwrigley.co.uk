@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\ArticleCategory;
-use App\ArticleSeries;
-use App\Model;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
+use App\Models\Model;
+use App\Models\User;
 use App\Traits\CanBePublished;
 use App\Traits\HasAge;
 use App\Traits\InSeries;
-use App\User;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -94,8 +94,7 @@ class Article extends Model implements Feedable
             ->summary($this->excerpt)
             ->updated($this->published_at)
             ->link($this->showRoute())
-            ->author($this->author->name)
-            ->category($this->categories()->first()->name);
+            ->author($this->author->name);
     }
 
     public static function getFeedItems(): Collection

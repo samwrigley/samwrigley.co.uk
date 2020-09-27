@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
 use App\ViewModels\ArticleViewModel;
 use Illuminate\View\View;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
+use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
 use App\Notifications\ContactReceived;
 use Illuminate\Http\RedirectResponse;

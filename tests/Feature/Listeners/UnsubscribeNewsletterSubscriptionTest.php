@@ -6,7 +6,7 @@ use App\Enums\MailChimpUnsubscribeWebhookAction;
 use App\Enums\MailChimpWebhookType;
 use App\Events\NewsletterUnsubscribed as NewsletterUnsubscribedEvent;
 use App\Listeners\UnsubscribeNewsletterSubscription;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use App\Notifications\NewsletterUnsubscribed as NewsletterUnsubscribedNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Article;
 
-use App\Article;
-use App\ArticleCategory;
-use App\ArticleSeries;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
 use App\Schemas\BlogPostingSchema;
 use App\Schemas\SiteSchema;
 use GitDown\Facades\GitDown;
