@@ -1,29 +1,31 @@
 <?php
 
-use App\Article;
-use App\ArticleCategory;
-use App\User;
+namespace Database\Seeders;
+
+use App\Models\Article;
+use App\Models\ArticleSeries;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 
-class ArticleCategoriesTableTestSeeder extends Seeder
+class ArticleSeriesTableTestSeeder extends Seeder
 {
     public function run(): void
     {
-        $category = factory(ArticleCategory::class)->create([
-            'name' => 'Test',
+        $series = factory(ArticleSeries::class)->create([
+            'title' => 'Test',
             'slug' => 'test',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         ]);
 
         $article = factory(Article::class)->make([
             'user_id' => factory(User::class)->create(),
-            'title' => 'Dolor sit',
-            'slug' => 'dolor-sit',
+            'title' => 'Lorem ipsum',
+            'slug' => 'lorem-ipsum',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'published_at' => Carbon::parse('01/01/2020'),
         ]);
 
-        $category->articles()->save($article);
+        $series->articles()->save($article);
     }
 }
