@@ -23,6 +23,7 @@
         "laravel/tinker": "2.4.2",
         "laravel/ui": "3.0.0",
         "ohdearapp/ohdear-php-sdk": "3.0.1",
+        "sentry/sentry-laravel": "^2.0",
         "spatie/laravel-csp": "2.6.1",
         "spatie/laravel-feed": "3.0.1",
         "spatie/laravel-honeypot": "2.3.0",
