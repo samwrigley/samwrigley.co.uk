@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "ad840a971073c5d49236eafc02c11f1a",
-=======
-    "content-hash": "fde05e3bd489e5f48bec64c5d40bd074",
->>>>>>> Install predis
+    "content-hash": "32752a690d94777797d3e49a28abf62b",
     "packages": [
         {
             "name": "asm89/stack-cors",
