@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "235ec5b782bcc6e7999247e4ab88c1ae",
+    "content-hash": "29e3ce2acccb8a3e38b195cb81680d1a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1679,16 +1679,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.6.0",
+            "version": "v8.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a71952a6dba55de0bb11b5fbbd84874eda2a755c"
+                "reference": "3fb29e904a152b3e1fe49581f66ba5e02fe991f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a71952a6dba55de0bb11b5fbbd84874eda2a755c",
-                "reference": "a71952a6dba55de0bb11b5fbbd84874eda2a755c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3fb29e904a152b3e1fe49581f66ba5e02fe991f2",
+                "reference": "3fb29e904a152b3e1fe49581f66ba5e02fe991f2",
                 "shasum": ""
             },
             "require": {
@@ -1838,7 +1838,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-09-22T13:42:02+00:00"
+            "time": "2020-09-29T15:39:07+00:00"
         },
         {
             "name": "laravel/horizon",
