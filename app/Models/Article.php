@@ -7,6 +7,7 @@ use App\Models\ArticleSeries;
 use App\Models\Model;
 use App\Models\User;
 use App\Traits\CanBePublished;
+use App\Traits\ClearsResponseCache;
 use App\Traits\HasAge;
 use App\Traits\InSeries;
 use DateTimeInterface;
@@ -20,6 +21,7 @@ use Spatie\Feed\FeedItem;
 class Article extends Model implements Feedable
 {
     use CanBePublished;
+    use ClearsResponseCache;
     use HasAge;
     use InSeries;
 
