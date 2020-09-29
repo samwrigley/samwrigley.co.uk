@@ -4,12 +4,14 @@ namespace App\Models;
 
 use App\Models\Article;
 use App\Models\Model;
+use App\Traits\ClearsResponseCache;
 use App\Traits\HasArticles;
 use App\Traits\HasPublishableRelationship;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ArticleSeries extends Model
 {
+    use ClearsResponseCache;
     use HasArticles;
     use HasPublishableRelationship;
 
