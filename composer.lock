@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29e3ce2acccb8a3e38b195cb81680d1a",
+    "content-hash": "88a9b3cd143d6f52a93d09503adaf503",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1842,16 +1842,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.1.0",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "09173d933845cb035eeee19ce8debf94b28bb717"
+                "reference": "839bf8b142585f7be142090d4d05c341a4595fae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/09173d933845cb035eeee19ce8debf94b28bb717",
-                "reference": "09173d933845cb035eeee19ce8debf94b28bb717",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/839bf8b142585f7be142090d4d05c341a4595fae",
+                "reference": "839bf8b142585f7be142090d4d05c341a4595fae",
                 "shasum": ""
             },
             "require": {
@@ -1911,7 +1911,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2020-09-22T16:21:33+00:00"
+            "time": "2020-09-29T17:39:48+00:00"
         },
         {
             "name": "laravel/legacy-factories",
