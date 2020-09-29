@@ -21,6 +21,6 @@ Route::group(['prefix' => 'blog', 'as' => 'blog.'], static function (): void {
     // Articles
     Route::group(['as' => 'articles.'], static function (): void {
         Route::get('/', [ArticleController::class, 'index'])->name('index');
-        Route::get('{article}', [ArticleController::class, 'show'])->name('show');
+        Route::get('{article}', [ArticleController::class, 'show'])->middleware('doNotCacheResponse')->name('show');
     });
 });
