@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['as' => 'admin.', 'middleware' => ['auth', 'doNotCacheResponse']], static function (): void {
+Route::group(['as' => 'admin.', 'middleware' => 'auth'], static function (): void {
     Route::get('admin', DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'admin'], static function (): void {
