@@ -1,22 +1,28 @@
 <?php
 
-use App\Models\Article;
+namespace Database\Factories;
+
 use App\Models\ArticleCategory;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-$factory->define(ArticleCategory::class, function (Faker $faker) {
-    $name = $faker->unique()->words(2, true);
+class ArticleCategoryFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = ArticleCategory::class;
 
-    return [
-        'name' => ucfirst($name),
-        'slug' => Str::slug($name),
-        'description' => $faker->paragraph,
-    ];
-});
+    public function definition(): array
+    {
+        $name = $this->faker->unique()->words(2, true);
 
-$factory->afterCreatingState(ArticleCategory::class, 'withArticle', function (ArticleCategory $category): void {
-    $category->articles()->save(
-        factory(Article::class)->state('published')->make()
-    );
-});
+        return [
+            'name' => ucfirst($name),
+            'slug' => Str::slug($name),
+            'description' => $this->faker->paragraph,
+        ];
+    }
+}
