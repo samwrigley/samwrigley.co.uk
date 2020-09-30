@@ -20,8 +20,8 @@ class NewsletterSubscriptionFactory extends Factory
         $unsubscribed_at = $this->faker->boolean(20) ? $this->faker->dateTimeBetween($created_at, 'now') : null;
 
         return [
-            'first_name' => $this->faker->boolean(20) ? $this->faker->firstName() : null,
-            'last_name' => $this->faker->boolean(20) ? $this->faker->lastName() : null,
+            'first_name' => $this->faker->boolean(20) ? $this->faker->firstName : null,
+            'last_name' => $this->faker->boolean(20) ? $this->faker->lastName : null,
             'email' => $this->faker->unique()->safeEmail,
             'created_at' => $created_at,
             'unsubscribed_at' => $unsubscribed_at,
