@@ -16,12 +16,12 @@ class ArticleCategoryShowTest extends TestCase
     public function can_see_a_list_of_articles_in_reverse_chronological_order(): void
     {
         $articles = collect([
-            factory(Article::class)->create(['published_at' => now()->subDays(2)]),
-            factory(Article::class)->create(['published_at' => now()->subDay()]),
-            factory(Article::class)->create(['published_at' => now()]),
+            Article::factory()->create(['published_at' => now()->subDays(2)]),
+            Article::factory()->create(['published_at' => now()->subDay()]),
+            Article::factory()->create(['published_at' => now()]),
         ]);
 
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
         $category->articles()->saveMany($articles);
 
         $this->getCategoryShowRoute($category->slug)
@@ -32,10 +32,10 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function can_see_a_list_of_paginated_articles(): void
     {
-        $articles = factory(Article::class, 18)->create(['published_at' => now()]);
+        $articles = Article::factory()->count(18)->create(['published_at' => now()]);
         $articleTitles = $articles->pluck('title');
 
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
         $category->articles()->saveMany($articles);
 
         $this->getCategoryShowRoute($category->slug)
@@ -46,9 +46,9 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function cannot_view_an_article_not_within_category(): void
     {
-        $article = factory(Article::class)->create(['published_at' => now()]);
+        $article = Article::factory()->create(['published_at' => now()]);
 
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
 
         $this->getCategoryShowRoute($category->slug)
             ->assertDontSeeText($article->title);
@@ -57,9 +57,9 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function cannot_view_a_draft_article_within_category(): void
     {
-        $article = factory(Article::class)->create(['published_at' => null]);
+        $article = Article::factory()->create(['published_at' => null]);
 
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
         $category->articles()->save($article);
 
         $this->getCategoryShowRoute($category->slug)
@@ -69,9 +69,9 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function cannot_view_a_scheduled_article_within_category(): void
     {
-        $article = factory(Article::class)->create(['published_at' => now()->addDays(7)]);
+        $article = Article::factory()->create(['published_at' => now()->addDays(7)]);
 
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
         $category->articles()->save($article);
 
         $this->getCategoryShowRoute($category->slug)
@@ -88,7 +88,7 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function cannot_view_a_category_that_has_no_articles(): void
     {
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
 
         $this->getCategoryShowRoute($category->slug)
             ->assertNotFound();
@@ -97,8 +97,8 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function cannot_view_a_category_that_only_has_scheduled_articles(): void
     {
-        $category = factory(ArticleCategory::class)->create();
-        $articles = factory(Article::class, 2)->create([
+        $category = ArticleCategory::factory()->create();
+        $articles = Article::factory()->count(2)->create([
             'published_at' => now()->addDays(7),
         ]);
 
@@ -111,8 +111,8 @@ class ArticleCategoryShowTest extends TestCase
     /** @test */
     public function cannot_view_a_category_that_only_has_draft_articles(): void
     {
-        $category = factory(ArticleCategory::class)->create();
-        $articles = factory(Article::class, 2)->create([
+        $category = ArticleCategory::factory()->create();
+        $articles = Article::factory()->count(2)->create([
             'published_at' => null,
         ]);
 

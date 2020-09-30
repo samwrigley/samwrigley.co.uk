@@ -25,9 +25,9 @@ class ArticleIndexTest extends TestCase
     public function can_see_a_list_of_articles_in_reverse_chronological_order(): void
     {
         $articles = collect([
-            factory(Article::class)->create(['published_at' => now()->subDays(2)]),
-            factory(Article::class)->create(['published_at' => now()->subDay()]),
-            factory(Article::class)->create(['published_at' => now()]),
+            Article::factory()->create(['published_at' => now()->subDays(2)]),
+            Article::factory()->create(['published_at' => now()->subDay()]),
+            Article::factory()->create(['published_at' => now()]),
         ]);
 
         $this->getArticleIndexRoute()
@@ -40,7 +40,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_see_a_list_of_paginated_articles(): void
     {
-        $articles = factory(Article::class, 18)->create(['published_at' => now()]);
+        $articles = Article::factory()->count(18)->create(['published_at' => now()]);
         $articleTitles = $articles->pluck('title');
 
         $this->getArticleIndexRoute()
@@ -51,7 +51,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_see_excerpt_in_list_of_articles(): void
     {
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => now()]);
 
         $this->getArticleIndexRoute()
@@ -61,7 +61,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_see_formatted_published_at_in_list_of_articles(): void
     {
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => now()]);
 
         $formattedPublishedAt = Carbon::parse($article->published_at)
@@ -74,7 +74,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_see_published_at_timestamp_in_list_of_articles(): void
     {
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => now()]);
 
         $this->getArticleIndexRoute()
@@ -84,7 +84,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function cannot_see_draft_articles_in_list(): void
     {
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => null]);
 
         $this->getArticleIndexRoute()
@@ -94,7 +94,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function cannot_see_scheduled_articles_in_list(): void
     {
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => now()->addDays(7)]);
 
         $this->getArticleIndexRoute()

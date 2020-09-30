@@ -3,6 +3,7 @@
 namespace Tests\Unit\Schemas;
 
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Schemas\BlogPostingSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
@@ -18,7 +19,7 @@ class BlogPostingSchemaTest extends TestCase
     /** @test */
     public function it_generates_blog_posting_schema(): void
     {
-        $article = factory(Article::class)->states('published')->make();
+        $article = Article::factory()->published()->make();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->assertInstanceOf(BlogPosting::class, $blogPostingSchema);
@@ -43,7 +44,7 @@ class BlogPostingSchemaTest extends TestCase
     /** @test */
     public function it_generates_blog_posting_schema_with_correct_genre_when_article_has_multiple_categories(): void
     {
-        $article = factory(Article::class)->states(['published', 'withCategories'])->create();
+        $article = Article::factory()->published()->has(ArticleCategory::factory()->count(3))->create();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->assertEquals(
@@ -55,7 +56,7 @@ class BlogPostingSchemaTest extends TestCase
     /** @test */
     public function it_generates_blog_posting_schema_with_correct_genre_when_article_has_no_categories(): void
     {
-        $article = factory(Article::class)->states(['published'])->create();
+        $article = Article::factory()->published()->create();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->assertNull($blogPostingSchema['genre']);

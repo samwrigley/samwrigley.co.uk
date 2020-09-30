@@ -21,8 +21,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_view_admin_article_edit_page_when_authenticated(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
 
         $this->actingAs($user)
             ->get(route('admin.articles.edit', ['article' => $article]))
@@ -39,7 +39,7 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function cannot_view_admin_article_edit_page_when_not_authenticated(): void
     {
-        $article = factory(Article::class)->create();
+        $article = Article::factory()->create();
 
         $this->followingRedirects()
             ->get(route('admin.articles.edit', ['article' => $article]))
@@ -49,8 +49,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function author_can_edit_article(): void
     {
-        $user = factory(User::class)->create();
-        $article = $user->articles()->create(factory(Article::class)->make()->toArray());
+        $user = User::factory()->create();
+        $article = $user->articles()->create(Article::factory()->make()->toArray());
 
         $this->actingAs($user)
             ->followingRedirects()
@@ -65,9 +65,9 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function non_author_cannot_edit_article(): void
     {
-        $userOne = factory(User::class)->create();
-        $userTwo = factory(User::class)->create();
-        $article = $userTwo->articles()->create(factory(Article::class)->make()->toArray());
+        $userOne = User::factory()->create();
+        $userTwo = User::factory()->create();
+        $article = $userTwo->articles()->create(Article::factory()->make()->toArray());
 
         $this->actingAs($userOne)
             ->followingRedirects()
@@ -81,9 +81,9 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function edited_article_is_persisted_in_database(): void
     {
-        $user = factory(User::class)->create();
-        $articleOne = factory(Article::class)->create();
-        $articleTwo = factory(Article::class)->create();
+        $user = User::factory()->create();
+        $articleOne = Article::factory()->create();
+        $articleTwo = Article::factory()->create();
 
         $this->assertDatabaseHas('articles', $articleOne->toArray());
 
@@ -95,8 +95,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function article_title_is_required(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)->forget('title')->toArray();
 
         $this->actingAs($user)
@@ -110,12 +110,12 @@ class ArticleEditTest extends TestCase
     public function article_title_must_be_unique(): void
     {
         $title = $this->faker->sentence;
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)->replace(['title' => $title])->toArray();
 
-        factory(Article::class)
-            ->state('published')
+        Article::factory()
+            ->published()
             ->create(['title' => $title]);
 
         $this->actingAs($user)
@@ -128,8 +128,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function article_slug_is_required(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)->forget('slug')->toArray();
 
         $this->actingAs($user)
@@ -143,12 +143,12 @@ class ArticleEditTest extends TestCase
     public function article_slug_must_be_unique(): void
     {
         $slug = Str::slug($this->faker->sentence);
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)->replace(['slug' => $slug])->toArray();
 
-        factory(Article::class)
-            ->state('published')
+        Article::factory()
+            ->published()
             ->create(['slug' => $slug]);
 
         $this->actingAs($user)
@@ -161,8 +161,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function article_slug_must_be_alpha_dash(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)
             ->replace(['slug' => $this->faker->sentence])
             ->toArray();
@@ -177,8 +177,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function article_excerpt_must_be_shorter_than_maximum_length(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)
             ->replace(['excerpt' => $this->faker->paragraphs(20, true)])
             ->toArray();
@@ -195,8 +195,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function article_body_is_required(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->published()->create();
         $editedArticle = collect($article)->forget('slug')->toArray();
 
         $this->actingAs($user)
@@ -209,8 +209,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function date_is_required_when_time_is_present(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->states('draft')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->draft()->create();
 
         $editedArticle = collect($article)
             ->merge(['time' => now()->format(Article::$PUBLISHED_TIME_FORMAT)])
@@ -226,8 +226,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function date_must_be_valid(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->states('draft')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->draft()->create();
 
         $editedArticle = collect($article)
             ->merge([
@@ -246,8 +246,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function time_is_required_when_date_is_present(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->states('draft')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->draft()->create();
 
         $editedArticle = collect($article)
             ->merge(['date' => now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT)])
@@ -263,8 +263,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function time_must_be_valid(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->states('draft')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->draft()->create();
 
         $editedArticle = collect($article)
             ->merge([
@@ -283,8 +283,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function time_must_be_the_correct_format(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->states('draft')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->draft()->create();
 
         $editedArticle = collect($article)
             ->merge([
@@ -305,8 +305,8 @@ class ArticleEditTest extends TestCase
     {
         $date = now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT);
         $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->states('draft')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->draft()->create();
         $user->articles()->save($article);
 
         $editedArticle = collect($article)
@@ -327,10 +327,10 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_edit_single_category(): void
     {
-        $user = factory(User::class)->create();
-        $categoryOne = factory(ArticleCategory::class)->create();
-        $categoryTwo = factory(ArticleCategory::class)->create();
-        $article = factory(Article::class)->create();
+        $user = User::factory()->create();
+        $categoryOne = ArticleCategory::factory()->create();
+        $categoryTwo = ArticleCategory::factory()->create();
+        $article = Article::factory()->create();
         $user->articles()->save($article);
         $article->categories()->attach($categoryOne);
         $editedArticle = collect($article)->merge(['categories' => [$categoryTwo->id]])->toArray();
@@ -348,9 +348,9 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_remove_from_a_category(): void
     {
-        $user = factory(User::class)->create();
-        $category = factory(ArticleCategory::class)->create();
-        $article = factory(Article::class)->create();
+        $user = User::factory()->create();
+        $category = ArticleCategory::factory()->create();
+        $article = Article::factory()->create();
         $user->articles()->save($article);
         $article->categories()->attach($category);
         $editedArticle = collect($article)->merge(['categories' => []])->toArray();
@@ -368,13 +368,13 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_edit_multiple_categories(): void
     {
-        $user = factory(User::class)->create();
-        $categoriesOne = factory(ArticleCategory::class, 2)->create();
-        $article = factory(Article::class)->create();
+        $user = User::factory()->create();
+        $categoriesOne = ArticleCategory::factory()->count(2)->create();
+        $article = Article::factory()->create();
         $user->articles()->save($article);
         $article->categories()->attach($categoriesOne);
 
-        $categoriesTwo = factory(ArticleCategory::class, 2)->create();
+        $categoriesTwo = ArticleCategory::factory()->count(2)->create();
         $editedArticle = collect($article)
             ->merge(['categories' => $categoriesTwo->pluck('id')->toArray()])
             ->toArray();
@@ -399,9 +399,9 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_remove_from_multiple_categories(): void
     {
-        $user = factory(User::class)->create();
-        $categories = factory(ArticleCategory::class, 2)->create();
-        $article = factory(Article::class)->create();
+        $user = User::factory()->create();
+        $categories = ArticleCategory::factory()->count(2)->create();
+        $article = Article::factory()->create();
         $user->articles()->save($article);
         $article->categories()->attach($categories);
 
@@ -424,11 +424,11 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_edit_series(): void
     {
-        $user = factory(User::class)->create();
-        $seriesOne = factory(ArticleSeries::class)->create();
-        $seriesTwo = factory(ArticleSeries::class)->create();
+        $user = User::factory()->create();
+        $seriesOne = ArticleSeries::factory()->create();
+        $seriesTwo = ArticleSeries::factory()->create();
 
-        $article = factory(Article::class)->create();
+        $article = Article::factory()->create();
         $user->articles()->save($article);
         $article->series()->associate($seriesOne);
         $article->save();
@@ -448,9 +448,9 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_only_add_to_series_that_exists(): void
     {
-        $user = factory(User::class)->create();
-        $series = factory(ArticleSeries::class)->create();
-        $article = factory(Article::class)->state('published')->create();
+        $user = User::factory()->create();
+        $series = ArticleSeries::factory()->create();
+        $article = Article::factory()->published()->create();
         $article->series()->associate($series);
         $article->save();
 
@@ -470,8 +470,8 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_remove_from_a_series(): void
     {
-        $user = factory(User::class)->create();
-        $article = factory(Article::class)->state('withSeries')->create();
+        $user = User::factory()->create();
+        $article = Article::factory()->for(ArticleSeries::factory())->create();
         $editedArticle = $article->toArray();
 
         $this->assertNotNull($article->series);

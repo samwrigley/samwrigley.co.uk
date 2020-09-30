@@ -14,9 +14,9 @@ class ArticleCategoryTest extends TestCase
     /** @test */
     public function it_belongs_to_a_single_article(): void
     {
-        $articles = factory(Article::class)->create();
+        $articles = Article::factory()->create();
 
-        $articleCategory = tap(factory(ArticleCategory::class)->create())
+        $articleCategory = tap(ArticleCategory::factory()->create())
             ->addArticle($articles);
 
         $this->assertCount(1, $articleCategory->articles);
@@ -27,9 +27,9 @@ class ArticleCategoryTest extends TestCase
     {
         $articleCount = 2;
 
-        $articles = factory(Article::class, $articleCount)->create();
+        $articles = Article::factory()->count($articleCount)->create();
 
-        $articleCategory = tap(factory(ArticleCategory::class)->create())
+        $articleCategory = tap(ArticleCategory::factory()->create())
             ->addArticles($articles);
 
         $this->assertCount($articleCount, $articleCategory->articles);
@@ -39,9 +39,9 @@ class ArticleCategoryTest extends TestCase
     public function it_has_article_count(): void
     {
         $articleCount = 3;
-        $articles = factory(Article::class, $articleCount)->create();
+        $articles = Article::factory()->count($articleCount)->create();
 
-        $articleCategory = tap(factory(ArticleCategory::class)->create())
+        $articleCategory = tap(ArticleCategory::factory()->create())
             ->addArticles($articles);
 
         $articles[0]->markAsPublished();
@@ -54,9 +54,9 @@ class ArticleCategoryTest extends TestCase
     /** @test */
     public function it_has_published_article_count(): void
     {
-        $publishedArticle = tap(factory(Article::class)->create())->markAsPublished();
+        $publishedArticle = tap(Article::factory()->create())->markAsPublished();
 
-        $articleCategory = tap(factory(ArticleCategory::class)->create())
+        $articleCategory = tap(ArticleCategory::factory()->create())
             ->addArticle($publishedArticle);
 
         $this->assertEquals(1, $articleCategory->publishedArticleCount());
@@ -65,10 +65,10 @@ class ArticleCategoryTest extends TestCase
     /** @test */
     public function it_has_scheduled_article_count(): void
     {
-        $scheduledArticle = tap(factory(Article::class)->create())
+        $scheduledArticle = tap(Article::factory()->create())
             ->markAsScheduled(now()->addDays(7));
 
-        $articleCategory = tap(factory(ArticleCategory::class)->create())
+        $articleCategory = tap(ArticleCategory::factory()->create())
             ->addArticle($scheduledArticle);
 
         $this->assertEquals(1, $articleCategory->scheduledArticleCount());
@@ -77,9 +77,9 @@ class ArticleCategoryTest extends TestCase
     /** @test */
     public function it_has_draft_article_count(): void
     {
-        $draftArticle = tap(factory(Article::class)->create())->markAsDraft();
+        $draftArticle = tap(Article::factory()->create())->markAsDraft();
 
-        $articleCategory = tap(factory(ArticleCategory::class)->create())
+        $articleCategory = tap(ArticleCategory::factory()->create())
             ->addArticle($draftArticle);
 
         $this->assertEquals(1, $articleCategory->draftArticleCount());
@@ -88,7 +88,7 @@ class ArticleCategoryTest extends TestCase
     /** @test */
     public function can_get_show_route(): void
     {
-        $category = factory(ArticleCategory::class)->make();
+        $category = ArticleCategory::factory()->make();
 
         $route = route($category->routeNamespaces['web'] . 'show', [$category->slug]);
 

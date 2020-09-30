@@ -22,9 +22,15 @@ class ArticleCategoryIndexTest extends TestCase
     public function can_see_a_list_of_categories_in_chronological_order(): void
     {
         $categories = collect([
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDay()]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(2)]),
         ]);
 
         $categoryNames = $categories->sortByDesc('created_at')->pluck('name')->toArray();
@@ -38,16 +44,36 @@ class ArticleCategoryIndexTest extends TestCase
     public function can_see_a_list_of_paginated_categories(): void
     {
         $categories = collect([
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDay()]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(2)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(3)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(4)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(5)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(6)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(7)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(8)]),
-            factory(ArticleCategory::class)->state('withArticle')->create(['created_at' => now()->subDays(9)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDay()]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(2)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(3)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(4)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(5)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(6)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(7)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(8)]),
+            ArticleCategory::factory()
+                ->has(Article::factory()->published())
+                ->create(['created_at' => now()->subDays(9)]),
         ]);
         $categoryNames = $categories->sortByDesc('created_at')->pluck('name');
 
@@ -59,8 +85,8 @@ class ArticleCategoryIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_category_that_has_no_articles(): void
     {
-        $categoryWithoutArticle = factory(ArticleCategory::class)->create();
-        $categoryWithArticle = factory(ArticleCategory::class)->state('withArticle')->create();
+        $categoryWithoutArticle = ArticleCategory::factory()->create();
+        $categoryWithArticle = ArticleCategory::factory()->has(Article::factory()->published())->create();
 
         $this->getCategoryIndexRoute()
             ->assertOk()
@@ -71,9 +97,9 @@ class ArticleCategoryIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_category_that_only_has_scheduled_article(): void
     {
-        $categoryWithScheduledArticle = factory(ArticleCategory::class)->create();
-        $categoryWithPublishedArticle = factory(ArticleCategory::class)->state('withArticle')->create();
-        $scheduledArticle = factory(Article::class)->state('scheduled')->create();
+        $categoryWithScheduledArticle = ArticleCategory::factory()->create();
+        $categoryWithPublishedArticle = ArticleCategory::factory()->has(Article::factory()->published())->create();
+        $scheduledArticle = Article::factory()->scheduled()->create();
 
         $categoryWithScheduledArticle->articles()->save($scheduledArticle);
 
@@ -86,9 +112,9 @@ class ArticleCategoryIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_category_that_only_has_draft_article(): void
     {
-        $categoryWithDraftArticle = factory(ArticleCategory::class)->create();
-        $categoryWithPublishedArticle = factory(ArticleCategory::class)->state('withArticle')->create();
-        $draftArticle = factory(Article::class)->states('draft')->create();
+        $categoryWithDraftArticle = ArticleCategory::factory()->create();
+        $categoryWithPublishedArticle = ArticleCategory::factory()->has(Article::factory()->published())->create();
+        $draftArticle = Article::factory()->draft()->create();
 
         $categoryWithDraftArticle->articles()->save($draftArticle);
 

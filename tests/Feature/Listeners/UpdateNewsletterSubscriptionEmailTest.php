@@ -32,8 +32,8 @@ class UpdateNewsletterSubscriptionEmailTest extends TestCase
         $oldEmail = $this->faker->email;
         $newEmail = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)
-            ->state('subscribed')
+        $subscription = NewsletterSubscription::factory()
+            ->subscribed()
             ->create(['email' => $oldEmail]);
 
         $webhookCall = WebhookCall::create([

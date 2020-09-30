@@ -22,9 +22,15 @@ class ArticleSeriesIndexTest extends TestCase
     public function can_see_a_list_of_series_in_chronological_order(): void
     {
         $series = collect([
-            factory(ArticleSeries::class)->state('withArticles')->create(['created_at' => now()->subDays(2)]),
-            factory(ArticleSeries::class)->state('withArticles')->create(['created_at' => now()->subDay()]),
-            factory(ArticleSeries::class)->state('withArticles')->create(['created_at' => now()]),
+            ArticleSeries::factory()
+                ->has(Article::factory()->count(2)->published())
+                ->create(['created_at' => now()->subDays(2)]),
+            ArticleSeries::factory()
+                ->has(Article::factory()->count(2)->published())
+                ->create(['created_at' => now()->subDay()]),
+            ArticleSeries::factory()
+                ->has(Article::factory()->count(2)->published())
+                ->create(['created_at' => now()]),
         ]);
 
         $this->getSeriesIndexRoute()
@@ -35,7 +41,10 @@ class ArticleSeriesIndexTest extends TestCase
     /** @test */
     public function can_see_a_list_of_paginated_series(): void
     {
-        $series = factory(ArticleSeries::class, 18)->state('withArticles')->create();
+        $series = ArticleSeries::factory()
+            ->count(18)
+            ->has(Article::factory()->count(2)->published())
+            ->create();
         $seriesTitles = $series->pluck('title');
 
         $this->getSeriesIndexRoute()
@@ -46,8 +55,10 @@ class ArticleSeriesIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_series_that_has_no_articles(): void
     {
-        $seriesWithoutArticles = factory(ArticleSeries::class)->create();
-        $seriesWithArticles = factory(ArticleSeries::class)->state('withArticles')->create();
+        $seriesWithoutArticles = ArticleSeries::factory()->create();
+        $seriesWithArticles = ArticleSeries::factory()
+            ->has(Article::factory()->count(2)->published())
+            ->create();
 
         $this->getSeriesIndexRoute()
             ->assertOk()
@@ -58,9 +69,11 @@ class ArticleSeriesIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_series_that_only_has_scheduled_articles(): void
     {
-        $seriesWithScheduledArticles = factory(ArticleSeries::class)->create();
-        $seriesWithPublishedArticles = factory(ArticleSeries::class)->state('withArticles')->create();
-        $scheduledArticles = factory(Article::class, 2)->state('scheduled')->create();
+        $seriesWithScheduledArticles = ArticleSeries::factory()->create();
+        $seriesWithPublishedArticles = ArticleSeries::factory()
+            ->has(Article::factory()->count(2)->published())
+            ->create();
+        $scheduledArticles = Article::factory()->count(2)->scheduled()->create();
 
         $seriesWithScheduledArticles->articles()->saveMany($scheduledArticles);
 
@@ -73,9 +86,11 @@ class ArticleSeriesIndexTest extends TestCase
     /** @test */
     public function cannot_see_a_series_that_only_has_draft_articles(): void
     {
-        $seriesWithDraftArticles = factory(ArticleSeries::class)->create();
-        $seriesWithPublishedArticles = factory(ArticleSeries::class)->state('withArticles')->create();
-        $draftArticles = factory(Article::class, 2)->states('draft')->create();
+        $seriesWithDraftArticles = ArticleSeries::factory()->create();
+        $seriesWithPublishedArticles = ArticleSeries::factory()
+            ->has(Article::factory()->count(2)->published())
+            ->create();
+        $draftArticles = Article::factory()->count(2)->draft()->create();
 
         $seriesWithDraftArticles->articles()->saveMany($draftArticles);
 
