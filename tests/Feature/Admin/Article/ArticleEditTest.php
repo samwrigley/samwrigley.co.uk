@@ -470,13 +470,15 @@ class ArticleEditTest extends TestCase
     /** @test */
     public function can_remove_from_a_series(): void
     {
-        $user = User::factory()->create();
-        $article = Article::factory()->for(ArticleSeries::factory())->create();
-        $editedArticle = $article->toArray();
+        $article = Article::factory()
+            ->for(User::factory(), 'author')
+            ->for(ArticleSeries::factory(), 'series')
+            ->create();
+        $editedArticle = Article::factory()->make()->toArray();
 
         $this->assertNotNull($article->series);
 
-        $this->actingAs($user)->putArticleRoute($article, $editedArticle);
+        $this->actingAs($article->author)->putArticleRoute($article, $editedArticle);
         $article->refresh();
 
         $this->assertNull($article->series);

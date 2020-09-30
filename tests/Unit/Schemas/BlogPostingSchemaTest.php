@@ -44,7 +44,7 @@ class BlogPostingSchemaTest extends TestCase
     /** @test */
     public function it_generates_blog_posting_schema_with_correct_genre_when_article_has_multiple_categories(): void
     {
-        $article = Article::factory()->published()->has(ArticleCategory::factory()->count(3))->create();
+        $article = Article::factory()->published()->has(ArticleCategory::factory()->count(3), 'categories')->create();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->assertEquals(
