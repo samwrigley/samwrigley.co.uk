@@ -14,8 +14,8 @@ class UserTest extends TestCase
     /** @test */
     public function it_has_a_single_article(): void
     {
-        $article = factory(Article::class)->create();
-        $user = factory(User::class)->create();
+        $article = Article::factory()->create();
+        $user = User::factory()->create();
 
         $user->addArticle($article);
 
@@ -27,8 +27,8 @@ class UserTest extends TestCase
     {
         $articleCount = 2;
 
-        $articles = factory(Article::class, $articleCount)->create();
-        $user = factory(User::class)->create();
+        $articles = Article::factory()->count($articleCount)->create();
+        $user = User::factory()->create();
 
         $user->addArticles($articles);
 
@@ -38,8 +38,8 @@ class UserTest extends TestCase
     /** @test */
     public function it_can_publish_an_article(): void
     {
-        $article = factory(Article::class)->create();
-        $user = factory(User::class)->create();
+        $article = Article::factory()->create();
+        $user = User::factory()->create();
 
         $user->publish($article);
 
@@ -49,8 +49,8 @@ class UserTest extends TestCase
     /** @test */
     public function it_has_article_count(): void
     {
-        $article = factory(Article::class)->create();
-        $user = factory(User::class)->create();
+        $article = Article::factory()->create();
+        $user = User::factory()->create();
 
         $user->publish($article);
         $article->markAsPublished();
@@ -61,8 +61,8 @@ class UserTest extends TestCase
     /** @test */
     public function it_has_published_article_count(): void
     {
-        $article = factory(Article::class)->create();
-        $user = factory(User::class)->create();
+        $article = Article::factory()->create();
+        $user = User::factory()->create();
 
         $user->publish($article);
         $article->markAsPublished();
@@ -73,8 +73,8 @@ class UserTest extends TestCase
     /** @test */
     public function it_has_scheduled_article_count(): void
     {
-        $article = factory(Article::class)->create();
-        $user = factory(User::class)->create();
+        $article = Article::factory()->create();
+        $user = User::factory()->create();
 
         $user->publish($article);
         $article->markAsScheduled(now()->addDays(7));
@@ -85,8 +85,8 @@ class UserTest extends TestCase
     /** @test */
     public function it_has_draft_article_count(): void
     {
-        $article = factory(Article::class)->create();
-        $user = factory(User::class)->create();
+        $article = Article::factory()->create();
+        $user = User::factory()->create();
 
         $user->publish($article);
         $article->markAsDraft();

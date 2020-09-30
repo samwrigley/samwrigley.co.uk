@@ -1,27 +1,48 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
 use App\Models\NewsletterSubscription;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(NewsletterSubscription::class, function (Faker $faker) {
-    $created_at = $faker->dateTimeThisYear();
-    $unsubscribed_at = $faker->boolean(20) ? $faker->dateTimeBetween($created_at, 'now') : null;
+class NewsletterSubscriptionFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = NewsletterSubscription::class;
 
-    return [
-        'first_name' => $faker->boolean(20) ? $this->faker->firstName() : null,
-        'last_name' => $faker->boolean(20) ? $this->faker->lastName() : null,
-        'email' => $faker->unique()->safeEmail,
-        'created_at' => $created_at,
-        'unsubscribed_at' => $unsubscribed_at,
-    ];
-});
+    public function definition(): array
+    {
+        $created_at = $this->faker->dateTimeThisYear();
+        $unsubscribed_at = $this->faker->boolean(20) ? $this->faker->dateTimeBetween($created_at, 'now') : null;
 
-$factory->state(NewsletterSubscription::class, 'subscribed', [
-    'unsubscribed_at' => now(),
-]);
+        return [
+            'first_name' => $this->faker->boolean(20) ? $this->faker->firstName : null,
+            'last_name' => $this->faker->boolean(20) ? $this->faker->lastName : null,
+            'email' => $this->faker->unique()->safeEmail,
+            'created_at' => $created_at,
+            'unsubscribed_at' => $unsubscribed_at,
+        ];
+    }
 
-$factory->state(NewsletterSubscription::class, 'unsubscribed', [
-    'unsubscribed_at' => null,
-]);
+    public function subscribed(): Factory
+    {
+        return $this->state(function () {
+            return [
+                'unsubscribed_at' => now(),
+            ];
+        });
+    }
+
+    public function unsubscribed(): Factory
+    {
+        return $this->state(function () {
+            return [
+                'unsubscribed_at' => null,
+            ];
+        });
+    }
+}

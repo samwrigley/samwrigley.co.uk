@@ -18,7 +18,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function it_belongs_to_an_author(): void
     {
-        $article = factory(Article::class)->create();
+        $article = Article::factory()->create();
 
         $this->assertInstanceOf(User::class, $article->author);
     }
@@ -26,12 +26,12 @@ class ArticleTest extends TestCase
     /** @test */
     public function it_can_belong_to_many_categories(): void
     {
-        $article = factory(Article::class)->create();
+        $article = Article::factory()->create();
 
         $this->assertCount(0, $article->categories);
 
-        $articleWithCategories = factory(Article::class)->create();
-        $categories = factory(ArticleCategory::class, 2)->create();
+        $articleWithCategories = Article::factory()->create();
+        $categories = ArticleCategory::factory()->count(2)->create();
         $articleWithCategories->categories()->attach($categories);
 
         $this->assertCount(2, $articleWithCategories->categories);
@@ -41,12 +41,12 @@ class ArticleTest extends TestCase
     /** @test */
     public function it_can_belong_to_a_series(): void
     {
-        $article = factory(Article::class)->make();
+        $article = Article::factory()->make();
 
         $this->assertNull($article->series);
 
-        $articleInSeries = factory(Article::class)->make();
-        $articleSeries = factory(ArticleSeries::class)->make();
+        $articleInSeries = Article::factory()->make();
+        $articleSeries = ArticleSeries::factory()->make();
         $articleInSeries->series()->associate($articleSeries);
 
         $this->assertInstanceOf(ArticleSeries::class, $articleInSeries->series);
@@ -57,7 +57,7 @@ class ArticleTest extends TestCase
     {
         $this->freezeTime();
 
-        $article = tap(factory(Article::class)->create())->markAsPublished();
+        $article = tap(Article::factory()->create())->markAsPublished();
 
         $this->assertTrue($article->isNew());
         $this->assertFalse($article->isOld());
@@ -69,7 +69,7 @@ class ArticleTest extends TestCase
         $this->freezeTime();
 
         $months = 2;
-        $article = tap(factory(Article::class)->create())
+        $article = tap(Article::factory()->create())
             ->markAsScheduled(now()->subMonths($months));
 
         $this->assertTrue($article->isNew($months));
@@ -81,7 +81,7 @@ class ArticleTest extends TestCase
     {
         $this->freezeTime();
 
-        $article = tap(factory(Article::class)->create())
+        $article = tap(Article::factory()->create())
             ->markAsScheduled(now()->subMonth(6)->subSecond());
 
         $this->assertTrue($article->isOld());
@@ -94,7 +94,7 @@ class ArticleTest extends TestCase
         $this->freezeTime();
 
         $months = 7;
-        $article = tap(factory(Article::class)->create())
+        $article = tap(Article::factory()->create())
             ->markAsScheduled(now()->subMonth($months)->subSecond());
 
         $this->assertTrue($article->isOld($months));
@@ -104,9 +104,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_next_article(): void
     {
-        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
-        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+        $articleOne = Article::factory()->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = Article::factory()->create(['published_at' => now()->subMonth()]);
 
         $firstArticle = $articleOne;
         $secondArticle = $firstArticle->next();
@@ -120,9 +120,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_previous_article(): void
     {
-        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
-        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+        $articleOne = Article::factory()->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = Article::factory()->create(['published_at' => now()->subMonth()]);
 
         $thirdArticle = $articleThree;
         $secondArticle = $thirdArticle->previous();
@@ -136,10 +136,10 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_next_article_in_series(): void
     {
-        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
-        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
-        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleOne = Article::factory()->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = Article::factory()->create(['published_at' => now()->subMonth()]);
+        $articleSeries = ArticleSeries::factory()->create();
         $articleSeries->articles()->saveMany([$articleOne, $articleTwo, $articleThree]);
 
         $firstArticle = $articleSeries->articles->first();
@@ -154,10 +154,10 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_previous_article_in_series(): void
     {
-        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
-        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonth()]);
-        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleOne = Article::factory()->create(['published_at' => now()->subMonths(3)]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = Article::factory()->create(['published_at' => now()->subMonth()]);
+        $articleSeries = ArticleSeries::factory()->create();
         $articleSeries->articles()->saveMany([$articleOne, $articleTwo, $articleThree]);
 
         $thirdArticle = $articleSeries->articles->last();
@@ -172,7 +172,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_be_converted_to_feed_item(): void
     {
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
 
         $feedItem = $article->toFeedItem();
 
@@ -188,9 +188,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published_feed_items(): void
     {
-        factory(Article::class)->states('draft')->create();
-        factory(Article::class)->states('scheduled')->create();
-        $publishedArticle = factory(Article::class)->states('published')->create();
+        Article::factory()->draft()->create();
+        Article::factory()->scheduled()->create();
+        $publishedArticle = Article::factory()->published()->create();
 
         $feedItems = $publishedArticle->getFeedItems();
 
@@ -203,7 +203,7 @@ class ArticleTest extends TestCase
     {
         $this->freezeTime();
 
-        $article = factory(Article::class)->states('draft')->make();
+        $article = Article::factory()->draft()->make();
 
         $this->assertNull($article->published_at);
         $article->markAsPublished();
@@ -215,7 +215,7 @@ class ArticleTest extends TestCase
     {
         $this->freezeTime();
 
-        $article = factory(Article::class)->states('draft')->make();
+        $article = Article::factory()->draft()->make();
 
         $this->assertNull($article->published_at);
         $article->markAsScheduled(now()->addWeek());
@@ -227,7 +227,7 @@ class ArticleTest extends TestCase
     {
         $this->freezeTime();
 
-        $article = factory(Article::class)->states('published')->make();
+        $article = Article::factory()->published()->make();
 
         $this->assertEquals($article->published_at, now());
         $article->markAsDraft();
@@ -237,7 +237,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_check_if_published(): void
     {
-        $article = factory(Article::class)->states('published')->make();
+        $article = Article::factory()->published()->make();
 
         $this->assertNotNull($article->published_at);
         $this->assertTrue($article->published_at <= now());
@@ -249,7 +249,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_check_if_scheduled(): void
     {
-        $article = factory(Article::class)->states('scheduled')->make();
+        $article = Article::factory()->scheduled()->make();
 
         $this->assertNotNull($article->published_at);
         $this->assertTrue($article->published_at > now());
@@ -261,7 +261,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_check_if_draft(): void
     {
-        $article = factory(Article::class)->states('draft')->make();
+        $article = Article::factory()->draft()->make();
 
         $this->assertNull($article->published_at);
         $this->assertTrue($article->isDraft());
@@ -272,9 +272,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published(): void
     {
-        factory(Article::class)->states('draft')->create();
-        factory(Article::class)->states('scheduled')->create();
-        $publishedArticle = factory(Article::class)->states('published')->create();
+        Article::factory()->draft()->create();
+        Article::factory()->scheduled()->create();
+        $publishedArticle = Article::factory()->published()->create();
 
         $publishedArticles = Article::published()->get();
 
@@ -285,9 +285,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_scheduled(): void
     {
-        factory(Article::class)->states('draft')->create();
-        $scheduledArticle = factory(Article::class)->states('scheduled')->create();
-        factory(Article::class)->states('published')->create();
+        Article::factory()->draft()->create();
+        $scheduledArticle = Article::factory()->scheduled()->create();
+        Article::factory()->published()->create();
 
         $scheduledArticles = Article::scheduled()->get();
 
@@ -298,9 +298,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_draft(): void
     {
-        $draftArticle = factory(Article::class)->states('draft')->create();
-        factory(Article::class)->states('scheduled')->create();
-        factory(Article::class)->states('published')->create();
+        $draftArticle = Article::factory()->draft()->create();
+        Article::factory()->scheduled()->create();
+        Article::factory()->published()->create();
 
         $draftArticles = Article::draft()->get();
 
@@ -311,9 +311,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published_in_a_given_month(): void
     {
-        $januaryArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 1)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 2)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 3)]);
+        $januaryArticle = Article::factory()->create(['published_at' => Carbon::create(2020, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 2)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 3)]);
 
         $januaryArticles = Article::publishedInMonth('1')->get();
 
@@ -324,9 +324,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published_in_a_given_year(): void
     {
-        factory(Article::class)->create(['published_at' => Carbon::create(2018)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2019)]);
-        $twentyTwentyArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020)]);
+        Article::factory()->create(['published_at' => Carbon::create(2018)]);
+        Article::factory()->create(['published_at' => Carbon::create(2019)]);
+        $twentyTwentyArticle = Article::factory()->create(['published_at' => Carbon::create(2020)]);
 
         $twentyTwentyArticles = Article::publishedInYear('2020')->get();
 
@@ -337,9 +337,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published_before_given_date(): void
     {
-        $januaryArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 1, 1)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 2, 1)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 3, 1)]);
+        $januaryArticle = Article::factory()->create(['published_at' => Carbon::create(2020, 1, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 2, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 3, 1)]);
 
         $beforeArticles = Article::publishedBefore(Carbon::create(2020, 1, 31))->get();
 
@@ -350,9 +350,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published_after_given_date(): void
     {
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 1, 1)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 2, 1)]);
-        $marchArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 3, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 1, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 2, 1)]);
+        $marchArticle = Article::factory()->create(['published_at' => Carbon::create(2020, 3, 1)]);
 
         $afterArticles = Article::publishedAfter(Carbon::create(2020, 2, 2))->get();
 
@@ -363,9 +363,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_published_between_given_dates(): void
     {
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 1, 1)]);
-        $februaryArticle = factory(Article::class)->create(['published_at' => Carbon::create(2020, 2, 1)]);
-        factory(Article::class)->create(['published_at' => Carbon::create(2020, 3, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 1, 1)]);
+        $februaryArticle = Article::factory()->create(['published_at' => Carbon::create(2020, 2, 1)]);
+        Article::factory()->create(['published_at' => Carbon::create(2020, 3, 1)]);
 
         $betweenArticles = Article::publishedBetween(
             Carbon::create(2020, 1, 31),
@@ -379,7 +379,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function can_get_show_route(): void
     {
-        $article = factory(Article::class)->states('published')->make();
+        $article = Article::factory()->published()->make();
 
         $route = route($article->routeNamespaces['web'] . 'show', [$article->slug]);
 
@@ -390,7 +390,7 @@ class ArticleTest extends TestCase
     public function can_get_published_date_when_article_is_published(): void
     {
         $publishedAt = now();
-        $article = factory(Article::class)->make(['published_at' => $publishedAt]);
+        $article = Article::factory()->make(['published_at' => $publishedAt]);
 
         $this->assertEquals(
             $article->publishedDate,
@@ -401,7 +401,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function cannot_get_published_date_when_article_is_not_published(): void
     {
-        $article = factory(Article::class)->states('draft')->make();
+        $article = Article::factory()->draft()->make();
 
         $this->assertNull($article->publishedDate);
     }
@@ -410,7 +410,7 @@ class ArticleTest extends TestCase
     public function can_get_published_time_when_article_is_published(): void
     {
         $publishedAt = now();
-        $article = factory(Article::class)->make(['published_at' => $publishedAt]);
+        $article = Article::factory()->make(['published_at' => $publishedAt]);
 
         $this->assertEquals(
             $article->publishedTime,
@@ -421,7 +421,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function cannot_get_published_time_when_article_is_not_published(): void
     {
-        $article = factory(Article::class)->states('draft')->make();
+        $article = Article::factory()->draft()->make();
 
         $this->assertNull($article->publishedTime);
     }

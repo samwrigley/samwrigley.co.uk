@@ -13,7 +13,7 @@ class FeedTest extends TestCase
     /** @test */
     public function can_view_feed(): void
     {
-        factory(Article::class)->states('published')->create();
+        Article::factory()->published()->create();
 
         $this->get(route('feeds.main'))->assertOk();
     }

@@ -13,11 +13,11 @@ parameters:
     ignoreErrors:
         - '#Undefined variable: \$this#'
 
-        - path: database/factories/*
-          message: '#Variable \$factory might not be defined\.#'
+        - path: database/seeders/*
+          message: '#Call to an undefined method#'
 
-    excludes_analyse:
-        - app/Http/Controllers/NewsletterSubscriptionController.php
+        - path: app/Http/Controllers/NewsletterSubscriptionController.php
+          message: '#Call to an undefined static method#'
 
     checkMissingIterableValueType: false
 

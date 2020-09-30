@@ -59,8 +59,8 @@ class ProcessMailChimpWebhookJobTest extends TestCase
     {
         $email = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)
-            ->states('unsubscribed')
+        $subscription = NewsletterSubscription::factory()
+            ->unsubscribed()
             ->create(['email' => $email]);
 
         $webhookCall = WebhookCall::create([
@@ -92,8 +92,8 @@ class ProcessMailChimpWebhookJobTest extends TestCase
     {
         $oldEmail = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)
-            ->states('subscribed')
+        $subscription = NewsletterSubscription::factory()
+            ->subscribed()
             ->create(['email' => $oldEmail]);
 
         $webhookCall = WebhookCall::create([

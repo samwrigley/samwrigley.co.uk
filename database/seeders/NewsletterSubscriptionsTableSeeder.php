@@ -9,6 +9,6 @@ class NewsletterSubscriptionsTableSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(NewsletterSubscription::class, 20)->create();
+        NewsletterSubscription::factory()->count(20)->create();
     }
 }

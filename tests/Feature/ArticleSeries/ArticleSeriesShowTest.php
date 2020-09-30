@@ -16,12 +16,12 @@ class ArticleSeriesShowTest extends TestCase
     public function can_see_a_list_of_articles_in_chronological_order(): void
     {
         $articles = collect([
-            factory(Article::class)->make(['published_at' => now()->subDays(2)]),
-            factory(Article::class)->make(['published_at' => now()->subDay()]),
-            factory(Article::class)->make(['published_at' => now()]),
+            Article::factory()->make(['published_at' => now()->subDays(2)]),
+            Article::factory()->make(['published_at' => now()->subDay()]),
+            Article::factory()->make(['published_at' => now()]),
         ]);
 
-        $series = factory(ArticleSeries::class)->create();
+        $series = ArticleSeries::factory()->create();
         $series->articles()->saveMany($articles);
 
         $this->getSeriesShowRoute($series->slug)
@@ -32,10 +32,10 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function can_see_a_list_of_paginated_articles(): void
     {
-        $articles = factory(Article::class, 18)->state('published')->make();
+        $articles = Article::factory()->count(18)->published()->make();
         $articleTitles = $articles->pluck('title');
 
-        $series = factory(ArticleSeries::class)->create();
+        $series = ArticleSeries::factory()->create();
         $series->articles()->saveMany($articles);
 
         $this->getSeriesShowRoute($series->slug)
@@ -46,9 +46,9 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function cannot_view_an_article_not_within_series(): void
     {
-        $article = factory(Article::class)->state('published')->create();
+        $article = Article::factory()->published()->create();
 
-        $series = factory(ArticleSeries::class)->create();
+        $series = ArticleSeries::factory()->create();
 
         $this->getSeriesShowRoute($series->slug)
             ->assertDontSee($article->title);
@@ -57,9 +57,9 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function cannot_view_a_draft_article_within_series(): void
     {
-        $article = factory(Article::class)->state('draft')->make();
+        $article = Article::factory()->draft()->make();
 
-        $series = factory(ArticleSeries::class)->create();
+        $series = ArticleSeries::factory()->create();
         $series->articles()->save($article);
 
         $this->getSeriesShowRoute($series->slug)
@@ -69,9 +69,9 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function cannot_view_a_scheduled_article_within_series(): void
     {
-        $article = factory(Article::class)->state('scheduled')->make();
+        $article = Article::factory()->scheduled()->make();
 
-        $series = factory(ArticleSeries::class)->create();
+        $series = ArticleSeries::factory()->create();
         $series->articles()->save($article);
 
         $this->getSeriesShowRoute($series->slug)
@@ -88,7 +88,7 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function cannot_view_a_series_that_has_no_articles(): void
     {
-        $series = factory(ArticleSeries::class)->create();
+        $series = ArticleSeries::factory()->create();
 
         $this->getSeriesShowRoute($series->slug)
             ->assertNotFound();
@@ -97,8 +97,8 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function cannot_view_a_series_that_only_has_scheduled_articles(): void
     {
-        $series = factory(ArticleSeries::class)->create();
-        $articles = factory(Article::class, 2)->state('scheduled')->make();
+        $series = ArticleSeries::factory()->create();
+        $articles = Article::factory()->count(2)->scheduled()->make();
 
         $series->articles()->saveMany($articles);
 
@@ -109,8 +109,8 @@ class ArticleSeriesShowTest extends TestCase
     /** @test */
     public function cannot_view_a_series_that_only_has_draft_articles(): void
     {
-        $series = factory(ArticleSeries::class)->create();
-        $articles = factory(Article::class, 2)->state('draft')->make();
+        $series = ArticleSeries::factory()->create();
+        $articles = Article::factory()->count(2)->draft()->make();
 
         $series->articles()->saveMany($articles);
 

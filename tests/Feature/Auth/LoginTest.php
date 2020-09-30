@@ -25,7 +25,7 @@ class LoginTest extends TestCase
     /** @test */
     public function redirected_to_admin_dashboard_after_successful_login(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $data = [
             'email' => $user->email,
             'password' => 'secret',
@@ -64,7 +64,7 @@ class LoginTest extends TestCase
     /** @test */
     public function cannot_login_with_incorrect_password(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $data = [
             'email' => $user->email,
             'password' => 'invalid-password',
@@ -84,7 +84,7 @@ class LoginTest extends TestCase
     /** @test */
     public function can_logout(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $data = [
             'email' => $user->email,
             'password' => 'secret',

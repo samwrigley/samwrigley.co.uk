@@ -9,6 +9,6 @@ class ArticleCategoriesTableSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(ArticleCategory::class, 10)->create();
+        ArticleCategory::factory()->count(10)->create();
     }
 }
