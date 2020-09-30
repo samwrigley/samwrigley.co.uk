@@ -11,16 +11,16 @@ class ArticleTableSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(Article::class)
-            ->states('published')
+        Article::factory()
+            ->published()
             ->create([
-                'user_id' => factory(User::class)->create(['name' => 'Jane Doe']),
+                'user_id' => User::factory()->create(['name' => 'Jane Doe']),
                 'title' => 'Test',
                 'slug' => 'test',
                 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             ]);
 
-        factory(Article::class, 50)
+        Article::factory()->count(50)
             ->create()
             ->each(function (Article $article): void {
                 $article->categories()->attach(

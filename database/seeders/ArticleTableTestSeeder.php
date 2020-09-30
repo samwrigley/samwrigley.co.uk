@@ -11,9 +11,9 @@ class ArticleTableTestSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(Article::class)
+        Article::factory()
             ->create([
-                'user_id' => factory(User::class)->create(['name' => 'Jane Doe']),
+                'user_id' => User::factory()->create(['name' => 'Jane Doe']),
                 'title' => 'Test',
                 'slug' => 'test',
                 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
