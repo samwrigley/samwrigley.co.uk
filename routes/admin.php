@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'admin.', 'middleware' => 'auth'], static function (): void {
-    Route::get('admin', 'Admin\DashboardController')->name('dashboard');
+    Route::get('admin', DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'admin'], static function (): void {
         Route::group(['prefix' => 'articles', 'as' => 'articles.'], static function (): void {

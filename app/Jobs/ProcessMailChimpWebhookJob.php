@@ -5,7 +5,7 @@ namespace App\Jobs;
 use App\Enums\MailChimpWebhookType;
 use App\Events\NewsletterSubscriptionEmailUpdated;
 use App\Events\NewsletterUnsubscribed;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\ProcessWebhookJob as SpatieProcessWebhookJob;
 

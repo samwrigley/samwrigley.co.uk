@@ -2,7 +2,7 @@
 
 namespace App\Schemas;
 
-use App\Article;
+use App\Models\Article;
 use App\Schemas\Contracts\SchemaContract;
 use Illuminate\Support\Facades\Config;
 use Spatie\SchemaOrg\BlogPosting;

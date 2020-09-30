@@ -45,13 +45,13 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
       - name: Copy environment file
-        run: cp .env.ci .env
+        run: cp .env.ci.testing .env
 
       - name: Run database migrations
         run: php artisan migrate:fresh --force --no-interaction --no-ansi
 
       - name: Seed database
-        run: php artisan db:seed --force --no-interaction --no-ansi
+        run: php artisan db:seed --class=DatabaseTestSeeder --force --no-interaction --no-ansi
 
       - name: Generate sitemap
         run: php artisan sitemap:generate
@@ -65,9 +65,6 @@ jobs:
       - name: Generate key
         run: php artisan key:generate --no-ansi
 
-      - name: Check environment files are in sync
-        run: php artisan env:check
-
       - name: Run PHP tests
         run: php artisan test
 
@@ -75,22 +72,16 @@ jobs:
         run: ./vendor/bin/phpstan analyse
 
       - name: PHP Insights
-        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=85 --min-style=95 --format=github-action
+        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=85 --min-style=90 --format=github-action
 
       - name: PHP Linting
         run: npm run lint:php
 
-      - name: Upgrade Chrome Driver
-        run: php artisan dusk:chrome-driver 78 --no-ansi
-
-      - name: Start Chrome Driver
-        run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
-
       - name: Run Laravel Server
         run: php artisan serve > /dev/null 2>&1 &
 
-      - name: Run Laravel Dusk
-        run: php artisan dusk --stop-on-error --stop-on-failure
+      - name: Run Cypress tests
+        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run -- --env environment=ci
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
@@ -133,11 +124,8 @@ jobs:
       - name: Generate assets
         run: npm run production
 
-      - name: JavaScript Linting
-        run: npm run lint:js
-
-      - name: CSS Linting
-        run: npm run lint:scss
+      - name: Lint assets
+        run: npm run lint:assets
 
       - name: Check Bundle size
         run: npm run test:size

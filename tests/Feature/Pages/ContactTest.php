@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Article;
 
-use App\Contact;
+use App\Models\Contact;
 use App\Notifications\ContactReceived;
 use App\Schemas\SiteSchema;
 use Illuminate\Foundation\Testing\RefreshDatabase;

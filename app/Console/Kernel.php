@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('sitemap:generate')->daily();
         $schedule->command('telescope:prune')->daily();
         $schedule->command('horizon:snapshot')->everyFiveMinutes();
+        $schedule->command('schedule-monitor:sync')->daily();
+        $schedule->command('schedule-monitor:clean')->daily();
     }
 
     /**

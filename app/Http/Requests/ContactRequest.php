@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Contact;
+use App\Models\Contact;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactRequest extends FormRequest

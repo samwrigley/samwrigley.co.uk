@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Article;
-use App\ArticleCategory;
-use App\ArticleSeries;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapGenerator;

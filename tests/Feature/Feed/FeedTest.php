@@ -2,8 +2,7 @@
 
 namespace Tests\Feature\Feed;
 
-use App\Article;
-use App\ArticleCategory;
+use App\Models\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,9 +13,7 @@ class FeedTest extends TestCase
     /** @test */
     public function can_view_feed(): void
     {
-        $article = factory(Article::class)->states('published')->create();
-        $category = factory(ArticleCategory::class)->create();
-        $article->categories()->attach($category);
+        factory(Article::class)->states('published')->create();
 
         $this->get(route('feeds.main'))->assertOk();
     }

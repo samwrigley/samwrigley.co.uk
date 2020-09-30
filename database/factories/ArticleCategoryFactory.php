@@ -1,7 +1,7 @@
 <?php
 
-use App\Article;
-use App\ArticleCategory;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -9,8 +9,8 @@ $factory->define(ArticleCategory::class, function (Faker $faker) {
     $name = $faker->unique()->words(2, true);
 
     return [
-        'slug' => Str::slug($name),
         'name' => ucfirst($name),
+        'slug' => Str::slug($name),
         'description' => $faker->paragraph,
     ];
 });

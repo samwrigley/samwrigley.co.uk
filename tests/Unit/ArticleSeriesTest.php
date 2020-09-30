@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Article;
-use App\ArticleSeries;
+use App\Models\Article;
+use App\Models\ArticleSeries;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

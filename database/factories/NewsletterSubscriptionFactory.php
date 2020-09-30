@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription;
 use Faker\Generator as Faker;
 
 $factory->define(NewsletterSubscription::class, function (Faker $faker) {

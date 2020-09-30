@@ -1,9 +1,9 @@
 <?php
 
-use App\Article;
-use App\ArticleCategory;
-use App\ArticleSeries;
-use App\User;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\ArticleSeries;
+use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
