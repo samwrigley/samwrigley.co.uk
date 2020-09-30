@@ -30,8 +30,4 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'google_tag_manager' => [
-        'id' => env('GOOGLE_TAG_MANAGER_ID'),
-    ],
-
 ];
