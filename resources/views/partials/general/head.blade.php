@@ -5,9 +5,6 @@
 
 <title>@yield('title') | {{ config('app.name') }}</title>
 
-{{-- Google Tag Manager --}}
-@include('partials.general.head.gtm')
-
 {{-- Icons --}}
 @include('partials.general.head.icons')
 
