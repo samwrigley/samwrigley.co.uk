@@ -1,3 +1,29 @@
-.markdown-body {
-    @apply text-gray-800;
+.markdown {
+    @apply text-2xl leading-relaxed text-gray-800;
+
+    & > *:not(:last-child) {
+        @apply mb-8;
+    }
+
+    h2,
+    h3,
+    h4 {
+        @apply font-bold pt-8;
+    }
+
+    h2 {
+        @apply text-4xl;
+    }
+
+    h3 {
+        @apply text-3xl;
+    }
+
+    ul {
+        @apply list-disc list-inside;
+    }
+
+    pre {
+        @apply text-base bg-gray-100 p-16 overflow-x-auto;
+    }
 }
