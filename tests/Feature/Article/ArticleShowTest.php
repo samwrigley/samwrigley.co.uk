@@ -7,7 +7,7 @@ use App\Models\ArticleCategory;
 use App\Models\ArticleSeries;
 use App\Schemas\BlogPostingSchema;
 use App\Schemas\SiteSchema;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use App\Services\CommonMark\CommonMark;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
@@ -41,7 +41,7 @@ class ArticleShowTest extends TestCase
         $formattedPublishedAt = Carbon::parse($article->published_at)
             ->format('jS F Y');
 
-        $body = Markdown::convertToHtml($article->body);
+        $body = CommonMark::convertToHtml($article->body);
 
         $this->getArticleShowRoute($article->slug)
             ->assertOk()
