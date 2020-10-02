@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54da91ec275842b59b3f9f5709dd5aa0",
+    "content-hash": "037f210d6c31897b442c87ae93be590b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3965,16 +3965,16 @@
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "ed8f28507f18474223df7de4c86e210c09dda630"
+                "reference": "3c6b1da08087f428ab1a188af35483eb76ef6b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/ed8f28507f18474223df7de4c86e210c09dda630",
-                "reference": "ed8f28507f18474223df7de4c86e210c09dda630",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/3c6b1da08087f428ab1a188af35483eb76ef6b1e",
+                "reference": "3c6b1da08087f428ab1a188af35483eb76ef6b1e",
                 "shasum": ""
             },
             "require": {
@@ -3985,6 +3985,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "2.16.*",
                 "laravel/framework": "^7.0",
+                "mockery/mockery": "1.3.*",
                 "orchestra/testbench": "^5.0",
                 "phpunit/phpunit": "^8.0"
             },
@@ -4031,7 +4032,7 @@
                 "logging",
                 "sentry"
             ],
-            "time": "2020-09-28T08:31:49+00:00"
+            "time": "2020-10-01T12:14:37+00:00"
         },
         {
             "name": "spatie/browsershot",
@@ -4299,16 +4300,16 @@
         },
         {
             "name": "spatie/laravel-csp",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-csp.git",
-                "reference": "62831d6a7465ae7ff4089c4378683fdbf4fad57f"
+                "reference": "eb68ef3bfeeab1bd022d04006e36de01ff5a92f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-csp/zipball/62831d6a7465ae7ff4089c4378683fdbf4fad57f",
-                "reference": "62831d6a7465ae7ff4089c4378683fdbf4fad57f",
+                "url": "https://api.github.com/repos/spatie/laravel-csp/zipball/eb68ef3bfeeab1bd022d04006e36de01ff5a92f0",
+                "reference": "eb68ef3bfeeab1bd022d04006e36de01ff5a92f0",
                 "shasum": ""
             },
             "require": {
@@ -4366,7 +4367,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2020-09-09T08:57:27+00:00"
+            "time": "2020-09-30T23:44:47+00:00"
         },
         {
             "name": "spatie/laravel-feed",
@@ -4504,16 +4505,16 @@
         },
         {
             "name": "spatie/laravel-newsletter",
-            "version": "4.8.1",
+            "version": "4.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-newsletter.git",
-                "reference": "996aefb353a43eb30c09bbbbc967921d01639d56"
+                "reference": "246fc1bbfd17cfa1eb6808fcfe7632e8ad05545b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-newsletter/zipball/996aefb353a43eb30c09bbbbc967921d01639d56",
-                "reference": "996aefb353a43eb30c09bbbbc967921d01639d56",
+                "url": "https://api.github.com/repos/spatie/laravel-newsletter/zipball/246fc1bbfd17cfa1eb6808fcfe7632e8ad05545b",
+                "reference": "246fc1bbfd17cfa1eb6808fcfe7632e8ad05545b",
                 "shasum": ""
             },
             "require": {
@@ -4560,7 +4561,7 @@
                 "mailchimp",
                 "newsletter"
             ],
-            "time": "2020-09-09T09:31:58+00:00"
+            "time": "2020-09-30T22:15:21+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
@@ -7994,16 +7995,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.3.7",
+            "version": "2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "b364db8860a63c1fb58b72b9718863c21df08762"
+                "reference": "e8fed9c382cd1d02b5606688576a35619afdf82c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/b364db8860a63c1fb58b72b9718863c21df08762",
-                "reference": "b364db8860a63c1fb58b72b9718863c21df08762",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/e8fed9c382cd1d02b5606688576a35619afdf82c",
+                "reference": "e8fed9c382cd1d02b5606688576a35619afdf82c",
                 "shasum": ""
             },
             "require": {
@@ -8062,7 +8063,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-09-06T19:26:27+00:00"
+            "time": "2020-10-01T23:01:14+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -9854,16 +9855,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.3.11",
+            "version": "9.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f7316ea106df7c9507f4fdaa88c47bc10a3b27a1"
+                "reference": "ef533467a7974c4b6c354f3eff42a115910bd4e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f7316ea106df7c9507f4fdaa88c47bc10a3b27a1",
-                "reference": "f7316ea106df7c9507f4fdaa88c47bc10a3b27a1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ef533467a7974c4b6c354f3eff42a115910bd4e5",
+                "reference": "ef533467a7974c4b6c354f3eff42a115910bd4e5",
                 "shasum": ""
             },
             "require": {
@@ -9879,7 +9880,7 @@
                 "phar-io/version": "^3.0.2",
                 "php": ">=7.3",
                 "phpspec/prophecy": "^1.11.1",
-                "phpunit/php-code-coverage": "^9.1.11",
+                "phpunit/php-code-coverage": "^9.2",
                 "phpunit/php-file-iterator": "^3.0.4",
                 "phpunit/php-invoker": "^3.1",
                 "phpunit/php-text-template": "^2.0.2",
@@ -9910,7 +9911,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "9.3-dev"
+                    "dev-master": "9.4-dev"
                 }
             },
             "autoload": {
@@ -9939,7 +9940,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-09-24T08:08:49+00:00"
+            "time": "2020-10-02T03:54:37+00:00"
         },
         {
             "name": "sebastian/cli-parser",
