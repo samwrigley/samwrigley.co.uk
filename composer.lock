@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43dc17d9b9ff30dda03a30dbc97564d3",
+    "content-hash": "54da91ec275842b59b3f9f5709dd5aa0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3875,16 +3875,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "b77ff3783060ce3213011ddae369e550ec985dc8"
+                "reference": "b39248013660036d222681a359990284904a5db3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/b77ff3783060ce3213011ddae369e550ec985dc8",
-                "reference": "b77ff3783060ce3213011ddae369e550ec985dc8",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/b39248013660036d222681a359990284904a5db3",
+                "reference": "b39248013660036d222681a359990284904a5db3",
                 "shasum": ""
             },
             "require": {
@@ -3961,7 +3961,7 @@
                 "logging",
                 "sentry"
             ],
-            "time": "2020-09-28T07:11:32+00:00"
+            "time": "2020-10-01T12:10:56+00:00"
         },
         {
             "name": "sentry/sentry-laravel",
@@ -9544,16 +9544,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.47",
+            "version": "0.12.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "74325a6ae15378db0df71b969ded245378d2e058"
+                "reference": "d364cfbac9ffd869570cdfea7eaa6541c3dac666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/74325a6ae15378db0df71b969ded245378d2e058",
-                "reference": "74325a6ae15378db0df71b969ded245378d2e058",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d364cfbac9ffd869570cdfea7eaa6541c3dac666",
+                "reference": "d364cfbac9ffd869570cdfea7eaa6541c3dac666",
                 "shasum": ""
             },
             "require": {
@@ -9582,20 +9582,20 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-09-29T13:35:39+00:00"
+            "time": "2020-10-01T13:20:16+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.1.11",
+            "version": "9.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c9394cb9d07ecfa9351b96f2e296bad473195f4d"
+                "reference": "53a4b737e83be724efd2bc4e7b929b9a30c48972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c9394cb9d07ecfa9351b96f2e296bad473195f4d",
-                "reference": "c9394cb9d07ecfa9351b96f2e296bad473195f4d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/53a4b737e83be724efd2bc4e7b929b9a30c48972",
+                "reference": "53a4b737e83be724efd2bc4e7b929b9a30c48972",
                 "shasum": ""
             },
             "require": {
@@ -9623,7 +9623,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "9.1-dev"
+                    "dev-master": "9.2-dev"
                 }
             },
             "autoload": {
@@ -9649,7 +9649,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-09-19T05:29:17+00:00"
+            "time": "2020-10-02T03:37:32+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
