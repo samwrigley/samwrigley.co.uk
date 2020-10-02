@@ -8,7 +8,11 @@
     h2,
     h3,
     h4 {
-        @apply font-bold pt-8;
+        @apply font-bold;
+
+        &:not(:first-child) {
+            @apply pt-8;
+        }
     }
 
     h2 {
@@ -19,11 +23,35 @@
         @apply text-3xl;
     }
 
+    p,
+    li {
+        a {
+            @apply text-black border-b border-black border-dotted;
+
+            &:hover {
+                @apply text-gray-700;
+            }
+        }
+
+        code {
+            @apply bg-gray-200 p-1 text-lg;
+        }
+    }
+
+    ul,
+    ol {
+        @apply list-inside;
+    }
+
     ul {
-        @apply list-disc list-inside;
+        @apply list-disc;
+    }
+
+    ol {
+        @apply list-decimal;
     }
 
     pre {
-        @apply text-base bg-gray-100 p-16 overflow-x-auto;
+        @apply text-base bg-gray-100 p-8 overflow-x-auto;
     }
 }
