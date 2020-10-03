@@ -27,10 +27,7 @@ mix.sass('resources/sass/app.scss', 'public/css').options({
  |--------------------------------------------------------------------------
  */
 
-mix.purgeCss({
-    whitelistPatterns: [/pl-/],
-    whitelistPatternsChildren: [/markdown-/],
-});
+mix.purgeCss();
 
 /*
  |--------------------------------------------------------------------------

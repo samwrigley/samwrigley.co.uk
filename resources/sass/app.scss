@@ -25,5 +25,8 @@
  */
 
 @import './utilities/grid';
+
+/*! purgecss start ignore */
 @import './utilities/markdown';
 @import './utilities/highlight';
+/*! purgecss end ignore */
