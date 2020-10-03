@@ -6,6 +6,7 @@ use App\Models\ArticleCategory;
 use App\Models\ArticleSeries;
 use App\Models\Model;
 use App\Models\User;
+use App\Services\CommonMark\CommonMark;
 use App\Traits\CanBePublished;
 use App\Traits\ClearsResponseCache;
 use App\Traits\HasAge;
@@ -88,6 +89,11 @@ class Article extends Model implements Feedable
     public function scopeWithCategories(Builder $query): Builder
     {
         return $query->with('categories');
+    }
+
+    public function getFormattedBodyAttribute(): string
+    {
+        return CommonMark::convertToHtml($this->body);
     }
 
     public function toFeedItem(): FeedItem

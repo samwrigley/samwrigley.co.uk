@@ -3,9 +3,7 @@
 @section('title', $article->title)
 
 @section('article')
-    <div class="markdown-body text-xl leading-relaxed sm:text-2xl">
-        @markdown($article->body)
-    </div>
+    <x-markdown :markdown="$article->formattedBody" />
 @endsection
 
 @push('schema')

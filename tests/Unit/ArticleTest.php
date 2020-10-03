@@ -53,6 +53,14 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
+    public function can_get_formatted_body(): void
+    {
+        $article = Article::factory()->create(['body' => '# Heading']);
+
+        $this->assertEquals($article->formattedBody, "<h1>Heading</h1>\n");
+    }
+
+    /** @test */
     public function its_new_when_published_a_month_ago_or_less(): void
     {
         $this->freezeTime();
