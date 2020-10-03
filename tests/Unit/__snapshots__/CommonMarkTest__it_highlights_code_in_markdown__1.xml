@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<div>
+  <pre>
+    <code class="language-js hljs javascript" data-lang="js"><span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span>;
+</code>
+  </pre>
+</div>
