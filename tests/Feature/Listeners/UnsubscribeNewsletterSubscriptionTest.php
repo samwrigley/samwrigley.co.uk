@@ -36,8 +36,8 @@ class UnsubscribeNewsletterSubscriptionTest extends TestCase
     {
         $email = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)
-            ->states('unsubscribed')
+        $subscription = NewsletterSubscription::factory()
+            ->unsubscribed()
             ->create(['email' => $email]);
 
         $webhookCall = WebhookCall::create([
@@ -66,8 +66,8 @@ class UnsubscribeNewsletterSubscriptionTest extends TestCase
     {
         $email = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)
-            ->states('unsubscribed')
+        $subscription = NewsletterSubscription::factory()
+            ->unsubscribed()
             ->create(['email' => $email]);
 
         $webhookCall = WebhookCall::create([
@@ -101,7 +101,7 @@ class UnsubscribeNewsletterSubscriptionTest extends TestCase
         $email = $this->faker->email;
         $unsubscribedAt = now()->second(0)->millisecond(0);
 
-        $subscription = factory(NewsletterSubscription::class)->create([
+        $subscription = NewsletterSubscription::factory()->create([
             'email' => $email,
             'unsubscribed_at' => $unsubscribedAt,
         ]);
@@ -134,8 +134,8 @@ class UnsubscribeNewsletterSubscriptionTest extends TestCase
     {
         $email = $this->faker->email;
 
-        $subscription = factory(NewsletterSubscription::class)
-            ->states('subscribed')
+        $subscription = NewsletterSubscription::factory()
+            ->subscribed()
             ->create(['email' => $email]);
 
         $webhookCall = WebhookCall::create([

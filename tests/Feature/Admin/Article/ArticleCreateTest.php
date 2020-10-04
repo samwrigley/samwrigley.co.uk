@@ -21,7 +21,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function can_view_admin_article_create_page_when_authenticated(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user)
             ->get(route('admin.articles.create'))
@@ -40,7 +40,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function can_create_article(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -60,7 +60,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_is_persisted_in_database(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -75,7 +75,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_title_is_required(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'slug' => Str::slug($this->faker->sentence),
             'body' => $this->faker->paragraphs(10, true),
@@ -93,14 +93,14 @@ class ArticleCreateTest extends TestCase
     public function article_title_must_be_unique(): void
     {
         $title = $this->faker->sentence;
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $title,
             'slug' => Str::slug($this->faker->sentence),
             'body' => $this->faker->paragraphs(10, true),
         ];
 
-        factory(Article::class)->create(['title' => $title]);
+        Article::factory()->create(['title' => $title]);
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
@@ -113,7 +113,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_slug_is_required(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraphs(10, true),
@@ -131,14 +131,14 @@ class ArticleCreateTest extends TestCase
     public function article_slug_must_be_unique(): void
     {
         $slug = Str::slug($this->faker->sentence);
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => $slug,
             'body' => $this->faker->paragraphs(10, true),
         ];
 
-        factory(Article::class)->create(['slug' => $slug]);
+        Article::factory()->create(['slug' => $slug]);
 
         $this->actingAs($user)
             ->from(route('admin.articles.create'))
@@ -151,7 +151,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_slug_must_be_alpha_dash(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => $this->faker->sentence,
@@ -169,7 +169,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_excerpt_must_be_shorter_than_maximum_length(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -189,7 +189,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function article_body_is_required(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -206,7 +206,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function date_is_required_when_time_is_present(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -228,7 +228,7 @@ class ArticleCreateTest extends TestCase
     public function publish_date_must_be_the_correct_format(): void
     {
         $date = '2020-01-31';
-        $article = factory(Article::class)->create([
+        $article = Article::factory()->create([
             'published_at' => Carbon::parse($date),
         ]);
 
@@ -238,7 +238,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function time_is_required_when_date_is_present(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -260,7 +260,7 @@ class ArticleCreateTest extends TestCase
     public function publish_time_must_be_the_correct_format(): void
     {
         $time = '21:15:30';
-        $article = factory(Article::class)->create([
+        $article = Article::factory()->create([
             'published_at' => Carbon::parse($time),
         ]);
 
@@ -272,7 +272,7 @@ class ArticleCreateTest extends TestCase
     {
         $date = now()->addWeek()->format(Article::$PUBLISHED_DATE_FORMAT);
         $time = now()->format(Article::$PUBLISHED_TIME_FORMAT);
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -297,8 +297,8 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function can_add_to_single_category(): void
     {
-        $user = factory(User::class)->create();
-        $category = factory(ArticleCategory::class)->create();
+        $user = User::factory()->create();
+        $category = ArticleCategory::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -317,9 +317,9 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function can_add_to_multiple_categories(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $categoryCount = 2;
-        $categories = factory(ArticleCategory::class, $categoryCount)->create();
+        $categories = ArticleCategory::factory()->count($categoryCount)->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -338,8 +338,8 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function can_add_to_a_series(): void
     {
-        $user = factory(User::class)->create();
-        $series = factory(ArticleSeries::class)->create();
+        $user = User::factory()->create();
+        $series = ArticleSeries::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),
@@ -358,7 +358,7 @@ class ArticleCreateTest extends TestCase
     /** @test */
     public function can_only_add_to_series_that_exists(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $articleData = [
             'title' => $this->faker->sentence,
             'slug' => Str::slug($this->faker->sentence),

@@ -12,14 +12,14 @@ class ArticleSeriesTableTestSeeder extends Seeder
 {
     public function run(): void
     {
-        $series = factory(ArticleSeries::class)->create([
+        $series = ArticleSeries::factory()->create([
             'title' => 'Test',
             'slug' => 'test',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         ]);
 
-        $article = factory(Article::class)->make([
-            'user_id' => factory(User::class)->create(),
+        $article = Article::factory()->make([
+            'user_id' => User::factory()->create(),
             'title' => 'Lorem ipsum',
             'slug' => 'lorem-ipsum',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

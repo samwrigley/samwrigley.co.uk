@@ -6,12 +6,14 @@ use App\Models\ArticleCategory;
 use App\Models\ArticleSeries;
 use App\Models\Model;
 use App\Models\User;
+use App\Services\CommonMark\CommonMark;
 use App\Traits\CanBePublished;
 use App\Traits\ClearsResponseCache;
 use App\Traits\HasAge;
 use App\Traits\InSeries;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
@@ -23,6 +25,7 @@ class Article extends Model implements Feedable
     use CanBePublished;
     use ClearsResponseCache;
     use HasAge;
+    use HasFactory;
     use InSeries;
 
     public const MAX_TITLE_LENGTH = 255;
@@ -86,6 +89,11 @@ class Article extends Model implements Feedable
     public function scopeWithCategories(Builder $query): Builder
     {
         return $query->with('categories');
+    }
+
+    public function getFormattedBodyAttribute(): string
+    {
+        return CommonMark::convertToHtml($this->body);
     }
 
     public function toFeedItem(): FeedItem

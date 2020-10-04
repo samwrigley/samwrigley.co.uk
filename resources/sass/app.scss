@@ -10,15 +10,6 @@
 
 /*
  |--------------------------------------------------------------------------
- | Markdown
- |--------------------------------------------------------------------------
- */
-
-@import '@primer/css/markdown/index.scss';
-@import '~github-syntax-light/lib/github-light.css';
-
-/*
- |--------------------------------------------------------------------------
  | Custom Base
  |--------------------------------------------------------------------------
  */
@@ -34,4 +25,8 @@
  */
 
 @import './utilities/grid';
+
+/*! purgecss start ignore */
 @import './utilities/markdown';
+@import './utilities/highlight';
+/*! purgecss end ignore */

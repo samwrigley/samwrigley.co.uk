@@ -10,7 +10,7 @@ class UsersTableTestSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(User::class)->create([
+        User::factory()->create([
             'name' => 'Sam Wrigley',
             'slug' => 'sam-wrigley',
             'email' => Config::get('contact.email'),

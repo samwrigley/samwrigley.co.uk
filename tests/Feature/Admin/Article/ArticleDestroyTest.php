@@ -14,8 +14,8 @@ class ArticleDestroyTest extends TestCase
     /** @test */
     public function author_can_delete_article(): void
     {
-        $user = factory(User::class)->create();
-        $article = $user->articles()->create(factory(Article::class)->make()->toArray());
+        $user = User::factory()->create();
+        $article = $user->articles()->create(Article::factory()->make()->toArray());
 
         $this->assertDatabaseCount('articles', 1);
 
@@ -32,9 +32,9 @@ class ArticleDestroyTest extends TestCase
     /** @test */
     public function non_author_cannot_delete_article(): void
     {
-        $userOne = factory(User::class)->create();
-        $userTwo = factory(User::class)->create();
-        $article = $userTwo->articles()->create(factory(Article::class)->make()->toArray());
+        $userOne = User::factory()->create();
+        $userTwo = User::factory()->create();
+        $article = $userTwo->articles()->create(Article::factory()->make()->toArray());
 
         $this->assertDatabaseCount('articles', 1);
 

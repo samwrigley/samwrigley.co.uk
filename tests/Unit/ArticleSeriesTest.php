@@ -14,9 +14,9 @@ class ArticleSeriesTest extends TestCase
     /** @test */
     public function it_belongs_to_many_articles(): void
     {
-        $articles = factory(Article::class, 3)->create(['published_at' => now()->subMonth()]);
+        $articles = Article::factory()->count(3)->create(['published_at' => now()->subMonth()]);
 
-        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleSeries = ArticleSeries::factory()->create();
         $articleSeries->articles()->saveMany($articles);
 
         $this->assertCount(3, $articleSeries->articles);
@@ -25,11 +25,11 @@ class ArticleSeriesTest extends TestCase
     /** @test */
     public function its_articles_are_ordered_chronologically(): void
     {
-        $article = factory(Article::class)->create(['published_at' => now()->subMonth()]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
-        $articleThree = factory(Article::class)->create(['published_at' => now()->subMonths(3)]);
+        $article = Article::factory()->create(['published_at' => now()->subMonth()]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonths(2)]);
+        $articleThree = Article::factory()->create(['published_at' => now()->subMonths(3)]);
 
-        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleSeries = ArticleSeries::factory()->create();
         $articleSeries->articles()->saveMany([$article, $articleTwo, $articleThree]);
 
         $this->assertCount(3, $articleSeries->articles);
@@ -41,11 +41,11 @@ class ArticleSeriesTest extends TestCase
     /** @test */
     public function its_articles_are_all_published(): void
     {
-        $publishedArticle = tap(factory(Article::class)->create())->markAsPublished();
-        $scheduledArticle = tap(factory(Article::class)->create())->markAsScheduled(now()->addMonth());
-        $draftArticle = tap(factory(Article::class)->create())->markAsDraft();
+        $publishedArticle = tap(Article::factory()->create())->markAsPublished();
+        $scheduledArticle = tap(Article::factory()->create())->markAsScheduled(now()->addMonth());
+        $draftArticle = tap(Article::factory()->create())->markAsDraft();
 
-        $articleSeries = factory(ArticleSeries::class)->create();
+        $articleSeries = ArticleSeries::factory()->create();
         $articleSeries->articles()->saveMany([
             $publishedArticle,
             $scheduledArticle,
@@ -59,7 +59,7 @@ class ArticleSeriesTest extends TestCase
     /** @test */
     public function can_get_show_route(): void
     {
-        $series = factory(ArticleSeries::class)->make();
+        $series = ArticleSeries::factory()->make();
 
         $route = route($series->routeNamespaces['web'] . 'show', [$series->slug]);
 

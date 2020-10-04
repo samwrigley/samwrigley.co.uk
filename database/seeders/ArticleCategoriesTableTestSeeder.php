@@ -12,14 +12,14 @@ class ArticleCategoriesTableTestSeeder extends Seeder
 {
     public function run(): void
     {
-        $category = factory(ArticleCategory::class)->create([
+        $category = ArticleCategory::factory()->create([
             'name' => 'Test',
             'slug' => 'test',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         ]);
 
-        $article = factory(Article::class)->make([
-            'user_id' => factory(User::class)->create(),
+        $article = Article::factory()->make([
+            'user_id' => User::factory()->create(),
             'title' => 'Dolor sit',
             'slug' => 'dolor-sit',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

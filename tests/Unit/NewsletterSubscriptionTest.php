@@ -18,7 +18,7 @@ class NewsletterSubscriptionTest extends TestCase
         $firstName = $this->faker->firstName();
         $lastName = $this->faker->lastName();
 
-        $subscription = factory(NewsletterSubscription::class)->make([
+        $subscription = NewsletterSubscription::factory()->make([
             'first_name' => $firstName,
             'last_name' => $lastName,
         ]);

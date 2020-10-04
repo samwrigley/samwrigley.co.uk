@@ -7,12 +7,14 @@ use App\Models\Model;
 use App\Traits\ClearsResponseCache;
 use App\Traits\HasArticles;
 use App\Traits\HasPublishableRelationship;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ArticleSeries extends Model
 {
     use ClearsResponseCache;
     use HasArticles;
+    use HasFactory;
     use HasPublishableRelationship;
 
     public array $routeNamespaces = [

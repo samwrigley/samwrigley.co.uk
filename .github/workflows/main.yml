@@ -60,7 +60,7 @@ jobs:
         run: yarn install
 
       - name: Generate assets
-        run: npm run production
+        run: yarn production
 
       - name: Generate key
         run: php artisan key:generate --no-ansi
@@ -75,13 +75,13 @@ jobs:
         run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=85 --min-style=90 --format=github-action
 
       - name: PHP Linting
-        run: npm run lint:php
+        run: yarn lint:php
 
       - name: Run Laravel Server
         run: php artisan serve > /dev/null 2>&1 &
 
       - name: Run Cypress tests
-        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 npm run cypress:run -- --env environment=ci
+        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 yarn cypress:run -- --env environment=ci
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
@@ -122,10 +122,10 @@ jobs:
         run: yarn install
 
       - name: Generate assets
-        run: npm run production
+        run: yarn production
 
       - name: Lint assets
-        run: npm run lint:assets
+        run: yarn lint:assets
 
       - name: Check Bundle size
-        run: npm run test:size
+        run: yarn test:size

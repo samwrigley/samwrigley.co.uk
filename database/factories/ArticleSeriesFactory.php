@@ -1,22 +1,28 @@
 <?php
 
-use App\Models\Article;
+namespace Database\Factories;
+
 use App\Models\ArticleSeries;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-$factory->define(ArticleSeries::class, function (Faker $faker): array {
-    $title = $faker->unique()->words(5, true);
+class ArticleSeriesFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = ArticleSeries::class;
 
-    return [
-        'title' => ucfirst($title),
-        'slug' => Str::slug($title),
-        'description' => $faker->paragraph,
-    ];
-});
+    public function definition(): array
+    {
+        $title = $this->faker->unique()->words(5, true);
 
-$factory->afterCreatingState(ArticleSeries::class, 'withArticles', function (ArticleSeries $series) {
-    $series->articles()->saveMany(
-        factory(Article::class, 2)->state('published')->make()
-    );
-});
+        return [
+            'title' => ucfirst($title),
+            'slug' => Str::slug($title),
+            'description' => $this->faker->paragraph,
+        ];
+    }
+}

@@ -14,7 +14,7 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_view_admin_article_index_page_when_authenticated(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user)
             ->get(route('admin.articles.index'))
@@ -33,12 +33,12 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_see_a_list_of_articles_in_chronological_created_order(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $articles = collect([
-            factory(Article::class)->create(['created_at' => now()]),
-            factory(Article::class)->create(['created_at' => now()->subDay()]),
-            factory(Article::class)->create(['created_at' => now()->subDays(2)]),
+            Article::factory()->create(['created_at' => now()]),
+            Article::factory()->create(['created_at' => now()->subDay()]),
+            Article::factory()->create(['created_at' => now()->subDays(2)]),
         ]);
 
         $this->actingAs($user)
@@ -52,8 +52,8 @@ class ArticleIndexTest extends TestCase
     /** @test */
     public function can_see_a_list_of_paginated_articles(): void
     {
-        $user = factory(User::class)->create();
-        $articles = factory(Article::class, 50)->create(['created_at' => now()]);
+        $user = User::factory()->create();
+        $articles = Article::factory()->count(50)->create(['created_at' => now()]);
         $articleTitles = $articles->pluck('title');
 
         $this->actingAs($user)

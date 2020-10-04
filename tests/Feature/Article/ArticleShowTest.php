@@ -7,7 +7,7 @@ use App\Models\ArticleCategory;
 use App\Models\ArticleSeries;
 use App\Schemas\BlogPostingSchema;
 use App\Schemas\SiteSchema;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use App\Services\CommonMark\CommonMark;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Carbon;
@@ -33,15 +33,15 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function can_view_a_published_article(): void
     {
-        $category = factory(ArticleCategory::class)->create();
+        $category = ArticleCategory::factory()->create();
 
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
         $article->categories()->save($category);
 
         $formattedPublishedAt = Carbon::parse($article->published_at)
             ->format('jS F Y');
 
-        $body = Markdown::convertToHtml($article->body);
+        $body = CommonMark::convertToHtml($article->body);
 
         $this->getArticleShowRoute($article->slug)
             ->assertOk()
@@ -56,7 +56,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function cannot_view_a_draft_article(): void
     {
-        $article = factory(Article::class)->states('draft')->create();
+        $article = Article::factory()->draft()->create();
 
         $this->getArticleShowRoute($article->slug)
             ->assertNotFound();
@@ -65,7 +65,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function cannot_view_a_scheduled_article(): void
     {
-        $article = factory(Article::class)->states('scheduled')->create();
+        $article = Article::factory()->scheduled()->create();
 
         $this->getArticleShowRoute($article->slug)
             ->assertNotFound();
@@ -83,7 +83,7 @@ class ArticleShowTest extends TestCase
     {
         $date = now()->subMonths(7);
 
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => $date]);
 
         $this->getArticleShowRoute($article->slug)
@@ -95,7 +95,7 @@ class ArticleShowTest extends TestCase
     {
         $date = now()->subMonths(5);
 
-        $article = factory(Article::class)
+        $article = Article::factory()
             ->create(['published_at' => $date]);
 
         $this->getArticleShowRoute($article->slug)
@@ -106,8 +106,8 @@ class ArticleShowTest extends TestCase
     public function can_see_in_series_notice_when_part_of_a_series(): void
     {
         $articleCount = 2;
-        $articles = factory(Article::class, $articleCount)->states('published')->create();
-        $articleSeries = factory(ArticleSeries::class)->create();
+        $articles = Article::factory()->count($articleCount)->published()->create();
+        $articleSeries = ArticleSeries::factory()->create();
         $articleSeries->articles()->saveMany($articles);
 
         $this->getArticleShowRoute($articles->first()->slug)
@@ -122,7 +122,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function cannot_see_in_series_notice_when_not_part_of_a_series(): void
     {
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
 
         $this->assertNull($article->series);
 
@@ -134,7 +134,7 @@ class ArticleShowTest extends TestCase
     public function can_subscribe_to_newsletter_with_valid_email(): void
     {
         $email = $this->faker->email;
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
 
         $this->mock(Newsletter::class, function ($mock) use ($email) {
             $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
@@ -154,7 +154,7 @@ class ArticleShowTest extends TestCase
     {
         Config::set('honeypot.enabled', true);
 
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
 
         $this->getArticleShowRoute($article->slug)
             ->assertSee(Config::get('honeypot.name_field_name'))
@@ -164,7 +164,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function has_blog_posting_schema_script(): void
     {
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
         $blogPostingSchema = (new BlogPostingSchema($article))->generate();
 
         $this->getArticleShowRoute($article->slug)
@@ -174,8 +174,8 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function can_see_next_article_link(): void
     {
-        $articleOne = factory(Article::class)->create(['published_at' => now()->subMonths(2)]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+        $articleOne = Article::factory()->create(['published_at' => now()->subMonths(2)]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonth()]);
 
         $this->getArticleShowRoute($articleOne->slug)
             ->assertSeeText('Next')
@@ -186,8 +186,8 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function can_see_previous_article_link(): void
     {
-        $articleOne = factory(Article::class)->create(['published_at' => now()]);
-        $articleTwo = factory(Article::class)->create(['published_at' => now()->subMonth()]);
+        $articleOne = Article::factory()->create(['published_at' => now()]);
+        $articleTwo = Article::factory()->create(['published_at' => now()->subMonth()]);
 
         $this->getArticleShowRoute($articleOne->slug)
             ->assertSeeText('Prev')
@@ -198,7 +198,7 @@ class ArticleShowTest extends TestCase
     /** @test */
     public function has_site_schema_script(): void
     {
-        $article = factory(Article::class)->states('published')->create();
+        $article = Article::factory()->published()->create();
         $siteSchema = (new SiteSchema())->generate();
 
         $this->getArticleShowRoute($article->slug)

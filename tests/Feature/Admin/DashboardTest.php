@@ -13,7 +13,7 @@ class DashboardTest extends TestCase
     /** @test */
     public function can_visit_admin_dashboard_when_authenticated(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user)
             ->get(route('admin.dashboard'))

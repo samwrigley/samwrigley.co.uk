@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\ArticleSeries;
 use Illuminate\Database\Seeder;
 
@@ -9,8 +10,8 @@ class ArticleSeriesTableSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(ArticleSeries::class, 10)
-            ->state('withArticles')
+        ArticleSeries::factory()->count(10)
+            ->has(Article::factory()->count(2)->published())
             ->create();
     }
 }
