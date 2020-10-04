@@ -1,12 +1,12 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Test;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
 
-class UsersTableTestSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     public function run(): void
     {
