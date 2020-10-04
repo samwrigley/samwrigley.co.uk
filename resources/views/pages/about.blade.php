@@ -53,7 +53,7 @@
 
         <div class="flex-shrink-0 hidden w-56 self-end xl:block xxl:w-80">
             <div class="relative">
-                <img src="{{ secure_asset('/e_grayscale/w_320/v1590338144/sam-wrigley-profile') }}"
+                <img src="https://res.cloudinary.com/samwrigley/image/upload/f_auto/e_grayscale/w_320/v1590338144/sam-wrigley-profile"
                     alt="{{ config('app.name') }}"
                     class="relative z-10"
                 >
