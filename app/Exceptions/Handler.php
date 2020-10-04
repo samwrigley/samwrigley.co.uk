@@ -36,7 +36,7 @@ class Handler extends ExceptionHandler
 
     public function register(): void
     {
-        if (app()->isLocal()) {
+        if (! app()->environment('production')) {
             Config::set('csp.enabled', false);
         }
     }
