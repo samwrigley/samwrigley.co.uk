@@ -32,7 +32,17 @@
         </div>
         <div class="w-5/6 bg-gray-200">
             <div class="h-20 flex items-center bg-white py-4 px-6 border-b border-gray-300">
-                <div class="ml-auto">
+                <div class="ml-auto flex">
+                    <x-admin.buttons.link
+                        href="{{ route('horizon.index') }}"
+                        text="{{ __('Horizon') }}"
+                        class="mr-2"
+                    />
+                    <x-admin.buttons.link
+                        href="{{ route('telescope') }}"
+                        text="{{ __('Telescope') }}"
+                        class="mr-2"
+                    />
                     <x-form route="{{ route('logout') }}">
                         <x-admin.buttons.default text="{{ __('Logout') }}" />
                     </x-form>
