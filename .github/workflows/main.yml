@@ -47,6 +47,9 @@ jobs:
       - name: Copy environment file
         run: cp .env.ci.testing .env
 
+      - name: Generate key
+        run: php artisan key:generate --no-ansi
+
       - name: Run database migrations
         run: php artisan migrate:fresh --force --no-interaction --no-ansi
 
@@ -61,9 +64,6 @@ jobs:
 
       - name: Generate assets
         run: yarn production
-
-      - name: Generate key
-        run: php artisan key:generate --no-ansi
 
       - name: Run PHP tests
         run: php artisan test

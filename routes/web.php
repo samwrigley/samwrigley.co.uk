@@ -10,8 +10,9 @@ Auth::routes([
     'verify' => false,
 ]);
 
-Route::redirect('/', '/blog')->middleware('cacheResponse')->name('home');
-Route::view('about', 'pages.about')->middleware('cacheResponse')->name('about');
-Route::view('contact', 'pages.contact')->name('contact');
+Route::middleware(['cacheResponse', 'csp'])->group(function () {
+    Route::redirect('/', '/blog')->name('home');
+    Route::view('about', 'pages.about')->name('about');
+});
 
 Route::feeds();
