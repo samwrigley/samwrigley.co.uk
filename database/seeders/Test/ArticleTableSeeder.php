@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Test;
 
 use App\Models\Article;
 use App\Models\User;
@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
-class ArticleTableTestSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
     public function run(): void
     {
