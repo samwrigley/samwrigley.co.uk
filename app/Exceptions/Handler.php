@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Config;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -31,5 +32,12 @@ class Handler extends ExceptionHandler
         }
 
         parent::report($exception);
+    }
+
+    public function register(): void
+    {
+        if (! app()->environment('production')) {
+            Config::set('csp.enabled', false);
+        }
     }
 }
