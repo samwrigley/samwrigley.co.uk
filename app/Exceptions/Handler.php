@@ -36,6 +36,8 @@ class Handler extends ExceptionHandler
 
     public function register(): void
     {
-        Config::set('csp.enabled', false);
+        if (app()->isLocal()) {
+            Config::set('csp.enabled', false);
+        }
     }
 }
