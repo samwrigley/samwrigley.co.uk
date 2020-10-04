@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +13,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
-        $this->routes(function () {
+        $this->routes(function (): void {
             $this->mapWebRoutes();
             $this->mapBlogRoutes();
             $this->mapContactRoutes();
@@ -33,14 +32,14 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapBlogRoutes(): void
     {
-        Route::middleware('web')
+        Route::middleware(['web', 'csp'])
             ->namespace($this->namespace)
             ->group(base_path('routes/blog.php'));
     }
 
     protected function mapContactRoutes(): void
     {
-        Route::middleware('web')
+        Route::middleware(['web', 'csp'])
             ->namespace($this->namespace)
             ->group(base_path('routes/contact.php'));
     }
@@ -54,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAdminRoutes(): void
     {
-        Route::middleware('web')
+        Route::middleware(['web', 'csp'])
             ->namespace($this->namespace)
             ->group(base_path('routes/admin.php'));
     }
