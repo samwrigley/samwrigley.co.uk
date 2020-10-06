@@ -22,7 +22,7 @@
         "laravel/ui": "3.0.0",
         "ohdearapp/ohdear-php-sdk": "3.0.1",
         "predis/predis": "1.1.6",
-        "sentry/sentry-laravel": "2.0.1",
+        "sentry/sentry-laravel": "2.1.0",
         "spatie/commonmark-highlighter": "2.1.0",
         "spatie/laravel-csp": "2.6.2",
         "spatie/laravel-feed": "3.0.1",

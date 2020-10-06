@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c07526d93e1583b0d7a31cf5eb4f9c2b",
+    "content-hash": "a95a854a8edf1afddca38b21f0a7759e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4203,16 +4203,16 @@
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "3c6b1da08087f428ab1a188af35483eb76ef6b1e"
+                "reference": "1815b6e7c037f9495768e906f978e1a15d7a2944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/3c6b1da08087f428ab1a188af35483eb76ef6b1e",
-                "reference": "3c6b1da08087f428ab1a188af35483eb76ef6b1e",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/1815b6e7c037f9495768e906f978e1a15d7a2944",
+                "reference": "1815b6e7c037f9495768e906f978e1a15d7a2944",
                 "shasum": ""
             },
             "require": {
@@ -4280,7 +4280,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-10-01T12:14:37+00:00"
+            "time": "2020-10-06T08:40:32+00:00"
         },
         {
             "name": "spatie/browsershot",
@@ -6010,16 +6010,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v5.1.6",
+            "version": "v5.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "4a5f2750b54e3cfc5b6711dd78fdbac6563ee7bf"
+                "reference": "df757997ee95101c0ca94c7ea2b76e16a758e0ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/4a5f2750b54e3cfc5b6711dd78fdbac6563ee7bf",
-                "reference": "4a5f2750b54e3cfc5b6711dd78fdbac6563ee7bf",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/df757997ee95101c0ca94c7ea2b76e16a758e0ca",
+                "reference": "df757997ee95101c0ca94c7ea2b76e16a758e0ca",
                 "shasum": ""
             },
             "require": {
@@ -6092,7 +6092,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-27T03:44:28+00:00"
+            "time": "2020-10-02T14:24:03+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
@@ -6437,7 +6437,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v5.1.6",
+            "version": "v5.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -10045,7 +10045,7 @@
                 "MIT"
             ],
             "description": "PHP CodeSniffer Object Calisthenics rules/sniffs",
-            "abandoned": "https://github.com/symplify/coding-standard",
+            "abandoned": "symplify/coding-standard",
             "time": "2020-09-08T10:18:44+00:00"
         },
         {
