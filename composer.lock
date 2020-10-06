@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebb27c9f265c9fd538bb1a926980ce5b",
+    "content-hash": "3cf1f31c52b8a81a1b91ac3341ed1e2b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1777,16 +1777,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.2.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "839bf8b142585f7be142090d4d05c341a4595fae"
+                "reference": "8fbe70580d653e0f5c33ed9b151f6eebc16dfbf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/839bf8b142585f7be142090d4d05c341a4595fae",
-                "reference": "839bf8b142585f7be142090d4d05c341a4595fae",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/8fbe70580d653e0f5c33ed9b151f6eebc16dfbf2",
+                "reference": "8fbe70580d653e0f5c33ed9b151f6eebc16dfbf2",
                 "shasum": ""
             },
             "require": {
@@ -1846,7 +1846,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2020-09-29T17:39:48+00:00"
+            "time": "2020-10-06T15:44:48+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
