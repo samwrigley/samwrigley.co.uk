@@ -13,7 +13,7 @@
         "blade-ui-kit/blade-heroicons": "0.2.2",
         "fideloper/proxy": "4.4.0",
         "fruitcake/laravel-cors": "2.0.2",
-        "guzzlehttp/guzzle": "7.1.1",
+        "guzzlehttp/guzzle": "7.2.0",
         "laravel/framework": "8.9.0",
         "laravel/horizon": "5.2.1",
         "laravel/slack-notification-channel": "2.2.0",
