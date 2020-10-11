@@ -44,7 +44,7 @@
         "nunomaduro/collision": "5.0.2",
         "nunomaduro/larastan": "0.6.4",
         "nunomaduro/phpinsights": "1.14.0",
-        "phpunit/phpunit": "9.4.0",
+        "phpunit/phpunit": "9.4.1",
         "spatie/phpunit-snapshot-assertions": "4.2.2",
         "squizlabs/php_codesniffer": "3.5.6",
         "symfony/css-selector": "5.1.7",
