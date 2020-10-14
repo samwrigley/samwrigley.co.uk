@@ -19,6 +19,6 @@ Route::group(['as' => 'articles.'], static function (): void {
     Route::get('/', [ArticleController::class, 'index'])->name('index');
     Route::get('{article}', [ArticleController::class, 'show'])
         ->middleware('web')
-        ->withoutMiddleware(['cacheResponse', 'cache.headers'])
+        ->withoutMiddleware(['cacheResponse', 'cache.headers:public;max_age=604800;etag'])
         ->name('show');
 });
