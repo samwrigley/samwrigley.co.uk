@@ -9,12 +9,19 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    protected array $statelessMiddleware = [
+        'security',
+        'cacheResponse',
+        'cache.headers:public;max_age=604800;etag',
+    ];
+
     public function boot(): void
     {
         $this->configureRateLimiting();
 
         $this->routes(function (): void {
             $this->mapWebRoutes();
+            $this->mapPageRoutes();
             $this->mapBlogRoutes();
             $this->mapContactRoutes();
             $this->mapNewsletterRoutes();
@@ -30,16 +37,25 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/web.php'));
     }
 
+    protected function mapPageRoutes(): void
+    {
+        Route::middleware($this->statelessMiddleware)
+            ->namespace($this->namespace)
+            ->group(base_path('routes/page.php'));
+    }
+
     protected function mapBlogRoutes(): void
     {
-        Route::middleware(['web', 'csp'])
+        Route::middleware($this->statelessMiddleware)
+            ->name('blog.')
+            ->prefix('blog')
             ->namespace($this->namespace)
             ->group(base_path('routes/blog.php'));
     }
 
     protected function mapContactRoutes(): void
     {
-        Route::middleware(['web', 'csp'])
+        Route::middleware(['web', 'security'])
             ->namespace($this->namespace)
             ->group(base_path('routes/contact.php'));
     }
@@ -53,7 +69,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAdminRoutes(): void
     {
-        Route::middleware(['web', 'csp'])
+        Route::middleware(['web', 'security'])
             ->namespace($this->namespace)
             ->group(base_path('routes/admin.php'));
     }
