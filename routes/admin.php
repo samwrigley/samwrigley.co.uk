@@ -2,7 +2,15 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+Auth::routes([
+    'confirm' => false,
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
 
 Route::group(['as' => 'admin.', 'middleware' => 'auth'], static function (): void {
     Route::get('admin', DashboardController::class)->name('dashboard');
