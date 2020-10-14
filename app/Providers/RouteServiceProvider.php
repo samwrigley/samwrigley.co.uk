@@ -46,7 +46,9 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapBlogRoutes(): void
     {
-        Route::middleware(['web', 'csp'])
+        Route::middleware($this->statelessMiddleware)
+            ->name('blog.')
+            ->prefix('blog')
             ->namespace($this->namespace)
             ->group(base_path('routes/blog.php'));
     }
