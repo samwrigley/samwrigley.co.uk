@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapWebRoutes(): void
     {
-        Route::middleware('web')
+        Route::middleware(['web', 'security'])
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
     }
@@ -53,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapContactRoutes(): void
     {
-        Route::middleware(['web', 'csp'])
+        Route::middleware(['web', 'security'])
             ->namespace($this->namespace)
             ->group(base_path('routes/contact.php'));
     }
@@ -67,7 +67,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAdminRoutes(): void
     {
-        Route::middleware(['web', 'csp'])
+        Route::middleware(['web', 'security'])
             ->namespace($this->namespace)
             ->group(base_path('routes/admin.php'));
     }
