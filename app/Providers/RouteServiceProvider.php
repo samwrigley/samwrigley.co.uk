@@ -9,12 +9,19 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    protected array $statelessMiddleware = [
+        'security',
+        'cacheResponse',
+        'cache.headers:public;max_age=604800;etag',
+    ];
+
     public function boot(): void
     {
         $this->configureRateLimiting();
 
         $this->routes(function (): void {
             $this->mapWebRoutes();
+            $this->mapPageRoutes();
             $this->mapBlogRoutes();
             $this->mapContactRoutes();
             $this->mapNewsletterRoutes();
@@ -28,6 +35,13 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapPageRoutes(): void
+    {
+        Route::middleware($this->statelessMiddleware)
+            ->namespace($this->namespace)
+            ->group(base_path('routes/page.php'));
     }
 
     protected function mapBlogRoutes(): void
