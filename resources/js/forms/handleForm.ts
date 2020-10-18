@@ -21,7 +21,7 @@ function createRequestBodyFromFormFields(fields: HTMLInputElement[]) {
 export default function handleNewsletterForm(
     url: string,
     formId: string,
-    errorMessageId: string = 'errors'
+    errorId: string = 'error'
 ) {
     const form = document.getElementById(formId) as HTMLFormElement | null;
 
@@ -31,7 +31,7 @@ export default function handleNewsletterForm(
 
             const formFields = getFormFields(form);
             const body = createRequestBodyFromFormFields(formFields);
-            const errorMessage = document.getElementById(errorMessageId);
+            const errorMessage = document.getElementById(errorId);
 
             const response = await CLIENT(url, body);
 
