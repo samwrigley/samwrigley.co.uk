@@ -3,12 +3,13 @@ import createClient, { Body } from '../utilities/createClient';
 const CLIENT = createClient();
 
 function getFormFields(form: HTMLFormElement | null) {
-    const inputs = form?.getElementsByTagName('input');
+    const inputs = Array.from(form?.getElementsByTagName('input') || []);
+    const textareas = Array.from(form?.getElementsByTagName('textarea') || []);
 
-    return Array.from(inputs || []);
+    return [...inputs, ...textareas];
 }
 
-function createRequestBodyFromFormFields(fields: HTMLInputElement[]) {
+function createRequestBodyFromFormFields(fields: (HTMLInputElement | HTMLTextAreaElement)[]) {
     const body: Body = {};
 
     fields.forEach((input) => {
