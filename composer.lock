@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f845e9b5c8e20a92fab60b16d1f51ca",
+    "content-hash": "077a326b8e49c306394080bd6fc11efb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4560,16 +4560,16 @@
         },
         {
             "name": "spatie/laravel-csp",
-            "version": "2.6.2",
+            "version": "2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-csp.git",
-                "reference": "eb68ef3bfeeab1bd022d04006e36de01ff5a92f0"
+                "reference": "91f86cba7360d732cecbc25df42428d047f27e6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-csp/zipball/eb68ef3bfeeab1bd022d04006e36de01ff5a92f0",
-                "reference": "eb68ef3bfeeab1bd022d04006e36de01ff5a92f0",
+                "url": "https://api.github.com/repos/spatie/laravel-csp/zipball/91f86cba7360d732cecbc25df42428d047f27e6a",
+                "reference": "91f86cba7360d732cecbc25df42428d047f27e6a",
                 "shasum": ""
             },
             "require": {
@@ -4633,7 +4633,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-09-30T23:44:47+00:00"
+            "time": "2020-10-21T06:45:25+00:00"
         },
         {
             "name": "spatie/laravel-feed",
