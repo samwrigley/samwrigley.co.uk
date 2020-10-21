@@ -42,7 +42,7 @@
         "laracasts/cypress": "1.1.11",
         "mockery/mockery": "1.4.2",
         "nunomaduro/collision": "5.0.2",
-        "nunomaduro/larastan": "0.6.6",
+        "nunomaduro/larastan": "0.6.7",
         "nunomaduro/phpinsights": "1.14.0",
         "phpunit/phpunit": "9.4.2",
         "spatie/phpunit-snapshot-assertions": "4.2.2",
