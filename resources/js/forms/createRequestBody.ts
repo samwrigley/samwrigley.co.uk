@@ -1,4 +1,4 @@
-import { RequestBody } from '../../utilities/createClient';
+import { RequestBody } from '../utilities';
 
 export function createRequestBody(fields: (HTMLInputElement | HTMLTextAreaElement)[]) {
     const body: RequestBody = {};

@@ -1,6 +1,9 @@
-import { handleNewsletterForm, handleContactForm } from './forms';
+import { handleForm } from './forms';
 
 (function () {
-    handleContactForm();
-    handleNewsletterForm();
+    const forms = Array.from(document.getElementsByTagName('form'));
+
+    forms.forEach((form) => {
+        if (form.id) handleForm(form.id);
+    });
 })();
