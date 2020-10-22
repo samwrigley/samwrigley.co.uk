@@ -1,7 +1,6 @@
-import handleContactForm from './forms/handleContactForm';
-import handleNewsletterForm from './forms/handleNewsletterForm';
+import { handleNewsletterForm, handleContactForm } from './forms';
 
 (function () {
-    handleNewsletterForm();
     handleContactForm();
+    handleNewsletterForm();
 })();

@@ -1,4 +1,4 @@
-import getCsrfToken from './getCsrfToken';
+import { getCsrfToken } from './getCsrfToken';
 
 const CONTENT_TYPE_HEADER_KEY = 'Content-Type';
 const CSRF_TOKEN_HEADER_KEY = 'X-CSRF-TOKEN';
@@ -11,7 +11,7 @@ interface Headers {
     [key: string]: string;
 }
 
-export default function createClient() {
+export function createClient() {
     const csrfToken = getCsrfToken();
     const headers: Headers = { [CONTENT_TYPE_HEADER_KEY]: 'application/json' };
 
