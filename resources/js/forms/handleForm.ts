@@ -1,4 +1,4 @@
-import createClient, { Body } from '../utilities/createClient';
+import createClient, { RequestBody } from '../utilities/createClient';
 
 interface ResponseData {
     message?: string;
@@ -12,7 +12,7 @@ function getFormFields(form: HTMLFormElement) {
 }
 
 function createRequestBodyFromFormFields(fields: (HTMLInputElement | HTMLTextAreaElement)[]) {
-    const body: Body = {};
+    const body: RequestBody = {};
 
     fields.forEach((input) => {
         body[input.name] = input.value;
