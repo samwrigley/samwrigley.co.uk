@@ -32,7 +32,7 @@ class NewsletterSubscriptionController extends Controller
         Log::info('Newsletter : Already subscribed', ['email' => $request->email]);
 
         if ($request->isJson()) {
-            return response()->json(['message' => __('newsletter.already_subscribed')]);
+            return response()->json(['message' => __('newsletter.already_subscribed')], Response::HTTP_BAD_REQUEST);
         }
 
         return Redirect::back()->with('newsletter', __('newsletter.already_subscribed'));
@@ -46,7 +46,7 @@ class NewsletterSubscriptionController extends Controller
         ]);
 
         if ($request->isJson()) {
-            return response()->json(['message' => __('newsletter.subscribe_failure')]);
+            return response()->json(['message' => __('newsletter.subscribe_failure')], Response::HTTP_BAD_REQUEST);
         }
 
         return Redirect::back()->with('newsletter', __('newsletter.subscribe_failure'));
