@@ -1,6 +1,6 @@
-@if ($errors->{$errorBag}->any())
+@if ($errors->{$key}->any())
     <ul class="list-disc list-inside text-red-700" role="alert">
-        @foreach ($errors->{$errorBag}->all() as $error)
+        @foreach ($errors->{$key}->all() as $error)
             <li>{{ $error }}</li>
         @endforeach
     </ul>

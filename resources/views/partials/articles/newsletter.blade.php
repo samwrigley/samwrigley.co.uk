@@ -38,9 +38,6 @@
             </button>
         </div>
 
-        <div class="mt-4 text-md">
-            @include('components.general.errors', ['errorBag' => 'newsletter'])
-            @include('components.general.session', ['key' => 'newsletter'])
-        </div>
+        <x-form.feedback key="newsletter" class="mt-4" />
     </form>
 </div>

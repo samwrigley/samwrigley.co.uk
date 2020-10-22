@@ -93,10 +93,7 @@
                 </button>
             </form>
 
-            <div class="mt-4">
-                @include('components.general.errors', ['errorBag' => 'contact'])
-                @include('components.general.session', ['key' => 'contact'])
-            </div>
+            <x-form.feedback key="contact" class="mt-4" />
         </div>
     </div>
 @endsection
