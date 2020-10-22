@@ -7,22 +7,23 @@ interface ResponseData {
     message?: string;
 }
 
+const client = createClient();
+
 export function handleForm(formId: string, feedbackWrapperId: string = 'feedback') {
-    const form = document.getElementById(formId) as HTMLFormElement | null;
+    const formElement = document.getElementById(formId) as HTMLFormElement | null;
 
-    if (form && form.action) {
-        const client = createClient();
-        const formFields = getFormFieldElements(form);
-        const feedbackWrapper = document.getElementById(feedbackWrapperId);
+    if (formElement && formElement.action) {
+        const formFieldsElements = getFormFieldElements(formElement);
+        const feedbackWrapperElement = document.getElementById(feedbackWrapperId);
 
-        form.addEventListener('submit', async (event: Event) => {
+        formElement.addEventListener('submit', async (event: Event) => {
             event.preventDefault();
 
-            const body = createRequestBody(formFields);
-            const { data, response } = await client<ResponseData>(form.action, body);
+            const requestBody = createRequestBody(formFieldsElements);
+            const { data, response } = await client<ResponseData>(formElement.action, requestBody);
 
-            if (feedbackWrapper && data.message) {
-                displayFeedback(feedbackWrapper, data.message, { isError: !response.ok });
+            if (feedbackWrapperElement && data.message) {
+                displayFeedback(feedbackWrapperElement, data.message, { isError: !response.ok });
             }
         });
     }

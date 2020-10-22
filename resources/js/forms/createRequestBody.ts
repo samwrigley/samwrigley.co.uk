@@ -1,10 +1,10 @@
 import { RequestBody } from '../utilities';
 
-export function createRequestBody(fields: (HTMLInputElement | HTMLTextAreaElement)[]) {
+export function createRequestBody(fieldElements: (HTMLInputElement | HTMLTextAreaElement)[]) {
     const body: RequestBody = {};
 
-    fields.forEach((input) => {
-        body[input.name] = input.value;
+    fieldElements.forEach((fieldElement) => {
+        body[fieldElement.name] = fieldElement.value;
     });
 
     return body;

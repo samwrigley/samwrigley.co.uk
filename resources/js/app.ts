@@ -1,9 +1,9 @@
 import { handleForm } from './forms';
 
 (function () {
-    const forms = Array.from(document.getElementsByTagName('form'));
+    const formElements = Array.from(document.getElementsByTagName('form'));
 
-    forms.forEach((form) => {
-        if (form.id) handleForm(form.id);
+    formElements.forEach((formElement) => {
+        if (formElement.id) handleForm(formElement.id);
     });
 })();

@@ -1,6 +1,6 @@
-export function getFormFieldElements(form: HTMLFormElement) {
-    const inputs = Array.from(form.getElementsByTagName('input'));
-    const textareas = Array.from(form.getElementsByTagName('textarea'));
+export function getFormFieldElements(formElement: HTMLFormElement) {
+    const inputElements = Array.from(formElement.getElementsByTagName('input'));
+    const textareaElements = Array.from(formElement.getElementsByTagName('textarea'));
 
-    return [...inputs, ...textareas];
+    return [...inputElements, ...textareaElements];
 }
