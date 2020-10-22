@@ -95,10 +95,7 @@
                     <x-admin.buttons.default text="{{ __('Create') }}" />
                 </div>
 
-                <div class="mt-4">
-                    @include('components.general.errors', ['errorBag' => 'article'])
-                    @include('components.general.session', ['key' => 'article'])
-                </div>
+                <x-form.feedback key="article" class="mt-4" />
             </x-form>
         </div>
     </div>
