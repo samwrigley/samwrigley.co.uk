@@ -12,7 +12,7 @@
         "bensampo/laravel-enum": "3.0.0",
         "blade-ui-kit/blade-heroicons": "0.2.2",
         "fideloper/proxy": "4.4.1",
-        "fruitcake/laravel-cors": "2.0.2",
+        "fruitcake/laravel-cors": "2.0.3",
         "guzzlehttp/guzzle": "7.2.0",
         "laravel/framework": "8.11.2",
         "laravel/horizon": "5.3.0",
