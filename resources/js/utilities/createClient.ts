@@ -1,5 +1,8 @@
 import getCsrfToken from './getCsrfToken';
 
+const CONTENT_TYPE_HEADER_KEY = 'Content-Type';
+const CSRF_TOKEN_HEADER_KEY = 'X-CSRF-TOKEN';
+
 export interface Body {
     [key: string]: any;
 }
@@ -10,13 +13,14 @@ interface Headers {
 
 export default function createClient() {
     const csrfToken = getCsrfToken();
-    const headers: Headers = { 'Content-Type': 'application/json' };
+    const headers: Headers = { [CONTENT_TYPE_HEADER_KEY]: 'application/json' };
 
-    if (csrfToken) headers['X-CSRF-TOKEN'] = csrfToken;
+    if (csrfToken) headers[CSRF_TOKEN_HEADER_KEY] = csrfToken;
 
-    return async (url: string, body: Body, method: string = 'POST') => {
+    return async <T>(url: string, body: Body, method: string = 'POST') => {
         const response = await fetch(url, { method, headers, body: JSON.stringify(body) });
+        const data: T = await response.json();
 
-        return await response.json();
+        return { data, response };
     };
 }
