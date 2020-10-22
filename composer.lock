@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a98b1af4e969dc8966f1f12a1fdb1b4",
+    "content-hash": "2b035ac8c4a8deeb43d4afd714945add",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5237,16 +5237,16 @@
         },
         {
             "name": "spatie/schema-org",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "88f0ae5c60ddc71fc0ab87e8e1bd080b285614f8"
+                "reference": "00c70fe3c156d9711a5a878efead5d91fe82591c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/88f0ae5c60ddc71fc0ab87e8e1bd080b285614f8",
-                "reference": "88f0ae5c60ddc71fc0ab87e8e1bd080b285614f8",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/00c70fe3c156d9711a5a878efead5d91fe82591c",
+                "reference": "00c70fe3c156d9711a5a878efead5d91fe82591c",
                 "shasum": ""
             },
             "require": {
@@ -5301,7 +5301,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-07T10:00:47+00:00"
+            "time": "2020-10-22T10:56:43+00:00"
         },
         {
             "name": "spatie/temporary-directory",
