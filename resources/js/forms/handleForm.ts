@@ -9,22 +9,20 @@ interface ResponseData {
 
 const client = createClient();
 
-export function handleForm(formId: string, feedbackWrapperId: string = 'feedback') {
-    const formElement = document.getElementById(formId) as HTMLFormElement | null;
+export function handleForm(formElement: HTMLFormElement, feedbackWrapperId: string = 'feedback') {
+    if (!formElement.action || formElement.method.toLowerCase() !== 'post') return;
 
-    if (formElement && formElement.action) {
-        const formFieldsElements = getFormFieldElements(formElement);
-        const feedbackWrapperElement = document.getElementById(feedbackWrapperId);
+    const formFieldsElements = getFormFieldElements(formElement);
+    const feedbackWrapperElement = document.getElementById(feedbackWrapperId);
 
-        formElement.addEventListener('submit', async (event: Event) => {
-            event.preventDefault();
+    formElement.addEventListener('submit', async (event: Event) => {
+        event.preventDefault();
 
-            const requestBody = createRequestBody(formFieldsElements);
-            const { data, response } = await client<ResponseData>(formElement.action, requestBody);
+        const requestBody = createRequestBody(formFieldsElements);
+        const { data, response } = await client<ResponseData>(formElement.action, requestBody);
 
-            if (feedbackWrapperElement && data.message) {
-                displayFeedback(feedbackWrapperElement, data.message, { isError: !response.ok });
-            }
-        });
-    }
+        if (feedbackWrapperElement && data.message) {
+            displayFeedback(feedbackWrapperElement, data.message, { isError: !response.ok });
+        }
+    });
 }
