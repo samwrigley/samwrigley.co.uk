@@ -68,6 +68,20 @@ class ContactTest extends TestCase
     }
 
     /** @test */
+    public function returns_json_with_message_after_successful_submission(): void
+    {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'message' => $this->faker->sentence,
+        ];
+
+        $this->postJson(route('contact.store'), $data)
+            ->assertOk()
+            ->assertJson(['message' => __('contact.success')]);
+    }
+
+    /** @test */
     public function sends_contact_received_notification_after_successful_submission(): void
     {
         Notification::assertNothingSent();

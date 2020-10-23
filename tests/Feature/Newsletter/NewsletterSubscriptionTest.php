@@ -5,6 +5,7 @@ namespace Tests\Feature\Article;
 use App\Notifications\NewsletterSubscribed;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Response;
 use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
@@ -49,6 +50,20 @@ class NewsletterSubscriptionTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_json_with_message_when_email_already_subscribed(): void
+    {
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(true);
+        });
+
+        $this->postJson(route('newsletter.subscribe'), ['email' => $email])
+            ->assertStatus(Response::HTTP_BAD_REQUEST)
+            ->assertJson(['message' => __('newsletter.already_subscribed')]);
+    }
+
+    /** @test */
     public function it_redirects_back_with_message_when_subscription_fails(): void
     {
         $email = $this->faker->email;
@@ -71,6 +86,22 @@ class NewsletterSubscriptionTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_json_with_message_when_subscription_fails(): void
+    {
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($email)->once()->andReturn(false);
+            $mock->shouldReceive()->getLastError()->once()->andReturn('Error');
+        });
+
+        $this->postJson(route('newsletter.subscribe'), ['email' => $email])
+            ->assertStatus(Response::HTTP_BAD_REQUEST)
+            ->assertJson(['message' => __('newsletter.subscribe_failure')]);
+    }
+
+    /** @test */
     public function can_subscribe_to_newsletter_with_valid_email(): void
     {
         $email = $this->faker->email;
@@ -89,6 +120,21 @@ class NewsletterSubscriptionTest extends TestCase
             ->assertRedirect(route('blog.articles.index'));
 
         Log::assertLogged('info');
+    }
+
+    /** @test */
+    public function it_returns_json_with_message_when_subscription_is_successful(): void
+    {
+        $email = $this->faker->email;
+
+        $this->mock(Newsletter::class, function ($mock) use ($email) {
+            $mock->shouldReceive()->isSubscribed($email)->once()->andReturn(false);
+            $mock->shouldReceive()->subscribe($email)->once()->andReturn(true);
+        });
+
+        $this->postJson(route('newsletter.subscribe'), ['email' => $email])
+            ->assertOk()
+            ->assertJson(['message' => __('newsletter.subscribe_success')]);
     }
 
     /** @test */
