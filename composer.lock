@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "473d6bf2f5da9aacc41916f119dba0bd",
+    "content-hash": "ededa42a612a203454d51a5b8652799a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "bensampo/laravel-enum",
-            "version": "v3.0.0",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BenSampo/laravel-enum.git",
-                "reference": "cac90ee1fa93c605e7a9d12ee51f90ea12c5e95f"
+                "reference": "947228be99aca299e0e2d7522780ec82837556db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/cac90ee1fa93c605e7a9d12ee51f90ea12c5e95f",
-                "reference": "cac90ee1fa93c605e7a9d12ee51f90ea12c5e95f",
+                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/947228be99aca299e0e2d7522780ec82837556db",
+                "reference": "947228be99aca299e0e2d7522780ec82837556db",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,13 @@
                 "package",
                 "validation"
             ],
-            "time": "2020-09-07T12:17:04+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/bensampo",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-22T18:16:16+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
