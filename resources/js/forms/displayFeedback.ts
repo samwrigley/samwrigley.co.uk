@@ -8,6 +8,6 @@ export function displayFeedback(
     config: FeedbackConfig = {}
 ) {
     if (config.isError) wrapperElement.classList.add('text-red-700');
-    wrapperElement.innerText = feedback;
+    wrapperElement.innerHTML = feedback;
     wrapperElement.classList.remove('hidden');
 }
