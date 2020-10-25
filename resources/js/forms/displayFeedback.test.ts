@@ -1,5 +1,4 @@
 import { displayFeedback } from './displayFeedback';
-import '@testing-library/jest-dom';
 
 const FEEDBACK_WRAPPER_ID = 'wrapper';
 const HIDDEN_CLASS_NAME = 'hidden';
