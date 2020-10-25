@@ -31,7 +31,7 @@ class NewsletterSubscriptionController extends Controller
     {
         Log::info('Newsletter : Already subscribed', ['email' => $request->email]);
 
-        if ($request->isJson()) {
+        if ($request->wantsJson()) {
             return response()->json(['message' => __('newsletter.already_subscribed')], Response::HTTP_BAD_REQUEST);
         }
 
@@ -45,7 +45,7 @@ class NewsletterSubscriptionController extends Controller
             'message' => Newsletter::getLastError(),
         ]);
 
-        if ($request->isJson()) {
+        if ($request->wantsJson()) {
             return response()->json(['message' => __('newsletter.subscribe_failure')], Response::HTTP_BAD_REQUEST);
         }
 
@@ -61,7 +61,7 @@ class NewsletterSubscriptionController extends Controller
         Notification::route('slack', Config::get('notifications.slack.newsletter'))
             ->notify(new NewsletterSubscribed($subscription));
 
-        if ($request->isJson()) {
+        if ($request->wantsJson()) {
             return response()->json(['message' => __('newsletter.subscribe_success')]);
         }
 
