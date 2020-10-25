@@ -40,7 +40,6 @@
         "@testing-library/dom": "7.26.3",
         "@testing-library/jest-dom": "5.11.4",
         "@types/jest": "26.0.15",
-        "axios": "0.21.0",
         "browser-sync": "2.26.13",
         "browser-sync-webpack-plugin": "2.2.2",
         "bundlesize": "0.18.0",
