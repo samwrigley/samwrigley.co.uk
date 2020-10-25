@@ -124,6 +124,9 @@ jobs:
       - name: Generate assets
         run: yarn production
 
+      - name: Run tests
+        run: yarn test
+
       - name: Lint assets
         run: yarn lint:assets
 
