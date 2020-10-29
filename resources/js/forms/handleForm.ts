@@ -7,11 +7,10 @@ interface ResponseData {
     message?: string;
 }
 
-const client = createClient();
-
 export function handleForm(formElement: HTMLFormElement, feedbackWrapperId: string = 'feedback') {
     if (!formElement.action || formElement.method.toLowerCase() !== 'post') return;
 
+    const client = createClient();
     const formFieldsElements = getFormFieldElements(formElement);
     const feedbackWrapperElement = document.getElementById(feedbackWrapperId);
 
