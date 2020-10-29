@@ -41,7 +41,7 @@
         "fzaninotto/faker": "1.9.1",
         "laracasts/cypress": "1.1.11",
         "mockery/mockery": "1.4.2",
-        "nunomaduro/collision": "5.0.2",
+        "nunomaduro/collision": "5.1.0",
         "nunomaduro/larastan": "0.6.8",
         "nunomaduro/phpinsights": "1.14.0",
         "phpunit/phpunit": "9.4.2",
