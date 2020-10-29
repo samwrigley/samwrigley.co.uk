@@ -7,6 +7,7 @@ import {
     SUCCESS_RESPONSE_MESSAGE_TEXT,
     getCsrfMetaTagHtml,
 } from '../tests';
+import { ERROR_CLASS_NAME, HIDDEN_CLASS_NAME } from './displayFeedback';
 
 const FORM_ID = 'form';
 const SUBMIT_BUTTON_TEXT = 'Submit';
@@ -35,5 +36,7 @@ describe('handleForm', () => {
         );
 
         expect(feedbackElement).toBeInTheDocument();
+        expect(feedbackElement).not.toHaveClass(ERROR_CLASS_NAME);
+        expect(feedbackElement).not.toHaveClass(HIDDEN_CLASS_NAME);
     });
 });
