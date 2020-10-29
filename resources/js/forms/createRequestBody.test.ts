@@ -1,7 +1,7 @@
-import { TEST_INPUT_NAME, TEST_INPUT_VALUE } from '../tests';
+import { INPUT_NAME, INPUT_VALUE } from '../tests';
 import { createRequestBody } from './createRequestBody';
 
-const INPUT_ELEMENT = createElement('input', TEST_INPUT_NAME, TEST_INPUT_VALUE);
+const INPUT_ELEMENT = createElement('input', INPUT_NAME, INPUT_VALUE);
 
 const TEXTAREA_NAME = 'message';
 const TEXTAREA_VALUE = 'Hello';
@@ -12,7 +12,7 @@ describe('createRequestBody', () => {
         const requestBody = createRequestBody([INPUT_ELEMENT, TEXTAREA_ELEMENT]);
 
         expect(requestBody).toEqual({
-            [TEST_INPUT_NAME]: TEST_INPUT_VALUE,
+            [INPUT_NAME]: INPUT_VALUE,
             [TEXTAREA_NAME]: TEXTAREA_VALUE,
         });
     });
