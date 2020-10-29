@@ -5,6 +5,7 @@ import {
     TEST_INPUT_NAME,
     TEST_INPUT_VALUE,
     TEST_SUCCESS_RESPONSE_MESSAGE_TEXT,
+    getCsrfMetaTagHtml,
 } from '../tests';
 
 const FORM_TEST_ID = 'form';
@@ -20,6 +21,7 @@ const FORM = `
 
 describe('handleForm', () => {
     it('handles form submision', async () => {
+        document.head.innerHTML = getCsrfMetaTagHtml();
         document.body.innerHTML = FORM;
 
         const formElement = screen.getByTestId(FORM_TEST_ID) as HTMLFormElement;
