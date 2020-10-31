@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccdbd68844f2e3e06a4df97392f14c47",
+    "content-hash": "23c2afd5e87cddfe1d474e53e89f272d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -138,25 +138,24 @@
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
-            "version": "0.2.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-heroicons.git",
-                "reference": "2cfa969f0e2ef7350ad46ad449bb760a905ae044"
+                "reference": "c95a3af006f0fb00020002896b4737ce927f37c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/2cfa969f0e2ef7350ad46ad449bb760a905ae044",
-                "reference": "2cfa969f0e2ef7350ad46ad449bb760a905ae044",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/c95a3af006f0fb00020002896b4737ce927f37c2",
+                "reference": "c95a3af006f0fb00020002896b4737ce927f37c2",
                 "shasum": ""
             },
             "require": {
-                "blade-ui-kit/blade-icons": "^0.4.5",
+                "blade-ui-kit/blade-icons": "^0.5.0",
                 "illuminate/support": "^7.14|^8.0",
-                "php": "^7.2"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
                 "orchestra/testbench": "^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0"
             },
@@ -192,26 +191,30 @@
                 "blade",
                 "laravel"
             ],
+            "support": {
+                "issues": "https://github.com/blade-ui-kit/blade-heroicons/issues",
+                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/0.3.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/driesvints",
                     "type": "github"
                 }
             ],
-            "time": "2020-09-04T12:23:47+00:00"
+            "time": "2020-10-31T20:09:21+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "0.4.5",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "b93505c65a1fc095df517d5640bae295779411e6"
+                "reference": "6700019aa8013944520a0148d2e4e2fafdb7d970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/b93505c65a1fc095df517d5640bae295779411e6",
-                "reference": "b93505c65a1fc095df517d5640bae295779411e6",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/6700019aa8013944520a0148d2e4e2fafdb7d970",
+                "reference": "6700019aa8013944520a0148d2e4e2fafdb7d970",
                 "shasum": ""
             },
             "require": {
@@ -219,10 +222,9 @@
                 "illuminate/filesystem": "^7.14|^8.0",
                 "illuminate/support": "^7.14|^8.0",
                 "illuminate/view": "^7.14|^8.0",
-                "php": "^7.2"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
                 "mockery/mockery": "^1.3",
                 "orchestra/testbench": "^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0"
@@ -249,10 +251,6 @@
             ],
             "authors": [
                 {
-                    "name": "Adam Wathan",
-                    "email": "adam.wathan@gmail.com"
-                },
-                {
                     "name": "Dries Vints",
                     "email": "dries@vints.io",
                     "homepage": "https://driesvints.com",
@@ -267,13 +265,17 @@
                 "laravel",
                 "svg"
             ],
+            "support": {
+                "issues": "https://github.com/blade-ui-kit/blade-icons/issues",
+                "source": "https://github.com/blade-ui-kit/blade-icons"
+            },
             "funding": [
                 {
                     "url": "https://github.com/driesvints",
                     "type": "github"
                 }
             ],
-            "time": "2020-09-04T11:36:46+00:00"
+            "time": "2020-10-31T19:42:11+00:00"
         },
         {
             "name": "brick/math",
@@ -12901,5 +12903,5 @@
         "php": "^7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
