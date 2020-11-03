@@ -3,7 +3,7 @@ import {
     CONTENT_TYPE_HEADER_KEY,
     CONTENT_TYPE_JSON_HEADER_VALUE,
     CSRF_TOKEN_HEADER_KEY,
-    FAILURE_RESPONSE_MESSAGE_TEXT,
+    FAILURE_RESPONSE_DATA,
     INPUT_NAME,
     INPUT_VALUE,
     SUCCESS_RESPONSE_DATA,
@@ -17,7 +17,7 @@ interface Request {
 const handlers = [
     rest.post<Request>(URL, (req, res, ctx) => {
         if (!hasContentTypeJsonHeader(req) || !hasCsrfTokenHeader(req) || !hasRequestBody(req)) {
-            return res(ctx.status(400), ctx.json(FAILURE_RESPONSE_MESSAGE_TEXT));
+            return res(ctx.status(400), ctx.json(FAILURE_RESPONSE_DATA));
         }
 
         return res(ctx.json(SUCCESS_RESPONSE_DATA));

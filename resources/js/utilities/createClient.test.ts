@@ -2,6 +2,10 @@ import { createClient } from './createClient';
 import { URL, REQUEST_DATA, SUCCESS_RESPONSE_DATA, getCsrfMetaTagHtml } from '../tests';
 
 describe('createClient', () => {
+    beforeEach(() => {
+        document.head.innerHTML = '';
+    });
+
     it('returns response data', async () => {
         document.head.innerHTML = getCsrfMetaTagHtml();
 

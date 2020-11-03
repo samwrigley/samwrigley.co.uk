@@ -1,9 +1,11 @@
-import { getCsrfMetaTagHtml } from '../tests';
+import { getCsrfMetaTagHtml, CSRF_TOKEN } from '../tests';
 import { getCsrfToken } from './getCsrfToken';
 
-const CSRF_TOKEN = '123';
-
 describe('getCsrfToken', () => {
+    beforeEach(() => {
+        document.head.innerHTML = '';
+    });
+
     it('returns token when CSRF token meta tag present', () => {
         document.head.innerHTML = getCsrfMetaTagHtml();
 
