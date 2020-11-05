@@ -1,9 +1,9 @@
+export const ERROR_CLASS_NAME = 'text-red-700';
+export const HIDDEN_CLASS_NAME = 'hidden';
+
 interface FeedbackConfig {
     isError?: boolean;
 }
-
-export const ERROR_CLASS_NAME = 'text-red-700';
-export const HIDDEN_CLASS_NAME = 'hidden';
 
 export function displayFeedback(
     wrapperElement: HTMLElement,
