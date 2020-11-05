@@ -1,8 +1,11 @@
 import { MockedRequest, rest } from 'msw';
 import {
+    ACCEPT_HEADER_KEY,
+    APPLICATION_JSON_MIME_TYPE,
     CONTENT_TYPE_HEADER_KEY,
-    CONTENT_TYPE_JSON_HEADER_VALUE,
     CSRF_TOKEN_HEADER_KEY,
+} from '../utilities';
+import {
     FAILURE_RESPONSE_DATA,
     INPUT_NAME,
     INPUT_VALUE,
@@ -16,7 +19,7 @@ interface Request {
 
 const handlers = [
     rest.post<Request>(URL, (req, res, ctx) => {
-        if (!hasContentTypeJsonHeader(req) || !hasCsrfTokenHeader(req) || !hasRequestBody(req)) {
+        if (!hasHeaders(req) || !hasRequestBody(req)) {
             return res(ctx.status(400), ctx.json(FAILURE_RESPONSE_DATA));
         }
 
@@ -24,12 +27,12 @@ const handlers = [
     }),
 ];
 
-function hasContentTypeJsonHeader(req: MockedRequest<Request>) {
-    return req.headers.get(CONTENT_TYPE_HEADER_KEY) === CONTENT_TYPE_JSON_HEADER_VALUE;
-}
-
-function hasCsrfTokenHeader(req: MockedRequest<Request>) {
-    return req.headers.has(CSRF_TOKEN_HEADER_KEY);
+function hasHeaders(req: MockedRequest<Request>) {
+    return (
+        req.headers.get(CONTENT_TYPE_HEADER_KEY) === APPLICATION_JSON_MIME_TYPE &&
+        req.headers.get(ACCEPT_HEADER_KEY) === APPLICATION_JSON_MIME_TYPE &&
+        req.headers.has(CSRF_TOKEN_HEADER_KEY)
+    );
 }
 
 function hasRequestBody(req: MockedRequest<Request>) {

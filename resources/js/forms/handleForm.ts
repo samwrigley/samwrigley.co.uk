@@ -5,6 +5,9 @@ import { getFormFieldElements } from './getFormFieldElements';
 
 interface ResponseData {
     message?: string;
+    errors?: {
+        messages: string[];
+    };
 }
 
 export function handleForm(formElement: HTMLFormElement, feedbackWrapperId: string = 'feedback') {
