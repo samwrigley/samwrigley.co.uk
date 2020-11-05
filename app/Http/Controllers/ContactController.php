@@ -28,7 +28,7 @@ class ContactController extends Controller
 
         Log::info("{$request->name} has been in touch using '{$request->email}'");
 
-        if ($request->wantsJson()) {
+        if ($request->isJson()) {
             return response()->json(['message' => __('contact.success')]);
         }
 
