@@ -1,7 +1,10 @@
 import { handleForm } from './forms';
 
 (function () {
-    const formElements = Array.from(document.getElementsByTagName('form'));
+    const formIds = ['contact', 'newsletter'];
 
-    formElements.forEach((formElement) => handleForm(formElement));
+    formIds.forEach((formId) => {
+        const formElement = document.getElementById(formId) as HTMLFormElement | null;
+        if (formElement) handleForm(formElement);
+    });
 })();
