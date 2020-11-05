@@ -44,7 +44,7 @@
         "cypress": "5.5.0",
         "cypress-plugin-snapshots": "1.4.4",
         "husky": "4.3.0",
-        "laravel-mix": "5.0.7",
+        "laravel-mix": "5.0.9",
         "laravel-mix-purgecss": "5.0.0",
         "lint-staged": "10.5.1",
         "prettier": "2.1.2",
