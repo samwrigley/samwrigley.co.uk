@@ -72,7 +72,7 @@ jobs:
         run: ./vendor/bin/phpstan analyse
 
       - name: PHP Insights
-        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=85 --min-style=90 --format=github-action
+        run: php artisan insights --no-interaction --min-quality=90 --min-complexity=85 --min-architecture=85 --min-style=90 --format=github-action
 
       - name: PHP Linting
         run: yarn lint:php
@@ -123,6 +123,9 @@ jobs:
 
       - name: Generate assets
         run: yarn production
+
+      - name: Run tests
+        run: yarn test
 
       - name: Lint assets
         run: yarn lint:assets

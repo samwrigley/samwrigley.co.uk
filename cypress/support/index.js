@@ -1,17 +1,18 @@
 import './commands';
 import './laravel-commands';
 
-const environment = Cypress.env('environment');
+const ENV = Cypress.env('environment');
+const DATABASE_SEEDER = 'Database\\Seeders\\Test\\TestSeeder';
 
 before(() => {
-    if (environment === 'local') {
+    if (ENV === 'local') {
         cy.task('swapCypressEnvFile', {}, { log: false });
-        cy.refreshDatabase({ '--seeder': 'DatabaseTestSeeder' });
+        cy.refreshDatabase({ '--seeder': DATABASE_SEEDER });
     }
 });
 
 after(() => {
-    if (environment === 'local') {
+    if (ENV === 'local') {
         cy.task('swapLocalEnvFile', {}, { log: false });
     }
 });
