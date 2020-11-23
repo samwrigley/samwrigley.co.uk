@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d058c0de06cfc8395388de325b745cc",
+    "content-hash": "baa9182c2d3ac90273bbdef59e1348f5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -146,16 +146,16 @@
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
-            "version": "0.3.0",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-heroicons.git",
-                "reference": "c95a3af006f0fb00020002896b4737ce927f37c2"
+                "reference": "b80c667dfe6eb5c69730e11810ca2d5d1654314a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/c95a3af006f0fb00020002896b4737ce927f37c2",
-                "reference": "c95a3af006f0fb00020002896b4737ce927f37c2",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/b80c667dfe6eb5c69730e11810ca2d5d1654314a",
+                "reference": "b80c667dfe6eb5c69730e11810ca2d5d1654314a",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
             ],
             "support": {
                 "issues": "https://github.com/blade-ui-kit/blade-heroicons/issues",
-                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/0.3.0"
+                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/0.3.1"
             },
             "funding": [
                 {
@@ -209,7 +209,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-31T20:09:21+00:00"
+            "time": "2020-11-23T21:21:12+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
