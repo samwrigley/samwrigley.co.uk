@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c2855bdf2862dba7ec6d43dd529d0cc",
+    "content-hash": "df55a0dc0bd9d978f5f50d06334f7f10",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2881,28 +2881,26 @@
         },
         {
             "name": "ohdearapp/ohdear-php-sdk",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ohdearapp/ohdear-php-sdk.git",
-                "reference": "54d027647cf79cdc8d66daff7620eaa47b3ccd2e"
+                "reference": "6d8eed7ce34e12067c13d392bffd3ecf71b2f026"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ohdearapp/ohdear-php-sdk/zipball/54d027647cf79cdc8d66daff7620eaa47b3ccd2e",
-                "reference": "54d027647cf79cdc8d66daff7620eaa47b3ccd2e",
+                "url": "https://api.github.com/repos/ohdearapp/ohdear-php-sdk/zipball/6d8eed7ce34e12067c13d392bffd3ecf71b2f026",
+                "reference": "6d8eed7ce34e12067c13d392bffd3ecf71b2f026",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.3|^7.0",
                 "nesbot/carbon": "^2.35.0",
-                "php": "^7.4"
+                "php": "^7.4|^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
                 "phpunit/phpunit": "^9.0",
                 "psalm/plugin-laravel": "^1.2",
-                "vimeo/psalm": "^3.11",
                 "vlucas/phpdotenv": "^4.0"
             },
             "type": "library",
@@ -2933,9 +2931,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ohdearapp/ohdear-php-sdk/issues",
-                "source": "https://github.com/ohdearapp/ohdear-php-sdk/tree/3.0.1"
+                "source": "https://github.com/ohdearapp/ohdear-php-sdk/tree/3.0.2"
             },
-            "time": "2020-08-21T21:38:17+00:00"
+            "time": "2020-11-30T19:06:34+00:00"
         },
         {
             "name": "opis/closure",
