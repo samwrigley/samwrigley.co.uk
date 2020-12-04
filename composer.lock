@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "adb91a13bb53f1512bb10929b1d5719e",
+    "content-hash": "9c8998c337f021e99ce6e597a1cad260",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1903,16 +1903,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.4.0",
+            "version": "v5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "d08d10ee12f53b7ba2cbb938eb23857e93fe51d3"
+                "reference": "4e21779357d1f1abc0282a940855be635bf4f1be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/d08d10ee12f53b7ba2cbb938eb23857e93fe51d3",
-                "reference": "d08d10ee12f53b7ba2cbb938eb23857e93fe51d3",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/4e21779357d1f1abc0282a940855be635bf4f1be",
+                "reference": "4e21779357d1f1abc0282a940855be635bf4f1be",
                 "shasum": ""
             },
             "require": {
@@ -1974,9 +1974,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/horizon/issues",
-                "source": "https://github.com/laravel/horizon/tree/v5.4.0"
+                "source": "https://github.com/laravel/horizon/tree/v5.6.0"
             },
-            "time": "2020-11-03T16:55:40+00:00"
+            "time": "2020-12-01T15:13:23+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
