@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e752303e77bcd02c580f459cef8f50e",
+    "content-hash": "a9527dcbbe77edfbe17650595a874914",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5057,22 +5057,22 @@
         },
         {
             "name": "spatie/laravel-newsletter",
-            "version": "4.8.2",
+            "version": "4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-newsletter.git",
-                "reference": "246fc1bbfd17cfa1eb6808fcfe7632e8ad05545b"
+                "reference": "659893001e73b5ea5b9b6dd73a06a8574ea735a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-newsletter/zipball/246fc1bbfd17cfa1eb6808fcfe7632e8ad05545b",
-                "reference": "246fc1bbfd17cfa1eb6808fcfe7632e8ad05545b",
+                "url": "https://api.github.com/repos/spatie/laravel-newsletter/zipball/659893001e73b5ea5b9b6dd73a06a8574ea735a7",
+                "reference": "659893001e73b5ea5b9b6dd73a06a8574ea735a7",
                 "shasum": ""
             },
             "require": {
                 "drewm/mailchimp-api": "^2.4",
-                "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.3"
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.3",
@@ -5115,7 +5115,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-newsletter/issues",
-                "source": "https://github.com/spatie/laravel-newsletter/tree/4.8.2"
+                "source": "https://github.com/spatie/laravel-newsletter/tree/4.9.0"
             },
             "funding": [
                 {
@@ -5123,7 +5123,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-09-30T22:15:21+00:00"
+            "time": "2020-11-25T14:14:49+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
