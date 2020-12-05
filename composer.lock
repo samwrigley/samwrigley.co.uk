@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b953cc2f14795654fa71ce85c5ae523",
+    "content-hash": "f6adb4f0fb2e14357cbbcacfcc642689",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -12665,16 +12665,16 @@
         },
         {
             "name": "spatie/phpunit-snapshot-assertions",
-            "version": "4.2.3",
+            "version": "4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/phpunit-snapshot-assertions.git",
-                "reference": "b8a978cebdeaaaedd90731ac2d8e71f58b170b2e"
+                "reference": "a6ba40b71b15b481a9e9447f5d8239b820bcb842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/phpunit-snapshot-assertions/zipball/b8a978cebdeaaaedd90731ac2d8e71f58b170b2e",
-                "reference": "b8a978cebdeaaaedd90731ac2d8e71f58b170b2e",
+                "url": "https://api.github.com/repos/spatie/phpunit-snapshot-assertions/zipball/a6ba40b71b15b481a9e9447f5d8239b820bcb842",
+                "reference": "a6ba40b71b15b481a9e9447f5d8239b820bcb842",
                 "shasum": ""
             },
             "require": {
@@ -12719,7 +12719,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/phpunit-snapshot-assertions/issues",
-                "source": "https://github.com/spatie/phpunit-snapshot-assertions/tree/4.2.3"
+                "source": "https://github.com/spatie/phpunit-snapshot-assertions/tree/4.2.4"
             },
             "funding": [
                 {
@@ -12727,7 +12727,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-11-03T10:17:39+00:00"
+            "time": "2020-11-26T13:05:32+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -13320,16 +13320,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.1.8",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f284e032c3cefefb9943792132251b79a6127ca6"
+                "reference": "bb73619b2ae5121bbbcd9f191dfd53ded17ae598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f284e032c3cefefb9943792132251b79a6127ca6",
-                "reference": "f284e032c3cefefb9943792132251b79a6127ca6",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/bb73619b2ae5121bbbcd9f191dfd53ded17ae598",
+                "reference": "bb73619b2ae5121bbbcd9f191dfd53ded17ae598",
                 "shasum": ""
             },
             "require": {
@@ -13375,7 +13375,7 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.1.8"
+                "source": "https://github.com/symfony/yaml/tree/v5.2.0"
             },
             "funding": [
                 {
@@ -13391,7 +13391,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-24T12:03:25+00:00"
+            "time": "2020-11-28T10:57:20+00:00"
         },
         {
             "name": "theseer/fdomdocument",
