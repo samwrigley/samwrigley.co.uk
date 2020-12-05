@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6adb4f0fb2e14357cbbcacfcc642689",
+    "content-hash": "0678d0b2d74c3151cd82644ad62650dd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5542,29 +5542,29 @@
         },
         {
             "name": "spatie/schema-org",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "a9aff51a891058d8d58f8bb4b4b425d1382dba00"
+                "reference": "3b22822c19b1c6e4a889ea7af3b8cc76ca8fc622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/a9aff51a891058d8d58f8bb4b4b425d1382dba00",
-                "reference": "a9aff51a891058d8d58f8bb4b4b425d1382dba00",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/3b22822c19b1c6e4a889ea7af3b8cc76ca8fc622",
+                "reference": "3b22822c19b1c6e4a889ea7af3b8cc76ca8fc622",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.3"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
-                "graham-campbell/analyzer": "^2.3",
-                "league/flysystem": "^1.0",
-                "phpunit/phpunit": "^8.0",
-                "symfony/console": "^3.2",
-                "tightenco/collect": "^7.25",
-                "twig/twig": "^1.28"
+                "graham-campbell/analyzer": "^3.0.4",
+                "illuminate/collections": "^8.16.1",
+                "league/flysystem": "^1.1.3",
+                "phpunit/phpunit": "^9.4.3",
+                "symfony/console": "^3.4.47",
+                "twig/twig": "^1.44.1"
             },
             "type": "library",
             "autoload": {
@@ -5598,7 +5598,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/schema-org/issues",
-                "source": "https://github.com/spatie/schema-org/tree/3.2.0"
+                "source": "https://github.com/spatie/schema-org/tree/3.2.1"
             },
             "funding": [
                 {
@@ -5610,7 +5610,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-05T15:56:26+00:00"
+            "time": "2020-11-28T22:51:55+00:00"
         },
         {
             "name": "spatie/temporary-directory",
