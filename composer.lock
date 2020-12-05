@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ec23690f462bc0846f24bb0df45e0f8",
+    "content-hash": "b67dfb188558d22876767d397987d621",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4901,23 +4901,23 @@
         },
         {
             "name": "spatie/laravel-feed",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-feed.git",
-                "reference": "49bad243c7cd59738816f022563b55de5c45dd9e"
+                "reference": "83b6c9db955b5dee285e25d9b53847a048fbf6a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/49bad243c7cd59738816f022563b55de5c45dd9e",
-                "reference": "49bad243c7cd59738816f022563b55de5c45dd9e",
+                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/83b6c9db955b5dee285e25d9b53847a048fbf6a9",
+                "reference": "83b6c9db955b5dee285e25d9b53847a048fbf6a9",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^7.0|^8.0",
                 "illuminate/http": "^7.0|^8.0",
                 "illuminate/support": "^7.0|^8.0",
-                "php": "^7.4"
+                "php": "^7.4|^8.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^5.0|^6.0",
@@ -4972,7 +4972,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-feed/issues",
-                "source": "https://github.com/spatie/laravel-feed/tree/3.0.1"
+                "source": "https://github.com/spatie/laravel-feed/tree/3.1.0"
             },
             "funding": [
                 {
@@ -4980,7 +4980,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-09T18:55:58+00:00"
+            "time": "2020-11-27T08:15:00+00:00"
         },
         {
             "name": "spatie/laravel-honeypot",
