@@ -38,7 +38,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.5.1",
         "facade/ignition": "2.5.3",
-        "fzaninotto/faker": "1.9.1",
+        "fzaninotto/faker": "1.9.2",
         "laracasts/cypress": "1.1.11",
         "mockery/mockery": "1.4.2",
         "nunomaduro/collision": "5.1.0",
