@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13f5421af47668362396b58f5e1c8414",
+    "content-hash": "c5eb188d7b5660d8493d34f1db2174c3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,30 +64,31 @@
         },
         {
             "name": "bensampo/laravel-enum",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BenSampo/laravel-enum.git",
-                "reference": "947228be99aca299e0e2d7522780ec82837556db"
+                "reference": "a16fa6d9d1646b9fe52c5c91add6bc452c8baa8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/947228be99aca299e0e2d7522780ec82837556db",
-                "reference": "947228be99aca299e0e2d7522780ec82837556db",
+                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/a16fa6d9d1646b9fe52c5c91add6bc452c8baa8d",
+                "reference": "a16fa6d9d1646b9fe52c5c91add6bc452c8baa8d",
                 "shasum": ""
             },
             "require": {
-                "hanneskod/classtools": "~1.0",
+                "hanneskod/classtools": "^1.2",
                 "illuminate/contracts": "^8.0",
                 "illuminate/support": "^8.0",
                 "laminas/laminas-code": "^3.4",
-                "php": "^7.3"
+                "nikic/php-parser": "^4.10",
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
                 "doctrine/dbal": "^2.9",
-                "laravel/framework": "^8.0",
+                "mockery/mockery": "^1.4",
                 "orchestra/testbench": "^6.0",
-                "phpstan/phpstan": "^0.12.9",
+                "phpstan/phpstan": "^0.12.59",
                 "phpunit/phpunit": "^8.5",
                 "squizlabs/php_codesniffer": "^3.0"
             },
@@ -134,7 +135,7 @@
             ],
             "support": {
                 "issues": "https://github.com/BenSampo/laravel-enum/issues",
-                "source": "https://github.com/BenSampo/laravel-enum/tree/v3.1.0"
+                "source": "https://github.com/BenSampo/laravel-enum/tree/v3.2.0"
             },
             "funding": [
                 {
@@ -142,7 +143,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-22T18:16:16+00:00"
+            "time": "2020-12-15T10:28:48+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -1536,16 +1537,16 @@
         },
         {
             "name": "laminas/laminas-code",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-code.git",
-                "reference": "cb90ef428da9260c2deaa827b037c20695f968ae"
+                "reference": "b549b70c0bb6e935d497f84f750c82653326ac77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-code/zipball/cb90ef428da9260c2deaa827b037c20695f968ae",
-                "reference": "cb90ef428da9260c2deaa827b037c20695f968ae",
+                "url": "https://api.github.com/repos/laminas/laminas-code/zipball/b549b70c0bb6e935d497f84f750c82653326ac77",
+                "reference": "b549b70c0bb6e935d497f84f750c82653326ac77",
                 "shasum": ""
             },
             "require": {
@@ -1600,7 +1601,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-11-11T22:11:27+00:00"
+            "time": "2020-11-30T20:16:31+00:00"
         },
         {
             "name": "laminas/laminas-eventmanager",
