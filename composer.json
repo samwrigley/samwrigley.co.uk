@@ -19,7 +19,7 @@
         "laravel/slack-notification-channel": "2.3.0",
         "laravel/telescope": "4.4.0",
         "laravel/tinker": "2.5.0",
-        "laravel/ui": "3.1.0",
+        "laravel/ui": "3.2.0",
         "ohdearapp/ohdear-php-sdk": "3.0.2",
         "predis/predis": "1.1.6",
         "sentry/sentry-laravel": "2.3.1",
