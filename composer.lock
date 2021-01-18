@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3927b2780caebabae93633c5f12ee8d2",
+    "content-hash": "514e7d8a0fab4a71e074029b00466620",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9710,21 +9710,21 @@
         },
         {
             "name": "laracasts/cypress",
-            "version": "1.1.11",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laracasts/cypress.git",
-                "reference": "e51996fdcb3086f6a3390cecddd5c53c7da32080"
+                "reference": "3bdc9c4342040d7d6d151a0cf3d78f95e91d773d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/cypress/zipball/e51996fdcb3086f6a3390cecddd5c53c7da32080",
-                "reference": "e51996fdcb3086f6a3390cecddd5c53c7da32080",
+                "url": "https://api.github.com/repos/laracasts/cypress/zipball/3bdc9c4342040d7d6d151a0cf3d78f95e91d773d",
+                "reference": "3bdc9c4342040d7d6d151a0cf3d78f95e91d773d",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.3"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
                 "laravel/legacy-factories": "^1.0",
@@ -9763,9 +9763,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laracasts/cypress/issues",
-                "source": "https://github.com/laracasts/cypress/tree/1.1.11"
+                "source": "https://github.com/laracasts/cypress/tree/1.2.1"
             },
-            "time": "2020-09-09T17:43:24+00:00"
+            "time": "2021-01-18T16:43:21+00:00"
         },
         {
             "name": "league/container",
