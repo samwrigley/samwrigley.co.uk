@@ -37,7 +37,7 @@
     "devDependencies": {
         "@testing-library/cypress": "7.0.3",
         "axios": "0.21.1",
-        "browser-sync": "2.26.13",
+        "browser-sync": "2.26.14",
         "browser-sync-webpack-plugin": "2.3.0",
         "bundlesize": "0.18.1",
         "cross-env": "7.0.3",
