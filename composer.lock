@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdc6b1c923f3211307f535f3ffa068f4",
+    "content-hash": "6cdf39e2b4f6c5afc208b0564a546ce0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2094,16 +2094,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "535889a7585c331854dbdf8ca5e66209588408dd"
+                "reference": "c21b0e38c3e1e7f12a391eb97f092de1d1f2bdd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/535889a7585c331854dbdf8ca5e66209588408dd",
-                "reference": "535889a7585c331854dbdf8ca5e66209588408dd",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/c21b0e38c3e1e7f12a391eb97f092de1d1f2bdd8",
+                "reference": "c21b0e38c3e1e7f12a391eb97f092de1d1f2bdd8",
                 "shasum": ""
             },
             "require": {
@@ -2152,9 +2152,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.4.0"
+                "source": "https://github.com/laravel/telescope/tree/v4.4.1"
             },
-            "time": "2020-12-15T19:19:38+00:00"
+            "time": "2021-01-26T20:11:13+00:00"
         },
         {
             "name": "laravel/tinker",
