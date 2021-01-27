@@ -57,5 +57,5 @@ yarn watch
 To run the application tests use:
 
 ```sh
-php artisan test
+php artisan test --parallel
 ```
