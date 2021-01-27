@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d6780c3a3f32f933842ad5a76ca0ae3",
+    "content-hash": "0791adb25e0348811b1232f5d825f81d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5401,32 +5401,33 @@
         },
         {
             "name": "spatie/laravel-schedule-monitor",
-            "version": "1.0.4",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-schedule-monitor.git",
-                "reference": "d4245bb9767071c50ea452261e4bb0bb0843c126"
+                "reference": "677a8aaeec625ff1d64f1133be81f653841ebbd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-schedule-monitor/zipball/d4245bb9767071c50ea452261e4bb0bb0843c126",
-                "reference": "d4245bb9767071c50ea452261e4bb0bb0843c126",
+                "url": "https://api.github.com/repos/spatie/laravel-schedule-monitor/zipball/677a8aaeec625ff1d64f1133be81f653841ebbd8",
+                "reference": "677a8aaeec625ff1d64f1133be81f653841ebbd8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/bus": "^7.19|^8.0",
+                "illuminate/bus": "^8.0",
                 "lorisleiva/cron-translator": "^0.1.1",
-                "php": "^7.4"
+                "nesbot/carbon": "^2.41.3",
+                "php": "^7.4|^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "laravel/legacy-factories": "^1.0",
+                "laravel/legacy-factories": "^1.0.4",
+                "mockery/mockery": "^1.4",
                 "ohdearapp/ohdear-php-sdk": "^3.0",
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.0",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3",
                 "spatie/phpunit-snapshot-assertions": "^4.2",
                 "spatie/test-time": "^1.2",
-                "vimeo/psalm": "^3.11"
+                "vimeo/psalm": "^4.0"
             },
             "suggest": {
                 "ohdearapp/ohdear-php-sdk": "Needed to sync your schedule with Oh Dear"
@@ -5464,7 +5465,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-schedule-monitor/issues",
-                "source": "https://github.com/spatie/laravel-schedule-monitor/tree/1.0.4"
+                "source": "https://github.com/spatie/laravel-schedule-monitor/tree/2.2.0"
             },
             "funding": [
                 {
@@ -5472,7 +5473,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T20:04:19+00:00"
+            "time": "2021-01-15T12:05:52+00:00"
         },
         {
             "name": "spatie/laravel-sitemap",
