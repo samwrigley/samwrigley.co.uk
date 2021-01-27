@@ -66,7 +66,7 @@ jobs:
         run: yarn production
 
       - name: Run PHP tests
-        run: php artisan test
+        run: php artisan test --parallel
 
       - name: Analyse PHP
         run: ./vendor/bin/phpstan analyse
