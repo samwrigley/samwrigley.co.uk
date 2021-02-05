@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77548d4f1818835c042ff19d35336cdd",
+    "content-hash": "71c357aaf9433f294496eb086c496852",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -13617,16 +13617,16 @@
         },
         {
             "name": "timacdonald/log-fake",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timacdonald/log-fake.git",
-                "reference": "39f6eeaad85fe3ce3465c0d8a3286727c3ddd625"
+                "reference": "dd53ca0be53428e93b5638a4e820dd86084efba2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timacdonald/log-fake/zipball/39f6eeaad85fe3ce3465c0d8a3286727c3ddd625",
-                "reference": "39f6eeaad85fe3ce3465c0d8a3286727c3ddd625",
+                "url": "https://api.github.com/repos/timacdonald/log-fake/zipball/dd53ca0be53428e93b5638a4e820dd86084efba2",
+                "reference": "dd53ca0be53428e93b5638a4e820dd86084efba2",
                 "shasum": ""
             },
             "require": {
@@ -13674,7 +13674,7 @@
                 "issues": "https://github.com/timacdonald/log-fake/issues",
                 "source": "https://github.com/timacdonald/log-fake/releases/latest"
             },
-            "time": "2020-12-14T08:51:14+00:00"
+            "time": "2021-02-05T01:02:45+00:00"
         }
     ],
     "aliases": [],
