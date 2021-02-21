@@ -35,7 +35,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@testing-library/cypress": "7.0.3",
+        "@testing-library/cypress": "7.0.4",
         "axios": "0.21.1",
         "browser-sync": "2.26.14",
         "browser-sync-webpack-plugin": "2.3.0",
