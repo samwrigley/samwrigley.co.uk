@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "276bdb04910e58fa88f367f284424ae9",
+    "content-hash": "71b928b37c3a3b1b0fe67041bb1e5b15",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2094,21 +2094,21 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.4.3",
+            "version": "v4.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "2544c879631e1d8e48aef1c7ee79b3dee8cbb833"
+                "reference": "7f8baf54e76a1a291c1f0efda638beb4a24feb82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/2544c879631e1d8e48aef1c7ee79b3dee8cbb833",
-                "reference": "2544c879631e1d8e48aef1c7ee79b3dee8cbb833",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/7f8baf54e76a1a291c1f0efda638beb4a24feb82",
+                "reference": "7f8baf54e76a1a291c1f0efda638beb4a24feb82",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "laravel/framework": "^8.2",
+                "laravel/framework": "^8.29",
                 "php": "^7.3|^8.0",
                 "symfony/var-dumper": "^5.0"
             },
@@ -2152,9 +2152,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.4.3"
+                "source": "https://github.com/laravel/telescope/tree/v4.4.4"
             },
-            "time": "2021-02-16T17:12:37+00:00"
+            "time": "2021-02-23T20:48:25+00:00"
         },
         {
             "name": "laravel/tinker",
