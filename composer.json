@@ -48,7 +48,7 @@
         "phpunit/phpunit": "9.5.2",
         "spatie/phpunit-snapshot-assertions": "4.2.5",
         "squizlabs/php_codesniffer": "3.5.8",
-        "symfony/css-selector": "5.2.3",
+        "symfony/css-selector": "5.2.4",
         "timacdonald/log-fake": "1.9.0"
     },
     "config": {
