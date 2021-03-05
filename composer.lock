@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "621add83d23cfecd394258ee5ed4fe4d",
+    "content-hash": "c659be304d19047d94677f5c9ef05f37",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4650,16 +4650,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.41.0",
+            "version": "3.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "2cc87d4dad788b372549cf856c773a7e5a8fcace"
+                "reference": "94815d30e61dfe0f833fe705c82f6c27b484041f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/2cc87d4dad788b372549cf856c773a7e5a8fcace",
-                "reference": "2cc87d4dad788b372549cf856c773a7e5a8fcace",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/94815d30e61dfe0f833fe705c82f6c27b484041f",
+                "reference": "94815d30e61dfe0f833fe705c82f6c27b484041f",
                 "shasum": ""
             },
             "require": {
@@ -4704,7 +4704,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/browsershot/issues",
-                "source": "https://github.com/spatie/browsershot/tree/3.41.0"
+                "source": "https://github.com/spatie/browsershot/tree/3.44.0"
             },
             "funding": [
                 {
@@ -4712,7 +4712,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-18T08:51:42+00:00"
+            "time": "2021-02-05T08:07:26+00:00"
         },
         {
             "name": "spatie/commonmark-highlighter",
@@ -4770,30 +4770,30 @@
         },
         {
             "name": "spatie/crawler",
-            "version": "5.0.2",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/crawler.git",
-                "reference": "26be88734d35e0fe9e103cd6d31113917cc5e271"
+                "reference": "7df48888d0dcc5d9f1175847224147c8bce34f70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/crawler/zipball/26be88734d35e0fe9e103cd6d31113917cc5e271",
-                "reference": "26be88734d35e0fe9e103cd6d31113917cc5e271",
+                "url": "https://api.github.com/repos/spatie/crawler/zipball/7df48888d0dcc5d9f1175847224147c8bce34f70",
+                "reference": "7df48888d0dcc5d9f1175847224147c8bce34f70",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^6.3|^7.0",
-                "guzzlehttp/psr7": "^1.4",
-                "illuminate/collections": "^8.6",
+                "guzzlehttp/guzzle": "^7.2",
+                "guzzlehttp/psr7": "^1.7",
+                "illuminate/collections": "^8.17",
                 "nicmart/tree": "^0.3.0",
                 "php": "^7.4|^8.0",
                 "spatie/browsershot": "^3.14",
-                "spatie/robots-txt": "^1.0.1",
-                "symfony/dom-crawler": "^5.0"
+                "spatie/robots-txt": "^1.0.9",
+                "symfony/dom-crawler": "^5.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.3"
+                "phpunit/phpunit": "^9.4"
             },
             "type": "library",
             "autoload": {
@@ -4821,7 +4821,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/crawler/issues",
-                "source": "https://github.com/spatie/crawler/tree/5.0.2"
+                "source": "https://github.com/spatie/crawler/tree/6.0.1"
             },
             "funding": [
                 {
@@ -4829,20 +4829,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-27T11:24:49+00:00"
+            "time": "2021-02-26T11:34:28+00:00"
         },
         {
             "name": "spatie/image",
-            "version": "1.10.1",
+            "version": "1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "6eaf45d61832c2396dd4b10cc81d9fce93a59e2d"
+                "reference": "12662673fbe649bffcd3a24188a404dc31fa118c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/6eaf45d61832c2396dd4b10cc81d9fce93a59e2d",
-                "reference": "6eaf45d61832c2396dd4b10cc81d9fce93a59e2d",
+                "url": "https://api.github.com/repos/spatie/image/zipball/12662673fbe649bffcd3a24188a404dc31fa118c",
+                "reference": "12662673fbe649bffcd3a24188a404dc31fa118c",
                 "shasum": ""
             },
             "require": {
@@ -4884,7 +4884,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/image/issues",
-                "source": "https://github.com/spatie/image/tree/1.10.1"
+                "source": "https://github.com/spatie/image/tree/1.10.2"
             },
             "funding": [
                 {
@@ -4896,7 +4896,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-01T20:42:11+00:00"
+            "time": "2021-01-26T07:53:19+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -5477,16 +5477,16 @@
         },
         {
             "name": "spatie/laravel-sitemap",
-            "version": "5.9.1",
+            "version": "5.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-sitemap.git",
-                "reference": "4d9ba07fe006bfacc1ccfe1b603995a247da71d0"
+                "reference": "df5c3db511e08a8e64a3d7e28613ab018a99e95d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/4d9ba07fe006bfacc1ccfe1b603995a247da71d0",
-                "reference": "4d9ba07fe006bfacc1ccfe1b603995a247da71d0",
+                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/df5c3db511e08a8e64a3d7e28613ab018a99e95d",
+                "reference": "df5c3db511e08a8e64a3d7e28613ab018a99e95d",
                 "shasum": ""
             },
             "require": {
@@ -5494,7 +5494,7 @@
                 "illuminate/support": "^8.0",
                 "nesbot/carbon": "^2.0",
                 "php": "^7.4|^8.0",
-                "spatie/crawler": "^5.0",
+                "spatie/crawler": "^5.0|^6.0",
                 "symfony/dom-crawler": "^5.1.14"
             },
             "require-dev": {
@@ -5537,7 +5537,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-sitemap/issues",
-                "source": "https://github.com/spatie/laravel-sitemap/tree/5.9.1"
+                "source": "https://github.com/spatie/laravel-sitemap/tree/5.9.2"
             },
             "funding": [
                 {
@@ -5545,7 +5545,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-12-01T21:18:41+00:00"
+            "time": "2021-03-04T22:57:48+00:00"
         },
         {
             "name": "spatie/laravel-view-models",
@@ -5685,16 +5685,16 @@
         },
         {
             "name": "spatie/robots-txt",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/robots-txt.git",
-                "reference": "e4672f270dc33dab91dca07999cc87dba2bd6c51"
+                "reference": "8802a2bee670b3c13cfd21ede0322f72b3efb711"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/robots-txt/zipball/e4672f270dc33dab91dca07999cc87dba2bd6c51",
-                "reference": "e4672f270dc33dab91dca07999cc87dba2bd6c51",
+                "url": "https://api.github.com/repos/spatie/robots-txt/zipball/8802a2bee670b3c13cfd21ede0322f72b3efb711",
+                "reference": "8802a2bee670b3c13cfd21ede0322f72b3efb711",
                 "shasum": ""
             },
             "require": {
@@ -5730,9 +5730,9 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/robots-txt/issues",
-                "source": "https://github.com/spatie/robots-txt/tree/1.0.9"
+                "source": "https://github.com/spatie/robots-txt/tree/1.0.10"
             },
-            "time": "2020-11-27T11:00:03+00:00"
+            "time": "2020-12-07T11:10:49+00:00"
         },
         {
             "name": "spatie/schema-org",
@@ -6163,16 +6163,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v5.2.0",
+            "version": "v5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "0969122fe144dd8ab2e8c98c7e03eedc621b368c"
+                "reference": "400e265163f65aceee7e904ef532e15228de674b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/0969122fe144dd8ab2e8c98c7e03eedc621b368c",
-                "reference": "0969122fe144dd8ab2e8c98c7e03eedc621b368c",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/400e265163f65aceee7e904ef532e15228de674b",
+                "reference": "400e265163f65aceee7e904ef532e15228de674b",
                 "shasum": ""
             },
             "require": {
@@ -6214,10 +6214,10 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony DomCrawler Component",
+            "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v5.2.0"
+                "source": "https://github.com/symfony/dom-crawler/tree/v5.2.4"
             },
             "funding": [
                 {
@@ -6233,7 +6233,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-24T12:01:57+00:00"
+            "time": "2021-02-15T18:55:04+00:00"
         },
         {
             "name": "symfony/error-handler",
