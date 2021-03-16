@@ -1,5 +1,9 @@
 module.exports = {
-    purge: ['./resources/views/**/*.blade.php', './resources/js/**/*.js'],
+    purge: [
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',
+        './resources/sass/**/*.scss',
+    ],
     theme: {
         extend: {
             spacing: {
