@@ -12,12 +12,6 @@
             "compression": "brotli"
         }
     ],
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged",
-            "post-commit": "git update-index --again"
-        }
-    },
     "scripts": {
         "lint:php": "./vendor/bin/phpcs .",
         "lint:assets": "prettier --check '**/*.{js,ts,tsx,json,scss,md}'",
@@ -43,10 +37,8 @@
         "cross-env": "7.0.3",
         "cypress": "6.6.0",
         "cypress-plugin-snapshots": "1.4.4",
-        "husky": "5.1.3",
         "laravel-mix": "6.0.13",
         "laravel-mix-purgecss": "5.0.0",
-        "lint-staged": "10.5.4",
         "prettier": "2.2.1",
         "resolve-url-loader": "3.1.2",
         "sass": "1.32.8",
