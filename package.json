@@ -34,7 +34,7 @@
         "browser-sync": "2.26.14",
         "browser-sync-webpack-plugin": "2.3.0",
         "bundlesize": "0.18.1",
-        "cypress": "6.6.0",
+        "cypress": "6.7.1",
         "cypress-plugin-snapshots": "1.4.4",
         "laravel-mix": "6.0.13",
         "postcss": "8.2.8",
