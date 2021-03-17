@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Middleware\Feature;
+namespace Tests\Feature\Middleware;
 
 use App\Http\Middleware\AddSecurityHeaders;
 use Tests\TestCase;

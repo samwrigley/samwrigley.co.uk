@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Newsletter;
 
-use App\Enums\MailChimpUnsubscribeWebhookAction;
 use App\Enums\MailChimpWebhookType;
 use App\Jobs\ProcessMailChimpWebhookJob;
 use Illuminate\Foundation\Testing\RefreshDatabase;

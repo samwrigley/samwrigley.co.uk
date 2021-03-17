@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Article;
+namespace Tests\Feature\Pages;
 
 use App\Models\Contact;
 use App\Notifications\ContactReceived;
