@@ -16,17 +16,17 @@ describe('Blog Article Index', () => {
 
     it('matches mobile screenshot', () => {
         cy.viewport(MOBILE_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('matches tablet screenshot', () => {
         cy.viewport(TABLET_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('has page title', () => {

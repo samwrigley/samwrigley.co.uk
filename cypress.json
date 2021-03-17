@@ -1,8 +1,7 @@
 {
-    "baseUrl": "https://samwrigley.test",
+    "baseUrl": "http://127.0.0.1:8000",
     "screenshotOnRunFailure": false,
     "video": false,
-    "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"],
     "retries": {
         "runMode": 2
     },

@@ -9,7 +9,7 @@ describe('Login', () => {
 
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('has page title', () => {
