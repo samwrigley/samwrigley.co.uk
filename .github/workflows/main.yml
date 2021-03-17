@@ -50,11 +50,8 @@ jobs:
       - name: Generate key
         run: php artisan key:generate --no-ansi
 
-      - name: Run database migrations
-        run: php artisan migrate:fresh --force --no-interaction --no-ansi
-
-      - name: Seed database
-        run: php artisan db:seed --class=Database\\Seeders\\Test\\TestSeeder --force --no-interaction --no-ansi
+      - name: Run database migrations and seed
+        run: php artisan migrate:fresh --seed --force --no-interaction --no-ansi
 
       - name: Generate sitemap
         run: php artisan sitemap:generate

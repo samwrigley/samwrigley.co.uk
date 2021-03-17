@@ -13,6 +13,8 @@
         }
     ],
     "scripts": {
+        "seed": "php artisan migrate:fresh --seed",
+        "seed:dev": "php artisan migrate:fresh '--seeder=Database\\Seeders\\Dev\\DatabaseSeeder'",
         "lint:php": "./vendor/bin/phpcs .",
         "lint:assets": "prettier --check '**/*.{js,ts,tsx,json,scss,md}'",
         "lint:fix": "prettier --write '**/*.{js,ts,tsx,json,scss,md}'",

@@ -1,10 +1,10 @@
 <?php
 
-namespace Database\Seeders\Test;
+namespace Database\Seeders\Dev;
 
 use Illuminate\Database\Seeder;
 
-class TestSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
@@ -13,6 +13,8 @@ class TestSeeder extends Seeder
             ArticleCategoriesTableSeeder::class,
             ArticleSeriesTableSeeder::class,
             ArticleTableSeeder::class,
+            ContactsTableSeeder::class,
+            NewsletterSubscriptionsTableSeeder::class,
         ]);
     }
 }
