@@ -2,9 +2,9 @@ let fs = require('fs');
 
 module.exports = {
     swapCypressEnvFile() {
-        if (fs.existsSync('.env.cypress')) {
+        if (fs.existsSync('.env.testing')) {
             fs.renameSync('.env', '.env.backup');
-            fs.renameSync('.env.cypress', '.env');
+            fs.renameSync('.env.testing', '.env');
         }
 
         return null;
@@ -12,7 +12,7 @@ module.exports = {
 
     swapLocalEnvFile() {
         if (fs.existsSync('.env.backup')) {
-            fs.renameSync('.env', '.env.cypress');
+            fs.renameSync('.env', '.env.testing');
             fs.renameSync('.env.backup', '.env');
         }
 
