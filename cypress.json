@@ -2,6 +2,7 @@
     "baseUrl": "http://127.0.0.1:8000",
     "screenshotOnRunFailure": false,
     "video": false,
+    "fixturesFolder": false,
     "retries": {
         "runMode": 2
     }
