@@ -4,8 +4,5 @@
     "video": false,
     "retries": {
         "runMode": 2
-    },
-    "env": {
-        "environment": "local"
     }
 }

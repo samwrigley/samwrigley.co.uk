@@ -78,7 +78,7 @@ jobs:
         run: php artisan serve > /dev/null 2>&1 &
 
       - name: Run Cypress tests
-        run: yarn cypress:run -- --env environment=ci
+        run: yarn cypress:run
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
