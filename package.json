@@ -22,6 +22,8 @@
         "test:size": "bundlesize",
         "cypress:open": "cypress open --browser chrome",
         "cypress:run": "cypress run --browser chrome --headless",
+        "cypress:setup": "mv .env .env.backup && mv .env.testing .env",
+        "cypress:cleanup": "mv .env .env.testing && mv .env.backup .env",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
