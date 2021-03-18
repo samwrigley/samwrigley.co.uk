@@ -22,8 +22,9 @@ class ArticleCategoriesTableSeeder extends Seeder
             'user_id' => User::factory()->create(),
             'title' => 'Dolor sit',
             'slug' => 'dolor-sit',
+            'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'published_at' => Carbon::parse('01/01/2020'),
+            'published_at' => Carbon::parse('03/01/2020'),
         ]);
 
         $category->articles()->save($article);

@@ -22,8 +22,9 @@ class ArticleSeriesTableSeeder extends Seeder
             'user_id' => User::factory()->create(),
             'title' => 'Lorem ipsum',
             'slug' => 'lorem-ipsum',
+            'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'published_at' => Carbon::parse('01/01/2020'),
+            'published_at' => Carbon::parse('02/01/2020'),
         ]);
 
         $series->articles()->save($article);
