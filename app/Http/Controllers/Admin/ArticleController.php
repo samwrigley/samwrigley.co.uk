@@ -16,7 +16,7 @@ class ArticleController extends Controller
     public function index(): View
     {
         return view('admin.articles.index', [
-            'articles' => Article::latest()->paginate(25),
+            'articles' => Article::latest('published_at')->paginate(25),
         ]);
     }
 
