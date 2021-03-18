@@ -4,6 +4,7 @@ import { ADMIN_ARTICLE_CREATE_PATH, DESKTOP_VIEWPORT } from '../../../constants'
 
 describe('Admin Article Create', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.login();
         cy.visit(ADMIN_ARTICLE_CREATE_PATH);
     });

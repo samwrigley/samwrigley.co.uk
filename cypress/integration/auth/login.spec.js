@@ -1,9 +1,10 @@
 import * as strings from '../../strings';
-import { ADMIN_DASHBOARD_PATH, DESKTOP_VIEWPORT, LOGIN_PATH } from '../../constants';
+import { ADMIN_DASHBOARD_PATH, DESKTOP_VIEWPORT, LOGIN_PATH, TEST_USER_EMAIL, TEST_USER_PASSWORD } from '../../constants';
 import { LOGIN_FORM_ID } from '../../selectors';
 
 describe('Login', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.visit(LOGIN_PATH);
     });
 

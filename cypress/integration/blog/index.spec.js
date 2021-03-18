@@ -8,6 +8,7 @@ import {
 
 describe('Blog Index', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.visit(BLOG_INDEX_PATH);
     });
 

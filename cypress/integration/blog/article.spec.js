@@ -11,6 +11,7 @@ const TEST_ARTICLE_SHOW_PATH = BLOG_INDEX_PATH + '/test';
 
 describe('Blog Article Index', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.visit(TEST_ARTICLE_SHOW_PATH);
     });
 

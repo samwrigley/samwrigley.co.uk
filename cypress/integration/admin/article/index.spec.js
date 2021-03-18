@@ -9,6 +9,7 @@ import {
 
 describe('Admin Article Index', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.login();
         cy.visit(ADMIN_ARTICLE_INDEX_PATH);
     });
