@@ -47,10 +47,10 @@ describe('Login', () => {
     it('redirects to admin dashboard after successful login', () => {
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_EMAIL_FIELD_LABEL)
-            .type('test@example.com');
+            .type(TEST_USER_EMAIL);
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_PASSWORD_FIELD_LABEL)
-            .type('secret');
+            .type(TEST_USER_PASSWORD);
         cy.get(LOGIN_FORM_ID).findByRole('button').click();
         cy.url().should('include', ADMIN_DASHBOARD_PATH);
     });

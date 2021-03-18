@@ -1,3 +1,7 @@
+// User
+export const TEST_USER_EMAIL = 'test@example.com';
+export const TEST_USER_PASSWORD = 'secret';
+
 // Paths
 export const ABOUT_INDEX_PATH = 'about';
 export const CONTACT_INDEX_PATH = 'contact';
