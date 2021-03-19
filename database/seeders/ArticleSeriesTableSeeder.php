@@ -24,6 +24,7 @@ class ArticleSeriesTableSeeder extends Seeder
             'slug' => 'lorem-ipsum',
             'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'created_at' => Carbon::parse('02/01/2020'),
             'published_at' => Carbon::parse('02/01/2020'),
         ]);
 

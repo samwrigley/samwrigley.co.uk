@@ -19,6 +19,7 @@ class ArticleTableSeeder extends Seeder
                 'slug' => 'test',
                 'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                 'body' => Storage::get('testArticle.md'),
+                'created_at' => Carbon::parse('01/01/2020'),
                 'published_at' => Carbon::parse('01/01/2020'),
             ]);
     }
