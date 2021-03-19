@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Article;
+namespace Tests\Feature\Newsletter;
 
 use App\Notifications\NewsletterSubscribed;
 use Illuminate\Foundation\Testing\RefreshDatabase;

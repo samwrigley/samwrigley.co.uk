@@ -4,13 +4,14 @@ import { ADMIN_ARTICLE_CREATE_PATH, DESKTOP_VIEWPORT } from '../../../constants'
 
 describe('Admin Article Create', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.login();
         cy.visit(ADMIN_ARTICLE_CREATE_PATH);
     });
 
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('has page title', () => {

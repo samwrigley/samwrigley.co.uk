@@ -9,12 +9,12 @@ describe('Contact', () => {
 
     it('matches tablet screenshot', () => {
         cy.viewport(TABLET_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('has page title', () => {
