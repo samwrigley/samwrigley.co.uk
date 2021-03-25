@@ -21,8 +21,8 @@ class Select extends Component
         string $name,
         string $label,
         Collection $items,
-        $selected = null,
-        $errorBag = null
+        mixed $selected = null,
+        string $errorBag = null
     ) {
         $this->name = $name;
         $this->label = $label;
