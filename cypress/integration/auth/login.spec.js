@@ -1,5 +1,11 @@
 import * as strings from '../../strings';
-import { ADMIN_DASHBOARD_PATH, DESKTOP_VIEWPORT, LOGIN_PATH, TEST_USER_EMAIL, TEST_USER_PASSWORD } from '../../constants';
+import {
+    ADMIN_DASHBOARD_PATH,
+    DESKTOP_VIEWPORT,
+    LOGIN_PATH,
+    TEST_USER_EMAIL,
+    TEST_USER_PASSWORD,
+} from '../../constants';
 import { LOGIN_FORM_ID } from '../../selectors';
 
 describe('Login', () => {
