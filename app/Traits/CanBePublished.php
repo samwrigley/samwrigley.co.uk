@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
 trait CanBePublished
@@ -67,7 +68,7 @@ trait CanBePublished
         return $this->published_at->format(self::$PUBLISHED_TIME_FORMAT);
     }
 
-    public function next(): ?self
+    public function next(): ?Model
     {
         return $this->published()
             ->whereDate('published_at', '>', $this->published_at)
@@ -75,7 +76,7 @@ trait CanBePublished
             ->first();
     }
 
-    public function previous(): ?self
+    public function previous(): ?Model
     {
         return $this->published()
             ->whereDate('published_at', '<', $this->published_at)

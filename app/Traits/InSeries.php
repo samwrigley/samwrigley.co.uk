@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait InSeries
@@ -14,7 +15,7 @@ trait InSeries
         return $query->with('series');
     }
 
-    public function nextInSeries(): ?self
+    public function nextInSeries(): ?Model
     {
         return $this->series
             ->hasMany(self::class)
@@ -24,7 +25,7 @@ trait InSeries
             ->first();
     }
 
-    public function previousInSeries(): ?self
+    public function previousInSeries(): ?Model
     {
         return $this->series
             ->hasMany(self::class)
