@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "668e731a6654180eec7ee30f7ac24501",
+    "content-hash": "dccad21d1d3614c3cefda4419e849eb1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5266,16 +5266,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.6.0",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "c190a294db3a10a14e27db67cd286c3ce10c8277"
+                "reference": "4bb554dc9870127606c34d906a602989b8b376ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c190a294db3a10a14e27db67cd286c3ce10c8277",
-                "reference": "c190a294db3a10a14e27db67cd286c3ce10c8277",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/4bb554dc9870127606c34d906a602989b8b376ff",
+                "reference": "4bb554dc9870127606c34d906a602989b8b376ff",
                 "shasum": ""
             },
             "require": {
@@ -5314,7 +5314,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.6.0"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.6.2"
             },
             "funding": [
                 {
@@ -5322,20 +5322,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-12T12:08:43+00:00"
+            "time": "2021-03-25T08:05:55+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
-            "version": "6.6.8",
+            "version": "6.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "0e8857e326ec5b2728c1b0f008c19fd0a16efb02"
+                "reference": "cab93fa63fd60e03dc5bb33aef7b45cc014ed6a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/0e8857e326ec5b2728c1b0f008c19fd0a16efb02",
-                "reference": "0e8857e326ec5b2728c1b0f008c19fd0a16efb02",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/cab93fa63fd60e03dc5bb33aef7b45cc014ed6a3",
+                "reference": "cab93fa63fd60e03dc5bb33aef7b45cc014ed6a3",
                 "shasum": ""
             },
             "require": {
@@ -5394,7 +5394,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-responsecache/issues",
-                "source": "https://github.com/spatie/laravel-responsecache/tree/6.6.8"
+                "source": "https://github.com/spatie/laravel-responsecache/tree/6.6.9"
             },
             "funding": [
                 {
@@ -5402,7 +5402,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-01-25T15:16:11+00:00"
+            "time": "2021-03-30T20:11:33+00:00"
         },
         {
             "name": "spatie/laravel-schedule-monitor",
@@ -8248,16 +8248,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.2.5",
+            "version": "v5.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "0947ab1e3aabd22a6bef393874b2555d2bb976da"
+                "reference": "2cc7f45d96db9adfcf89adf4401d9dfed509f4e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/0947ab1e3aabd22a6bef393874b2555d2bb976da",
-                "reference": "0947ab1e3aabd22a6bef393874b2555d2bb976da",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/2cc7f45d96db9adfcf89adf4401d9dfed509f4e1",
+                "reference": "2cc7f45d96db9adfcf89adf4401d9dfed509f4e1",
                 "shasum": ""
             },
             "require": {
@@ -8321,7 +8321,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v5.2.5"
+                "source": "https://github.com/symfony/translation/tree/v5.2.6"
             },
             "funding": [
                 {
@@ -8337,7 +8337,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-06T07:59:01+00:00"
+            "time": "2021-03-23T19:33:48+00:00"
         },
         {
             "name": "symfony/translation-contracts",
