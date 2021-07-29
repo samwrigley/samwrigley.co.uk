@@ -11,7 +11,7 @@ jobs:
     env:
         DB_DATABASE: test
         DB_USER: root
-        DB_PASSWORD: secret
+        DB_PASSWORD: root
 
     steps:
       - name: Create database
