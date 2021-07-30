@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6483272cbbb81010405a55f492be6f09",
+    "content-hash": "d3e8a7013c428610f487ae369485ab04",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5155,16 +5155,16 @@
         },
         {
             "name": "spatie/laravel-newsletter",
-            "version": "4.9.0",
+            "version": "4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-newsletter.git",
-                "reference": "659893001e73b5ea5b9b6dd73a06a8574ea735a7"
+                "reference": "c3b9061a8410650aeab1416ed76e1afb57adc685"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-newsletter/zipball/659893001e73b5ea5b9b6dd73a06a8574ea735a7",
-                "reference": "659893001e73b5ea5b9b6dd73a06a8574ea735a7",
+                "url": "https://api.github.com/repos/spatie/laravel-newsletter/zipball/c3b9061a8410650aeab1416ed76e1afb57adc685",
+                "reference": "c3b9061a8410650aeab1416ed76e1afb57adc685",
                 "shasum": ""
             },
             "require": {
@@ -5213,7 +5213,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-newsletter/issues",
-                "source": "https://github.com/spatie/laravel-newsletter/tree/4.9.0"
+                "source": "https://github.com/spatie/laravel-newsletter/tree/4.10.0"
             },
             "funding": [
                 {
@@ -5221,7 +5221,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-11-25T14:14:49+00:00"
+            "time": "2021-05-18T11:28:48+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
