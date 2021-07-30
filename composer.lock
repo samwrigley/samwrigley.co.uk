@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8009856459976ea3b88171b801d0c4fd",
+    "content-hash": "64c7041ad01e1dad50fb8a34f32d02a9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -12915,16 +12915,16 @@
         },
         {
             "name": "spatie/phpunit-snapshot-assertions",
-            "version": "4.2.5",
+            "version": "4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/phpunit-snapshot-assertions.git",
-                "reference": "b6c9aac4cee1e5176c2a90b23971c665e66a290f"
+                "reference": "981fa0e0a432315064db00b6b97a4f11f3b0c0fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/phpunit-snapshot-assertions/zipball/b6c9aac4cee1e5176c2a90b23971c665e66a290f",
-                "reference": "b6c9aac4cee1e5176c2a90b23971c665e66a290f",
+                "url": "https://api.github.com/repos/spatie/phpunit-snapshot-assertions/zipball/981fa0e0a432315064db00b6b97a4f11f3b0c0fd",
+                "reference": "981fa0e0a432315064db00b6b97a4f11f3b0c0fd",
                 "shasum": ""
             },
             "require": {
@@ -12969,7 +12969,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/phpunit-snapshot-assertions/issues",
-                "source": "https://github.com/spatie/phpunit-snapshot-assertions/tree/4.2.5"
+                "source": "https://github.com/spatie/phpunit-snapshot-assertions/tree/4.2.7"
             },
             "funding": [
                 {
@@ -12977,7 +12977,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-01-27T08:11:35+00:00"
+            "time": "2021-07-09T08:38:04+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
