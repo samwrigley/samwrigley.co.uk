@@ -12,7 +12,8 @@ class TextArea extends Component
         public string $label,
         public ?string $value = null,
         public ?string $errorBag = null,
-    ) {}
+    ) {
+    }
 
     public function render(): View
     {

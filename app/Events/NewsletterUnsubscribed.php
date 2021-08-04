@@ -14,5 +14,6 @@ class NewsletterUnsubscribed
     public function __construct(
         public NewsletterSubscription $subscription,
         public WebhookCall $webhookCall,
-    ) {}
+    ) {
+    }
 }

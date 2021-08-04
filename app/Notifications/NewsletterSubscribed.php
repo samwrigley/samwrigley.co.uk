@@ -14,7 +14,8 @@ class NewsletterSubscribed extends Notification implements ShouldQueue
 
     public function __construct(
         protected NewsletterSubscription $subscription
-    ) {}
+    ) {
+    }
 
     public function via(): array
     {
