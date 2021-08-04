@@ -16,7 +16,8 @@ class BlogPostingSchema implements SchemaContract
 {
     public function __construct(
         public Article $article
-    ) {}
+    ) {
+    }
 
     public function generate(): BlogPosting
     {

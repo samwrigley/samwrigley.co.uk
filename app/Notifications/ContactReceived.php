@@ -14,7 +14,8 @@ class ContactReceived extends Notification implements ShouldQueue
 
     public function __construct(
         private Contact $contact,
-    ) {}
+    ) {
+    }
 
     public function via(): array
     {
