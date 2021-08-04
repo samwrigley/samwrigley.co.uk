@@ -3,11 +3,11 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait HasArticles
 {
-    abstract public function articles(): BelongsToMany;
+    abstract public function articles(): HasMany;
 
     public function scopeWithArticles(Builder $query): Builder
     {

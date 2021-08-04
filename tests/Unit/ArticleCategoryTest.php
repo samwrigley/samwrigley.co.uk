@@ -14,10 +14,10 @@ class ArticleCategoryTest extends TestCase
     /** @test */
     public function it_belongs_to_a_single_article(): void
     {
-        $articles = Article::factory()->create();
+        $article = Article::factory()->create();
 
         $articleCategory = tap(ArticleCategory::factory()->create())
-            ->addArticle($articles);
+            ->articles()->attach($article);
 
         $this->assertCount(1, $articleCategory->articles);
     }
@@ -30,7 +30,7 @@ class ArticleCategoryTest extends TestCase
         $articles = Article::factory()->count($articleCount)->create();
 
         $articleCategory = tap(ArticleCategory::factory()->create())
-            ->addArticles($articles);
+            ->articles()->attach($articles);
 
         $this->assertCount($articleCount, $articleCategory->articles);
     }
@@ -42,7 +42,7 @@ class ArticleCategoryTest extends TestCase
         $articles = Article::factory()->count($articleCount)->create();
 
         $articleCategory = tap(ArticleCategory::factory()->create())
-            ->addArticles($articles);
+            ->articles()->attach($articles);
 
         $articles[0]->markAsPublished();
         $articles[1]->markAsScheduled(now()->addDays(7));
@@ -57,7 +57,7 @@ class ArticleCategoryTest extends TestCase
         $publishedArticle = tap(Article::factory()->create())->markAsPublished();
 
         $articleCategory = tap(ArticleCategory::factory()->create())
-            ->addArticle($publishedArticle);
+            ->articles()->attach($publishedArticle);
 
         $this->assertEquals(1, $articleCategory->publishedArticleCount());
     }
@@ -69,7 +69,7 @@ class ArticleCategoryTest extends TestCase
             ->markAsScheduled(now()->addDays(7));
 
         $articleCategory = tap(ArticleCategory::factory()->create())
-            ->addArticle($scheduledArticle);
+            ->articles()->attach($scheduledArticle);
 
         $this->assertEquals(1, $articleCategory->scheduledArticleCount());
     }
@@ -80,7 +80,7 @@ class ArticleCategoryTest extends TestCase
         $draftArticle = tap(Article::factory()->create())->markAsDraft();
 
         $articleCategory = tap(ArticleCategory::factory()->create())
-            ->addArticle($draftArticle);
+            ->articles()->attach($draftArticle);
 
         $this->assertEquals(1, $articleCategory->draftArticleCount());
     }

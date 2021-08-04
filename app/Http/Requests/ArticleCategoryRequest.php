@@ -17,7 +17,7 @@ class ArticleCategoryRequest extends FormRequest
     public function rules(): array
     {
         $category = $this->route('category');
-        $categoryId = optional($category)->id;
+        $categoryId = $category?->id;
 
         return [
             'name' => [

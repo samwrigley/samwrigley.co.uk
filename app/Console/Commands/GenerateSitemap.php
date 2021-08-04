@@ -30,11 +30,6 @@ class GenerateSitemap extends Command
 
     protected Sitemap $sitemap;
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
@@ -42,12 +37,7 @@ class GenerateSitemap extends Command
         $this->sitemap = SitemapGenerator::create(config('app.url'))->getSitemap();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
+    public function handle(): void
     {
         $this->addPagesToSitemap();
         $this->addBlogPagesToSitemap();

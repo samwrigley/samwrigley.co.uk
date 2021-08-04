@@ -17,7 +17,7 @@ class UserTest extends TestCase
         $article = Article::factory()->create();
         $user = User::factory()->create();
 
-        $user->addArticle($article);
+        $user->articles()->save($article);
 
         $this->assertCount(1, $user->articles);
     }
@@ -30,7 +30,7 @@ class UserTest extends TestCase
         $articles = Article::factory()->count($articleCount)->create();
         $user = User::factory()->create();
 
-        $user->addArticles($articles);
+        $user->articles()->saveMany($articles);
 
         $this->assertCount($articleCount, $user->articles);
     }
