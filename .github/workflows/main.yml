@@ -25,7 +25,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v1
         with:
-            php-version: '7.4'
+            php-version: '8.0'
             coverage: none
 
       - name: Get Composer cache directory path
