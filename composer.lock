@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cfd12a706c969be55918391145546c1",
+    "content-hash": "1970814494aa50efd8084966f702cded",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5103,16 +5103,16 @@
         },
         {
             "name": "spatie/laravel-honeypot",
-            "version": "3.0.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-honeypot.git",
-                "reference": "3dd4319c3d42a9db2bae30582844528799bb22d2"
+                "reference": "e13ee4ee3225313f18191c51fdd28f75075c69c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/3dd4319c3d42a9db2bae30582844528799bb22d2",
-                "reference": "3dd4319c3d42a9db2bae30582844528799bb22d2",
+                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/e13ee4ee3225313f18191c51fdd28f75075c69c0",
+                "reference": "e13ee4ee3225313f18191c51fdd28f75075c69c0",
                 "shasum": ""
             },
             "require": {
@@ -5122,7 +5122,8 @@
                 "illuminate/support": "^8.0",
                 "illuminate/validation": "^8.0",
                 "nesbot/carbon": "^2.0",
-                "php": "^7.4|^8.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.6",
                 "symfony/http-foundation": "^5.1.2"
             },
             "require-dev": {
@@ -5163,7 +5164,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-honeypot/issues",
-                "source": "https://github.com/spatie/laravel-honeypot/tree/3.0.1"
+                "source": "https://github.com/spatie/laravel-honeypot/tree/4.0.0"
             },
             "funding": [
                 {
@@ -5171,7 +5172,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-11-03T12:56:39+00:00"
+            "time": "2021-04-13T17:50:21+00:00"
         },
         {
             "name": "spatie/laravel-newsletter",
@@ -13984,5 +13985,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
