@@ -104,7 +104,8 @@ class Article extends Model implements Feedable
             ->summary($this->excerpt)
             ->updated($this->published_at)
             ->link($this->showRoute())
-            ->author($this->author->name);
+            ->authorName($this->author->name)
+            ->authorEmail($this->author->email);
     }
 
     public static function getFeedItems(): Collection

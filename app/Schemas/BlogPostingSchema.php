@@ -14,11 +14,9 @@ use Spatie\SchemaOrg\Schema;
 
 class BlogPostingSchema implements SchemaContract
 {
-    public Article $article;
-
-    public function __construct(Article $article)
-    {
-        $this->article = $article;
+    public function __construct(
+        public Article $article
+    ) {
     }
 
     public function generate(): BlogPosting
@@ -29,7 +27,7 @@ class BlogPostingSchema implements SchemaContract
             ->dateModified($this->article->updated_at)
             ->datePublished($this->article->published_at)
             ->description($this->article->excerpt)
-            ->genre(optional($this->article->categories->first())->name)
+            ->genre($this->article->categories->first()?->name)
             ->headline($this->article->title)
             ->image(asset('images/sam-wrigley.png'))
             ->publisher($this->generatePublisherSchema())

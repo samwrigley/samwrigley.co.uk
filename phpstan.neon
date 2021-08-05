@@ -12,6 +12,7 @@ parameters:
 
     ignoreErrors:
         - '#Undefined variable: \$this#'
+        - '#Faker\\UniqueGenerator#'
 
         - path: database/seeders/*
           message: '#Call to an undefined method#'

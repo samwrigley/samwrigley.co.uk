@@ -7,9 +7,9 @@ use App\Events\NewsletterSubscriptionEmailUpdated;
 use App\Events\NewsletterUnsubscribed;
 use App\Models\NewsletterSubscription;
 use Illuminate\Support\Facades\Log;
-use Spatie\WebhookClient\ProcessWebhookJob as SpatieProcessWebhookJob;
+use Spatie\WebhookClient\Jobs\ProcessWebhookJob;
 
-class ProcessMailChimpWebhookJob extends SpatieProcessWebhookJob
+class ProcessMailChimpWebhookJob extends ProcessWebhookJob
 {
     public function handle(): void
     {

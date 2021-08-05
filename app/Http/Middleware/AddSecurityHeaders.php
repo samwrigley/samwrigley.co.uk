@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AddSecurityHeaders
 {
@@ -11,14 +13,7 @@ class AddSecurityHeaders
     public const HEADER_X_FRAME_OPTIONS = 'X-Frame-Options';
     public const HEADER_X_XSS_PROTECTION = 'X-Xss-Protection';
 
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response | RedirectResponse
     {
         $response = $next($request);
 

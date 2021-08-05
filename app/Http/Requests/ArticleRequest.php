@@ -24,7 +24,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         $article = $this->route('article');
-        $articleId = optional($article)->id;
+        $articleId = $article?->id;
         $maxTitleLength = Article::MAX_TITLE_LENGTH;
         $maxSlugLength = Article::MAX_SLUG_LENGTH;
         $maxExcerptLength = Article::MAX_EXCERPT_LENGTH;

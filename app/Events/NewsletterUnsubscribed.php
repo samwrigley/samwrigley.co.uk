@@ -11,13 +11,9 @@ class NewsletterUnsubscribed
 {
     use Dispatchable, SerializesModels;
 
-    public NewsletterSubscription $subscription;
-
-    public WebhookCall $webhookCall;
-
-    public function __construct(NewsletterSubscription $subscription, WebhookCall $webhookCall)
-    {
-        $this->subscription = $subscription;
-        $this->webhookCall = $webhookCall;
+    public function __construct(
+        public NewsletterSubscription $subscription,
+        public WebhookCall $webhookCall,
+    ) {
     }
 }

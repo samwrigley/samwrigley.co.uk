@@ -8,24 +8,24 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    services:
-        mysql:
-            image: mysql:5.7
-            env:
-                MYSQL_ALLOW_EMPTY_PASSWORD: yes
-                MYSQL_DATABASE: samwrigley
-            ports:
-                - 3306:3306
-            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    env:
+        DB_DATABASE: test
+        DB_USER: root
+        DB_PASSWORD: root
 
     steps:
+      - name: Create database
+        run: |
+            sudo /etc/init.d/mysql start
+            mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+
       - name: Checkout code
         uses: actions/checkout@v1
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v1
         with:
-            php-version: '7.4'
+            php-version: '8.0'
             coverage: none
 
       - name: Get Composer cache directory path
