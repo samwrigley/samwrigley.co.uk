@@ -16,7 +16,6 @@ use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowShortTernaryOperator
 use SlevomatCodingStandard\Sniffs\Namespaces\AlphabeticallySortedUsesSniff;
 use SlevomatCodingStandard\Sniffs\Namespaces\UseFromSameNamespaceSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
-use SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff;
 
@@ -63,7 +62,6 @@ return [
         ComposerMustBeValid::class,
         DeclareStrictTypesSniff::class,
         DisallowEmptySniff::class,
-        DisallowMixedTypeHintSniff::class,
         DisallowShortTernaryOperatorSniff::class,
         DocCommentSpacingSniff::class,
         ForbiddenDefineFunctions::class,

@@ -12,11 +12,9 @@ class NewsletterUnsubscribed extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected NewsletterSubscription $subscription;
-
-    public function __construct(NewsletterSubscription $subscription)
-    {
-        $this->subscription = $subscription;
+    public function __construct(
+        protected NewsletterSubscription $subscription
+    ) {
     }
 
     public function via(): array

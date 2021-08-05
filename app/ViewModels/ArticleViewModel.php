@@ -9,13 +9,11 @@ use Spatie\ViewModels\ViewModel;
 
 class ArticleViewModel extends ViewModel
 {
-    public Article $article;
-
     private BlogPostingSchema $blogPostingSchema;
 
-    public function __construct(Article $article)
-    {
-        $this->article = $article;
+    public function __construct(
+        public Article $article
+    ) {
         $this->blogPostingSchema = new BlogPostingSchema($article);
     }
 

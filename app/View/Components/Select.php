@@ -8,27 +8,13 @@ use Illuminate\View\View;
 
 class Select extends Component
 {
-    public string $name;
-    public string $label;
-    public Collection $items;
-
-    /** @var array|string|int|null */
-    public $selected;
-
-    public ?string $errorBag;
-
     public function __construct(
-        string $name,
-        string $label,
-        Collection $items,
-        $selected = null,
-        $errorBag = null
+        public string $name,
+        public string $label,
+        public Collection $items,
+        public array | string | int | null $selected = null,
+        public ?string $errorBag = null,
     ) {
-        $this->name = $name;
-        $this->label = $label;
-        $this->items = $items;
-        $this->selected = $selected;
-        $this->errorBag = $errorBag;
     }
 
     public function render(): View

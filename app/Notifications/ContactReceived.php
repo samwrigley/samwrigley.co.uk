@@ -12,11 +12,9 @@ class ContactReceived extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    private Contact $contact;
-
-    public function __construct(Contact $contact)
-    {
-        $this->contact = $contact;
+    public function __construct(
+        private Contact $contact,
+    ) {
     }
 
     public function via(): array

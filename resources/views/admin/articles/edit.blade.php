@@ -99,7 +99,7 @@
                     name="series"
                     label="{{ __('Series') }}"
                     :items="$series"
-                    :selected="optional($article->series)->id"
+                    :selected="$article->series?->id"
                     errorBag="article"
                 >
                     <option></option>
