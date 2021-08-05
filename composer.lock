@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cfd12a706c969be55918391145546c1",
+    "content-hash": "5b4ddc6d9400fba7f5b9ac547c03237f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5603,27 +5603,29 @@
         },
         {
             "name": "spatie/laravel-webhook-client",
-            "version": "2.7.5",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-webhook-client.git",
-                "reference": "aa6864027c9ca5c184f8a9d974c68dbe8b66b337"
+                "reference": "e100b8476f46ff859d6bceafe5717405cf18bbcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-webhook-client/zipball/aa6864027c9ca5c184f8a9d974c68dbe8b66b337",
-                "reference": "aa6864027c9ca5c184f8a9d974c68dbe8b66b337",
+                "url": "https://api.github.com/repos/spatie/laravel-webhook-client/zipball/e100b8476f46ff859d6bceafe5717405cf18bbcb",
+                "reference": "e100b8476f46ff859d6bceafe5717405cf18bbcb",
                 "shasum": ""
             },
             "require": {
-                "illuminate/bus": "^7.0|^8.0",
-                "illuminate/database": "^7.0|^8.0",
-                "illuminate/support": "^7.0|^8.0",
-                "php": "^8.0|^7.4"
+                "illuminate/bus": "^8.50",
+                "illuminate/database": "^8.50",
+                "illuminate/support": "^8.50",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9"
             },
             "require-dev": {
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.3.8"
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3",
+                "spatie/laravel-ray": "^1.24"
             },
             "type": "library",
             "extra": {
@@ -5658,7 +5660,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-webhook-client/issues",
-                "source": "https://github.com/spatie/laravel-webhook-client/tree/2.7.5"
+                "source": "https://github.com/spatie/laravel-webhook-client/tree/3.0.1"
             },
             "funding": [
                 {
@@ -5666,7 +5668,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-01-08T09:22:21+00:00"
+            "time": "2021-07-25T22:20:05+00:00"
         },
         {
             "name": "spatie/robots-txt",
@@ -13984,5 +13986,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
