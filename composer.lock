@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e83660145d05e861d2562974721555a3",
+    "content-hash": "29c80501a883ac9ac2f30b2ec36d4caf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4633,16 +4633,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.48.0",
+            "version": "3.49.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "4dfbfbb3ad9e83b8508550e83f0aa58c79c79c5a"
+                "reference": "ca6885dac4be1d63f24332154e88408e78f5343d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/4dfbfbb3ad9e83b8508550e83f0aa58c79c79c5a",
-                "reference": "4dfbfbb3ad9e83b8508550e83f0aa58c79c79c5a",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/ca6885dac4be1d63f24332154e88408e78f5343d",
+                "reference": "ca6885dac4be1d63f24332154e88408e78f5343d",
                 "shasum": ""
             },
             "require": {
@@ -4687,7 +4687,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/browsershot/issues",
-                "source": "https://github.com/spatie/browsershot/tree/3.48.0"
+                "source": "https://github.com/spatie/browsershot/tree/3.49.0"
             },
             "funding": [
                 {
@@ -4695,7 +4695,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-28T08:05:30+00:00"
+            "time": "2021-08-05T20:47:40+00:00"
         },
         {
             "name": "spatie/commonmark-highlighter",
