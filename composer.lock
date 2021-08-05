@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cfd12a706c969be55918391145546c1",
+    "content-hash": "cb4add0b296d169c0cbaf37d94f2d5dd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5305,16 +5305,16 @@
         },
         {
             "name": "spatie/laravel-responsecache",
-            "version": "6.6.9",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "cab93fa63fd60e03dc5bb33aef7b45cc014ed6a3"
+                "reference": "3bf314f2e6ed7644b9dc182817b48754c928008c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/cab93fa63fd60e03dc5bb33aef7b45cc014ed6a3",
-                "reference": "cab93fa63fd60e03dc5bb33aef7b45cc014ed6a3",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/3bf314f2e6ed7644b9dc182817b48754c928008c",
+                "reference": "3bf314f2e6ed7644b9dc182817b48754c928008c",
                 "shasum": ""
             },
             "require": {
@@ -5324,14 +5324,15 @@
                 "illuminate/http": "^7.13|^8.0",
                 "illuminate/support": "^7.13|^8.0",
                 "nesbot/carbon": "^2.35",
-                "php": "^7.4|^8.0",
+                "php": "^8.0",
                 "spatie/laravel-package-tools": "^1.1"
             },
             "require-dev": {
                 "laravel/framework": "^7.13|^8.0",
                 "mockery/mockery": "^1.4",
                 "orchestra/testbench": "^5.2|^6.0",
-                "phpunit/phpunit": "^9.1.5"
+                "phpunit/phpunit": "^9.3",
+                "vimeo/psalm": "^4.4"
             },
             "type": "library",
             "extra": {
@@ -5373,15 +5374,19 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-responsecache/issues",
-                "source": "https://github.com/spatie/laravel-responsecache/tree/6.6.9"
+                "source": "https://github.com/spatie/laravel-responsecache/tree/7.1.0"
             },
             "funding": [
                 {
                     "url": "https://spatie.be/open-source/support-us",
                     "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
                 }
             ],
-            "time": "2021-03-30T20:11:33+00:00"
+            "time": "2021-04-27T07:23:06+00:00"
         },
         {
             "name": "spatie/laravel-schedule-monitor",
@@ -13984,5 +13989,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
