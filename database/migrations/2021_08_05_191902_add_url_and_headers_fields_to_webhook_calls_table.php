@@ -9,7 +9,7 @@ class AddUrlAndHeadersFieldsToWebhookCallsTable extends Migration
     public function up(): void
     {
         Schema::table('webhook_calls', function (Blueprint $table) {
-            $table->string('url');
+            $table->string('url')->default('');
             $table->json('headers')->nullable();
         });
     }
