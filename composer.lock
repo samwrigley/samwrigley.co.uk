@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cfd12a706c969be55918391145546c1",
+    "content-hash": "072ce0b1dbe976b11ab69632fc79be8c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5385,16 +5385,16 @@
         },
         {
             "name": "spatie/laravel-schedule-monitor",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-schedule-monitor.git",
-                "reference": "15c5810181a5c8a5c8d1d28df93d6d408d604717"
+                "reference": "b3d562545a7500a18ed1d169b345a2d2e4efb503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-schedule-monitor/zipball/15c5810181a5c8a5c8d1d28df93d6d408d604717",
-                "reference": "15c5810181a5c8a5c8d1d28df93d6d408d604717",
+                "url": "https://api.github.com/repos/spatie/laravel-schedule-monitor/zipball/b3d562545a7500a18ed1d169b345a2d2e4efb503",
+                "reference": "b3d562545a7500a18ed1d169b345a2d2e4efb503",
                 "shasum": ""
             },
             "require": {
@@ -5450,7 +5450,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-schedule-monitor/issues",
-                "source": "https://github.com/spatie/laravel-schedule-monitor/tree/2.4.2"
+                "source": "https://github.com/spatie/laravel-schedule-monitor/tree/2.4.3"
             },
             "funding": [
                 {
@@ -5458,7 +5458,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-22T11:53:00+00:00"
+            "time": "2021-08-02T15:10:49+00:00"
         },
         {
             "name": "spatie/laravel-sitemap",
@@ -13984,5 +13984,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
