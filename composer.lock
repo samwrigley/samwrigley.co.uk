@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cfd12a706c969be55918391145546c1",
+    "content-hash": "03687c0bfc3015d58767b5dbcf7647c8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1870,16 +1870,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.7.9",
+            "version": "v5.7.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "50dc53b105ec612cf1a87e89fffd21cc0a43003c"
+                "reference": "716e82c850fdee2dd370bdda3851a37c39b8dfa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/50dc53b105ec612cf1a87e89fffd21cc0a43003c",
-                "reference": "50dc53b105ec612cf1a87e89fffd21cc0a43003c",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/716e82c850fdee2dd370bdda3851a37c39b8dfa4",
+                "reference": "716e82c850fdee2dd370bdda3851a37c39b8dfa4",
                 "shasum": ""
             },
             "require": {
@@ -1941,9 +1941,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/horizon/issues",
-                "source": "https://github.com/laravel/horizon/tree/v5.7.9"
+                "source": "https://github.com/laravel/horizon/tree/v5.7.10"
             },
-            "time": "2021-06-08T14:17:37+00:00"
+            "time": "2021-08-03T15:54:31+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
@@ -4135,20 +4135,21 @@
         },
         {
             "name": "ramsey/collection",
-            "version": "1.1.4",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/collection.git",
-                "reference": "ab2237657ad99667a5143e32ba2683c8029563d4"
+                "reference": "4d85fbcd9d2fb1cfd6f81b2f00e687b1c6056b3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/collection/zipball/ab2237657ad99667a5143e32ba2683c8029563d4",
-                "reference": "ab2237657ad99667a5143e32ba2683c8029563d4",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/4d85fbcd9d2fb1cfd6f81b2f00e687b1c6056b3a",
+                "reference": "4d85fbcd9d2fb1cfd6f81b2f00e687b1c6056b3a",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8"
+                "php": "^7.3 || ^8",
+                "symfony/polyfill-php81": "^1.23"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.3",
@@ -4158,6 +4159,7 @@
                 "hamcrest/hamcrest-php": "^2",
                 "jangregor/phpstan-prophecy": "^0.8",
                 "mockery/mockery": "^1.3",
+                "phpspec/prophecy-phpunit": "^2.0",
                 "phpstan/extension-installer": "^1",
                 "phpstan/phpstan": "^0.12.32",
                 "phpstan/phpstan-mockery": "^0.12.5",
@@ -4196,7 +4198,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/collection/issues",
-                "source": "https://github.com/ramsey/collection/tree/1.1.4"
+                "source": "https://github.com/ramsey/collection/tree/1.2.0"
             },
             "funding": [
                 {
@@ -4208,7 +4210,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-30T00:58:27+00:00"
+            "time": "2021-08-05T14:54:37+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -7768,6 +7770,85 @@
                 }
             ],
             "time": "2021-07-28T13:41:28+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php81",
+            "version": "v1.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php81.git",
+                "reference": "e66119f3de95efc359483f810c4c3e6436279436"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/e66119f3de95efc359483f810c4c3e6436279436",
+                "reference": "e66119f3de95efc359483f810c4c3e6436279436",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-21T13:25:03+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
@@ -13984,5 +14065,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
