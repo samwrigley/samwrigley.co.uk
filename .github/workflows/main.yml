@@ -93,6 +93,12 @@ jobs:
                 http://127.0.0.1:8000/blog/series
                 http://127.0.0.1:8000/blog/categories
 
+      - name: Archive screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: cypress/snapshots/**/*.screenshot.diff.png
+
   test_assets:
 
     runs-on: ubuntu-latest
