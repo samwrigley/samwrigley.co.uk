@@ -79,6 +79,13 @@ jobs:
       - name: Run Cypress tests
         run: yarn cypress:run
 
+      - name: Archive screenshots
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: screenshots
+          path: cypress/snapshots/**/*.screenshot.diff.png
+
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
         with:
@@ -92,12 +99,6 @@ jobs:
                 http://127.0.0.1:8000/blog/test
                 http://127.0.0.1:8000/blog/series
                 http://127.0.0.1:8000/blog/categories
-
-      - name: Archive screenshots
-        uses: actions/upload-artifact@v2
-        with:
-          name: screenshots
-          path: cypress/snapshots/**/*.screenshot.diff.png
 
   test_assets:
 
