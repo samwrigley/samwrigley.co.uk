@@ -81,10 +81,10 @@ jobs:
 
       - name: Archive snapshots
         uses: actions/upload-artifact@v2
-        if: always()
+        if: failure()
         with:
           name: snapshots
-          path: cypress/snapshots/**/*
+          path: cypress/snapshots/**/*screenshot.diff.png
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
