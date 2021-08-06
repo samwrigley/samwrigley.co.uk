@@ -19,7 +19,7 @@ export const ADMIN_ARTICLE_CREATE_PATH = ADMIN_ARTICLE_INDEX_PATH + '/create';
 export const ADMIN_ARTICLE_EDIT_PATH = ADMIN_ARTICLE_INDEX_PATH + '/{article}/edit';
 
 // Viewports
-export const MOBILE_VIEWPORT = 'iphone-6';
+export const MOBILE_VIEWPORT = 'iphone-5';
 export const TABLET_VIEWPORT = 'ipad-2';
 export const DESKTOP_VIEWPORT = 'macbook-13';
 

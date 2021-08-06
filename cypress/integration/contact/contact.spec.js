@@ -1,10 +1,20 @@
 import * as strings from '../../strings';
 import { CONTACT_FORM_ID } from '../../selectors';
-import { TABLET_VIEWPORT, DESKTOP_VIEWPORT, CONTACT_INDEX_PATH } from '../../constants';
+import {
+    MOBILE_VIEWPORT,
+    TABLET_VIEWPORT,
+    DESKTOP_VIEWPORT,
+    CONTACT_INDEX_PATH,
+} from '../../constants';
 
 describe('Contact', () => {
     beforeEach(() => {
         cy.visit(CONTACT_INDEX_PATH);
+    });
+
+    it('matches mobile screenshot', () => {
+        cy.viewport(MOBILE_VIEWPORT);
+        cy.document().matchImageSnapshot();
     });
 
     it('matches tablet screenshot', () => {
