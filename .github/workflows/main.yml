@@ -84,7 +84,7 @@ jobs:
         if: failure()
         with:
           name: screenshots
-          path: cypress/snapshots/**/*.screenshot.diff.png
+          path: cypress/snapshots/**/*screenshot.diff.png
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
