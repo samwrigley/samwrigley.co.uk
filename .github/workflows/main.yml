@@ -79,12 +79,12 @@ jobs:
       - name: Run Cypress tests
         run: yarn cypress:run
 
-      - name: Archive screenshots
+      - name: Archive snapshots
         uses: actions/upload-artifact@v2
-        if: failure()
+        if: always()
         with:
-          name: screenshots
-          path: cypress/snapshots/**/*screenshot.diff.png
+          name: snapshots
+          path: cypress/snapshots/**/*
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2
