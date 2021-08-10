@@ -37,7 +37,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.6.2",
-        "brianium/paratest": "6.3.0",
+        "brianium/paratest": "6.3.1",
         "facade/ignition": "2.11.2",
         "fakerphp/faker": "1.15.0",
         "laracasts/cypress": "1.4.0",
