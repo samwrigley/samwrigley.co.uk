@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "274b795f65d90280f4b2c37e6efc7653",
+    "content-hash": "95a49281188af7b43a777763b424d41f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3011,16 +3011,16 @@
         },
         {
             "name": "ohdearapp/ohdear-php-sdk",
-            "version": "3.1.3",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ohdearapp/ohdear-php-sdk.git",
-                "reference": "0e80dd11797f00ef4beb69046eba80599af21eb4"
+                "reference": "bd15169434f8001654dea8f3a6a877dc376852d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ohdearapp/ohdear-php-sdk/zipball/0e80dd11797f00ef4beb69046eba80599af21eb4",
-                "reference": "0e80dd11797f00ef4beb69046eba80599af21eb4",
+                "url": "https://api.github.com/repos/ohdearapp/ohdear-php-sdk/zipball/bd15169434f8001654dea8f3a6a877dc376852d9",
+                "reference": "bd15169434f8001654dea8f3a6a877dc376852d9",
                 "shasum": ""
             },
             "require": {
@@ -3061,9 +3061,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ohdearapp/ohdear-php-sdk/issues",
-                "source": "https://github.com/ohdearapp/ohdear-php-sdk/tree/3.1.3"
+                "source": "https://github.com/ohdearapp/ohdear-php-sdk/tree/3.2.0"
             },
-            "time": "2021-05-15T12:58:24+00:00"
+            "time": "2021-08-11T21:27:34+00:00"
         },
         {
             "name": "opis/closure",
