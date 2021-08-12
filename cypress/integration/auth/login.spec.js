@@ -1,15 +1,22 @@
 import * as strings from '../../strings';
-import { ADMIN_DASHBOARD_PATH, DESKTOP_VIEWPORT, LOGIN_PATH } from '../../constants';
+import {
+    ADMIN_DASHBOARD_PATH,
+    DESKTOP_VIEWPORT,
+    LOGIN_PATH,
+    TEST_USER_EMAIL,
+    TEST_USER_PASSWORD,
+} from '../../constants';
 import { LOGIN_FORM_ID } from '../../selectors';
 
 describe('Login', () => {
     beforeEach(() => {
+        cy.exec('php artisan migrate:fresh --seed');
         cy.visit(LOGIN_PATH);
     });
 
     it('matches desktop screenshot', () => {
         cy.viewport(DESKTOP_VIEWPORT);
-        cy.document().toMatchImageSnapshot();
+        cy.document().matchImageSnapshot();
     });
 
     it('has page title', () => {
@@ -47,10 +54,10 @@ describe('Login', () => {
     it('redirects to admin dashboard after successful login', () => {
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_EMAIL_FIELD_LABEL)
-            .type('test@example.com');
+            .type(TEST_USER_EMAIL);
         cy.get(LOGIN_FORM_ID)
             .findByLabelText(strings.LOGIN_FORM_PASSWORD_FIELD_LABEL)
-            .type('secret');
+            .type(TEST_USER_PASSWORD);
         cy.get(LOGIN_FORM_ID).findByRole('button').click();
         cy.url().should('include', ADMIN_DASHBOARD_PATH);
     });

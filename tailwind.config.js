@@ -1,10 +1,20 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
+    purge: [
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',
+        './resources/sass/**/*.scss',
+    ],
     theme: {
         extend: {
             spacing: {
                 72: '18rem',
                 80: '20rem',
                 88: '22rem',
+            },
+            fontFamily: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             fontSize: {
                 '8xl': '6rem',

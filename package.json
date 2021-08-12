@@ -13,38 +13,40 @@
         }
     ],
     "scripts": {
+        "seed": "php artisan migrate:fresh --seed",
+        "seed:dev": "php artisan migrate:fresh '--seeder=Database\\Seeders\\Dev\\DatabaseSeeder'",
         "lint:php": "./vendor/bin/phpcs .",
         "lint:assets": "prettier --check '**/*.{js,ts,tsx,json,scss,md}'",
         "lint:fix": "prettier --write '**/*.{js,ts,tsx,json,scss,md}'",
         "lint": "npm run lint:php && npm run lint:assets",
         "test:size": "bundlesize",
-        "cypress:open": "cypress open --browser chrome",
-        "cypress:run": "cypress run --browser chrome --headless",
+        "cypress:setup": "mv .env .env.backup && mv .env.testing .env",
+        "cypress:cleanup": "mv .env .env.testing && mv .env.backup .env",
+        "cypress:open": "cypress open",
+        "cypress:run": "cypress run",
         "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --https --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "mix --production"
     },
     "devDependencies": {
         "@testing-library/cypress": "8.0.0",
+        "autoprefixer": "10.3.1",
         "browser-sync": "2.27.5",
         "browser-sync-webpack-plugin": "2.3.0",
         "bundlesize": "0.18.1",
-        "cross-env": "7.0.3",
         "cypress": "8.2.0",
-        "cypress-plugin-snapshots": "1.4.4",
-        "laravel-mix": "5.0.9",
-        "laravel-mix-purgecss": "5.0.0",
+        "cypress-image-snapshot": "4.0.1",
+        "laravel-mix": "6.0.27",
+        "postcss": "8.3.6",
         "prettier": "2.3.2",
-        "resolve-url-loader": "4.0.0",
         "sass": "1.37.5",
-        "sass-loader": "10.2.0",
-        "vue-template-compiler": "2.6.14"
+        "sass-loader": "12.1.0"
     },
     "dependencies": {
-        "tailwindcss": "1.9.6"
+        "tailwindcss": "2.2.7"
     }
 }

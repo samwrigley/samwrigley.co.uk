@@ -44,16 +44,13 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
       - name: Copy environment file
-        run: cp .env.ci.testing .env
+        run: cp .env.testing .env
 
       - name: Generate key
         run: php artisan key:generate --no-ansi
 
-      - name: Run database migrations
-        run: php artisan migrate:fresh --force --no-interaction --no-ansi
-
-      - name: Seed database
-        run: php artisan db:seed --class=Database\\Seeders\\Test\\TestSeeder --force --no-interaction --no-ansi
+      - name: Run database migrations and seed
+        run: php artisan migrate:fresh --seed --force --no-interaction --no-ansi
 
       - name: Generate sitemap
         run: php artisan sitemap:generate
@@ -80,7 +77,14 @@ jobs:
         run: php artisan serve > /dev/null 2>&1 &
 
       - name: Run Cypress tests
-        run: CYPRESS_BASE_URL=http://127.0.0.1:8000 yarn cypress:run -- --env environment=ci
+        run: yarn cypress:run
+
+      - name: Archive snapshots
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: snapshots
+          path: cypress/snapshots/**/*screenshot.diff.png
 
       - name: Run Lighthouse Audits
         uses: treosh/lighthouse-ci-action@v2

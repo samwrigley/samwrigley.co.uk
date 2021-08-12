@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Config;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,7 +12,7 @@ class UsersTableSeeder extends Seeder
         User::factory()->create([
             'name' => 'Sam Wrigley',
             'slug' => 'sam-wrigley',
-            'email' => Config::get('contact.email'),
+            'email' => 'test@example.com',
             'password' => bcrypt('secret'),
         ]);
     }

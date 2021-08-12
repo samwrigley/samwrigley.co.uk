@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f589446e011aab17c58ad8dbe0e5649f",
+    "content-hash": "57b4e941a89e5c3078decf86c7cb6312",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -216,16 +216,16 @@
         },
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "92e6394f16f11c10f94f34087f598657a2dd3a39"
+                "reference": "548869bc820a25f803530c82028482aefe08115f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/92e6394f16f11c10f94f34087f598657a2dd3a39",
-                "reference": "92e6394f16f11c10f94f34087f598657a2dd3a39",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/548869bc820a25f803530c82028482aefe08115f",
+                "reference": "548869bc820a25f803530c82028482aefe08115f",
                 "shasum": ""
             },
             "require": {
@@ -293,7 +293,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-29T19:35:52+00:00"
+            "time": "2021-08-11T10:09:06+00:00"
         },
         {
             "name": "brick/math",
@@ -4214,16 +4214,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.2.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "7231612a5221f5524d3575bebdce20eeef8547a1"
+                "reference": "fe665a03df4f056aa65af552a96e1976df8c8dae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/7231612a5221f5524d3575bebdce20eeef8547a1",
-                "reference": "7231612a5221f5524d3575bebdce20eeef8547a1",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/fe665a03df4f056aa65af552a96e1976df8c8dae",
+                "reference": "fe665a03df4f056aa65af552a96e1976df8c8dae",
                 "shasum": ""
             },
             "require": {
@@ -4295,7 +4295,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.2.0"
+                "source": "https://github.com/ramsey/uuid/tree/4.2.1"
             },
             "funding": [
                 {
@@ -4307,7 +4307,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-06T22:30:43+00:00"
+            "time": "2021-08-11T01:06:55+00:00"
         },
         {
             "name": "scrivo/highlight.php",
@@ -4638,16 +4638,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.48.0",
+            "version": "3.49.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "4dfbfbb3ad9e83b8508550e83f0aa58c79c79c5a"
+                "reference": "ca6885dac4be1d63f24332154e88408e78f5343d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/4dfbfbb3ad9e83b8508550e83f0aa58c79c79c5a",
-                "reference": "4dfbfbb3ad9e83b8508550e83f0aa58c79c79c5a",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/ca6885dac4be1d63f24332154e88408e78f5343d",
+                "reference": "ca6885dac4be1d63f24332154e88408e78f5343d",
                 "shasum": ""
             },
             "require": {
@@ -4692,7 +4692,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/browsershot/issues",
-                "source": "https://github.com/spatie/browsershot/tree/3.48.0"
+                "source": "https://github.com/spatie/browsershot/tree/3.49.0"
             },
             "funding": [
                 {
@@ -4700,7 +4700,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-28T08:05:30+00:00"
+            "time": "2021-08-05T20:47:40+00:00"
         },
         {
             "name": "spatie/commonmark-highlighter",
@@ -10232,65 +10232,6 @@
             "time": "2021-07-22T09:24:00+00:00"
         },
         {
-            "name": "laracasts/cypress",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laracasts/cypress.git",
-                "reference": "c917ae62eec408729174569f5edd4074fac17d56"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/cypress/zipball/c917ae62eec408729174569f5edd4074fac17d56",
-                "reference": "c917ae62eec408729174569f5edd4074fac17d56",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "laravel/legacy-factories": "^1.0",
-                "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Laracasts\\Cypress\\CypressServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laracasts\\Cypress\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@laracasts.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel Cypress Boilerplate",
-            "homepage": "https://github.com/laracasts/cypress",
-            "keywords": [
-                "cypress",
-                "laracasts"
-            ],
-            "support": {
-                "issues": "https://github.com/laracasts/cypress/issues",
-                "source": "https://github.com/laracasts/cypress/tree/1.4.0"
-            },
-            "time": "2021-06-14T18:56:45+00:00"
-        },
-        {
             "name": "league/container",
             "version": "3.4.1",
             "source": {
@@ -14092,5 +14033,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

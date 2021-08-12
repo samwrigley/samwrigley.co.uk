@@ -13,8 +13,6 @@ class DatabaseSeeder extends Seeder
             ArticleCategoriesTableSeeder::class,
             ArticleSeriesTableSeeder::class,
             ArticleTableSeeder::class,
-            ContactsTableSeeder::class,
-            NewsletterSubscriptionsTableSeeder::class,
         ]);
     }
 }
