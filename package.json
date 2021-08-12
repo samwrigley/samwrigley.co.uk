@@ -45,6 +45,6 @@
         "vue-template-compiler": "2.6.14"
     },
     "dependencies": {
-        "tailwindcss": "1.9.6"
+        "tailwindcss": "2.2.7"
     }
 }
