@@ -37,7 +37,7 @@
         "cypress": "8.2.0",
         "cypress-plugin-snapshots": "1.4.4",
         "laravel-mix": "5.0.9",
-        "laravel-mix-purgecss": "5.0.0",
+        "laravel-mix-purgecss": "6.0.0",
         "prettier": "2.3.2",
         "resolve-url-loader": "4.0.0",
         "sass": "1.37.5",
