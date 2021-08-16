@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d49a596b0194c2af65aeb0d9468d67e2",
+    "content-hash": "91b214ac4ca9fa2fa58e6363b845e5a8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9810,16 +9810,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.11.2",
+            "version": "2.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "7c4e7a7da184cd00c7ce6eacc590200bb9672de7"
+                "reference": "7ac7f9729f178f64335728bcaf1499ec3c6a540f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/7c4e7a7da184cd00c7ce6eacc590200bb9672de7",
-                "reference": "7c4e7a7da184cd00c7ce6eacc590200bb9672de7",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/7ac7f9729f178f64335728bcaf1499ec3c6a540f",
+                "reference": "7ac7f9729f178f64335728bcaf1499ec3c6a540f",
                 "shasum": ""
             },
             "require": {
@@ -9882,7 +9882,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-07-20T14:01:22+00:00"
+            "time": "2021-08-16T13:18:40+00:00"
         },
         {
             "name": "facade/ignition-contracts",
