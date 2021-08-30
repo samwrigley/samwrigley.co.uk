@@ -43,7 +43,7 @@
         "laravel-mix": "6.0.28",
         "postcss": "8.3.6",
         "prettier": "2.3.2",
-        "sass": "1.38.1",
+        "sass": "1.38.2",
         "sass-loader": "12.1.0"
     },
     "dependencies": {
