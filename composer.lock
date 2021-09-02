@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "411c4122a19060ff0e43817708d57916",
+    "content-hash": "3939b5b0a0b366353e3c86777b8b5ace",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2392,28 +2392,29 @@
         },
         {
             "name": "league/glide",
-            "version": "1.7.0",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/glide.git",
-                "reference": "ae5e26700573cb678919d28e425a8b87bc71c546"
+                "reference": "e84ef237030817ab6034b2c17173dd3352a971e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/glide/zipball/ae5e26700573cb678919d28e425a8b87bc71c546",
-                "reference": "ae5e26700573cb678919d28e425a8b87bc71c546",
+                "url": "https://api.github.com/repos/thephpleague/glide/zipball/e84ef237030817ab6034b2c17173dd3352a971e1",
+                "reference": "e84ef237030817ab6034b2c17173dd3352a971e1",
                 "shasum": ""
             },
             "require": {
-                "intervention/image": "^2.4",
+                "guzzlehttp/psr7": "^1.1",
+                "intervention/image": "^2.1",
                 "league/flysystem": "^1.0",
-                "php": "^7.2|^8.0",
-                "psr/http-message": "^1.0"
+                "php": "^5.4 | ^7.0",
+                "symfony/http-foundation": "^2.3|^3.0|^4.0|^5.0"
             },
             "require-dev": {
-                "mockery/mockery": "^1.3.3",
-                "phpunit/php-token-stream": "^3.1|^4.0",
-                "phpunit/phpunit": "^8.5|^9.0"
+                "mockery/mockery": "~0.9",
+                "phpunit/php-token-stream": "^1.4",
+                "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
@@ -2451,9 +2452,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/glide/issues",
-                "source": "https://github.com/thephpleague/glide/tree/1.7.0"
+                "source": "https://github.com/thephpleague/glide/tree/2.0"
             },
-            "time": "2020-11-05T17:34:03+00:00"
+            "time": "2020-03-06T21:33:29+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -4637,16 +4638,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.49.0",
+            "version": "3.50.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "ca6885dac4be1d63f24332154e88408e78f5343d"
+                "reference": "8af217555d92a81d8d4d76f86c221decc74e0d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/ca6885dac4be1d63f24332154e88408e78f5343d",
-                "reference": "ca6885dac4be1d63f24332154e88408e78f5343d",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/8af217555d92a81d8d4d76f86c221decc74e0d5d",
+                "reference": "8af217555d92a81d8d4d76f86c221decc74e0d5d",
                 "shasum": ""
             },
             "require": {
@@ -4691,7 +4692,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/browsershot/issues",
-                "source": "https://github.com/spatie/browsershot/tree/3.49.0"
+                "source": "https://github.com/spatie/browsershot/tree/3.50.0"
             },
             "funding": [
                 {
@@ -4699,7 +4700,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-05T20:47:40+00:00"
+            "time": "2021-08-22T19:58:45+00:00"
         },
         {
             "name": "spatie/commonmark-highlighter",
@@ -4824,24 +4825,24 @@
         },
         {
             "name": "spatie/image",
-            "version": "1.10.5",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "63a963d0200fb26f2564bf7201fc7272d9b22933"
+                "reference": "bf5afcac04b24d9973e62e7ca63519e2f21a2d62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/63a963d0200fb26f2564bf7201fc7272d9b22933",
-                "reference": "63a963d0200fb26f2564bf7201fc7272d9b22933",
+                "url": "https://api.github.com/repos/spatie/image/zipball/bf5afcac04b24d9973e62e7ca63519e2f21a2d62",
+                "reference": "bf5afcac04b24d9973e62e7ca63519e2f21a2d62",
                 "shasum": ""
             },
             "require": {
                 "ext-exif": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "league/glide": "^1.6",
-                "php": "^7.2|^8.0",
+                "league/glide": "^2.0",
+                "php": "^8.0",
                 "spatie/image-optimizer": "^1.1",
                 "spatie/temporary-directory": "^1.0|^2.0",
                 "symfony/process": "^3.0|^4.0|^5.0"
@@ -4877,7 +4878,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/image/issues",
-                "source": "https://github.com/spatie/image/tree/1.10.5"
+                "source": "https://github.com/spatie/image/tree/2.1.0"
             },
             "funding": [
                 {
@@ -4889,7 +4890,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-07T08:42:24+00:00"
+            "time": "2021-07-15T14:38:03+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -5487,16 +5488,16 @@
         },
         {
             "name": "spatie/laravel-sitemap",
-            "version": "6.0.4",
+            "version": "6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-sitemap.git",
-                "reference": "ba19865bac8cae619c67495efa3c5351130e5b4a"
+                "reference": "4be02b73c35f73697e3ea6cd7b41da29f0005e13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/ba19865bac8cae619c67495efa3c5351130e5b4a",
-                "reference": "ba19865bac8cae619c67495efa3c5351130e5b4a",
+                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/4be02b73c35f73697e3ea6cd7b41da29f0005e13",
+                "reference": "4be02b73c35f73697e3ea6cd7b41da29f0005e13",
                 "shasum": ""
             },
             "require": {
@@ -5504,7 +5505,7 @@
                 "illuminate/support": "^8.0",
                 "nesbot/carbon": "^2.0",
                 "php": "^8.0",
-                "spatie/crawler": "^5.0 || ^7.0",
+                "spatie/crawler": "^7.0",
                 "spatie/laravel-package-tools": "^1.5",
                 "symfony/dom-crawler": "^5.1.14"
             },
@@ -5548,7 +5549,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-sitemap/issues",
-                "source": "https://github.com/spatie/laravel-sitemap/tree/6.0.4"
+                "source": "https://github.com/spatie/laravel-sitemap/tree/6.0.5"
             },
             "funding": [
                 {
@@ -5556,7 +5557,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-05-27T07:28:52+00:00"
+            "time": "2021-08-11T21:14:25+00:00"
         },
         {
             "name": "spatie/laravel-view-models",
@@ -6199,16 +6200,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v5.3.4",
+            "version": "v5.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "2dd8890bd01be59a5221999c05ccf0fcafcb354f"
+                "reference": "c7eef3a60ccfdd8eafe07f81652e769ac9c7146c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/2dd8890bd01be59a5221999c05ccf0fcafcb354f",
-                "reference": "2dd8890bd01be59a5221999c05ccf0fcafcb354f",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/c7eef3a60ccfdd8eafe07f81652e769ac9c7146c",
+                "reference": "c7eef3a60ccfdd8eafe07f81652e769ac9c7146c",
                 "shasum": ""
             },
             "require": {
@@ -6254,7 +6255,7 @@
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v5.3.4"
+                "source": "https://github.com/symfony/dom-crawler/tree/v5.3.7"
             },
             "funding": [
                 {
@@ -6270,7 +6271,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-23T15:55:36+00:00"
+            "time": "2021-08-29T19:32:13+00:00"
         },
         {
             "name": "symfony/error-handler",
