@@ -47,6 +47,6 @@
         "sass-loader": "12.1.0"
     },
     "dependencies": {
-        "tailwindcss": "2.2.9"
+        "tailwindcss": "2.2.14"
     }
 }
