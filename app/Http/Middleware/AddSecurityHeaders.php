@@ -13,7 +13,7 @@ class AddSecurityHeaders
     public const HEADER_X_FRAME_OPTIONS = 'X-Frame-Options';
     public const HEADER_X_XSS_PROTECTION = 'X-Xss-Protection';
 
-    public function handle(Request $request, Closure $next): Response | RedirectResponse
+    public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
         $response = $next($request);
 
