@@ -17,7 +17,7 @@
         "laravel/framework": "8.58.0",
         "laravel/horizon": "5.7.12",
         "laravel/slack-notification-channel": "2.3.1",
-        "laravel/telescope": "4.6.2",
+        "laravel/telescope": "4.6.4",
         "laravel/tinker": "2.6.1",
         "laravel/ui": "3.3.0",
         "ohdearapp/ohdear-php-sdk": "3.2.1",
