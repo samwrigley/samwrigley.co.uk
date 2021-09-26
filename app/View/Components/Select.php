@@ -12,7 +12,7 @@ class Select extends Component
         public string $name,
         public string $label,
         public Collection $items,
-        public array | string | int | null $selected = null,
+        public array|string|int|null $selected = null,
         public ?string $errorBag = null,
     ) {
     }
