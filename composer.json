@@ -42,7 +42,7 @@
         "fakerphp/faker": "1.15.0",
         "mockery/mockery": "1.4.3",
         "nunomaduro/collision": "5.9.0",
-        "nunomaduro/larastan": "0.6.10",
+        "nunomaduro/larastan": "0.7.15",
         "nunomaduro/phpinsights": "2.0.1",
         "phpunit/phpunit": "9.5.9",
         "spatie/phpunit-snapshot-assertions": "4.2.7",
