@@ -18,7 +18,7 @@ git clone https://github.com/samwrigley/samwrigley.co.uk.git
 cd samwrigley.co.uk
 ```
 
-Second, install Composer and NPM dependencies:
+Second, install Composer and npm dependencies:
 
 ```sh
 composer install
@@ -35,7 +35,7 @@ php artisan key:generate
 Finally, run the database migrations and seed the database:
 
 ```sh
-php artisan migrate --seed
+yarn seed:dev
 ```
 
 ## Development 🛠
@@ -54,8 +54,42 @@ yarn watch
 
 ## Testing 🔄
 
-To run the application tests use:
+To run the PHP tests use:
 
 ```sh
 php artisan test --parallel
+```
+
+To run the Cypress tests use:
+
+```sh
+yarn cypress:setup
+yarn cypress:run
+yarn cypress:cleanup
+```
+
+To run PHP static analysis use:
+
+```sh
+./vendor/bin/phpstan analyse
+```
+
+To run PHP quality checks use:
+
+```sh
+php artisan insights
+```
+
+## Linting 🧹
+
+To check all files are correctly linted use:
+
+```sh
+yarn lint
+```
+
+To fix any linting issues use:
+
+```sh
+yarn lint:fix
 ```
