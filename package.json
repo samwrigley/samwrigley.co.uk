@@ -33,20 +33,20 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "@testing-library/cypress": "8.0.1",
-        "autoprefixer": "10.3.4",
-        "browser-sync": "2.27.5",
-        "browser-sync-webpack-plugin": "2.3.0",
-        "bundlesize": "0.18.1",
-        "cypress": "8.3.1",
-        "cypress-image-snapshot": "4.0.1",
-        "laravel-mix": "6.0.29",
-        "postcss": "8.3.6",
-        "prettier": "2.3.2",
-        "sass": "1.39.0",
-        "sass-loader": "12.1.0"
+        "@testing-library/cypress": "^8.0.1",
+        "autoprefixer": "^10.3.7",
+        "browser-sync": "^2.27.6",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "bundlesize": "^0.18.1",
+        "cypress": "^8.7.0",
+        "cypress-image-snapshot": "^4.0.1",
+        "laravel-mix": "^6.0.34",
+        "postcss": "^8.3.11",
+        "prettier": "^2.4.1",
+        "sass": "^1.43.4",
+        "sass-loader": "^12.3.0"
     },
     "dependencies": {
-        "tailwindcss": "2.2.9"
+        "tailwindcss": "^2.2.17"
     }
 }
