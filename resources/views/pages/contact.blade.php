@@ -83,13 +83,7 @@
                     class="flex items-center text-white bg-gray-900 py-3 px-4 hover:bg-gray-800 md:px-6 md:py-4"
                 >
                     <span class="mr-2">Get in touch</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 32 32"
-                        class="w-4 fill-current md:w-6"
-                    >
-                        <path d="M18 6l-1.43 1.39L24.15 15H3v2h21.15l-7.58 7.57L18 26l10-10L18 6z" />
-                    </svg>
+                    <x-heroicon-o-arrow-right class="w-4 fill-current md:w-5" />
                 </button>
             </form>
 
